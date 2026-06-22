@@ -1,0 +1,482 @@
+---
+import Noir from '../layouts/Noir.astro';
+import ConnectCTA from '../components/ConnectCTA.astro';
+import { singers, djs, musicians, services, specializing, clients, awards, reviews, iggrid, phone, instagram, googleReviews, heroVideo, heroPoster } from '../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+
+// Featured pull-quote + the remaining reviews for an editorial treatment.
+const [feature, ...restReviews] = reviews;
+
+// Talent sections share the editorial 2-column "index / rail" structure; side alternates.
+const awardMeta = [
+  { name: 'Levine', note: 'Featured Vocalist' },
+  { name: 'The Knot', note: 'Best of Weddings' },
+  { name: 'WeddingWire', note: "Couples' Choice" },
+];
+---
+
+<Noir
+  title="Avinu Music & Productions"
+  description="South Florida's luxury event-production house since 2012. DJs, ceremony singers, live musicians, lighting, LED walls and full production for weddings, corporate galas and bar mitzvahs."
+>
+  <!-- ░░ HERO ░░ -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={heroPoster}>
+      <source src={heroVideo} type="video/mp4" />
+    </video>
+    <div class="hero-scrim"></div>
+    <!-- PLACEHOLDER skyline — swap for client's real Miami skyline photo -->
+    <div class="hero-skyline" aria-hidden="true">
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" role="presentation">
+        <g class="sk-towers">
+          <rect x="0"    y="150" width="70"  height="70"/>
+          <rect x="76"   y="118" width="52"  height="102"/>
+          <rect x="134"  y="138" width="44"  height="82"/>
+          <rect x="184"  y="86"  width="36"  height="134"/>
+          <rect x="226"  y="112" width="60"  height="108"/>
+          <rect x="292"  y="146" width="48"  height="74"/>
+          <rect x="346"  y="70"  width="32"  height="150"/>
+          <rect x="384"  y="120" width="54"  height="100"/>
+          <rect x="444"  y="136" width="42"  height="84"/>
+          <rect x="492"  y="52"  width="28"  height="168"/>
+          <rect x="526"  y="104" width="62"  height="116"/>
+          <rect x="594"  y="132" width="46"  height="88"/>
+          <rect x="646"  y="84"  width="34"  height="136"/>
+          <rect x="686"  y="40"  width="24"  height="180"/>
+          <rect x="716"  y="110" width="58"  height="110"/>
+          <rect x="780"  y="144" width="44"  height="76"/>
+          <rect x="830"  y="94"  width="38"  height="126"/>
+          <rect x="874"  y="64"  width="26"  height="156"/>
+          <rect x="906"  y="116" width="60"  height="104"/>
+          <rect x="972"  y="140" width="46"  height="80"/>
+          <rect x="1024" y="88"  width="32"  height="132"/>
+          <rect x="1062" y="116" width="56"  height="104"/>
+          <rect x="1124" y="148" width="44"  height="72"/>
+          <rect x="1174" y="72"  width="30"  height="148"/>
+          <rect x="1210" y="108" width="62"  height="112"/>
+          <rect x="1278" y="134" width="46"  height="86"/>
+          <rect x="1330" y="98"  width="36"  height="122"/>
+          <rect x="1372" y="124" width="68"  height="96"/>
+        </g>
+        <g class="sk-lights">
+          <circle cx="198" cy="108" r="1.6"/><circle cx="204" cy="140" r="1.6"/>
+          <circle cx="356" cy="92"  r="1.6"/><circle cx="500" cy="74"  r="1.6"/>
+          <circle cx="697" cy="62"  r="1.6"/><circle cx="699" cy="100" r="1.6"/>
+          <circle cx="884" cy="86"  r="1.6"/><circle cx="1036" cy="110" r="1.6"/>
+          <circle cx="1186" cy="96" r="1.6"/><circle cx="1344" cy="118" r="1.6"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <p class="eyebrow hero-kicker">South Florida Event Production</p>
+      <h1 class="hero-h1">Avinu is the ultimate production company for <span class="ital">events.</span></h1>
+      <p class="hero-sub">Over a decade of experience in corporate, weddings, bar mitzvahs, and social events.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn-ghost" href="#singers">Explore Talent</a>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#intro" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ░░ INTRO + PILLS ░░ -->
+  <section class="intro" id="intro">
+    <div class="pills" data-reveal>
+      <a href="#singers">Singers</a>
+      <a href="#djs">DJ's</a>
+      <a href="#musicians">Musicians</a>
+      <a href="#services">Additional Services</a>
+    </div>
+  </section>
+
+  <!-- ░░ SINGERS — index left / rail right ░░ -->
+  <section class="talent" id="singers">
+    <div class="talent-grid">
+      <div class="talent-index" data-reveal>
+        <span class="idx">01</span>
+        <p class="eyebrow">Vocalists</p>
+        <h2 class="talent-title">Our<br /><span class="ital">Singers</span></h2>
+        <p class="talent-copy">Ceremony soloists whose voices carry the weight of the moment — from the chuppah to the first dance.</p>
+        <a class="link-arrow" href="/jewish-ceremony-singer/">View all</a>
+      </div>
+      <div class="talent-media singers-rail" data-reveal-group>
+        {singers.map((p) => (
+          <a class="frame portrait" href={p.href}>
+            <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
+            <span class="frame-name">{p.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ DJS — rail left / index right (midnight band) ░░ -->
+  <section class="talent midnight" id="djs">
+    <div class="talent-grid reverse">
+      <div class="talent-index" data-reveal>
+        <span class="idx">02</span>
+        <p class="eyebrow">On the decks</p>
+        <h2 class="talent-title">Our<br /><span class="ital">DJ's</span></h2>
+        <p class="talent-copy">Six resident selectors reading the room all night — open-format sets engineered for a full, fearless dancefloor.</p>
+        <a class="link-arrow" href="/best-djs-in-south-florida/">View all</a>
+      </div>
+      <div class="talent-media" data-reveal>
+        <div class="rail" data-reveal-group>
+          {djs.map((p) => (
+            <a class="frame rail-item" href="/best-djs-in-south-florida/">
+              <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
+              <span class="frame-name">{p.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ MUSICIANS — index left / rail right ░░ -->
+  <section class="talent" id="musicians">
+    <div class="talent-grid">
+      <div class="talent-index" data-reveal>
+        <span class="idx">03</span>
+        <p class="eyebrow">Live music</p>
+        <h2 class="talent-title">Our<br /><span class="ital">Musicians</span></h2>
+        <p class="talent-copy">Strings, brass and keys — soloists and ensembles that lend live texture to ceremony, cocktail hour and beyond.</p>
+        <a class="link-arrow" href="/wedding-musicians-and-band/">View all</a>
+      </div>
+      <div class="talent-media" data-reveal>
+        <div class="rail" data-reveal-group>
+          {musicians.map((p) => (
+            <a class="frame rail-item" href="/wedding-musicians-and-band/">
+              <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
+              <span class="frame-name">{p.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ ADDITIONAL SERVICES — cinematic alternating full-bleed rows ░░ -->
+  <section class="services midnight" id="services">
+    <header class="svc-head" data-reveal>
+      <span class="idx idx-04">04</span>
+      <p class="eyebrow">Full production</p>
+      <h2 class="svc-title">Additional <span class="ital">Services</span></h2>
+    </header>
+    <div class="svc-rows">
+      {services.map((s, i) => (
+        <a class={`svc-row ${i % 2 ? 'flip' : ''}`} href={s.href} data-reveal>
+          <div class="svc-img" style={`background-image:url('${s.img}')`}></div>
+          <div class="svc-text">
+            <span class="svc-num">0{i + 1}</span>
+            <h3 class="svc-name">{s.name}</h3>
+            <p class="svc-desc">{s.desc}</p>
+            <span class="link-arrow">Explore</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ SPECIALIZING IN ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">We specialize in</p>
+      <h2 class="band-h2">Every kind of <span class="ital">celebration</span></h2>
+    </header>
+    <div class="spec-grid" data-reveal-group>
+      {specializing.map((s) => (
+        <a class="spec" href={s.href}><span class="spec-dot"></span>{s.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ CLIENTS ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Trusted by</p>
+      <h2 class="band-h2">Our <span class="ital">Clients</span></h2>
+    </header>
+    <div class="logo-row" data-reveal-group>
+      {clients.map((src) => (
+        <span class="logo-cell"><img class="logo" src={src} alt="Client venue" loading="lazy" /></span>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ AWARDS ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Recognition</p>
+      <h2 class="band-h2">Awards &amp; <span class="ital">Accomplishments</span></h2>
+    </header>
+    <div class="awards-row" data-reveal-group>
+      {awards.map((src, i) => (
+        <figure class="award-cell">
+          <span class="award-chip"><img class="award-logo" src={src} alt={awardMeta[i].name} loading="lazy" /></span>
+          <figcaption class="award-note">{awardMeta[i].note}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ REVIEWS — featured pull-quote + grid ░░ -->
+  <section class="band midnight reviews">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Reviews</p>
+      <h2 class="band-h2">Loved by our <span class="ital">clients</span></h2>
+      <p class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span> 4.5 · 51 Google reviews</p>
+    </header>
+
+    <figure class="feature-quote" data-reveal>
+      <span class="quote-glyph" aria-hidden="true">&ldquo;</span>
+      <blockquote>{feature.text}</blockquote>
+      <figcaption>— {feature.name}</figcaption>
+    </figure>
+
+    <div class="review-grid" data-reveal-group>
+      {restReviews.map((r) => (
+        <figure class="review">
+          <span class="stars sm" aria-hidden="true">★★★★★</span>
+          <blockquote>{r.text}</blockquote>
+          <figcaption>— {r.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="band-foot" data-reveal><a class="link-arrow" href={googleReviews} target="_blank" rel="noopener">Read all on Google</a></div>
+  </section>
+
+  <!-- ░░ INSTAGRAM ░░ -->
+  <section class="band ig-band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">@avinuevents</p>
+      <h2 class="band-h2">From the <span class="ital">feed</span></h2>
+    </header>
+    <div class="ig-grid" data-reveal-group>
+      {iggrid.map((src) => (
+        <a class="ig-cell" href={instagram} target="_blank" rel="noopener" aria-label="View on Instagram">
+          <div class="ig-img" style={`background-image:url('${src}')`}></div>
+          <span class="ig-mark">&rarr;</span>
+        </a>
+      ))}
+    </div>
+    <div class="band-foot" data-reveal><a class="link-arrow" href={instagram} target="_blank" rel="noopener">Follow on Instagram</a></div>
+  </section>
+
+  <!-- ░░ CONNECT ░░ -->
+  <ConnectCTA />
+
+  <style>
+    /* ── shared accents ── */
+    /* NOTE: the unified CTA system (.btn-primary / .btn-ghost / .link-arrow) lives in
+       the global <style> of Noir.astro — single source of truth, shared layout + page. */
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .idx {
+      display: block; font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(4rem, 9vw, 7.5rem); line-height: 0.8; color: transparent;
+      -webkit-text-stroke: 1px var(--line-gold); margin-bottom: 1.4rem;
+    }
+
+    /* ── HERO ── */
+    .hero { position: relative; height: 100svh; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; }
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(120% 80% at 18% 72%, rgba(11,16,24,0.5), transparent 60%),
+        linear-gradient(180deg, rgba(8,9,12,0.4) 0%, rgba(8,9,12,0.16) 34%, rgba(8,9,12,0.82) 86%, var(--bg) 100%);
+    }
+    /* Signature Miami skyline rising from the bottom of the hero, fading the video above it. */
+    .hero-skyline {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: -2;
+      height: clamp(140px, 26vh, 240px); pointer-events: none;
+      mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+    }
+    .hero-skyline svg { width: 100%; height: 100%; display: block; }
+    .hero-skyline .sk-towers rect { fill: #0c121f; }
+    .hero-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.78; }
+    .hero-content { padding: 0 clamp(1.5rem, 6vw, 6rem) clamp(4rem, 9vh, 7rem); max-width: 60rem; }
+    .hero-kicker { display: block; margin-bottom: 1.5rem; }
+    .hero-h1 { font-size: clamp(3rem, 9.5vw, 8rem); letter-spacing: -0.03em; }
+    .hero-sub { color: #d7dae2; font-size: clamp(1rem, 1.6vw, 1.2rem); max-width: 34rem; margin: 1.6rem 0 2.4rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .scroll-cue { position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 1px solid var(--line-gold); border-radius: 999px; }
+    .scroll-cue span { position: absolute; top: 8px; left: 50%; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 2px; background: var(--accent); animation: scrollBob 1.8s ease-in-out infinite; }
+    @keyframes scrollBob { 0%,100% { transform: translateY(0); opacity: 1; } 60% { transform: translateY(14px); opacity: 0.2; } }
+    @media (prefers-reduced-motion: reduce) { .scroll-cue span { animation: none; } }
+
+    /* ── INTRO ── */
+    .intro { max-width: 54rem; margin: 0 auto; padding: clamp(5rem, 10vh, 8rem) 1.5rem 3rem; text-align: center; }
+    .intro .eyebrow { display: block; margin-bottom: 1.4rem; }
+    .intro-lead { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.32; color: var(--fg); }
+    .intro-lead em { font-style: italic; color: var(--accent-soft); }
+    .pills { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+    .pills a { padding: 0.55rem 1.4rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-text); transition: all 0.25s; }
+    .pills a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── section rhythm: midnight bands vs near-black ── */
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+
+    /* ── TALENT (editorial 2-col) ── */
+    .talent { padding: clamp(4.5rem, 9vh, 7rem) clamp(1.5rem, 6vw, 6rem); }
+    .talent-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    .talent-grid.reverse { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+    .talent-grid.reverse .talent-index { order: 2; }
+    .talent-grid.reverse .talent-media { order: 1; }
+    .talent-index .eyebrow { display: block; margin-bottom: 0.6rem; }
+    .talent-title { font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: -0.03em; }
+    .talent-copy { color: var(--muted-text); max-width: 30ch; margin: 1.4rem 0 1.8rem; }
+
+    .frame { position: relative; display: block; overflow: hidden; border-radius: 4px; }
+    .frame-img { background-size: cover; background-position: center top; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .frame:hover .frame-img { transform: scale(1.05); }
+    .frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,9,12,0.88), transparent 52%); }
+    .frame-name { position: absolute; left: 1.2rem; bottom: 1.1rem; z-index: 2; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.01em; }
+    .portrait .frame-img { aspect-ratio: 3/4; }
+
+    /* Photography-forward: larger, more cinematic portraits. */
+    .singers-rail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .singers-rail .frame:first-child { transform: translateY(-2rem); }
+    .singers-rail .frame:last-child { transform: translateY(2rem); }
+
+    .rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+    .rail-item { scroll-snap-align: start; }
+    .rail-item .frame-img { aspect-ratio: 3/4; }
+    .rail::-webkit-scrollbar { height: 5px; }
+    .rail::-webkit-scrollbar-thumb { background: var(--line-gold); border-radius: 999px; }
+
+    /* ── SERVICES (cinematic rows) ── */
+    .services { padding: clamp(5rem, 10vh, 8rem) clamp(1.5rem, 6vw, 6rem); }
+    .svc-head { max-width: var(--maxw); margin: 0 auto 3.5rem; text-align: center; }
+    .svc-head .idx-04 { -webkit-text-stroke-color: rgba(227,200,137,0.35); margin: 0 auto 1rem; text-align: center; }
+    .svc-head .eyebrow { display: block; margin-bottom: 0.7rem; }
+    .svc-title { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    .svc-rows { max-width: var(--maxw); margin: 0 auto; display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); }
+    .svc-row { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 380px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(11,16,24,0.4); transition: border-color 0.3s; }
+    .svc-row:hover { border-color: var(--line-gold); }
+    .svc-row.flip { grid-template-columns: 0.85fr 1.15fr; }
+    .svc-row.flip .svc-img { order: 2; }
+    .svc-row.flip .svc-text { order: 1; }
+    .svc-img { background-size: cover; background-position: center; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .svc-row:hover .svc-img { transform: scale(1.04); }
+    .svc-text { padding: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; justify-content: center; }
+    .svc-num { font-family: var(--font-display); color: var(--accent); font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 0.6rem; }
+    .svc-name { font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
+    .svc-desc { color: #c4cbd8; margin: 1rem 0 1.6rem; max-width: 32ch; }
+
+    /* ── generic band shell ── */
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
+    .band-head .eyebrow { display: block; }
+    .rating-line { color: var(--muted-text); margin-top: 1.1rem; font-size: 0.95rem; letter-spacing: 0.04em; }
+    .band-foot { text-align: center; margin-top: 3rem; }
+
+    /* ── SPECIALIZING ── */
+    .spec-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .spec { display: inline-flex; align-items: center; gap: 0.7rem; padding: 1rem 2.1rem; border: 1px solid var(--line); border-radius: 999px; font-family: var(--font-display); font-size: 1.35rem; transition: all 0.25s; }
+    .spec:hover { border-color: var(--accent); color: var(--accent-soft); transform: translateY(-3px); }
+    .spec-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    /* ── CLIENTS ── */
+    .logo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+    .logo-cell {
+      display: flex; align-items: center; justify-content: center; padding: 1.8rem 1rem;
+      border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 4px;
+      background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;
+    }
+    .logo-cell:hover { border-top-color: var(--accent); background: rgba(255,255,255,0.05); }
+    .logo { height: 56px; width: auto; max-width: 100%; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.62; transition: opacity 0.3s, filter 0.3s; }
+    .logo-cell:hover .logo { opacity: 1; filter: brightness(0) invert(1); }
+
+    /* ── AWARDS (full-colour chips, legible) ── */
+    .awards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 920px; }
+    .award-cell { margin: 0; text-align: center; }
+    .award-chip { display: flex; align-items: center; justify-content: center; padding: 1.9rem 2rem; background: #f4efe6; border-radius: 8px; min-height: 150px; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+    .award-logo { height: 92px; width: auto; max-width: 100%; object-fit: contain; }
+    .award-note { margin-top: 1rem; color: var(--accent); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em; }
+
+    /* ── REVIEWS ── */
+    .stars { color: var(--accent); letter-spacing: 0.18em; font-size: 1.3rem; }
+    .stars.sm { font-size: 0.95rem; }
+    .feature-quote { position: relative; max-width: 60rem; margin: 0 auto 3rem; text-align: center; padding: 2.5rem 1rem 1rem; }
+    .quote-glyph { position: absolute; top: -1.2rem; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 7rem; line-height: 1; color: var(--line-gold); }
+    .feature-quote blockquote { margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.4; color: var(--fg); }
+    .feature-quote figcaption { margin-top: 1.4rem; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .review { margin: 0; padding: 1.9rem; background: rgba(8,9,12,0.4); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
+    .review:hover { border-color: var(--line-gold); transform: translateY(-3px); }
+    .review blockquote { margin: 0.8rem 0; font-size: 0.95rem; color: #c4cbd8; line-height: 1.6; }
+    .review figcaption { color: var(--accent); font-weight: 600; font-size: 0.88rem; }
+
+    /* ── INSTAGRAM ── */
+    .ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.6rem; }
+    .ig-cell { position: relative; overflow: hidden; border-radius: 4px; }
+    .ig-img { aspect-ratio: 1; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .ig-cell:hover .ig-img { transform: scale(1.1); }
+    .ig-cell::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(8,11,18,0.15)); transition: background 0.3s; }
+    .ig-cell:hover::after { background: rgba(8,11,18,0.55); }
+    .ig-mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--accent-soft); font-size: 1.5rem; opacity: 0; transform: translateY(8px); transition: all 0.3s; z-index: 2; }
+    .ig-cell:hover .ig-mark { opacity: 1; transform: translateY(0); }
+
+    /* ── CONNECT ── */
+    .connect { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .connect-col { padding: 2.6rem 2rem; border: 1px solid var(--line); border-radius: 6px; text-align: center; background: rgba(8,9,12,0.35); transition: all 0.3s; }
+    .connect-col:hover { border-color: var(--accent); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .ci { width: 30px; height: 30px; fill: var(--accent); margin: 0 auto 1.1rem; }
+    .connect-col h3 { font-size: 1.55rem; margin-bottom: 0.4rem; }
+    .connect-col p { color: var(--muted-text); margin: 0 0 1.4rem; }
+    .connect-col .btn-primary { margin-top: 0.2rem; }
+
+    /* ── responsive ── */
+    @media (max-width: 900px) {
+      .talent-grid, .talent-grid.reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+      .talent-grid.reverse .talent-index { order: 1; }
+      .talent-grid.reverse .talent-media { order: 2; }
+      .svc-row, .svc-row.flip { grid-template-columns: 1fr; }
+      .svc-row.flip .svc-img { order: 1; }
+      .svc-row.flip .svc-text { order: 2; }
+      .svc-img { min-height: 240px; }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
+      .ig-grid { grid-template-columns: repeat(3, 1fr); }
+      .connect { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .review-grid { grid-template-columns: 1fr; }
+      .singers-rail { grid-template-columns: 1fr 1fr; }
+      .singers-rail .frame:first-child, .singers-rail .frame:last-child { transform: none; }
+    }
+
+    /* reveal initial state (only when motion allowed + JS present) */
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    // Hero entrance — slide text up. Always animate FROM y-offset only (never fade from 0),
+    // so the hero copy is never left blank.
+    animate('.hero-content > *', { y: [26, 0] },
+      { delay: stagger(0.09), duration: 0.95, ease: [0.16, 1, 0.3, 1] });
+
+    // Single-element reveals.
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [34, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+
+    // Staggered group reveals.
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
+          { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

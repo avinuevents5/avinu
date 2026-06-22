@@ -1,0 +1,126 @@
+---
+import Noir from '../../../layouts/Noir.astro';
+import ConnectCTA from '../../../components/ConnectCTA.astro';
+import VideoGallery from '../../../components/VideoGallery.astro';
+
+const U = '/wp-content/uploads';
+const hero = `${U}/2020/12/lambo-grey-hurricaine-spider.jpg`;
+
+// Copy from luxury-car-rentals.md + luxury-car-rentals-2.md (Aventador SV is the featured car).
+const fleet = [
+  { name: 'Lamborghini Huracan', price: 'Starting at $1195 per day', img: `${U}/2020/07/lambo-huracan-orange.jpeg` },
+  { name: 'Lamborghini Huracan', price: 'Starting at $1,295 per day', img: `${U}/2020/12/lambo-huracan-spider-blue-scaled.jpg` },
+  { name: 'Lamborghini Aventador', price: 'Starting at $1,500 per day', img: `${U}/2018/12/IMG_8351.jpg` },
+  { name: 'Corvette C8 2020', price: 'Starting at $850 per day', img: `${U}/2020/12/C8-Corvette-2020-scaled.jpg` },
+  { name: 'Mercedes Benz E300', price: 'Available for private transportation', img: `${U}/2020/12/Mercedes-Benz-E-300.jpg` },
+  { name: 'Lamborghini Huracan', price: 'Starting at $1,295 per day', img: `${U}/2020/08/IMG_1826.jpg` },
+];
+---
+
+<Noir
+  title="Luxury Car Rentals"
+  description="Exotic luxury car rentals in Miami — Lamborghini Huracán and Aventador SV, Corvette C8 and Mercedes-Benz. Grand entrances and unforgettable arrivals by Avinu Music & Productions."
+>
+  <!-- ░░ HERO IMAGE HEADER ░░ -->
+  <section class="detail-hero" style={`background-image:url('${hero}')`}>
+    <div class="dh-scrim"></div>
+    <div class="dh-content">
+      <p class="eyebrow">Full Production · Luxury Cars</p>
+      <h1>Luxury Car Rentals</h1>
+    </div>
+  </section>
+
+  <!-- ░░ FLEET ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal><p class="eyebrow">The fleet</p><h2>Vehicle listings</h2></header>
+    <div class="fleet" data-reveal-group>
+      {fleet.map((c) => (
+        <article class="car">
+          <div class="car-img" style={`background-image:url('${c.img}')`}></div>
+          <div class="car-body">
+            <h3>{c.name}</h3>
+            <p class="car-price">{c.price}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ FEATURED — AVENTADOR SV ░░ -->
+  <section class="band midnight">
+    <div class="feature" data-reveal-group>
+      <div class="feature-media"><div class="feature-img" style={`background-image:url('${U}/2018/12/IMG_8351.jpg')`}></div></div>
+      <div class="feature-text">
+        <p class="eyebrow">Featured · 2 Passengers · 2 Doors · Auto</p>
+        <h2>Lamborghini Aventador Roadster SV</h2>
+        <p>
+          Discover the Lamborghini Aventador Superveloce Roadster: what's new, its features and
+          detailed technical specifications. The groundbreaking innovations we introduced with the
+          Aventador marked the beginning of a new era for Lamborghini's iconic super sports cars.
+          With the Aventador SV, we truly reinvented the concept, and with this model, we have given
+          it something more: the vanity of a Roadster.
+        </p>
+        <p>
+          The Superveloce has been designed as the sportiest Lamborghini ever, the fastest and most
+          electrifying of all time, thanks to a further improved naturally aspirated V12 engine,
+          engineering solutions geared to extreme lightness, and a mix of innovative technological
+          features, such as the magnetorheological push-rod suspension and the Lamborghini Dynamic
+          Steering system. A Roadster super sports car at its purest, designed to give you a driving
+          experience that exceeds extraordinary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    .detail-hero { position: relative; min-height: 56vh; display: flex; align-items: flex-end; background-size: cover; background-position: center; }
+    .dh-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,9,12,0.95) 0%, rgba(8,9,12,0.45) 55%, rgba(8,9,12,0.55) 100%); }
+    .dh-content { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 3rem 1.5rem 3.5rem; }
+    .dh-content h1 { font-size: clamp(2.6rem, 7vw, 5rem); margin: 0.8rem 0 0; }
+    .dh-sub { color: #d8d1c4; font-size: clamp(1rem, 2vw, 1.25rem); max-width: 40rem; margin: 1.2rem 0 0; }
+
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; }
+
+    .fleet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .car { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #ffffff05; transition: border-color 0.25s, transform 0.25s; }
+    .car:hover { border-color: var(--line-gold); transform: translateY(-4px); }
+    .car-img { aspect-ratio: 16 / 10; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .car:hover .car-img { transform: scale(1.05); }
+    .car-body { padding: 1.2rem 1.3rem 1.4rem; }
+    .car-body h3 { font-size: 1.3rem; }
+    .car-price { color: var(--accent); font-weight: 600; margin: 0.4rem 0 0; font-size: 0.92rem; }
+
+    .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .feature-img { aspect-ratio: 4 / 3; background-size: cover; background-position: center; border-radius: 18px; }
+    .feature-text h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); margin: 0.5rem 0 1rem; }
+    .feature-text p { color: var(--muted-text); margin: 0 0 1.1rem; }
+
+    @media (max-width: 900px) { .fleet { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 820px) { .feature { grid-template-columns: 1fr; gap: 1.75rem; } }
+    @media (max-width: 520px) { .fleet { grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

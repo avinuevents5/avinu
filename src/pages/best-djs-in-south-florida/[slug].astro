@@ -1,0 +1,220 @@
+---
+import { getCollection, render } from 'astro:content';
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+
+export async function getStaticPaths() {
+  const djs = await getCollection('djs');
+  return djs.map((dj) => ({
+    params: { slug: dj.id },
+    props: { dj },
+  }));
+}
+
+const { dj } = Astro.props;
+const { Content } = await render(dj);
+const d = dj.data;
+
+// Lead the hero with the most cinematic image available — the first gallery shot
+// (often a full-bleed action photo); fall back to the roster portrait.
+const heroImg = d.gallery?.[0] ?? d.photo;
+
+// Other DJs for the footer roster strip.
+const others = (await getCollection('djs'))
+  .filter((o) => o.id !== dj.id)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<Noir title={d.title} description={d.summary ?? `${d.title}, an Avinu DJ in South Florida.`}>
+  <!-- HERO IMAGE + NAME -->
+  <section class="dj-hero">
+    <div class="dj-hero-img" style={`background-image:url('${heroImg}')`}></div>
+    <div class="dj-hero-scrim"></div>
+    <div class="dj-hero-content">
+      <a class="back-link" href="/best-djs-in-south-florida/">All DJs</a>
+      {d.role && <p class="eyebrow">{d.role}</p>}
+      <h1>{d.title}</h1>
+    </div>
+  </section>
+
+  <!-- BIO + STATS -->
+  <section class="band">
+    <div class="bio-grid">
+      <article class="bio" data-reveal>
+        <Content />
+      </article>
+      <aside class="stats" data-reveal>
+        {d.specialties && d.specialties.length > 0 && (
+          <div class="stat-block">
+            <p class="eyebrow">Specializes in</p>
+            <ul class="chips">
+              {d.specialties.map((s) => <li>{s}</li>)}
+            </ul>
+          </div>
+        )}
+        {d.languages && d.languages.length > 0 && (
+          <div class="stat-block">
+            <p class="eyebrow">Fluent languages</p>
+            <ul class="chips chips-soft">
+              {d.languages.map((l) => <li>{l}</li>)}
+            </ul>
+          </div>
+        )}
+        <a class="btn-primary stat-cta" href="/get-a-quote/">Book {d.title}</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  {d.videos && d.videos.length > 0 && (
+    <section class="band">
+      <header class="band-head" data-reveal>
+        <p class="eyebrow">Watch</p>
+        <h2>Videos</h2>
+      </header>
+      <div class="videos" data-reveal-group>
+        {d.videos.map((v) => (
+          <div class="video">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${v}`}
+              title={`${d.title} — video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- GALLERY -->
+  {d.gallery && d.gallery.length > 0 && (
+    <section class="band midnight">
+      <header class="band-head" data-reveal>
+        <p class="eyebrow">In the mix</p>
+        <h2>Gallery</h2>
+      </header>
+      <div class="gallery" data-reveal-group>
+        {d.gallery.map((src) => (
+          <div class="gal-cell" style={`background-image:url('${src}')`}></div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- OTHER DJS -->
+  <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Keep exploring</p>
+      <h2>Other DJs</h2>
+    </header>
+    <div class="rail" data-reveal-group>
+      {others.map((o) => (
+        <a class="rail-item" href={`/best-djs-in-south-florida/${o.id}/`}>
+          <div class="rail-img" style={`background-image:url('${o.data.photo}')`}></div>
+          <span class="rail-name">{o.data.title}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    /* HERO */
+    .dj-hero { position: relative; height: 68vh; min-height: 460px; display: flex; align-items: flex-end; overflow: hidden; }
+    .dj-hero-img { position: absolute; inset: 0; background-size: cover; background-position: center 30%; transform: scale(1.02); }
+    .dj-hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 2%, rgba(8,9,12,0.45) 45%, rgba(8,9,12,0.25) 100%); }
+    .dj-hero-content { position: relative; z-index: 2; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .dj-hero-content h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); margin-top: 0.6rem; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1.2rem;
+      color: var(--muted-text); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+      transition: color 0.25s;
+    }
+    .back-link::before { content: '←'; }
+    .back-link:hover { color: var(--accent); }
+
+    /* SECTION SHELL */
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 0.5rem; }
+
+    /* BIO + STATS */
+    .bio-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 3.5rem; align-items: start; }
+    .bio :global(p) { font-size: 1.08rem; line-height: 1.8; color: #d8d1c4; margin: 0 0 1.4rem; }
+    .bio :global(p:first-child) { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; color: var(--fg); }
+    .bio :global(em) { color: var(--accent-soft); font-style: italic; }
+
+    .stats { position: sticky; top: 6rem; border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: #ffffff05; }
+    .stat-block { margin-bottom: 1.8rem; }
+    .chips { list-style: none; margin: 0.9rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chips li {
+      padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.85rem;
+      border: 1px solid var(--line-gold); color: var(--accent-soft); background: rgba(201,162,75,0.06);
+    }
+    .chips.chips-soft li { border-color: var(--line); color: var(--muted-text); background: #ffffff05; }
+    .stat-cta { display: block; text-align: center; margin-top: 0.5rem; }
+
+    /* GALLERY */
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .gal-cell {
+      aspect-ratio: 4 / 5; border-radius: 14px; background-size: cover; background-position: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .gal-cell:hover { transform: scale(1.03); }
+
+    /* VIDEOS */
+    .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem; max-width: 920px; margin: 0 auto; }
+    .video { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+    .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    @media (max-width: 520px) { .videos { grid-template-columns: 1fr; } }
+
+    /* OTHER DJS RAIL */
+    .rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(190px, 1fr); gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+    .rail-item { position: relative; display: block; border-radius: 14px; overflow: hidden; scroll-snap-align: start; }
+    .rail-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center top; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .rail-item:hover .rail-img { transform: scale(1.06); }
+    .rail-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.78), transparent 55%); }
+    .rail-name { position: absolute; left: 1rem; bottom: 0.9rem; z-index: 2; font-family: var(--font-display); font-size: 1.1rem; }
+    .rail::-webkit-scrollbar { height: 6px; }
+    .rail::-webkit-scrollbar-thumb { background: #ffffff22; border-radius: 999px; }
+
+    /* CLOSING CTA */
+    .cta-band { text-align: center; }
+    .cta-inner h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin: 0.6rem 0 0.8rem; }
+    .cta-sub { color: var(--muted-text); margin: 0 auto 2rem; max-width: 36rem; }
+
+    @media (max-width: 860px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats { position: static; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

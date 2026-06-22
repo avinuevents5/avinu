@@ -1,0 +1,132 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { getCollection } from 'astro:content';
+
+// All venues, ordered by the editorial `order` field (falling back to title).
+const venues = (await getCollection('venues')).sort((a, b) => {
+  const ao = a.data.order ?? 999;
+  const bo = b.data.order ?? 999;
+  if (ao !== bo) return ao - bo;
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+---
+
+<Noir
+  title="Wedding Venues in South Florida"
+  description="Here is our list of recommended venues for weddings, corporate, and social events. Please click on any of the following event venues to know more."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <div class="ph-inner">
+      <p class="eyebrow">Venues</p>
+      <h1>Wedding Venues<br />in South Florida</h1>
+      <p class="ph-sub">
+        Here is our list of recommended venues for weddings, corporate, and social events. Please
+        click on any of the following event venues to know more. If your venue is not hosted here,
+        we'd love to hear from you.
+      </p>
+      <div class="ph-actions">
+        <a class="btn-primary" href="/get-a-quote/">Looking for a kosher venue?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ VENUE GRID ░░ -->
+  <section class="band midnight">
+    <div class="venue-grid" data-reveal-group>
+      {venues.map((v) => (
+        <a class="venue-card" href={`/venues/${v.id}/`}>
+          <div class="vc-img" style={`background-image:url('${v.data.image ?? FALLBACK}')`}></div>
+          <div class="vc-body">
+            <h2 class="vc-name">{v.data.title}</h2>
+            {v.data.address && <p class="vc-addr">{v.data.address}</p>}
+            {v.data.kosher && v.data.kosher !== 'N/A' && (
+              <span class="vc-kosher">Kosher · {v.data.kosher}</span>
+            )}
+            <span class="link-arrow vc-link">View venue</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ CONNECT CTA ░░ -->
+  <ConnectCTA />
+
+  <style>
+    /* PAGE HEADER — compact, not the homepage hero */
+    .page-head { padding: 6.5rem 1.5rem 3rem; text-align: center; }
+    .ph-inner { max-width: var(--maxw); margin: 0 auto; }
+    .page-head h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 1rem 0; }
+    .ph-sub { color: var(--muted-text); max-width: 44rem; margin: 0 auto; font-size: 1.05rem; }
+    .ph-actions { margin-top: 2rem; }
+
+    /* SECTION SHELL — alternating black / midnight bands */
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+
+    /* VENUE GRID */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .venue-card {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+      background: #ffffff05;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .venue-card:hover {
+      border-color: var(--line-gold); transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+    }
+    .vc-img {
+      aspect-ratio: 4 / 3; background-size: cover; background-position: center;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .venue-card:hover .vc-img { transform: scale(1.05); }
+    .vc-body { padding: 1.5rem 1.4rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+    .vc-name { font-size: 1.45rem; margin-bottom: 0.5rem; }
+    .vc-addr { color: var(--muted-text); font-size: 0.9rem; margin: 0 0 0.9rem; }
+    .vc-kosher {
+      align-self: flex-start; margin-bottom: 1rem;
+      font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--line-gold); border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+    }
+    .vc-link { margin-top: auto; }
+
+    @media (max-width: 900px) {
+      .venue-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .venue-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Scroll-reveal initial state — guarded by reduced-motion; failsafe in layout. */
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.05), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -8% 0px' });
+    });
+  </script>
+</Noir>

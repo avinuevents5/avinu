@@ -1,0 +1,186 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const venues = await getCollection('venues');
+  return venues.map((venue) => ({
+    params: { slug: venue.id },
+    props: { venue },
+  }));
+}
+
+const { venue } = Astro.props;
+const { data } = venue;
+const { Content } = await render(venue);
+
+const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+const hero = data.image ?? FALLBACK;
+
+// Normalise a website string into a clean external href + display label.
+const websiteHref = data.website
+  ? (data.website.startsWith('http') ? data.website : `https://${data.website.replace(/^www\./, 'www.')}`)
+  : null;
+
+const details = [
+  { label: 'Address', value: data.address },
+  { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^+\d]/g, '')}` : null },
+  { label: 'Website', value: data.website, href: websiteHref, external: true },
+  { label: 'Capacity', value: data.capacity },
+  { label: 'Price', value: data.price },
+  { label: 'Kosher', value: data.kosher },
+].filter((d) => d.value);
+
+const gallery = (data.gallery ?? []).filter((g) => g !== hero);
+---
+
+<Noir
+  title={data.title}
+  description={data.summary ?? `${data.title} — a recommended South Florida event venue, produced by Avinu Music & Productions.`}
+>
+  <!-- ░░ HERO IMAGE WITH NAME OVERLAY ░░ -->
+  <section class="venue-hero">
+    <div class="vh-img" style={`background-image:url('${hero}')`}></div>
+    <div class="vh-scrim"></div>
+    <div class="vh-content">
+      <p class="eyebrow">South Florida Venue</p>
+      <h1>{data.title}</h1>
+      {data.address && <p class="vh-addr">{data.address}</p>}
+    </div>
+  </section>
+
+  <!-- ░░ DETAILS + SUMMARY ░░ -->
+  <section class="band">
+    <div class="venue-layout">
+      <div class="venue-copy" data-reveal>
+        {data.summary && (
+          <>
+            <p class="why-eyebrow eyebrow">Why we love it</p>
+            <p class="venue-summary">{data.summary}</p>
+          </>
+        )}
+        <div class="venue-body">
+          <Content />
+        </div>
+        <a class="link-arrow back-link" href="/venues/">Back to all venues</a>
+      </div>
+
+      <aside class="venue-panel" data-reveal>
+        <h2 class="vp-title">Venue Details</h2>
+        <dl class="vp-list">
+          {details.map((d) => (
+            <div class="vp-row">
+              <dt>{d.label}</dt>
+              <dd>
+                {d.href ? (
+                  <a href={d.href} {...(d.external ? { target: '_blank', rel: 'noopener' } : {})}>{d.value}</a>
+                ) : d.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <a class="btn-primary vp-cta" href="/get-a-quote/">Get a Quote</a>
+      </aside>
+    </div>
+
+    {gallery.length > 0 && (
+      <div class="venue-gallery" data-reveal-group>
+        {gallery.map((src) => (
+          <div class="vg-cell" style={`background-image:url('${src}')`}></div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- ░░ CONNECT CTA ░░ -->
+  <ConnectCTA />
+
+  <style>
+    /* HERO IMAGE — detail pages lead with the venue's best photo + name overlay */
+    .venue-hero {
+      position: relative; min-height: 56vh; display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .vh-img { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: -2; }
+    .vh-scrim {
+      position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(to top, rgba(8,9,12,0.96) 0%, rgba(8,9,12,0.55) 45%, rgba(8,9,12,0.35) 100%);
+    }
+    .vh-content { max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 3.5rem 1.5rem 3rem; }
+    .vh-content h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); margin: 0.8rem 0 0.4rem; }
+    .vh-addr { color: var(--muted-text); font-size: 1rem; margin: 0; }
+
+    /* SECTION SHELL */
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+
+    /* LAYOUT — copy + sticky details panel */
+    .venue-layout { display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 3rem; align-items: start; }
+    .why-eyebrow { display: block; margin-bottom: 0.8rem; }
+    .venue-summary {
+      font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+      line-height: 1.4; color: var(--fg); margin: 0 0 2rem;
+    }
+    .venue-body :global(p) { color: #c9cdd6; font-size: 1.02rem; margin: 0 0 1.2rem; }
+    .venue-body :global(h4) { font-size: 1.3rem; color: var(--fg); margin: 2rem 0 0.8rem; }
+    .venue-body :global(img) { border-radius: 14px; margin: 1.5rem 0; }
+    .back-link { margin-top: 1.5rem; }
+
+    /* DETAILS PANEL */
+    .venue-panel {
+      position: sticky; top: 6rem;
+      border: 1px solid var(--line-gold); border-radius: 18px;
+      background: #ffffff05; padding: 2rem 1.8rem;
+    }
+    .vp-title { font-size: 1.5rem; margin-bottom: 1.3rem; }
+    .vp-list { margin: 0; }
+    .vp-row { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+    .vp-row:last-of-type { border-bottom: none; }
+    .vp-row dt {
+      font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.25rem;
+    }
+    .vp-row dd { margin: 0; color: var(--fg); font-size: 0.98rem; word-break: break-word; }
+    .vp-row dd a { transition: color 0.2s; }
+    .vp-row dd a:hover { color: var(--accent); }
+    .vp-cta { display: block; text-align: center; margin-top: 1.6rem; }
+
+    /* GALLERY */
+    .venue-gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .vg-cell {
+      aspect-ratio: 3 / 2; background-size: cover; background-position: center;
+      border-radius: 14px; border: 1px solid var(--line);
+    }
+
+    @media (max-width: 860px) {
+      .venue-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .venue-panel { position: static; }
+    }
+
+    /* Scroll-reveal initial state — guarded; hero text stays visible. */
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -8% 0px' });
+    });
+  </script>
+</Noir>

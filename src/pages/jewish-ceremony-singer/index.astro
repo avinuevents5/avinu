@@ -1,0 +1,125 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import { getCollection } from 'astro:content';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+
+// Pull every singer profile and order by the `order` field set in frontmatter.
+const entries = (await getCollection('singers')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
+);
+
+// Editorial one-liners per singer (from the live "Meet the Avinu Singers" copy).
+const moods: Record<string, string> = {
+  'mark-levine': 'Inspirational · Charismatic',
+  'sergio-andre': 'Peaceful · Transcending',
+  'noam-agami': 'Uplifting · Moving',
+  'anais-vivas': 'Heartening · Joyful',
+};
+
+const singers = entries.map((e) => ({
+  slug: e.id,
+  name: e.data.title,
+  role: e.data.role ?? '',
+  photo: e.data.photo ?? '',
+  mood: moods[e.id] ?? '',
+  href: `/${e.id}/`,
+}));
+---
+
+<Noir
+  title="Jewish Ceremony Singers"
+  description="Meet the Avinu Music ceremony singers — multilingual vocalists who elevate every wedding and event with soulful, emotional performances rooted in tradition."
+>
+  <!-- COMPACT PAGE HEADER -->
+  <section class="page-head">
+    <div class="ph-inner">
+      <p class="eyebrow" data-reveal>Vocalists</p>
+      <h1 data-reveal>Meet the Avinu Singers</h1>
+      <p class="ph-sub" data-reveal>
+        Discover the soulful voices of Avinu Music's Jewish ceremony singers. From the inspirational
+        and charismatic tones of Levine to the uplifting and moving melodies of Noam, each singer
+        brings a unique touch to every ceremony. Whether you're seeking the peaceful transcendence of
+        Sergio or the heartening joy of Anais, our lineup promises to elevate your event with their
+        musical brilliance. Connect with us for a harmonious journey that resonates deeply with
+        tradition and emotion.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROSTER GRID -->
+  <section class="band">
+    <div class="roster" data-reveal-group>
+      {singers.map((p) => (
+        <a class="person" href={p.href}>
+          <div class="person-img" style={`background-image:url('${p.photo}')`}></div>
+          <div class="person-cap">
+            {p.mood && <span class="person-mood">{p.mood}</span>}
+            <span class="person-name">{p.name}</span>
+            {p.role && <span class="person-role">{p.role}</span>}
+            <span class="link-arrow">View profile</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    /* COMPACT PAGE HEADER */
+    .page-head { padding: 5.5rem 1.5rem 1rem; }
+    .ph-inner { max-width: 60rem; margin: 0 auto; text-align: center; }
+    .page-head h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 1rem 0 0; }
+    .ph-sub { color: var(--muted-text); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 44rem; margin: 1.4rem auto 0; }
+
+    /* SECTION SHELL */
+    .band { padding: 4.5rem 1.5rem 6rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+
+    /* ROSTER */
+    .roster { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .person { position: relative; display: block; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); transition: border-color 0.3s, transform 0.3s; }
+    .person:hover { border-color: var(--line-gold); transform: translateY(-4px); }
+    .person-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center top; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .person:hover .person-img { transform: scale(1.06); }
+    .person::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.1) 60%, transparent); }
+    .person-cap { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; z-index: 2; display: flex; flex-direction: column; gap: 0.3rem; }
+    .person-mood { font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+    .person-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.05; }
+    .person-role { font-size: 0.82rem; color: var(--muted-text); margin-bottom: 0.5rem; }
+    .person-cap .link-arrow { font-size: 0.66rem; opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
+    .person:hover .person-cap .link-arrow { opacity: 1; transform: translateY(0); }
+
+    /* CLOSING CTA */
+    .cta { text-align: center; }
+    .cta-inner { max-width: 42rem; }
+    .cta h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0.6rem 0 0; }
+    .cta-sub { color: var(--muted-text); margin: 1rem 0 2rem; }
+
+    @media (max-width: 980px) { .roster { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .roster { grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      inView('[data-reveal]', (el) => {
+        animate(el, { opacity: [0, 1], y: [28, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+
+      document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+        inView(group, () => {
+          animate(Array.from(group.children), { opacity: [0, 1], y: [28, 0] },
+            { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+        }, { margin: '0px 0px -10% 0px' });
+      });
+    }
+  </script>
+</Noir>

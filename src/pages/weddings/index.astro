@@ -1,0 +1,183 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { phone } from '../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+const hero = '/wp-content/uploads/2018/12/weddings1.jpg';
+
+// The production toolkit pulled from the original /weddings/ copy.
+const toolkit = [
+  'Top-of-the-line EV & QSC sound systems',
+  'DJ displays: turf grass, bamboo, formal black, LED white',
+  'Intelligent dance lighting, uplighting & bistro string',
+  'Custom logo monograms',
+  'Indoor sparklers',
+  'LED walls',
+];
+
+// Resolve old WP slugs to the live nav structure.
+const highlights = [
+  { label: "DJ's", href: '/best-djs-in-south-florida/' },
+  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+  { label: 'Photo & Video', href: '/photography-and-videography/' },
+  { label: 'Screens & LED Walls', href: '/led-pannels/' },
+  { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+];
+
+const steps = [
+  { n: '01', title: 'A menu of specialties', body: 'We begin with a menu of our specialty options.' },
+  { n: '02', title: 'Meet your talent', body: 'Connect with our DJ on a Zoom or phone call, so you know exactly what to expect and all your questions are answered.' },
+  { n: '03', title: 'We produce, you celebrate', body: 'From there on, we manage your event, so you can focus on what matters: being fully present and celebrating you.' },
+];
+---
+
+<Noir
+  title="Weddings"
+  description="South Florida's most spectacular weddings — DJs, ceremony singers, live musicians, lighting, LED walls and full production, planned to the last detail by Avinu Music & Productions."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Weddings · South Florida</p>
+    <h1 class="head-h1">The Most Spectacular<br /><span class="ital">Wedding</span></h1>
+    <p class="head-sub">Let's do something amazing! That's what our clients seek, and that's exactly what we strive for.</p>
+  </section>
+
+  <!-- ░░ INTRO + HERO IMAGE ░░ -->
+  <section class="feature">
+    <div class="feature-grid">
+      <div class="feature-media" data-reveal>
+        <div class="feature-img" style={`background-image:url('${hero}')`}></div>
+      </div>
+      <div class="feature-copy" data-reveal>
+        <p class="eyebrow">Our craft</p>
+        <p class="lead">The secret is in a variety of tools — starting by carefully selecting our talent of DJ's and musicians, then layering in modern production equipment.</p>
+        <ul class="toolkit">
+          {toolkit.map((t) => <li>{t}</li>)}
+        </ul>
+        <p class="note">
+          Founder and head DJ/singer Mark Levine has been performing for over 20 years. Precision is
+          key in this industry, so he built systems and technology to make your planning flawless —
+          ask us about our online music planner to start building your request list and timeline.
+        </p>
+        <p class="signoff">"Together we can do the impossible." — ML</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ HIGHLIGHTS ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Our talent</p>
+      <h2 class="band-h2">Get to know our <span class="ital">DJ's</span></h2>
+      <p class="band-intro">The most requested, reliable and qualified, with performance in hundreds of events.</p>
+    </header>
+    <div class="hl-grid" data-reveal-group>
+      {highlights.map((h) => (
+        <a class="hl-card" href={h.href}>
+          <h3 class="hl-title">{h.label}</h3>
+          <span class="link-arrow">Explore</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ PROCESS ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">So how does this work?</p>
+      <h2 class="band-h2">A process built around <span class="ital">you</span></h2>
+    </header>
+    <div class="steps" data-reveal-group>
+      {steps.map((s) => (
+        <div class="step">
+          <span class="step-n">{s.n}</span>
+          <h3 class="step-title">{s.title}</h3>
+          <p class="step-body">{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    /* ── PAGE HEADER ── */
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 40rem; margin: 1.6rem auto 0; }
+
+    /* ── FEATURE (intro + hero image) ── */
+    .feature { padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .feature-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .feature-img { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: 6px; }
+    .feature-copy .eyebrow { display: block; margin-bottom: 0.9rem; }
+    .lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.35; color: var(--fg); margin: 0 0 1.6rem; }
+    .toolkit { list-style: none; margin: 0 0 1.8rem; padding: 0; display: grid; gap: 0.65rem; }
+    .toolkit li { position: relative; padding-left: 1.5rem; color: #c4cbd8; font-size: 0.98rem; }
+    .toolkit li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .note { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; }
+    .signoff { font-family: var(--font-display); font-style: italic; color: var(--accent-soft); font-size: 1.15rem; }
+
+    /* ── generic band shell (mirrors home) ── */
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head .eyebrow { display: block; }
+    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
+    .band-intro { color: var(--muted-text); margin-top: 1.1rem; max-width: 44rem; margin-left: auto; margin-right: auto; }
+
+    /* ── HIGHLIGHTS grid ── */
+    .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: rgba(8,9,12,0.35); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
+    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .hl-title { font-size: 1.55rem; margin-bottom: 0.5rem; }
+    .hl-desc { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; flex: 1; }
+
+    /* ── STEPS ── */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .step { padding: 2rem 1.8rem; border: 1px solid var(--line); border-radius: 6px; background: rgba(11,16,24,0.3); }
+    .step-n { display: block; font-family: var(--font-display); font-size: 2.4rem; color: transparent; -webkit-text-stroke: 1px var(--line-gold); margin-bottom: 1rem; }
+    .step-title { font-size: 1.35rem; margin-bottom: 0.6rem; }
+    .step-body { color: var(--muted-text); font-size: 0.95rem; }
+
+    /* ── CLOSING CTA ── */
+    .cta-band { text-align: center; }
+    .cta-inner { max-width: 44rem; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .hl-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hl-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [34, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
+          { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

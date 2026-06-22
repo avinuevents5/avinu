@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# media staging — downloaded from old WP site, processed into src/assets or public before commit
+_media/
+
+# environment
+.env
+.env.production
+.env*.local
+
+# misc
+.DS_Store
+.vercel/
+*.log

@@ -1,0 +1,62 @@
+---
+// Shared "Connect with us" block — the SAME design used on the v1 home, reused across
+// the home and every interior/category page so the contact section is identical sitewide.
+const PHONE = '+1 754-547-4415';
+const TEL = `tel:${PHONE.replace(/[^+\d]/g, '')}`;
+
+const cols = [
+  {
+    href: TEL, title: 'Call Now', desc: 'To discuss your event needs', link: PHONE,
+    icon: '<path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.25 1z"/>',
+  },
+  {
+    href: '/get-a-quote/', title: 'Careers', desc: 'For artists looking to join us', link: 'Apply',
+    icon: '<path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/>',
+  },
+  {
+    href: '/get-a-quote/', title: 'Contact Us', desc: "Let's be in touch", link: 'Get a Quote',
+    icon: '<path d="M4 4h16v12H7l-3 3z"/>',
+  },
+];
+---
+
+<section class="band midnight connect-band">
+  <header class="cc-head" data-reveal>
+    <p class="eyebrow">Get in touch</p>
+    <h2 class="cc-h2">Connect with <span class="ital">us</span></h2>
+  </header>
+  <div class="connect" data-reveal-group>
+    {cols.map((c) => (
+      <a class="connect-col" href={c.href}>
+        <svg viewBox="0 0 24 24" class="ci" aria-hidden="true" set:html={c.icon}></svg>
+        <h3>{c.title}</h3>
+        <p>{c.desc}</p>
+        <span class="cc-link">{c.link}</span>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .connect-band { padding: 5.5rem 1.5rem; }
+    .cc-head { text-align: center; margin-bottom: 3rem; }
+    .cc-h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; }
+    .cc-h2 .ital { font-style: italic; font-weight: 400; }
+    .connect { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: var(--maxw); margin: 0 auto; }
+    .connect-col {
+      display: block; padding: 2.6rem 2rem; border: 1px solid var(--line); border-radius: 6px;
+      text-align: center; background: rgba(8, 9, 12, 0.35); transition: all 0.3s;
+    }
+    .connect-col:hover { border-color: var(--accent); transform: translateY(-4px); background: rgba(8, 9, 12, 0.6); }
+    .ci { width: 30px; height: 30px; fill: var(--accent); margin: 0 auto 1.1rem; display: block; }
+    .connect-col h3 { font-family: var(--font-display); font-size: 1.55rem; margin-bottom: 0.4rem; }
+    .connect-col p { color: var(--muted-text); margin: 0 0 1.4rem; }
+    .cc-link { color: var(--accent); font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s; }
+    .connect-col:hover .cc-link { color: var(--accent-soft); }
+    @media (max-width: 820px) { .connect { grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+</section>

@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+
+// Pull the DJ roster from the content collection, ordered by the `order` field.
+const djs = (await getCollection('djs')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
+);
+---
+
+<Noir
+  title="Best Djs in South Florida"
+  description="Meet the Avinu DJs — a diverse lineup spanning World sounds, R&B, Hip Hop, Latin and Top 40s. Curate the perfect soundtrack for your wedding, corporate event or celebration in South Florida."
+>
+  <!-- COMPACT PAGE HEADER -->
+  <section class="page-head">
+    <p class="eyebrow" data-reveal>Meet the Avinu DJ's</p>
+    <h1 data-reveal>Best Djs in South Florida</h1>
+    <p class="lede" data-reveal>
+      Dive into the world of Avinu DJs, where music transcends boundaries. Discover a diverse lineup
+      of talented DJs, each with their unique specialties ranging from World sounds, R&B, Hip Hop, to
+      Latin beats. Whether you're seeking the multicultural rhythms of DJ Levine, the upbeat &amp;
+      high energy of DJ Joseph's Remixes or the electrifying Top 40's mixes of DJ Trey, Avinu DJs
+      cater to every musical palate. Connect with them and curate the perfect soundtrack for your
+      event in South Florida.
+    </p>
+  </section>
+
+  <!-- ROSTER GRID -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Meet the roster</p>
+      <h2>Our DJs</h2>
+    </header>
+    <div class="dj-grid" data-reveal-group>
+      {djs.map((dj) => (
+        <a class="dj-card" href={`/best-djs-in-south-florida/${dj.id}/`}>
+          <div class="dj-img" style={`background-image:url('${dj.data.photo}')`}></div>
+          <div class="dj-body">
+            <h3>{dj.data.title}</h3>
+            {dj.data.role && <p class="dj-role">{dj.data.role}</p>}
+            {dj.data.specialties && (
+              <p class="dj-spec">{dj.data.specialties.join(' · ')}</p>
+            )}
+            <span class="link-arrow">View profile</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    /* COMPACT PAGE HEADER */
+    .page-head { max-width: 60rem; margin: 0 auto; padding: 6rem 1.5rem 2rem; text-align: center; }
+    .page-head h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); margin: 1rem 0; }
+    .page-head .lede { color: var(--muted-text); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 44rem; margin: 0 auto; }
+
+    /* SECTION SHELL — mirrors the homepage band system */
+    .band { padding: 5rem 1.5rem 6rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; }
+
+    /* DJ GRID */
+    .dj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .dj-card {
+      display: flex; flex-direction: column; overflow: hidden; border-radius: 18px;
+      border: 1px solid var(--line); background: #ffffff05;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .dj-card:hover {
+      border-color: var(--line-gold); transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
+    }
+    .dj-img {
+      aspect-ratio: 4 / 5; background-size: cover; background-position: center top;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dj-card:hover .dj-img { transform: scale(1.05); }
+    .dj-body { padding: 1.5rem 1.5rem 1.7rem; }
+    .dj-body h3 { font-family: var(--font-display); font-size: 1.5rem; }
+    .dj-role { color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; margin: 0.4rem 0 0.7rem; }
+    .dj-spec { color: var(--muted-text); font-size: 0.92rem; margin: 0 0 1.1rem; }
+
+    /* CLOSING CTA */
+    .cta-band { text-align: center; }
+    .cta-inner h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin: 0.6rem 0 0.8rem; }
+    .cta-sub { color: var(--muted-text); margin: 0 auto 2rem; max-width: 34rem; }
+
+    @media (max-width: 860px) {
+      .dj-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .dj-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

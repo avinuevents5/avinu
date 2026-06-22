@@ -1,0 +1,399 @@
+---
+// MODERN MIAMI NOIR — dark, cinematic, contemporary layout for the /v1 prototype.
+// Cool midnight palette, gold-only metal accent, Miami-skyline motif, minimal grain.
+// Reuses the official avinuevents.com nav, social icons, favicon and white wordmark.
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  robots?: string;
+}
+
+const {
+  title,
+  description = '',
+  canonical = Astro.url.href,
+  robots = 'index, follow',
+} = Astro.props;
+
+const siteName = 'Avinu Music & Productions';
+const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
+const year = new Date().getFullYear();
+
+// Navigation mirrors the official avinuevents.com menu: Event Services / Venues / Contact us.
+const nav = [
+  {
+    label: 'Event Services', href: '/services/', children: [
+      { label: "DJ's", href: '/best-djs-in-south-florida/' },
+      { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+      { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+      { label: 'Videographers', href: '/photography-and-videography/' },
+      { label: 'Screens and LED Walls', href: '/led-pannels/' },
+      { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+    ],
+  },
+  { label: 'Venues', href: '/venues/' },
+];
+
+const LOGO = '/img/avinu-white.png';
+const ICON = '/wp-content/uploads/2023/06/icon-gold-avinu-scaled.jpg';
+const PHONE = '+1 754-547-4415';
+
+const social = [
+  { label: 'Instagram', href: 'https://www.instagram.com/avinuevents/', svg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>' },
+  { label: 'Facebook', href: 'https://www.facebook.com/avinumusic/', svg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@avinumusicevents', svg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@avinuevents', svg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.08-.14 1.62.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>' },
+];
+
+// Faint film-grain overlay — inline SVG feTurbulence as a data-URI. Modern = clean, so this is
+// rendered at a barely-there opacity (≈0.025); just enough to avoid a flat digital sheen.
+const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#08090c" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/jpeg" href={ICON} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <!-- FILM-GRAIN OVERLAY -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- UTILITY TOP BAR -->
+    <div class="topbar">
+      <a class="tb-phone" href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}>Call us · {PHONE}</a>
+      <div class="tb-social">
+        {social.map((s) => <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} set:html={s.svg}></a>)}
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="Avinu Events — Home">
+        <img class="logo-img" src={LOGO} alt="Avinu Events" width="661" height="295" />
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+      <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          {nav.map((item) => (
+            <li class={item.children ? 'has-sub' : ''}>
+              <a href={item.href}>{item.label}{item.children && <i class="caret">▾</i>}</a>
+              {item.children && (
+                <ul class="sub">
+                  {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+          <li class="nav-cta"><a class="btn-primary" href="/get-a-quote/">Contact us</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-scrim" aria-hidden="true"></label>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="site-footer">
+      <!-- PLACEHOLDER skyline — swap for client's real Miami skyline photo -->
+      <div class="foot-skyline" aria-hidden="true">
+        <svg viewBox="0 0 1440 160" preserveAspectRatio="xMidYMax slice" role="presentation">
+          <g class="sk-towers">
+            <rect x="0"    y="118" width="64"  height="42"/>
+            <rect x="70"   y="96"  width="48"  height="64"/>
+            <rect x="124"  y="108" width="40"  height="52"/>
+            <rect x="170"  y="70"  width="34"  height="90"/>
+            <rect x="210"  y="86"  width="56"  height="74"/>
+            <rect x="272"  y="112" width="44"  height="48"/>
+            <rect x="322"  y="58"  width="30"  height="102"/>
+            <rect x="358"  y="92"  width="50"  height="68"/>
+            <rect x="414"  y="104" width="38"  height="56"/>
+            <rect x="458"  y="44"  width="26"  height="116"/>
+            <rect x="490"  y="80"  width="58"  height="80"/>
+            <rect x="554"  y="100" width="42"  height="60"/>
+            <rect x="602"  y="64"  width="32"  height="96"/>
+            <rect x="640"  y="30"  width="22"  height="130"/>
+            <rect x="668"  y="84"  width="54"  height="76"/>
+            <rect x="728"  y="110" width="40"  height="50"/>
+            <rect x="774"  y="72"  width="36"  height="88"/>
+            <rect x="816"  y="50"  width="24"  height="110"/>
+            <rect x="846"  y="90"  width="56"  height="70"/>
+            <rect x="908"  y="106" width="44"  height="54"/>
+            <rect x="958"  y="66"  width="30"  height="94"/>
+            <rect x="994"  y="88"  width="52"  height="72"/>
+            <rect x="1052" y="112" width="40"  height="48"/>
+            <rect x="1098" y="54"  width="28"  height="106"/>
+            <rect x="1132" y="82"  width="58"  height="78"/>
+            <rect x="1196" y="100" width="44"  height="60"/>
+            <rect x="1246" y="74"  width="34"  height="86"/>
+            <rect x="1286" y="96"  width="50"  height="64"/>
+            <rect x="1342" y="116" width="46"  height="44"/>
+            <rect x="1394" y="90"  width="46"  height="70"/>
+          </g>
+          <g class="sk-lights">
+            <circle cx="184" cy="92"  r="1.4"/><circle cx="196" cy="110" r="1.4"/>
+            <circle cx="332" cy="78"  r="1.4"/><circle cx="466" cy="66"  r="1.4"/>
+            <circle cx="649" cy="52"  r="1.4"/><circle cx="651" cy="84"  r="1.4"/>
+            <circle cx="826" cy="72"  r="1.4"/><circle cx="970" cy="86"  r="1.4"/>
+            <circle cx="1108" cy="74" r="1.4"/><circle cx="1258" cy="96" r="1.4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="foot-inner">
+        <a href="/" class="foot-brand"><img src={LOGO} alt="Avinu Events" width="661" height="295" /></a>
+        <p class="foot-tag">South Florida's premier event production company — since 2012.</p>
+        <div class="foot-social">
+          {social.map((s) => <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} set:html={s.svg}></a>)}
+        </div>
+        <p class="foot-meta">
+          <a href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}>{PHONE}</a> · &copy; {year} Avinu Music &amp; Productions
+        </p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Failsafe: ensure every scroll-reveal element becomes visible even if the
+      // animation module fails to load, motion is reduced, or the page is rendered
+      // without scrolling (e.g. full-page screenshot tools, crawlers).
+      setTimeout(function () {
+        document.querySelectorAll('[data-reveal],[data-reveal-group] > *,.hero-content > *').forEach(function (el) {
+          if (getComputedStyle(el).opacity === '0') { el.style.opacity = '1'; el.style.transform = 'none'; }
+        });
+      }, 1500);
+    </script>
+
+    <style is:global define:vars={{ grain }}>
+      :root {
+        /* MODERN MIAMI NOIR — cool midnight palette, gold as the only metal accent. */
+        --bg: #08090c;           /* deep near-black base */
+        --bg-2: #0a0e16;         /* cool midnight depth */
+        --midnight: #0b1018;     /* alternating section band (was wine) */
+        --midnight-deep: #080b12;/* deepest midnight, footer/nav */
+        --fg: #f4efe6;           /* ivory text */
+        --muted-text: #8c93a3;   /* cool muted grey-blue */
+        --accent: #c9a24b;       /* refined gold */
+        --accent-soft: #e3c889;  /* soft gold */
+        --line: #ffffff14;
+        --line-gold: rgba(201, 162, 75, 0.30);
+        --font-display: 'Fraunces', Georgia, serif;
+        --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+        --maxw: 1240px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0; background: var(--bg); color: var(--fg);
+        font-family: var(--font-body); line-height: 1.65;
+        -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; line-height: 1.03; letter-spacing: -0.015em; margin: 0; }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      ::selection { background: rgba(201, 162, 75, 0.28); color: var(--accent-soft); }
+
+      .eyebrow {
+        text-transform: uppercase; letter-spacing: 0.34em; font-size: 0.7rem;
+        font-weight: 600; color: var(--accent); font-family: var(--font-body);
+      }
+
+      /* FILM GRAIN — barely-there, static (modern, clean) */
+      .grain {
+        position: fixed; inset: 0; width: 100%; height: 100%;
+        background-image: var(--grain); background-repeat: repeat;
+        pointer-events: none; z-index: 9999; opacity: 0.025; mix-blend-mode: overlay;
+      }
+
+      /* TOP UTILITY BAR */
+      .topbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.55rem 2rem; background: var(--midnight-deep); border-bottom: 1px solid var(--line);
+        position: relative; z-index: 60;
+      }
+      .tb-phone { color: var(--muted-text); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s; }
+      .tb-phone:hover { color: var(--accent); }
+      .tb-social { display: flex; gap: 1rem; }
+      .tb-social a { color: var(--muted-text); display: inline-flex; transition: color 0.2s, transform 0.2s; }
+      .tb-social a:hover { color: var(--accent); transform: translateY(-1px); }
+      .tb-social svg { width: 16px; height: 16px; fill: currentColor; display: block; }
+
+      /* HEADER */
+      .site-header {
+        position: sticky; top: 0; z-index: 50;
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        padding: 0.9rem 2rem;
+        background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+      }
+      .brand { display: inline-flex; align-items: center; }
+      .logo-img { height: 46px; width: auto; }
+
+      .main-nav .nav-list { display: flex; gap: 1.6rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+      .nav-list > li { position: relative; }
+      .nav-list > li:not(.nav-cta) > a {
+        color: var(--muted-text); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.5rem 0; transition: color 0.25s;
+      }
+      .nav-list > li:not(.nav-cta) > a:hover { color: var(--fg); }
+      .caret { font-style: normal; font-size: 0.62rem; opacity: 0.7; transition: transform 0.25s; }
+      .has-sub:hover .caret { transform: rotate(180deg); }
+
+      .sub {
+        position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+        min-width: 240px; list-style: none; margin: 0; padding: 0.55rem;
+        background: rgba(10, 14, 22, 0.98); backdrop-filter: blur(18px);
+        border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 12px;
+        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6);
+        opacity: 0; visibility: hidden; transition: all 0.22s ease;
+      }
+      .has-sub:hover .sub, .has-sub:focus-within .sub { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
+      .sub li a { display: block; padding: 0.55rem 0.9rem; border-radius: 8px; color: var(--muted-text); font-size: 0.88rem; white-space: nowrap; transition: all 0.2s; }
+      .sub li a:hover { background: #ffffff0d; color: var(--accent); }
+
+      /* ═══════════════════════════════════════════════════════════════════
+         UNIFIED CTA SYSTEM — single source of truth (shared by layout + pages)
+         Three tiers only: .btn-primary (solid gold pill) / .btn-ghost (outline)
+         / .link-arrow (small uppercase gold text link with trailing arrow).
+         ═══════════════════════════════════════════════════════════════════ */
+
+      /* TIER 1 — PRIMARY: solid gold pill.
+         Header "Contact us", hero "Get a Quote", Connect primary actions. */
+      .btn-primary {
+        display: inline-block; white-space: nowrap;
+        background: linear-gradient(135deg, #f1d480 0%, #c9a24b 55%, #a8842f 100%);
+        color: #1a1206;
+        padding: 0.7rem 1.6rem; border-radius: 999px;
+        font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.01em;
+        box-shadow: 0 6px 22px rgba(201, 162, 75, 0.3);
+        transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px); filter: brightness(1.05);
+        box-shadow: 0 10px 30px rgba(201, 162, 75, 0.48);
+      }
+
+      /* TIER 2 — SECONDARY: ghost / outline. Equal-weight alternative actions. */
+      .btn-ghost {
+        display: inline-block; white-space: nowrap;
+        background: transparent; color: var(--fg);
+        padding: 0.7rem 1.6rem; border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.01em;
+        transition: border-color 0.25s, color 0.25s, transform 0.2s;
+      }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+      /* TIER 3 — TEXT LINK: small uppercase gold link with trailing arrow.
+         All inline navigational links. Arrow supplied via ::after (no markup needed). */
+      .link-arrow {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        color: var(--accent); font-family: var(--font-body); font-weight: 600;
+        font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+        transition: color 0.25s, filter 0.25s;
+      }
+      .link-arrow::after { content: '→'; display: inline-block; transition: transform 0.3s ease; }
+      .link-arrow:hover { filter: brightness(1.15); color: var(--accent-soft); }
+      .link-arrow:hover::after { transform: translateX(5px); }
+
+      .nav-burger { display: none; }
+      .nav-scrim { display: none; }
+
+      @media (max-width: 980px) {
+        .topbar { padding: 0.5rem 1.1rem; }
+        .tb-phone { font-size: 0.66rem; letter-spacing: 0.1em; }
+        .site-header { padding: 0.8rem 1.1rem; }
+        .nav-burger {
+          display: flex; flex-direction: column; justify-content: center; gap: 5px;
+          width: 30px; height: 30px; cursor: pointer; z-index: 60;
+        }
+        .nav-burger span { height: 2px; width: 100%; background: var(--fg); border-radius: 2px; transition: all 0.3s ease; }
+        #nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        #nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+        #nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .main-nav {
+          position: fixed; top: 0; right: 0; bottom: 0; width: min(86vw, 360px);
+          background: var(--midnight-deep); border-left: 1px solid var(--line-gold);
+          transform: translateX(100%); visibility: hidden;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+          padding: 5.5rem 1.6rem 2rem; overflow-y: auto; z-index: 55;
+        }
+        #nav-toggle:checked ~ .main-nav { transform: translateX(0); visibility: visible; }
+        #nav-toggle:checked ~ .nav-scrim { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 54; }
+
+        .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
+        .nav-list > li:not(.nav-cta) > a { padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
+        .has-sub .caret { display: none; }
+        .sub {
+          position: static; transform: none; opacity: 1; visibility: visible;
+          box-shadow: none; background: transparent; border: none; border-top: none; min-width: 0;
+          padding: 0.3rem 0 0.6rem 0.9rem;
+        }
+        .sub li a { padding: 0.4rem 0; }
+        .nav-cta { margin-top: 1rem; }
+        .nav-cta .btn-primary { display: block; text-align: center; }
+      }
+
+      @media (max-width: 480px) {
+        .tb-phone { display: none; }
+        .topbar { justify-content: center; }
+      }
+
+      main { min-height: 60vh; }
+
+      /* FOOTER */
+      .site-footer {
+        position: relative; overflow: hidden;
+        border-top: 1px solid var(--line-gold);
+        background: linear-gradient(180deg, var(--midnight) 0%, var(--midnight-deep) 100%);
+        padding: 5rem 1.5rem 4rem;
+      }
+      /* Subtle Miami-skyline strip across the footer backdrop. */
+      .foot-skyline {
+        position: absolute; left: 0; right: 0; bottom: 0; height: 160px;
+        pointer-events: none; opacity: 0.5;
+        mask-image: linear-gradient(180deg, transparent 0%, #000 55%);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 55%);
+      }
+      .foot-skyline svg { width: 100%; height: 100%; display: block; }
+      .foot-skyline .sk-towers rect { fill: #11192a; }
+      .foot-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.7; }
+      .foot-inner { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; text-align: center; }
+      .foot-brand img { height: 60px; width: auto; margin: 0 auto; }
+      .foot-tag { color: var(--muted-text); margin: 1.3rem 0 1.6rem; font-family: var(--font-display); font-size: 1.05rem; }
+      .foot-social { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.6rem; }
+      .foot-social a { color: var(--muted-text); display: inline-flex; transition: color 0.25s, transform 0.2s; }
+      .foot-social a:hover { color: var(--accent); transform: translateY(-2px); }
+      .foot-social svg { width: 20px; height: 20px; fill: currentColor; display: block; }
+      .foot-meta { color: var(--muted-text); font-size: 0.82rem; letter-spacing: 0.04em; }
+      .foot-meta a:hover { color: var(--accent); }
+    </style>
+  </body>
+</html>

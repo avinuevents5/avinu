@@ -1,0 +1,122 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { phone } from '../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+const hero = '/wp-content/uploads/2019/01/cf1b8cdf-715f-47fb-845f-44c6daafedfb.jpg';
+
+const offering = [
+  { label: "DJ's", href: '/best-djs-in-south-florida/' },
+  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+  { label: 'Videographers', href: '/photography-and-videography/' },
+  { label: 'Screens & LED Walls', href: '/led-pannels/' },
+  { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+];
+---
+
+<Noir
+  title="About"
+  description="Our name — Levine — comes from the Hebrew word for heart, because that's the core principle that drives everything we do: we bring the heartfelt passion needed to capture the essence of your occasion, and bring it to life."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">About us</p>
+    <h1 class="head-h1">About <span class="ital">Us</span></h1>
+    <p class="head-sub">Our name — Levine — comes from the Hebrew word for heart, because that's the core principle that drives everything we do.</p>
+  </section>
+
+  <!-- ░░ FEATURE ░░ -->
+  <section class="feature">
+    <div class="feature-grid">
+      <div class="feature-media" data-reveal>
+        <div class="feature-img" style={`background-image:url('${hero}')`}></div>
+      </div>
+      <div class="feature-copy" data-reveal>
+        <p class="eyebrow">Our philosophy</p>
+        <p class="lead">We bring the heartfelt passion needed to capture the essence of your occasion — and bring it to life.</p>
+        <p class="note">
+          The same commitment and dedication guides each step of our process. The rest is up to you:
+          choose from our body of DJ's, live bands, lighting and special touches to personalize your
+          event, so that it precisely matches your vision.
+        </p>
+        <p class="note">
+          Our team is here to help you every step of the way, supporting you in the planning process —
+          no matter how big or small your event.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ WHAT WE OFFER ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Personalize your event</p>
+      <h2 class="band-h2">Choose from our <span class="ital">body of talent</span></h2>
+    </header>
+    <div class="pill-row" data-reveal-group>
+      {offering.map((o) => (
+        <a class="pill" href={o.href}><span class="pill-dot"></span>{o.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 42rem; margin: 1.6rem auto 0; }
+
+    .feature { padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .feature-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .feature-img { aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 6px; }
+    .feature-copy .eyebrow { display: block; margin-bottom: 0.9rem; }
+    .lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.35; color: var(--fg); margin: 0 0 1.6rem; }
+    .note { color: var(--muted-text); font-size: 0.98rem; margin: 0 0 1.2rem; }
+
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head .eyebrow { display: block; }
+    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
+
+    .pill-row { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+    .pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.6rem; border: 1px solid var(--line); border-radius: 999px; font-family: var(--font-display); font-size: 1.15rem; transition: all 0.25s; }
+    .pill:hover { border-color: var(--accent); color: var(--accent-soft); transform: translateY(-3px); }
+    .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    .cta-band { text-align: center; }
+    .cta-inner { max-width: 44rem; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [34, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
+          { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

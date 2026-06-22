@@ -1,0 +1,114 @@
+---
+import Noir from '../../../layouts/Noir.astro';
+import ConnectCTA from '../../../components/ConnectCTA.astro';
+import VideoGallery from '../../../components/VideoGallery.astro';
+
+const U = '/wp-content/uploads';
+const hero = `${U}/2018/12/photobooth.jpg`;
+
+// Copy from miamiphotobooth.md (Photobooth Open Air). Strip images live in 2020/11 (full size).
+const features = [
+  'All photobooth packages include a host to ensure a smooth experience.',
+  'The props for your event are crafted and carefully selected by our team, to maximize your experience.',
+  'The design of your strips includes your names or your logo, designed by a team of experts in the field.',
+  'Every event includes a 1-2 hour early arrival, setup, takedown, delivery and pick up.',
+];
+
+const strips = [
+  { src: `${U}/2020/11/Aneesha-george-final-booth-strip.jpg`, alt: 'Event photobooth strip' },
+  { src: `${U}/2020/11/alex-Mimssry-photobooth-strip.jpg`, alt: 'Photobooth strip' },
+  { src: `${U}/2020/11/beth-mitzvah-photobooth-strip-final.jpg`, alt: 'Bar mitzvah photobooth strip' },
+];
+---
+
+<Noir
+  title="Photo Booth"
+  description="Open-air photobooth in Miami with unlimited prints, custom-designed strips, curated props, physical sign-in albums and an on-site host. By Avinu Music & Productions."
+>
+  <!-- ░░ HERO IMAGE HEADER ░░ -->
+  <section class="detail-hero" style={`background-image:url('${hero}')`}>
+    <div class="dh-scrim"></div>
+    <div class="dh-content">
+      <p class="eyebrow">Full Production · Photo Booth</p>
+      <h1>Photobooth Open Air</h1>
+    </div>
+  </section>
+
+  <!-- ░░ INTRO + FEATURES ░░ -->
+  <section class="band">
+    <p class="intro-lead" data-reveal>
+      The Photobooth Open Air offers a variety of features: unlimited prints, physical albums for
+      your guests to sign, and a digital platform full of excitement.
+    </p>
+    <ul class="feature-list" data-reveal-group>
+      {features.map((f) => (
+        <li><span class="dot"></span>{f}</li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ░░ STRIP GALLERY ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal><p class="eyebrow">Custom strips</p><h2>Designed around you</h2></header>
+    <div class="strips" data-reveal-group>
+      {strips.map((s) => (
+        <div class="strip-cell"><img src={s.src} alt={s.alt} loading="lazy" /></div>
+      ))}
+    </div>
+  </section>
+
+  <VideoGallery videos={['cOKatwkcFdg']} />
+
+  <ConnectCTA />
+
+  <style>
+    .detail-hero { position: relative; min-height: 56vh; display: flex; align-items: flex-end; background-size: cover; background-position: center; }
+    .dh-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,9,12,0.95) 0%, rgba(8,9,12,0.45) 55%, rgba(8,9,12,0.55) 100%); }
+    .dh-content { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 3rem 1.5rem 3.5rem; }
+    .dh-content h1 { font-size: clamp(2.4rem, 7vw, 5rem); margin: 0.8rem 0 0; }
+    .dh-sub { color: #d8d1c4; font-size: clamp(1rem, 2vw, 1.25rem); max-width: 42rem; margin: 1.2rem 0 0; }
+
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; }
+    .intro-lead { font-family: var(--font-display); font-size: clamp(1.35rem, 2.8vw, 2rem); line-height: 1.4; text-align: center; max-width: 48rem; }
+
+    .feature-list { list-style: none; padding: 0; margin: 2.5rem auto 0; max-width: 44rem; display: grid; gap: 1rem; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 0.85rem; color: var(--muted-text); font-size: 1.05rem; }
+    .feature-list .dot { margin-top: 0.6rem; flex: none; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    .strips { display: grid; grid-template-columns: repeat(3, max-content); gap: 1.5rem; justify-content: center; }
+    .strip-cell { border-radius: 12px; overflow: hidden; background: #ffffff08; padding: 0.6rem; border: 1px solid var(--line); }
+    .strip-cell img { height: 420px; width: auto; display: block; border-radius: 8px; }
+
+    @media (max-width: 720px) {
+      .strips { grid-template-columns: 1fr 1fr; }
+      .strip-cell img { height: 320px; }
+    }
+    @media (max-width: 460px) {
+      .strips { grid-template-columns: 1fr; }
+      .strip-cell img { height: auto; width: 100%; max-width: 220px; margin: 0 auto; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.09), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

@@ -1,0 +1,43 @@
+---
+// Reusable "Videos" section — YouTube (nocookie) embeds. Pass an array of video IDs.
+export interface Props { videos?: string[]; heading?: string }
+const { videos = [], heading = 'Videos' } = Astro.props;
+---
+
+{videos.length > 0 && (
+  <section class="band video-gallery">
+    <header class="vg-head" data-reveal>
+      <p class="eyebrow">Watch</p>
+      <h2>{heading}</h2>
+    </header>
+    <div class={`vg-grid ${videos.length === 1 ? 'one' : ''}`} data-reveal-group>
+      {videos.map((v) => (
+        <div class="vg-item">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${v}`}
+            title="Avinu Music & Productions video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      ))}
+    </div>
+
+    <style>
+      .video-gallery { padding: 5rem 1.5rem; }
+      .vg-head { text-align: center; margin-bottom: 3rem; max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+      .vg-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 0.5rem; }
+      .vg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; max-width: var(--maxw); margin: 0 auto; }
+      .vg-grid.one { max-width: 880px; }
+      .vg-item { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+      .vg-item iframe { width: 100%; height: 100%; border: 0; display: block; }
+      @media (max-width: 520px) { .vg-grid { grid-template-columns: 1fr; } }
+
+      @media (prefers-reduced-motion: no-preference) {
+        :global(html.js) [data-reveal],
+        :global(html.js) [data-reveal-group] > * { opacity: 0; }
+      }
+    </style>
+  </section>
+)}

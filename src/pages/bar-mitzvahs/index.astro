@@ -1,0 +1,157 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { phone } from '../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+const hero = '/wp-content/uploads/2018/12/207178-OZGPQL-189-min.jpg';
+
+const services = [
+  { label: "DJ's & MC's", href: '/best-djs-in-south-florida/' },
+  { label: 'Dancers', href: '/best-djs-in-south-florida/' },
+  { label: 'Photobooths', href: '/photography-and-videography/' },
+  { label: 'Graffiti & Caricature Artists', href: '/services/' },
+  { label: 'LED Walls, Panels & LED Dance Floors', href: '/led-pannels/' },
+  { label: 'Special Effects, LED Robots & Projector Screens', href: '/wedding-lighting-in-south-florida/' },
+];
+
+const highlights = [
+  { label: "DJ's", href: '/best-djs-in-south-florida/' },
+  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+  { label: 'Videographers', href: '/photography-and-videography/' },
+  { label: 'Screens & LED Walls', href: '/led-pannels/' },
+  { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+  { label: 'Venues', href: '/venues/' },
+];
+---
+
+<Noir
+  title="Mitzvahs"
+  description="Bar & bat mitzvah production in South Florida — DJs, MCs, dancers, photobooths, LED walls, LED dance floors and special effects. From traditional to modern reform, customized to perfection."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Mitzvahs · South Florida</p>
+    <h1 class="head-h1">Bat &amp; Bar <span class="ital">Mitzvahs</span></h1>
+    <p class="head-sub">Mazal tov! An innovative approach to celebrating your special simcha — high energy, in a safe environment of excitement.</p>
+  </section>
+
+  <!-- ░░ FEATURE ░░ -->
+  <section class="feature">
+    <div class="feature-grid">
+      <div class="feature-media" data-reveal>
+        <div class="feature-img" style={`background-image:url('${hero}')`}></div>
+      </div>
+      <div class="feature-copy" data-reveal>
+        <p class="eyebrow">Experience</p>
+        <p class="lead">After hosting hundreds of b'nai mitzvot, we've discovered what works and what doesn't.</p>
+        <p class="note">
+          From traditional ultra-orthodox to modern reform, we are committed to delivering an amazing
+          experience. Each event is customized to perfection, with a full staff of event planners and
+          producers — and we're proud to have created unforgettable celebrations for the many Chabads
+          of the state and every Jewish venue in town.
+        </p>
+        <p class="signoff">Call now for a free consultation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ POPULAR MITZVAH SERVICES ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Most popular</p>
+      <h2 class="band-h2">Our most popular mitzvah <span class="ital">services</span></h2>
+    </header>
+    <div class="hl-grid" data-reveal-group>
+      {services.map((s) => (
+        <a class="hl-card" href={s.href}>
+          <h3 class="hl-title">{s.label}</h3>
+          <span class="link-arrow">Explore</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ HIGHLIGHTS LINK ROW ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Explore</p>
+      <h2 class="band-h2">Mitzvahs <span class="ital">Highlights</span></h2>
+    </header>
+    <div class="pill-row" data-reveal-group>
+      {highlights.map((h) => (
+        <a class="pill" href={h.href}><span class="pill-dot"></span>{h.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 40rem; margin: 1.6rem auto 0; }
+
+    .feature { padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .feature-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .feature-img { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: 6px; }
+    .feature-copy .eyebrow { display: block; margin-bottom: 0.9rem; }
+    .lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.35; color: var(--fg); margin: 0 0 1.6rem; }
+    .note { color: var(--muted-text); font-size: 0.98rem; margin: 0 0 1.4rem; }
+    .signoff { font-family: var(--font-display); font-style: italic; color: var(--accent-soft); font-size: 1.15rem; }
+
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head .eyebrow { display: block; }
+    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
+
+    .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: rgba(8,9,12,0.35); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
+    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .hl-title { font-size: 1.45rem; margin-bottom: 0.5rem; }
+    .hl-desc { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; flex: 1; }
+
+    .pill-row { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+    .pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.6rem; border: 1px solid var(--line); border-radius: 999px; font-family: var(--font-display); font-size: 1.15rem; transition: all 0.25s; }
+    .pill:hover { border-color: var(--accent); color: var(--accent-soft); transform: translateY(-3px); }
+    .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    .cta-band { text-align: center; }
+    .cta-inner { max-width: 44rem; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .hl-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .hl-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [34, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
+          { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

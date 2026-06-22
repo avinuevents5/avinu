@@ -1,0 +1,170 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+
+const U = '/wp-content/uploads';
+
+// Full production services hub. Copy drawn from services-2 + other-services content-inventory.
+// Each card links to a detail page below (or to the existing talent pages for entertainment).
+const services = [
+  {
+    name: 'LED Walls',
+    href: '/led-pannels/',
+    img: `${U}/2025/05/photography-with-natural.jpg`,
+    desc: 'Cinematic LED backdrops and screens that transform any room with vibrant, immersive visuals.',
+  },
+  {
+    name: 'Lighting',
+    href: '/wedding-lighting-in-south-florida/',
+    img: `${U}/2025/05/tyle-is-candid-image.jpg`,
+    desc: 'Uplighting, intelligent dance lighting, bistro, gobo monograms and full lighting design.',
+  },
+  {
+    name: 'Uplights',
+    href: '/services/uplights/',
+    img: `${U}/2018/12/weddings1.jpg`,
+    desc: 'Wireless color that washes any space and sets the mood the moment guests walk in.',
+  },
+  {
+    name: 'Photo & Video',
+    href: '/photography-and-videography/',
+    img: `${U}/2025/05/videogr.jpg`,
+    desc: 'An in-house team with a decade of weddings, events and commercial production.',
+  },
+  {
+    name: 'Photo Booth',
+    href: '/services/photo-booth/',
+    img: `${U}/2018/12/photobooth.jpg`,
+    desc: 'Open-air photobooth with unlimited prints, custom strips, props and an on-site host.',
+  },
+  {
+    name: 'Luxury Cars',
+    href: '/services/luxury-cars/',
+    img: `${U}/2020/07/lambo-huracan-orange.jpeg`,
+    desc: 'Lamborghini, Corvette and Mercedes for grand entrances and unforgettable arrivals.',
+  },
+  {
+    name: 'VIP Concierge',
+    href: '/services/concierge/',
+    img: `${U}/2018/12/yachts1.jpg`,
+    desc: 'Yacht and jet-ski rentals, private chefs and bespoke experiences on and off the water.',
+  },
+  {
+    name: 'Sound Rental',
+    href: '/get-a-quote/',
+    img: `${U}/2025/05/sound-rental.jpg`,
+    desc: 'Concert-grade audio, scaled precisely to your venue and guest count.',
+  },
+];
+
+// Entertainment talent already lives on its own pages — surface it as a complementary row.
+const talent = [
+  { label: "DJ's", href: '/best-djs-in-south-florida/' },
+  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+];
+---
+
+<Noir
+  title="Entertainment"
+  description="Full event production from Avinu Music & Productions — LED walls, lighting, photo & video, photo booth, luxury cars and VIP concierge for weddings, corporate galas and mitzvahs in South Florida."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-header">
+    <p class="eyebrow">Full Production</p>
+    <h1>Entertainment</h1>
+  </section>
+
+  <!-- ░░ INTRO ░░ -->
+  <section class="band">
+    <p class="intro-lead" data-reveal>
+      Our roster of seasoned DJ's are experts in their field. They know what makes lively and
+      memorable receptions, but more than that, they know how to read a crowd. They channel their
+      expertise into their every move, so that the event flows seamlessly from one section to the next.
+    </p>
+  </section>
+
+  <!-- ░░ SERVICE TILES ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal><p class="eyebrow">Explore</p><h2>What we produce</h2></header>
+    <div class="svc-grid" data-reveal-group>
+      {services.map((s) => (
+        <a class="tile" href={s.href}>
+          <div class="tile-img" style={`background-image:url('${s.img}')`}></div>
+          <div class="tile-body">
+            <span class="tile-name">{s.name}</span>
+            <p class="tile-desc">{s.desc}</p>
+            <span class="link-arrow">View</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ ENTERTAINMENT ░░ -->
+  <section class="band">
+    <header class="band-head" data-reveal><p class="eyebrow">On stage</p><h2>Other Services</h2></header>
+    <p class="intro-lead" data-reveal>
+      Our open air photobooth experience captures the memories of your wedding, bar mitzvah, or
+      birthday in real time — each glance will bring back the energy and excitement of the event.
+    </p>
+    <div class="talent-row" data-reveal-group>
+      {talent.map((t) => (
+        <a class="talent-pill" href={t.href}><span class="dot"></span>{t.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    /* PAGE HEADER — compact, never the video hero */
+    .page-header { max-width: var(--maxw); margin: 0 auto; padding: 6rem 1.5rem 2rem; text-align: center; }
+    .page-header h1 { font-size: clamp(2.6rem, 7vw, 5rem); margin: 1rem 0 0; }
+    .ph-sub { color: var(--muted-text); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 42rem; margin: 1.4rem auto 0; }
+
+    .band { padding: 5rem 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .band.midnight { background: var(--midnight); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; }
+    .intro-lead { font-family: var(--font-display); font-size: clamp(1.25rem, 2.6vw, 1.8rem); line-height: 1.45; text-align: center; max-width: 46rem; }
+
+    /* SERVICE TILES */
+    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #ffffff05; transition: border-color 0.25s, transform 0.25s; }
+    .tile:hover { border-color: var(--line-gold); transform: translateY(-4px); }
+    .tile-img { aspect-ratio: 4 / 3; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .tile:hover .tile-img { transform: scale(1.05); }
+    .tile-body { padding: 1.4rem 1.3rem 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+    .tile-name { font-family: var(--font-display); font-size: 1.35rem; }
+    .tile-desc { color: var(--muted-text); font-size: 0.92rem; margin: 0; flex: 1; }
+
+    /* ENTERTAINMENT */
+    .talent-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+    .talent-pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.8rem; border: 1px solid var(--line); border-radius: 999px; font-family: var(--font-display); font-size: 1.2rem; transition: all 0.25s; }
+    .talent-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    @media (max-width: 980px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .svc-grid { grid-template-columns: 1fr; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [30, 0] },
+          { delay: stagger(0.08), duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

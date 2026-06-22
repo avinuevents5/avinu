@@ -1,0 +1,135 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import ConnectCTA from '../../components/ConnectCTA.astro';
+import { phone } from '../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+const hero = '/wp-content/uploads/2018/12/private-events1.jpg';
+
+const occasions = ['Birthdays', 'Bachelor Parties', 'Quinces', 'Sweet 16s'];
+
+const highlights = [
+  { label: "DJ's", href: '/best-djs-in-south-florida/' },
+  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
+  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
+  { label: 'Videographers', href: '/photography-and-videography/' },
+  { label: 'Screens & LED Walls', href: '/led-pannels/' },
+  { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+];
+---
+
+<Noir
+  title="Private Events"
+  description="Private event production in South Florida — birthdays, bachelor parties, quinces and sweet 16s. DJs, live musicians, lighting and LED walls, with the personalized attention you deserve."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Private &amp; Social · South Florida</p>
+    <h1 class="head-h1">Private <span class="ital">Events</span></h1>
+    <p class="head-sub">Your one-stop shop for an outstanding event — no matter the occasion.</p>
+  </section>
+
+  <!-- ░░ FEATURE ░░ -->
+  <section class="feature">
+    <div class="feature-grid">
+      <div class="feature-media" data-reveal>
+        <div class="feature-img" style={`background-image:url('${hero}')`}></div>
+      </div>
+      <div class="feature-copy" data-reveal>
+        <p class="eyebrow">Made for the moment</p>
+        <p class="lead">Each event must be as unique as the person being celebrated.</p>
+        <p class="note">
+          From years of experience, our approach is to work with you — giving you the personalized
+          attention you deserve so that your event reflects your personal vision, and even exceeds
+          your expectations.
+        </p>
+        <p class="proud-label">We produce</p>
+        <ul class="occasion-list">
+          {occasions.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ HIGHLIGHTS ░░ -->
+  <section class="band midnight">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Explore</p>
+      <h2 class="band-h2">Everything under <span class="ital">one roof</span></h2>
+    </header>
+    <div class="hl-grid" data-reveal-group>
+      {highlights.map((h) => (
+        <a class="hl-card" href={h.href}>
+          <h3 class="hl-title">{h.label}</h3>
+          <span class="link-arrow">Explore</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ConnectCTA />
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 40rem; margin: 1.6rem auto 0; }
+
+    .feature { padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .feature-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .feature-img { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: 6px; }
+    .feature-copy .eyebrow { display: block; margin-bottom: 0.9rem; }
+    .lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.35; color: var(--fg); margin: 0 0 1.6rem; }
+    .note { color: var(--muted-text); font-size: 0.98rem; margin: 0 0 1.8rem; }
+    .proud-label { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.72rem; color: var(--accent); margin: 0 0 0.9rem; font-weight: 600; }
+    .occasion-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .occasion-list li { padding: 0.45rem 1rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.85rem; color: #c4cbd8; }
+
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+    .band-head { text-align: center; margin-bottom: 3rem; }
+    .band-head .eyebrow { display: block; }
+    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
+
+    .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: rgba(8,9,12,0.35); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
+    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .hl-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .hl-desc { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; flex: 1; }
+
+    .cta-band { text-align: center; }
+    .cta-inner { max-width: 44rem; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .hl-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .hl-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal],
+      :global(html.js) [data-reveal-group] > * { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView, stagger } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [34, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+      inView(group, () => {
+        animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
+          { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
+      }, { margin: '0px 0px -10% 0px' });
+    });
+  </script>
+</Noir>

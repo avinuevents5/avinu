@@ -1,0 +1,134 @@
+---
+import Noir from '../../layouts/Noir.astro';
+import { phone, instagram } from '../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+const sideImg = '/wp-content/uploads/2025/05/tyle-is-candid-image.jpg';
+---
+
+<Noir
+  title="Contact us"
+  description="Get a quote for your event from Avinu Music & Productions — South Florida's premier event-production house. DJs, ceremony singers, live musicians, lighting and full production. Call +1 754-547-4415."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Get a quote</p>
+    <h1 class="head-h1">Contact <span class="ital">us</span></h1>
+    <p class="head-sub">Tell us about your event and we'll build a custom proposal around it. Prefer to talk? Call us any time.</p>
+  </section>
+
+  <!-- ░░ QUOTE FORM ░░ -->
+  <section class="quote">
+    <div class="quote-grid">
+      <!-- LEFT: contact rail -->
+      <aside class="quote-aside" data-reveal>
+        <div class="aside-img" style={`background-image:url('${sideImg}')`}></div>
+        <div class="aside-body">
+          <p class="eyebrow">Talk to us</p>
+          <a class="phone-big" href={`tel:${tel}`}>{phone}</a>
+          <p class="aside-note">Available for weddings, corporate galas, mitzvahs and private celebrations across South Florida.</p>
+          <ul class="aside-list">
+            <li>Free, no-obligation consultation</li>
+            <li>Custom proposal tailored to your day</li>
+            <li>A full staff of planners and producers</li>
+          </ul>
+          <a class="link-arrow" href={instagram} target="_blank" rel="noopener">Follow @avinuevents</a>
+        </div>
+      </aside>
+
+      <!-- RIGHT: embedded LeadConnector / Avinu Music quote form -->
+      <div class="quote-form-wrap" data-reveal>
+        <iframe
+          src="https://link.avinumusic.com/widget/form/tG72VUrC94DbFJxXDSEn"
+          id="inline-tG72VUrC94DbFJxXDSEn"
+          class="lc-form"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Avinu — Get a Quote"
+          data-height="700"
+          data-layout-iframe-id="inline-tG72VUrC94DbFJxXDSEn"
+          data-form-id="tG72VUrC94DbFJxXDSEn"
+          title="Avinu — Get a Quote"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- LeadConnector embed script — auto-resizes the form iframe height -->
+  <script is:inline src="https://link.avinumusic.com/js/form_embed.js"></script>
+
+  <!-- ░░ CLOSING CTA ░░ -->
+  <section class="band midnight cta-band">
+    <div class="cta-inner" data-reveal>
+      <p class="eyebrow">Prefer to call?</p>
+      <h2 class="cta-h2">We're here to <span class="ital">help</span></h2>
+      <p class="cta-sub">Reach our team directly and we'll start planning your event today.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href={`tel:${tel}`}>Call {phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 42rem; margin: 1.6rem auto 0; }
+
+    .quote { padding: clamp(1rem, 3vh, 2rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .quote-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: stretch; }
+
+    /* ── ASIDE ── */
+    .quote-aside { border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 8px; overflow: hidden; background: rgba(11,16,24,0.4); display: flex; flex-direction: column; }
+    .aside-img { height: 220px; background-size: cover; background-position: center; }
+    .aside-body { padding: 2rem; display: flex; flex-direction: column; flex: 1; }
+    .aside-body .eyebrow { display: block; margin-bottom: 0.8rem; }
+    .phone-big { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--fg); letter-spacing: -0.02em; transition: color 0.25s; }
+    .phone-big:hover { color: var(--accent-soft); }
+    .aside-note { color: var(--muted-text); font-size: 0.95rem; margin: 1rem 0 1.6rem; }
+    .aside-list { list-style: none; margin: 0 0 1.8rem; padding: 0; display: grid; gap: 0.7rem; }
+    .aside-list li { position: relative; padding-left: 1.5rem; color: #c4cbd8; font-size: 0.92rem; }
+    .aside-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .quote-aside .link-arrow { margin-top: auto; }
+
+    /* ── EMBEDDED FORM ── */
+    .quote-form-wrap { border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .lc-form { width: 100%; min-height: 700px; border: 0; display: block; }
+
+    .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
+    .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
+    .cta-band { text-align: center; }
+    .cta-inner { max-width: 44rem; }
+    .cta-band .eyebrow { display: block; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .quote-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal] { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -10% 0px' });
+  </script>
+</Noir>
