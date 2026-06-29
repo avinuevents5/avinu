@@ -6,9 +6,36 @@ const U = '/wp-content/uploads';
 
 // Full production services hub. Copy drawn from services-2 + other-services content-inventory.
 // Each card links to a detail page below (or to the existing talent pages for entertainment).
+// Mirrors the "Event Services" nav dropdown exactly (see Noir.astro) — same 6, same order.
+// The 4 broken/deferred services (Uplights, Photo Booth, Luxury Cars, VIP Concierge) and
+// Sound Rental were removed because they are not in the nav. Their detail pages still exist.
 const services = [
   {
-    name: 'LED Walls',
+    name: "DJ's",
+    href: '/best-djs-in-south-florida/',
+    img: `${U}/2023/08/levine.jpg`,
+    desc: 'Six resident selectors reading the room all night — open-format sets engineered for a full, fearless dancefloor.',
+  },
+  {
+    name: 'Ceremony Singers',
+    href: '/jewish-ceremony-singer/',
+    img: `${U}/2023/08/anais-new.jpg`,
+    desc: 'Ceremony soloists whose voices carry the weight of the moment — from the chuppah to the first dance.',
+  },
+  {
+    name: 'Musicians',
+    href: '/wedding-musicians-and-band/',
+    img: `${U}/2023/08/mm8.jpg`,
+    desc: 'Strings, brass and keys — soloists and ensembles that lend live texture to ceremony, cocktail hour and beyond.',
+  },
+  {
+    name: 'Videographers',
+    href: '/photography-and-videography/',
+    img: `${U}/2025/05/videogr.jpg`,
+    desc: 'An in-house team with a decade of weddings, events and commercial production.',
+  },
+  {
+    name: 'Screens and LED Walls',
     href: '/led-pannels/',
     img: `${U}/2025/05/photography-with-natural.jpg`,
     desc: 'Cinematic LED backdrops and screens that transform any room with vibrant, immersive visuals.',
@@ -19,49 +46,6 @@ const services = [
     img: `${U}/2025/05/tyle-is-candid-image.jpg`,
     desc: 'Uplighting, intelligent dance lighting, bistro, gobo monograms and full lighting design.',
   },
-  {
-    name: 'Uplights',
-    href: '/services/uplights/',
-    img: `${U}/2018/12/weddings1.jpg`,
-    desc: 'Wireless color that washes any space and sets the mood the moment guests walk in.',
-  },
-  {
-    name: 'Photo & Video',
-    href: '/photography-and-videography/',
-    img: `${U}/2025/05/videogr.jpg`,
-    desc: 'An in-house team with a decade of weddings, events and commercial production.',
-  },
-  {
-    name: 'Photo Booth',
-    href: '/services/photo-booth/',
-    img: `${U}/2018/12/photobooth.jpg`,
-    desc: 'Open-air photobooth with unlimited prints, custom strips, props and an on-site host.',
-  },
-  {
-    name: 'Luxury Cars',
-    href: '/services/luxury-cars/',
-    img: `${U}/2020/07/lambo-huracan-orange.jpeg`,
-    desc: 'Lamborghini, Corvette and Mercedes for grand entrances and unforgettable arrivals.',
-  },
-  {
-    name: 'VIP Concierge',
-    href: '/services/concierge/',
-    img: `${U}/2018/12/yachts1.jpg`,
-    desc: 'Yacht and jet-ski rentals, private chefs and bespoke experiences on and off the water.',
-  },
-  {
-    name: 'Sound Rental',
-    href: '/get-a-quote/',
-    img: `${U}/2025/05/sound-rental.jpg`,
-    desc: 'Concert-grade audio, scaled precisely to your venue and guest count.',
-  },
-];
-
-// Entertainment talent already lives on its own pages — surface it as a complementary row.
-const talent = [
-  { label: "DJ's", href: '/best-djs-in-south-florida/' },
-  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
-  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
 ];
 ---
 
@@ -101,20 +85,6 @@ const talent = [
     </div>
   </section>
 
-  <!-- ░░ ENTERTAINMENT ░░ -->
-  <section class="band">
-    <header class="band-head" data-reveal><p class="eyebrow">On stage</p><h2>Other Services</h2></header>
-    <p class="intro-lead" data-reveal>
-      Our open air photobooth experience captures the memories of your wedding, bar mitzvah, or
-      birthday in real time — each glance will bring back the energy and excitement of the event.
-    </p>
-    <div class="talent-row" data-reveal-group>
-      {talent.map((t) => (
-        <a class="talent-pill" href={t.href}><span class="dot"></span>{t.label}</a>
-      ))}
-    </div>
-  </section>
-
   <ConnectCTA />
 
   <style>
@@ -131,7 +101,7 @@ const talent = [
     .intro-lead { font-family: var(--font-display); font-size: clamp(1.25rem, 2.6vw, 1.8rem); line-height: 1.45; text-align: center; max-width: 46rem; }
 
     /* SERVICE TILES */
-    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #ffffff05; transition: border-color 0.25s, transform 0.25s; }
     .tile:hover { border-color: var(--line-gold); transform: translateY(-4px); }
     .tile-img { aspect-ratio: 4 / 3; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
