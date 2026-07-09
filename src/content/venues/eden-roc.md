@@ -2,12 +2,13 @@
 title: "Eden Roc"
 address: "4525 Collins Avenue, Miami Beach, FL 33140"
 phone: "+1 786-801-6864"
-website: "www.edenrocmiami.com"
+website: "www.edenrochotelmiami.com"
 capacity: "Available Upon Request (Multiple rooms available)"
 price: "Upon Request"
 kosher: "N/A"
 summary: "Versatile event spaces across more than 25,000 square feet — indoors or open air, by day or moonlight; a rooftop terrace, a starlit garden, or an iconic ballroom — with beautiful outdoor spaces overlooking ocean and bay views, all customizable to your needs."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/eden-roc.jpg"
+imageSource: "https://admin.edenrochotelmiami.com/content/uploads/2026/03/ER-Wedding-table-Setting-2-1920x900-1.jpg"
 originalUrl: "https://avinuevents.com/eden-roc/"
 order: 16
 ---

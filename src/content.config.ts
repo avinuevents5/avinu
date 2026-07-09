@@ -17,6 +17,8 @@ const venues = defineCollection({
     summary: z.string().optional(),
     connectNote: z.string().optional(),
     image: z.string().optional(),
+    // Where `image` was sourced from, for attribution and re-fetching.
+    imageSource: z.string().optional(),
     gallery: z.array(z.string()).optional(),
     originalUrl: z.string().optional(),
     order: z.number().optional(),
