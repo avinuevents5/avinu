@@ -7,7 +7,9 @@ capacity: "Available Upon Request (Multiple room options)"
 price: "Available Upon Request"
 kosher: "N/A"
 summary: "The Viceroy Miami offers several spaces that accommodate intimate events of as little as 15 guests up to 300 for larger receptions or ceremonies. A professional kitchen handles even the most specific culinary needs, and on-site event specialists guide you through every detail of planning."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/viceroy-miami.jpg"
+heroImage: "/venues/viceroy-miami-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/viceroy-miami/"
 order: 5
 ---

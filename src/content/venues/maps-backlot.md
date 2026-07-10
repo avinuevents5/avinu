@@ -7,7 +7,9 @@ capacity: "1,200 people"
 price: "Upon Request"
 kosher: "N/A"
 summary: "A 10,500-square-foot studio and event space in the Wynwood Arts District — a fittingly artsy home for unforgettable celebrations. At a recent wedding we brought a sky full of stars in bistro lighting; these diverse photo studios double as unique event spaces unparalleled in the industry."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/maps-backlot.jpg"
+heroImage: "/venues/maps-backlot-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/maps-backlot/"
 order: 13
 ---

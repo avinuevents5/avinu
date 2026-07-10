@@ -8,7 +8,8 @@ price: "Upon Request"
 kosher: "N/A"
 summary: "A historic 1929 Mizner-inspired building where breathtaking Tuscan architecture and meticulously maintained gardens create a fairytale atmosphere — celebrate under string lights in the romantic European courtyard, or in one of the beautifully appointed indoor spaces."
 image: "/venues/benvenuto.jpg"
-imageSource: "https://cdn.prod.website-files.com/5c59c74083ddc685fac38ec7/5c9692c8de17430ddf1a4809_Weddings_Venue_Benvenuto1.jpg"
+heroImage: "/venues/benvenuto-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/benvenuto/"
 order: 21
 ---

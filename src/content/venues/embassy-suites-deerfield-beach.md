@@ -5,7 +5,9 @@ capacity: "Upon Request"
 price: "Upon Request"
 kosher: "N/A"
 summary: "Plenty of room for guests to relax, mingle and enjoy a drink at the complimentary evening reception, with a free cooked-to-order breakfast the next morning. Full-service venues that provide a fresh setting for any gathering."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/embassy-suites-deerfield-beach.jpg"
+heroImage: "/venues/embassy-suites-deerfield-beach-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/embassy-suites-deerfield-beach/"
 order: 15
 ---

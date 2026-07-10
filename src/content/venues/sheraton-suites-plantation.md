@@ -7,7 +7,9 @@ capacity: "Available Upon Request (Multiple room options)"
 price: "Available Upon Request"
 kosher: "N/A"
 summary: "The perfect setting for a Fort Lauderdale wedding or reception — a majestic outdoor veranda where a lit fountain and lush natural greenery create a beautiful backdrop to enhance your special day."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/sheraton-suites-plantation.jpg"
+heroImage: "/venues/sheraton-suites-plantation-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/sheraton-suites-plantation/"
 order: 8
 ---

@@ -8,7 +8,8 @@ price: "Upon Request"
 kosher: "N/A"
 summary: "Couples rave about The Addison's stunning architecture and scenery, attentive staff, and delicious food. From the moment you step onto the property, you'll be transported to a bygone era of glamour and sophistication — the perfect place to celebrate your special day in style."
 image: "/venues/the-addison.jpg"
-imageSource: "https://static.wixstatic.com/media/25f62e_2ab2dd5321964ddf9bfe841235b905e3~mv2.png"
+heroImage: "/venues/the-addison-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/the-addison/"
 order: 1
 ---

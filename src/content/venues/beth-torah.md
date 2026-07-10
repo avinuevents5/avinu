@@ -7,7 +7,9 @@ capacity: "Upon Request"
 price: "Upon Request"
 kosher: "N/A"
 summary: "The Beth Torah Benny Rok Campus in North Miami Beach welcomes you with open arms — a warm, supportive environment for building lifelong friendships, with engaging programs and meaningful holiday celebrations that connect you to your heritage."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/beth-torah.jpg"
+heroImage: "/venues/beth-torah-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/benvenuto-2/"
 order: 22
 ---

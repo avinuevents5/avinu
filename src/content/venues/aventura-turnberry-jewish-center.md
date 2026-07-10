@@ -7,7 +7,9 @@ capacity: "Upon Request"
 price: "Upon Request"
 kosher: "N/A"
 summary: "The Aventura Turnberry Jewish Center fosters a warm, welcoming atmosphere for people of all backgrounds, with a strong sense of community built on celebrating Jewish traditions and values while remaining inclusive to all."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/aventura-turnberry-jewish-center.jpg"
+heroImage: "/venues/aventura-turnberry-jewish-center-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/aventura-turnberry-jewish-center/"
 order: 2
 ---

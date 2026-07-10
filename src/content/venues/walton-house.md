@@ -7,7 +7,9 @@ capacity: "150–200 people"
 price: "Upon Request"
 kosher: "Available Upon Request"
 summary: "A charming, historic English-style cottage built in 1917 with the sensation of a forest — an organic, magical setting for ceremonies, home to flamingos, monkeys and exotic animals available upon request, plus indoor air-conditioned space for cocktails, dinner and dancing."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/walton-house.jpg"
+heroImage: "/venues/walton-house-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/walton-house/"
 order: 4
 ---

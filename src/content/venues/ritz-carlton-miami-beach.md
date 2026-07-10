@@ -8,7 +8,8 @@ price: "Available Upon Request"
 kosher: "N/A"
 summary: "A cocktail reception on an ocean veranda; an elegant plated dinner in an exquisite ballroom. This timeless Art Deco hotel sets a new standard in sophisticated, romantic elegance that blends beautifully with the energetic pulse of South Beach."
 image: "/venues/ritz-carlton-miami-beach.jpg"
-imageSource: "https://cache.marriott.com/content/dam/marriott-renditions/MIASB/miasb-wedding-3859-hor-clsc.jpg"
+heroImage: "/venues/ritz-carlton-miami-beach-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/ritz-carlton-miami-beach/"
 order: 9
 ---

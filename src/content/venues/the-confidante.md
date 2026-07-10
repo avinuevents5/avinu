@@ -7,7 +7,9 @@ capacity: "300 people"
 price: "Upon Request"
 kosher: "N/A"
 summary: "Celebrate amid stunning Art Deco settings that recall the glitz and glamour of Miami's golden era, with glamorous backdrops and sweeping oceanfront views — from intimate gatherings of 10 to grand receptions of up to 1,000 guests."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/the-confidante.jpg"
+heroImage: "/venues/the-confidante-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/the-confidante/"
 order: 19
 ---

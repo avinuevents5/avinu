@@ -8,7 +8,8 @@ price: "Upon Request"
 kosher: "N/A"
 summary: "Versatile event spaces across more than 25,000 square feet — indoors or open air, by day or moonlight; a rooftop terrace, a starlit garden, or an iconic ballroom — with beautiful outdoor spaces overlooking ocean and bay views, all customizable to your needs."
 image: "/venues/eden-roc.jpg"
-imageSource: "https://admin.edenrochotelmiami.com/content/uploads/2026/03/ER-Wedding-table-Setting-2-1920x900-1.jpg"
+heroImage: "/venues/eden-roc-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/eden-roc/"
 order: 16
 ---

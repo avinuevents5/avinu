@@ -7,7 +7,9 @@ capacity: "800 people"
 price: "Available Upon Request"
 kosher: "Yes"
 summary: "Whether you're celebrating the end of a great school year or sports season, planning a unique corporate event, or getting the kids off the couch on vacation, Ninja Lounge is the place to be. No set up, no clean up — just bring your group and an attitude ready for fun."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/ninja-lounge.jpg"
+heroImage: "/venues/ninja-lounge-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/ninja-lounge/"
 order: 11
 ---

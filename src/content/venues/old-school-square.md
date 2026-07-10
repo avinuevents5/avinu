@@ -7,7 +7,9 @@ capacity: "150–300 people"
 price: "Available Upon Request"
 kosher: "N/A"
 summary: "A one-of-a-kind setting filled with history. Beautifully restored spaces — The Fieldhouse, the Ocean Breeze Room and the intimate Crest Theatre — pair with outdoor grounds where the sky is the limit, from small ceremonies on the Loggia to large tented parties."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/old-school-square.jpg"
+heroImage: "/venues/old-school-square-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/old-school-square/"
 order: 10
 ---

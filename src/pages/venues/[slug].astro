@@ -16,7 +16,9 @@ const { data } = venue;
 const { Content } = await render(venue);
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
-const hero = data.image ?? FALLBACK;
+// The hero is a full-bleed ~3:1 band, so it wants the uncropped photo; `image` is
+// pre-cropped to the 4:3 the grid card needs and would have to be upscaled here.
+const hero = data.heroImage ?? data.image ?? FALLBACK;
 
 // Normalise a website string into a clean external href + display label.
 const websiteHref = data.website

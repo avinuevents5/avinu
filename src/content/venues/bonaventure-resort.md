@@ -7,7 +7,9 @@ capacity: "900 people"
 price: "Upon Request"
 kosher: "N/A"
 summary: "Three stunning ballrooms and a variety of smaller, intimate spaces assure an exquisite setting for your ceremony and festivities — 60,000 square feet of flexible event space across three ballrooms and 21 rooms, with several outdoor options too."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/bonaventure-resort.jpg"
+heroImage: "/venues/bonaventure-resort-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/bonaventure-resort/"
 order: 20
 ---

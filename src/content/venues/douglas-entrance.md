@@ -8,7 +8,8 @@ price: "Upon Request"
 kosher: "N/A"
 summary: "For couples seeking a historic, elegant venue, Douglas Entrance is the perfect place. Old-world charm and vintage romance radiate from ceremonies held in granite stone-walled rooms, with a chandelier throwing warm, dim light over you and your guests."
 image: "/venues/douglas-entrance.jpg"
-imageSource: "https://douglasentrance.imgix.net/photos/2017/exterior/exterior_img_7674.jpg"
+heroImage: "/venues/douglas-entrance-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/douglas-entrance/"
 order: 18
 ---

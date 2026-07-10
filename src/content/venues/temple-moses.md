@@ -7,7 +7,9 @@ capacity: "Available Upon Request"
 price: "Available Upon Request"
 kosher: "Yes"
 summary: "Temple Moses offers several spaces that accommodate intimate events of as few as 15 guests up to 300 for larger receptions or ceremonies. A professional kitchen handles even the most specific culinary needs, and on-site event specialists guide you through every detail."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/temple-moses.jpg"
+heroImage: "/venues/temple-moses-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/temple-moses/"
 order: 7
 ---

@@ -7,7 +7,9 @@ capacity: "450 people"
 price: "Upon Request"
 kosher: "Yes (In-house)"
 summary: "Elegant, beautiful, classy and modern — that's how you and your guests will describe an event at Eden Regal Ballroom & Catering. They balance fun and tradition while working within your budget, showering you with unrivaled hospitality, attention to detail and commitment."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/eden-regal-ballroom.jpg"
+heroImage: "/venues/eden-regal-ballroom-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/eden-regal-ballroom/"
 order: 17
 ---

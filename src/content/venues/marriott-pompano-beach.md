@@ -7,7 +7,9 @@ capacity: "120–300 people"
 price: "Available Upon Request"
 kosher: "N/A"
 summary: "Ballrooms and event spaces that overlook beautiful oceanfront views, with an outdoor terrace that sets a romantic scene under dreamy sunset lighting. Indoors or out, the venues here are sure to create a memorable experience for your guests."
-image: "/wp-content/uploads/2023/08/dj1.jpg"
+image: "/venues/marriott-pompano-beach.jpg"
+heroImage: "/venues/marriott-pompano-beach-hero.jpg"
+imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/marriott-pompano-beach/"
 order: 12
 ---

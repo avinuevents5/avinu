@@ -16,7 +16,10 @@ const venues = defineCollection({
     kosher: z.string().optional(),
     summary: z.string().optional(),
     connectNote: z.string().optional(),
+    // `image` is cropped to the grid card's 4:3; `heroImage` is the uncropped
+    // original for the detail page's full-bleed hero band.
     image: z.string().optional(),
+    heroImage: z.string().optional(),
     // Where `image` was sourced from, for attribution and re-fetching.
     imageSource: z.string().optional(),
     gallery: z.array(z.string()).optional(),
