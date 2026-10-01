@@ -1,0 +1,451 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/home{/}?",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact{/}?",
+      "destination": "/get-a-quote/",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-and-conditions{/}?",
+      "destination": "/terms/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery{/}?",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/info{/}?",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/elementor-9807{/}?",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eventreports{/}?",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida{/}?",
+      "destination": "/best-djs-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djlance{/}?",
+      "destination": "/best-djs-in-south-florida/dj-lance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djmansel{/}?",
+      "destination": "/best-djs-in-south-florida/dj-mansel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djtrey{/}?",
+      "destination": "/best-djs-in-south-florida/dj-trey/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djricky{/}?",
+      "destination": "/best-djs-in-south-florida/dj-ricky/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djgrant{/}?",
+      "destination": "/best-djs-in-south-florida/dj-grant/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/djlevine{/}?",
+      "destination": "/best-djs-in-south-florida/dj-levine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-djs-in-soth-florida/dj-trey-test{/}?",
+      "destination": "/best-djs-in-south-florida/dj-trey/",
+      "statusCode": 301
+    },
+    {
+      "source": "/manseldj-2{/}?",
+      "destination": "/best-djs-in-south-florida/dj-mansel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dj-details{/}?",
+      "destination": "/best-djs-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/djs-booking{/}?",
+      "destination": "/best-djs-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-dj-mcs{/}?",
+      "destination": "/best-djs-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-dj-mcs{/}?",
+      "destination": "/best-djs-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/singer-booking{/}?",
+      "destination": "/jewish-ceremony-singer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bands{/}?",
+      "destination": "/wedding-musicians-and-band/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-musicians-and-bands{/}?",
+      "destination": "/wedding-musicians-and-band/",
+      "statusCode": 301
+    },
+    {
+      "source": "/music{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-affordable-venues-2{/}?",
+      "destination": "/venues/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wherehouse-2016{/}?",
+      "destination": "/venues/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yachts{/}?",
+      "destination": "/venues/",
+      "statusCode": 301
+    },
+    {
+      "source": "/benvenuto-2{/}?",
+      "destination": "/venues/beth-torah/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ventura-turnberry-jewish-center-event-pictures{/}?",
+      "destination": "/venues/aventura-turnberry-jewish-center/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ventura-turnberry-jewish-center-event-pictures-2{/}?",
+      "destination": "/venues/aventura-turnberry-jewish-center/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private{/}?",
+      "destination": "/private-events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/uplights{/}?",
+      "destination": "/services/uplights/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-lighting{/}?",
+      "destination": "/wedding-lighting-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-lighting{/}?",
+      "destination": "/wedding-lighting-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/pin-spot-lighting{/}?",
+      "destination": "/wedding-lighting-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/intelligent-dance-floor{/}?",
+      "destination": "/wedding-lighting-in-south-florida/",
+      "statusCode": 301
+    },
+    {
+      "source": "/miamiphotobooth{/}?",
+      "destination": "/services/photo-booth/",
+      "statusCode": 301
+    },
+    {
+      "source": "/photo-booth{/}?",
+      "destination": "/services/photo-booth/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-photo-booths{/}?",
+      "destination": "/services/photo-booth/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-photobooths{/}?",
+      "destination": "/services/photo-booth/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-photographers-videographers{/}?",
+      "destination": "/photography-and-videography/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-photographers-videographers{/}?",
+      "destination": "/photography-and-videography/",
+      "statusCode": 301
+    },
+    {
+      "source": "/luxury-car-rentals{/}?",
+      "destination": "/services/luxury-cars/",
+      "statusCode": 301
+    },
+    {
+      "source": "/luxury-car-rentals-2{/}?",
+      "destination": "/services/luxury-cars/",
+      "statusCode": 301
+    },
+    {
+      "source": "/concierge{/}?",
+      "destination": "/services/concierge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services-2{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/entertainment{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/other-services{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/led-robots{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/confetti-special-effects{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-special-acts{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-special-acts{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/corporate-events-dancers{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-dancers{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-dancers{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-dancers/show-mapping-projector{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/models{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-draping{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-draping{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-planning{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-planning{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/day-of-coordination{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/planners{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-private-services{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-events-special-services{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-chefs{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-bachelor-party{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/zais-cortez{/}?",
+      "destination": "/services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/aventura-turnberry-jewish-center{/}?",
+      "destination": "/venues/aventura-turnberry-jewish-center/",
+      "statusCode": 301
+    },
+    {
+      "source": "/benvenuto{/}?",
+      "destination": "/venues/benvenuto/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bonaventure-resort{/}?",
+      "destination": "/venues/bonaventure-resort/",
+      "statusCode": 301
+    },
+    {
+      "source": "/club-vault{/}?",
+      "destination": "/venues/club-vault/",
+      "statusCode": 301
+    },
+    {
+      "source": "/douglas-entrance{/}?",
+      "destination": "/venues/douglas-entrance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eden-regal-ballroom{/}?",
+      "destination": "/venues/eden-regal-ballroom/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eden-roc{/}?",
+      "destination": "/venues/eden-roc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/embassy-suites-deerfield-beach{/}?",
+      "destination": "/venues/embassy-suites-deerfield-beach/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery-of-amazing-things{/}?",
+      "destination": "/venues/gallery-of-amazing-things/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hyatt-centric-las-olas{/}?",
+      "destination": "/venues/hyatt-centric-las-olas/",
+      "statusCode": 301
+    },
+    {
+      "source": "/maps-backlot{/}?",
+      "destination": "/venues/maps-backlot/",
+      "statusCode": 301
+    },
+    {
+      "source": "/marriott-pompano-beach{/}?",
+      "destination": "/venues/marriott-pompano-beach/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ninja-lounge{/}?",
+      "destination": "/venues/ninja-lounge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/old-school-square{/}?",
+      "destination": "/venues/old-school-square/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ritz-carlton-miami-beach{/}?",
+      "destination": "/venues/ritz-carlton-miami-beach/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sheraton-suites-plantation{/}?",
+      "destination": "/venues/sheraton-suites-plantation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/temple-moses{/}?",
+      "destination": "/venues/temple-moses/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-addison{/}?",
+      "destination": "/venues/the-addison/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-confidante{/}?",
+      "destination": "/venues/the-confidante/",
+      "statusCode": 301
+    },
+    {
+      "source": "/viceroy-miami{/}?",
+      "destination": "/venues/viceroy-miami/",
+      "statusCode": 301
+    },
+    {
+      "source": "/walton-house{/}?",
+      "destination": "/venues/walton-house/",
+      "statusCode": 301
+    }
+  ]
+}
