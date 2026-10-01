@@ -2,7 +2,6 @@
 title: "Ninja Lounge"
 address: "14401 NE 20th Lane, North Miami, FL 33181"
 phone: "+1 888-682-4318"
-website: "www.ninjalounge.com"
 capacity: "800 people"
 price: "Available Upon Request"
 kosher: "Yes"
