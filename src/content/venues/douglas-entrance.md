@@ -2,7 +2,6 @@
 title: "Douglas Entrance"
 address: "Douglas Rd, Coral Gables, FL 33134"
 phone: "+1 305-448-1195"
-website: "www.douglasentrance.com"
 capacity: "200 people"
 price: "Upon Request"
 kosher: "N/A"

@@ -2,7 +2,6 @@
 title: "Bonaventure Resort & Spa"
 address: "250 Racquet Club Rd, Weston, FL 33326"
 phone: "+1 954-389-3300"
-website: "www.bonaventureresortandspa.com"
 capacity: "900 people"
 price: "Upon Request"
 kosher: "N/A"
