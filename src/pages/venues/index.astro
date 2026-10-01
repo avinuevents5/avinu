@@ -12,6 +12,8 @@ const venues = (await getCollection('venues')).sort((a, b) => {
 });
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+// Full-bleed photo behind the page header (a real venue, darkened so the title stays readable).
+const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 ---
 
 <Noir
@@ -19,7 +21,8 @@ const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
   description="Here is our list of recommended venues for weddings, corporate, and social events. Please click on any of the following event venues to know more."
 >
   <!-- ░░ PAGE HEADER ░░ -->
-  <section class="page-head">
+  <section class="page-head" style={`--head-img:url('${HEAD_IMG}')`}>
+    <div class="ph-bg" aria-hidden="true"></div>
     <div class="ph-inner">
       <p class="eyebrow">Venues</p>
       <h1>Wedding Venues<br />in South Florida</h1>
@@ -58,7 +61,12 @@ const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
 
   <style>
     /* PAGE HEADER — compact, not the homepage hero */
-    .page-head { padding: 6.5rem 1.5rem 3rem; text-align: center; }
+    .page-head { position: relative; isolation: isolate; overflow: hidden; padding: 7.5rem 1.5rem 5rem; text-align: center; }
+    .ph-bg { position: absolute; inset: 0; z-index: -1; background: var(--head-img) center / cover no-repeat; }
+    .ph-bg::after { content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(8,9,12,0.55) 0%, rgba(8,9,12,0.62) 55%, var(--bg) 100%),
+                  radial-gradient(ellipse at center, rgba(8,9,12,0.15), rgba(8,9,12,0.55)); }
+    .page-head .ph-sub { color: #d6d9e0; }
     .ph-inner { max-width: var(--maxw); margin: 0 auto; }
     .page-head h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 1rem 0; }
     .ph-sub { color: var(--muted-text); max-width: 44rem; margin: 0 auto; font-size: 1.05rem; }
