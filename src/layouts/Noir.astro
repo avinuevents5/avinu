@@ -7,6 +7,7 @@ export interface Props {
   description?: string;
   canonical?: string;
   robots?: string;
+  image?: string;
 }
 
 const {
@@ -14,7 +15,9 @@ const {
   description = '',
   canonical = Astro.url.href,
   robots = 'index, follow',
+  image = '/wp-content/uploads/2025/05/tyle-is-candid-image.jpg',
 } = Astro.props;
+const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 
 const siteName = 'Avinu Music & Productions';
 const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
@@ -69,6 +72,32 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
     <meta property="og:title" content={fullTitle} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': 'https://avinuevents.com/#organization',
+          name: siteName,
+          alternateName: 'Avinu Events',
+          url: 'https://avinuevents.com/',
+          logo: 'https://avinuevents.com/img/avinu-white.png',
+          telephone: PHONE,
+          areaServed: 'South Florida',
+          sameAs: social.map((s) => s.href),
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://avinuevents.com/#website',
+          url: 'https://avinuevents.com/',
+          name: siteName,
+          publisher: { '@id': 'https://avinuevents.com/#organization' },
+        },
+      ],
+    })} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
