@@ -205,6 +205,8 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         --font-display: 'Bodoni Moda', Georgia, serif;
         --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
         --maxw: 1240px;
+        /* Shared side gutter: logo, top bar and hero copy all start on this line. */
+        --gutter: clamp(1.1rem, 5vw, 5rem);
       }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -233,7 +235,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       /* TOP UTILITY BAR */
       .topbar {
         display: flex; align-items: center; justify-content: space-between;
-        padding: 0.55rem 2rem; background: var(--midnight-deep); border-bottom: 1px solid var(--line);
+        padding: 0.55rem var(--gutter); background: var(--midnight-deep); border-bottom: 1px solid var(--line);
         position: relative; z-index: 60;
       }
       .tb-phone { color: var(--muted-text); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s; }
@@ -247,7 +249,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .site-header {
         position: sticky; top: 0; z-index: 50;
         display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-        padding: 0.9rem 2rem;
+        padding: 0.9rem var(--gutter);
         background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--line);
       }
@@ -326,9 +328,9 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .nav-scrim { display: none; }
 
       @media (max-width: 980px) {
-        .topbar { padding: 0.5rem 1.1rem; }
+        .topbar { padding-block: 0.5rem; }
         .tb-phone { font-size: 0.66rem; letter-spacing: 0.1em; }
-        .site-header { padding: 0.8rem 1.1rem; }
+        .site-header { padding-block: 0.8rem; }
         .nav-burger {
           display: flex; flex-direction: column; justify-content: center; gap: 5px;
           width: 30px; height: 30px; cursor: pointer; z-index: 60;
