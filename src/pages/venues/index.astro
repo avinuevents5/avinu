@@ -13,12 +13,6 @@ const venues = (await getCollection('venues')).sort((a, b) => {
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
 
-// Cards get one short, uniform kosher label; the full wording stays on each venue's page.
-// "Yes …" = the venue runs its own kosher kitchen; any other kosher mention = outside kosher catering allowed.
-function kosherBadge(k?: string) {
-  if (!k || k === 'N/A') return null;
-  return /^yes/i.test(k) ? 'Kosher kitchen' : 'Kosher-friendly';
-}
 // Full-bleed photo behind the page header (a real venue, darkened so the title stays readable).
 const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 ---
@@ -53,7 +47,6 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
           <div class="vc-body">
             <h2 class="vc-name">{v.data.title}</h2>
             {v.data.address && <p class="vc-addr">{v.data.address}</p>}
-            {kosherBadge(v.data.kosher) && <span class="vc-kosher">{kosherBadge(v.data.kosher)}</span>}
             <span class="link-arrow vc-link">View venue</span>
           </div>
         </a>
@@ -103,20 +96,9 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
     }
     .venue-card:hover .vc-img { transform: scale(1.05); }
-    /* Mouse devices: photos rest slightly dimmed and light up on hover/focus. Touch screens keep full brightness. */
-    @media (hover: hover) {
-      .vc-img { filter: brightness(0.72) saturate(0.9); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.45s ease; }
-      .venue-card:hover .vc-img, .venue-card:focus-visible .vc-img { filter: brightness(1) saturate(1); }
-    }
     .vc-body { padding: 1.5rem 1.4rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
     .vc-name { font-size: 1.45rem; margin-bottom: 0.5rem; }
     .vc-addr { color: var(--muted-text); font-size: 0.9rem; margin: 0 0 0.9rem; }
-    .vc-kosher {
-      align-self: flex-start; margin-bottom: 1rem;
-      font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid var(--line-gold); border-radius: 999px;
-      padding: 0.3rem 0.7rem;
-    }
     .vc-link { margin-top: auto; }
 
     @media (max-width: 900px) {
