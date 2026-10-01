@@ -12,6 +12,13 @@ const venues = (await getCollection('venues')).sort((a, b) => {
 });
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+
+// Cards get one short, uniform kosher label; the full wording stays on each venue's page.
+// "Yes …" = the venue runs its own kosher kitchen; any other kosher mention = outside kosher catering allowed.
+function kosherBadge(k?: string) {
+  if (!k || k === 'N/A') return null;
+  return /^yes/i.test(k) ? 'Kosher kitchen' : 'Kosher-friendly';
+}
 // Full-bleed photo behind the page header (a real venue, darkened so the title stays readable).
 const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 ---
@@ -46,9 +53,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
           <div class="vc-body">
             <h2 class="vc-name">{v.data.title}</h2>
             {v.data.address && <p class="vc-addr">{v.data.address}</p>}
-            {v.data.kosher && v.data.kosher !== 'N/A' && (
-              <span class="vc-kosher">Kosher · {v.data.kosher}</span>
-            )}
+            {kosherBadge(v.data.kosher) && <span class="vc-kosher">{kosherBadge(v.data.kosher)}</span>}
             <span class="link-arrow vc-link">View venue</span>
           </div>
         </a>
