@@ -279,8 +279,13 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         position: sticky; top: 0; z-index: 50;
         display: flex; align-items: center; justify-content: space-between; gap: 1rem;
         padding: 0.9rem var(--gutter);
-        background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--line);
+      }
+      /* The frosted glass lives on a pseudo-element: backdrop-filter on the header itself would make it
+         the containing block for the fixed mobile menu, clipping the drawer to the header's height. */
+      .site-header::before {
+        content: ""; position: absolute; inset: 0; z-index: -1;
+        background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       }
       .brand { display: inline-flex; align-items: center; }
       .logo-img { height: 46px; width: auto; }
@@ -379,8 +384,8 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         #nav-toggle:checked ~ .main-nav { transform: translateX(0); visibility: visible; }
         #nav-toggle:checked ~ .nav-scrim { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 54; }
 
-        .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
-        .nav-list > li:not(.nav-cta) > a { padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
+        .main-nav .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
+        .nav-list > li:not(.nav-cta) > a { display: flex; padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
         .has-sub .caret { display: none; }
         .sub {
           position: static; transform: none; opacity: 1; visibility: visible;
