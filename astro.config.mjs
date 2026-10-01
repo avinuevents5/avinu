@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://avinuevents.com',
+  site: 'https://www.avinuevents.com',
   integrations: [sitemap()],
 });
