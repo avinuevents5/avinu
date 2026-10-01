@@ -1,9 +1,9 @@
 ---
-title: "Walton House"
+title: "Historic Walton House"
 address: "28501 SW 187th Ave, Homestead, FL 33030"
-phone: "+1 786-356-9435"
-website: "www.waltonhousemiami.com"
-capacity: "150–200 people"
+phone: "+1 786-938-6288"
+website: "https://www.historicwaltonhouse.com/"
+capacity: "Up to 200 guests"
 price: "Upon Request"
 kosher: "Available Upon Request"
 summary: "A charming, historic English-style cottage built in 1917 with the sensation of a forest — an organic, magical setting for ceremonies, home to flamingos, monkeys and exotic animals available upon request, plus indoor air-conditioned space for cocktails, dinner and dancing."

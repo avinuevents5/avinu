@@ -1,11 +1,10 @@
 ---
-title: "Gallery of Amazing Things"
+title: "MAD Arts"
 address: "481 S Federal Hwy, Dania Beach, FL 33004"
-phone: "+1 954-654-7739"
-capacity: "Up to 800 guests"
+website: "https://www.yeswearemadarts.com/host-an-event"
+capacity: "20,000 sq ft of flexible event space"
 price: "Upon Request"
-kosher: "N/A"
-summary: "A two-story art gallery and event venue in Dania Beach, filled with sculpture, fine art, antiques and historical artifacts — a one-of-a-kind backdrop for weddings, galas and private celebrations, from intimate gatherings to grand receptions."
+summary: "An immersive art museum and event space in Dania Beach, set in the building that was once the Gallery of Amazing Things — 20,000 square feet of large-scale installations blending art, light and technology."
 image: "/venues/gallery-of-amazing-things.jpg"
 heroImage: "/venues/gallery-of-amazing-things-hero.jpg"
 imageSource: "client-supplied"
@@ -13,8 +12,6 @@ originalUrl: "https://avinuevents.com/gallery-of-amazing-things/"
 order: 14
 ---
 
-The Gallery of Amazing Things is part art gallery, part event venue. Its two floors are filled with a constantly evolving collection of sculpture, design pieces, fine art, antiques and historical artifacts, so every corner of the room becomes part of the décor.
+MAD Arts is an immersive art museum and event space in Dania Beach, created by MAD Studios in the building that was once home to the Gallery of Amazing Things. Its 20,000 square feet of flexible space are filled with large-scale installations that blend art, light and technology.
 
-The open, flexible floor plan adapts to almost any vision, from an intimate dinner to a large reception, gala or corporate event. Ceremonies and receptions are held indoors, with in-house event producers on staff to help shape the evening and valet parking for guests.
-
-For couples and families who want their celebration to feel unlike any ballroom, the gallery offers a setting that guests will talk about long after the last dance.
+The venue hosts corporate buyouts and private events, with catering packages and room for a DJ or live entertainment to set the mood. For a celebration that feels like stepping inside a work of art, it is one of the most original settings in South Florida.

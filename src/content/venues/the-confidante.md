@@ -1,12 +1,11 @@
 ---
-title: "The Confidante"
+title: "Andaz Miami Beach"
 address: "4041 Collins Ave, Miami, FL 33140"
-phone: "+1 305-424-1234"
-website: "www.theconfidantemiamibeach.hyatt.com"
-capacity: "300 people"
+phone: "+1 786-395-8121"
+website: "https://www.hyatt.com/andaz/en-US/miaob-andaz-miami-beach/weddings"
+capacity: "Up to 240 seated · 260 standing"
 price: "Upon Request"
-kosher: "N/A"
-summary: "Celebrate amid stunning Art Deco settings that recall the glitz and glamour of Miami's golden era, with glamorous backdrops and sweeping oceanfront views — from intimate gatherings of 10 to grand receptions of up to 1,000 guests."
+summary: "Formerly The Confidante, Andaz Miami Beach reopened in 2025 after a full renovation — oceanfront ballrooms, garden and terrace spaces, and dining by José Andrés Group, right on the sand in Mid-Beach."
 image: "/venues/the-confidante.jpg"
 heroImage: "/venues/the-confidante-hero.jpg"
 imageSource: "client-supplied"
@@ -14,6 +13,6 @@ originalUrl: "https://avinuevents.com/the-confidante/"
 order: 19
 ---
 
-Celebrate your special day amid stunning Art Deco settings that recall the glitz and glamour of Miami's golden era, and immerse you in glamorous backdrops and sweeping oceanfront views. Host your rehearsal dinner in Seagrape, with private dining space for up to 30 guests, or choose the unique venue of the 1930s House, with 3,000 sq ft of private space surrounded by lush gardens. Discover a memorable venue within The Century Lounge, boasting colorful cork flooring and pop art on the walls.
+Formerly known as The Confidante, the hotel reopened in 2025 as Andaz Miami Beach — Hyatt’s first Andaz in Florida — after a top-to-bottom renovation. It sits directly on the sand in Mid-Beach, with 287 rooms and restaurants by José Andrés Group.
 
-Celebrations can be customized exactly as you'd like with the help of your dedicated wedding planner, and spaces range from intimate events for 10 guests to grand receptions hosting up to 1,000. From the Vista Terrace's unbeatable views of Miami Beach, to the sophisticated ambiance in the Crown Room, to the pristine beachfront, your ideal wedding celebration awaits at The Confidante.
+Some 25,000 square feet of indoor and outdoor event space include two oceanfront ballrooms and seven meeting rooms. The Andaz Ballroom seats up to 170 for a reception or welcomes 250 standing, and the largest setups host around 240 seated guests. The pool even features a hydraulic floor that rises to become a stage. In-house catering and a dedicated events team take care of every detail.
