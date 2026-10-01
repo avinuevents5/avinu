@@ -9,7 +9,7 @@ kosher: "Outside kosher catering welcome"
 summary: "A 1925 Mediterranean Revival estate on Biscayne Bay along Old Cutler Road, where lawns, gardens and a towering banyan tree open onto views of the bay and Key Biscayne."
 image: "/venues/thalatta-estate.jpg"
 heroImage: "/venues/thalatta-estate-hero.jpg"
-imageSource: "placeholder — replace with a real venue photo"
+imageSource: "venue website (thalattaestate.com) — photo: La Vie Studios"
 order: 23
 ---
 

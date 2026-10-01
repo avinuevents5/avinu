@@ -8,7 +8,7 @@ price: "Upon Request"
 summary: "A Pompano Beach restaurant and event venue overlooking the greens and lakes of the golf course, with a remodeled banquet room, a terrace and gardens with fountains and bridges."
 image: "/venues/galuppis.jpg"
 heroImage: "/venues/galuppis-hero.jpg"
-imageSource: "placeholder — replace with a real venue photo"
+imageSource: "venue website (galuppis.com)"
 order: 25
 ---
 

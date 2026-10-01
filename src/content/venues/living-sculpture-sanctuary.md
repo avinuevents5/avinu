@@ -9,7 +9,7 @@ kosher: "Outside kosher catering welcome"
 summary: "A family-owned botanical sanctuary in Davie, set among century-old oaks, cascading waterfalls, koi ponds, a bonsai wall and a Zen rock garden."
 image: "/venues/living-sculpture-sanctuary.jpg"
 heroImage: "/venues/living-sculpture-sanctuary-hero.jpg"
-imageSource: "placeholder — replace with a real venue photo"
+imageSource: "venue website (livingsculpturesanctuary.com)"
 order: 24
 ---
 
