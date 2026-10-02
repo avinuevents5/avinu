@@ -333,23 +333,19 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         display: inline-block; white-space: nowrap;
         background: linear-gradient(135deg, #f1d480 0%, #c9a24b 55%, #a8842f 100%);
         color: #1a1206;
-        padding: 0.7rem 1.6rem; border-radius: 999px;
-        font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.01em;
-        box-shadow: 0 6px 22px rgba(201, 162, 75, 0.3);
-        transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+        padding: 0.85rem 1.8rem; border-radius: 999px;
+        font-family: var(--font-body); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+        transition: transform 0.2s, filter 0.2s;
       }
-      .btn-primary:hover {
-        transform: translateY(-1px); filter: brightness(1.05);
-        box-shadow: 0 10px 30px rgba(201, 162, 75, 0.48);
-      }
+      .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
 
       /* TIER 2 — SECONDARY: ghost / outline. Equal-weight alternative actions. */
       .btn-ghost {
         display: inline-block; white-space: nowrap;
         background: transparent; color: var(--fg);
-        padding: 0.7rem 1.6rem; border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.01em;
+        padding: 0.85rem 1.8rem; border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        font-family: var(--font-body); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
         transition: border-color 0.25s, color 0.25s, transform 0.2s;
       }
       .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }

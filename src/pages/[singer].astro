@@ -102,17 +102,17 @@ const others = (await getCollection('singers'))
         <div class="ccol">
           <h3>Call Now</h3>
           <p>Instantly connect with {title} and discuss your requirements.</p>
-          <a class="btn-primary" href="tel:+17545474415">Call Now</a>
+          <a class="link-arrow" href="tel:+17545474415">Call Now</a>
         </div>
         <div class="ccol">
           <h3>Book Now</h3>
           <p>Save a date and let {firstName} mesmerize your audience.</p>
-          <a class="btn-primary" href="/get-a-quote/">Book Now</a>
+          <a class="link-arrow" href="/get-a-quote/">Book Now</a>
         </div>
         <div class="ccol">
           <h3>Contact Us</h3>
           <p>For general inquiries, collaborations, or feedback, reach out to us.</p>
-          <a class="btn-primary" href="/get-a-quote/">Contact Us</a>
+          <a class="link-arrow" href="/get-a-quote/">Contact Us</a>
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@ const others = (await getCollection('singers'))
     .page-head { padding: 5.5rem 1.5rem 0.5rem; text-align: center; }
     .ph-inner { max-width: 60rem; margin: 0 auto; }
     .page-head h1 { font-size: clamp(2.8rem, 7vw, 5rem); margin: 0.8rem 0 0; }
-    .role { color: var(--accent-soft); font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 2.4vw, 1.5rem); margin: 0.7rem 0 0; }
+    .role { color: var(--fg); font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 2.4vw, 1.5rem); margin: 0.7rem 0 0; }
 
     /* SHELL */
     .band { padding: 4.5rem 1.5rem; }
@@ -150,7 +150,7 @@ const others = (await getCollection('singers'))
     .prose :global(p) { color: var(--muted-text); font-size: 1.05rem; line-height: 1.78; margin: 0 0 1.25rem; }
     .prose :global(p:first-child) { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--fg); }
     .facts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
-    .fact h3 { font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .fact h3 { font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.5rem; }
     .fact p { color: var(--fg); font-size: 0.95rem; margin: 0; }
     .bio-photo { position: sticky; top: 6rem; }
     .bp-img { aspect-ratio: 4 / 5; border-radius: 18px; background-size: cover; background-position: center; border: 1px solid var(--line); }
@@ -174,7 +174,7 @@ const others = (await getCollection('singers'))
     .connect-inner { max-width: var(--maxw); }
     .connect h2 { font-family: var(--font-display); font-style: italic; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2.5rem; }
     .connect-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .ccol h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.6rem; }
+    .ccol h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; margin-bottom: 0.6rem; }
     .ccol p { color: var(--muted-text); font-size: 0.95rem; line-height: 1.6; margin: 0 0 1.2rem; min-height: 3.2em; }
     .connect-note { color: var(--muted-text); font-size: 1.05rem; line-height: 1.7; max-width: 52rem; margin: 0 0 2.8rem; }
 

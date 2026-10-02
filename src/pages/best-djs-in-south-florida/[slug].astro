@@ -147,16 +147,16 @@ const others = (await getCollection('djs'))
     .bio-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 3.5rem; align-items: start; }
     .bio :global(p) { font-size: 1.08rem; line-height: 1.8; color: var(--muted-text); margin: 0 0 1.4rem; }
     .bio :global(p:first-child) { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; color: var(--fg); }
-    .bio :global(em) { color: var(--accent-soft); font-style: italic; }
+    .bio :global(em) { color: var(--fg); font-style: italic; }
 
     .stats { position: sticky; top: 6rem; border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: #ffffff05; }
     .stat-block { margin-bottom: 1.8rem; }
     .chips { list-style: none; margin: 0.9rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .chips li {
-      padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.85rem;
-      border: 1px solid var(--line-gold); color: var(--accent-soft); background: rgba(201,162,75,0.06);
+      padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      border: 1px solid var(--line); color: var(--fg);
     }
-    .chips.chips-soft li { border-color: var(--line); color: var(--muted-text); background: #ffffff05; }
+    .chips.chips-soft li { color: var(--muted-text); }
     .stat-cta { display: block; text-align: center; margin-top: 0.5rem; }
 
     /* GALLERY */
