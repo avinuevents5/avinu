@@ -225,8 +225,8 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         --bg-2: #0a0e16;         /* cool midnight depth */
         --midnight: #0b1018;     /* alternating section band (was wine) */
         --midnight-deep: #080b12;/* deepest midnight, footer/nav */
-        --fg: #ffffff;           /* text: pure white, same as the logo (white on black, per the owner) */
-        --muted-text: #f2f0ec;   /* secondary text: still white, a hair softer for long paragraphs */
+        --fg: #f4efe6;           /* ivory text */
+        --muted-text: #e4ded3;   /* soft ivory — secondary text stays white on black, just a touch below --fg */
         --header-text: #ffffff;  /* header chrome matches the pure-white logo */
         --accent: #c9a24b;       /* refined gold */
         --accent-soft: #e3c889;  /* soft gold */
@@ -254,7 +254,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
       .eyebrow {
         text-transform: uppercase; letter-spacing: 0.34em; font-size: 0.7rem;
-        font-weight: 600; color: var(--fg); font-family: var(--font-body);
+        font-weight: 600; color: var(--accent); font-family: var(--font-body);
       }
 
       /* FILM GRAIN — barely-there, static (modern, clean) */
@@ -354,7 +354,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
          All inline navigational links. Arrow supplied via ::after (no markup needed). */
       .link-arrow {
         display: inline-flex; align-items: center; gap: 0.5rem;
-        color: var(--fg); font-family: var(--font-body); font-weight: 600;
+        color: var(--accent); font-family: var(--font-body); font-weight: 600;
         font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
         transition: color 0.25s, filter 0.25s;
       }
