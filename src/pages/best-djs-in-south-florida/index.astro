@@ -17,13 +17,14 @@ const djs = (await getCollection('djs')).sort(
   <section class="page-head">
     <p class="eyebrow" data-reveal>Meet the Avinu DJ's</p>
     <h1 data-reveal>Best Djs in South Florida</h1>
-    <p class="lede" data-reveal>
-      Dive into the world of Avinu DJs, where music transcends boundaries. Discover a diverse lineup
-      of talented DJs, each with their unique specialties ranging from World sounds, R&B, Hip Hop, to
-      Latin beats. Whether you're seeking the multicultural rhythms of DJ Levine, the upbeat &amp;
-      high energy of DJ Joseph's Remixes or the electrifying Top 40's mixes of DJ Trey, Avinu DJs
-      cater to every musical palate. Connect with them and curate the perfect soundtrack for your
-      event in South Florida.
+    <!-- Same copy, split for rhythm: one display-serif lead line, then a narrow, airy body. -->
+    <p class="lede" data-reveal>Dive into the world of Avinu DJs, where music transcends boundaries.</p>
+    <p class="lede-body" data-reveal>
+      Discover a diverse lineup of talented DJs, each with their unique specialties ranging from World
+      sounds, R&B, Hip Hop, to Latin beats. Whether you're seeking the multicultural rhythms of DJ Levine,
+      the upbeat &amp; high energy of DJ Joseph's Remixes or the electrifying Top 40's mixes of DJ Trey,
+      Avinu DJs cater to every musical palate. Connect with them and curate the perfect soundtrack for
+      your event in South Florida.
     </p>
   </section>
 
@@ -56,7 +57,11 @@ const djs = (await getCollection('djs')).sort(
     /* COMPACT PAGE HEADER */
     .page-head { max-width: 60rem; margin: 0 auto; padding: 6rem 1.5rem 2rem; text-align: center; }
     .page-head h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); margin: 1rem 0; }
-    .page-head .lede { color: var(--muted-text); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 44rem; margin: 0 auto; }
+    .page-head .lede {
+      font-family: var(--font-display); font-style: italic; color: var(--fg);
+      font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.4; max-width: 34rem; margin: 0.6rem auto 0;
+    }
+    .page-head .lede-body { color: var(--muted-text); font-size: 1rem; line-height: 1.85; max-width: 36rem; margin: 1.6rem auto 0; }
 
     /* SECTION SHELL — mirrors the homepage band system */
     .band { padding: 5rem 1.5rem 6rem; }
