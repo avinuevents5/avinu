@@ -435,7 +435,8 @@ const awardMeta = [
 
     /* ── responsive ── */
     @media (max-width: 900px) {
-      .talent-grid, .talent-grid.reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+      /* minmax(0,1fr), not 1fr: a bare 1fr lets the rails stretch to their full content width, so they never scroll on mobile. */
+      .talent-grid, .talent-grid.reverse { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
       .talent-grid.reverse .talent-index { order: 1; }
       .talent-grid.reverse .talent-media { order: 2; }
       .svc-row, .svc-row.flip { grid-template-columns: 1fr; }
