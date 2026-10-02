@@ -306,15 +306,20 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
       .sub {
         position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
-        min-width: 240px; list-style: none; margin: 0; padding: 0.55rem;
-        background: rgba(10, 14, 22, 0.98); backdrop-filter: blur(18px);
-        border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 12px;
-        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6);
+        min-width: 230px; list-style: none; margin: 0; padding: 0.9rem 0;
+        background: rgba(8, 9, 12, 0.97); backdrop-filter: blur(18px);
+        border: 1px solid var(--line); border-top: 1px solid var(--line-gold); border-radius: 2px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
         opacity: 0; visibility: hidden; transition: all 0.22s ease;
       }
       .has-sub:hover .sub, .has-sub:focus-within .sub { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
-      .sub li a { display: block; padding: 0.55rem 0.9rem; border-radius: 8px; color: var(--header-text); font-size: 0.88rem; white-space: nowrap; transition: all 0.2s; }
-      .sub li a:hover { background: #ffffff0d; color: var(--accent); }
+      /* Same voice as the top-level nav: small caps-style uppercase, airy tracking, no chrome. */
+      .sub li a {
+        display: block; padding: 0.6rem 1.6rem; color: var(--header-text);
+        font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+        white-space: nowrap; transition: color 0.2s;
+      }
+      .sub li a:hover { color: var(--accent-soft); }
 
       /* ═══════════════════════════════════════════════════════════════════
          UNIFIED CTA SYSTEM — single source of truth (shared by layout + pages)
@@ -395,7 +400,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
           box-shadow: none; background: transparent; border: none; border-top: none; min-width: 0;
           padding: 0.3rem 0 0.6rem 0.9rem;
         }
-        .sub li a { padding: 0.4rem 0; }
+        .sub li a { padding: 0.5rem 0; font-size: 0.8rem; }
         .nav-cta { margin-top: 1rem; }
         .nav-cta .btn-primary { display: block; text-align: center; }
       }
