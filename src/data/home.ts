@@ -44,19 +44,21 @@ export const specializing = [
   { label: 'Social', href: '/private-events/' },
 ];
 
+// Trimmed, white-filled logos. `h` = display height in px, tuned per logo so each carries
+// the same visual weight (wide wordmarks get less height, airy marks get more).
 export const clients = [
-  `${U}/2023/07/fontain-bleau-removebg-preview.png`,
-  `${U}/2023/07/the-shul-removebg-preview.png`,
-  `/img/yehudi.png`,
-  `/img/marriott-white.png`,
-  `/img/doubletree.png`,
-  `${U}/2023/07/diplomat-removebg-preview.png`,
+  { src: '/img/logos/fontainebleau.png', name: 'Fontainebleau', h: 82 },
+  { src: '/img/logos/the-shul.png', name: 'The Shul', h: 38 },
+  { src: '/img/logos/yehudi.png', name: 'Yehudi', h: 64 },
+  { src: '/img/logos/jw-marriott.png', name: 'JW Marriott', h: 46 },
+  { src: '/img/logos/doubletree.png', name: 'DoubleTree by Hilton', h: 60 },
+  { src: '/img/logos/the-diplomat.png', name: 'The Diplomat Beach Resort', h: 32 },
 ];
 
 export const awards = [
-  `${U}/2023/07/Screen-Shot-2023-05-21-at-1.11.43-PM-q6znrnwuy32wmcprjm5zznstwmokbkzbimz6rvhwk2-removebg-preview.png`,
-  `${U}/2023/07/Screen-Shot-2023-05-21-at-1.02.39-PM-q6znrm15yhmeefdrt69e26rqe424795l784jr3lkci-removebg-preview.png`,
-  `${U}/2023/07/Screen-Shot-2023-05-21-at-1.04.04-PM-q6znsjvcsiwq0e0mbkvyjy8brzfbwcvxbvm1127eb6-removebg-preview.png`,
+  { src: '/img/logos/levine.png', name: 'Levine', note: 'Featured Vocalist', h: 56 },
+  { src: '/img/logos/the-knot.png', name: 'The Knot', note: 'Best of Weddings', h: 92 },
+  { src: '/img/logos/weddingwire.png', name: 'WeddingWire', note: "Couples' Choice", h: 82 },
 ];
 
 export const reviews = [

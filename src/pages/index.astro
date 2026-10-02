@@ -9,11 +9,6 @@ const tel = phone.replace(/[^+\d]/g, '');
 const [feature, ...restReviews] = reviews;
 
 // Talent sections share the editorial 2-column "index / rail" structure; side alternates.
-const awardMeta = [
-  { name: 'Levine', note: 'Featured Vocalist' },
-  { name: 'The Knot', note: 'Best of Weddings' },
-  { name: 'WeddingWire', note: "Couples' Choice" },
-];
 ---
 
 <Noir
@@ -199,8 +194,8 @@ const awardMeta = [
       <h2 class="band-h2">Our <span class="ital">Clients</span></h2>
     </header>
     <div class="logo-row" data-reveal-group>
-      {clients.map((src) => (
-        <span class="logo-cell"><img class="logo" src={src} alt="Client venue" loading="lazy" /></span>
+      {clients.map((c) => (
+        <img class="logo" src={c.src} alt={c.name} style={`height:${c.h}px`} loading="lazy" />
       ))}
     </div>
   </section>
@@ -212,10 +207,10 @@ const awardMeta = [
       <h2 class="band-h2">Awards &amp; <span class="ital">Accomplishments</span></h2>
     </header>
     <div class="awards-row" data-reveal-group>
-      {awards.map((src, i) => (
+      {awards.map((a) => (
         <figure class="award-cell">
-          <span class="award-chip"><img class="award-logo" src={src} alt={awardMeta[i].name} loading="lazy" /></span>
-          <figcaption class="award-note">{awardMeta[i].note}</figcaption>
+          <span class="award-chip"><img class="award-logo" src={a.src} alt={a.name} style={`height:${a.h}px`} loading="lazy" /></span>
+          <figcaption class="award-note">{a.note}</figcaption>
         </figure>
       ))}
     </div>
@@ -384,21 +379,18 @@ const awardMeta = [
     .spec-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 
     /* ── CLIENTS ── */
-    .logo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-    .logo-cell {
-      display: flex; align-items: center; justify-content: center; padding: 1.8rem 1rem;
-      border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 4px;
-      background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;
-    }
-    .logo-cell:hover { border-top-color: var(--accent); background: rgba(255,255,255,0.05); }
-    .logo { height: 56px; width: auto; max-width: 100%; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.88; transition: opacity 0.3s, filter 0.3s; }
-    .logo-cell:hover .logo { opacity: 1; filter: brightness(0) invert(1); }
+    /* Loose, box-free logo line; per-logo heights (data) equalise visual weight. */
+    .logo-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2.5rem 4rem; max-width: 1040px; margin: 0 auto; }
+    .logo { width: auto; max-width: 100%; object-fit: contain; opacity: 0.8; transition: opacity 0.3s; }
+    .logo:hover { opacity: 1; }
+    @media (max-width: 640px) { .logo-row { gap: 1.8rem 2.4rem; } .logo { zoom: 0.75; } }
 
     /* ── AWARDS (full-colour chips, legible) ── */
     .awards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 920px; }
     .award-cell { margin: 0; text-align: center; }
-    .award-chip { display: flex; align-items: center; justify-content: center; padding: 1.9rem 2rem; background: #f4efe6; border-radius: 8px; min-height: 150px; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
-    .award-logo { height: 92px; width: auto; max-width: 100%; object-fit: contain; }
+    .award-chip { display: flex; align-items: center; justify-content: center; padding: 2rem; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.02); min-height: 170px; transition: border-color 0.3s; }
+    .award-cell:hover .award-chip { border-color: var(--line-gold); }
+    .award-logo { width: auto; max-width: 100%; object-fit: contain; }
     .award-note { margin-top: 1rem; color: var(--accent); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em; }
 
     /* ── REVIEWS ── */
