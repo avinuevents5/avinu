@@ -302,7 +302,7 @@ const awardMeta = [
     .hero-kicker { display: block; margin-bottom: 1.2rem; }
     .hero-h1 { font-size: clamp(2.6rem, 6vw, 5.75rem); line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; }
     .hero-h1 .ital { font-weight: 600; }
-    .hero-sub { color: #d7dae2; font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 32rem; margin: 1.3rem 0 2rem; }
+    .hero-sub { color: var(--muted-text); font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 32rem; margin: 1.3rem 0 2rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .scroll-cue { position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 1px solid var(--line-gold); border-radius: 999px; }
     .scroll-cue span { position: absolute; top: 8px; left: 50%; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 2px; background: var(--accent); animation: scrollBob 1.8s ease-in-out infinite; }
@@ -366,7 +366,7 @@ const awardMeta = [
     .svc-text { padding: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; justify-content: center; }
     .svc-num { font-family: var(--font-display); color: var(--accent); font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 0.6rem; }
     .svc-name { font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
-    .svc-desc { color: #c4cbd8; margin: 1rem 0 1.6rem; max-width: 32ch; }
+    .svc-desc { color: var(--muted-text); margin: 1rem 0 1.6rem; max-width: 32ch; }
 
     /* ── generic band shell ── */
     .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
@@ -391,7 +391,7 @@ const awardMeta = [
       background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;
     }
     .logo-cell:hover { border-top-color: var(--accent); background: rgba(255,255,255,0.05); }
-    .logo { height: 56px; width: auto; max-width: 100%; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.62; transition: opacity 0.3s, filter 0.3s; }
+    .logo { height: 56px; width: auto; max-width: 100%; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.88; transition: opacity 0.3s, filter 0.3s; }
     .logo-cell:hover .logo { opacity: 1; filter: brightness(0) invert(1); }
 
     /* ── AWARDS (full-colour chips, legible) ── */
@@ -411,7 +411,7 @@ const awardMeta = [
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .review { margin: 0; padding: 1.9rem; background: rgba(8,9,12,0.4); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
     .review:hover { border-color: var(--line-gold); transform: translateY(-3px); }
-    .review blockquote { margin: 0.8rem 0; font-size: 0.95rem; color: #c4cbd8; line-height: 1.6; }
+    .review blockquote { margin: 0.8rem 0; font-size: 0.95rem; color: var(--muted-text); line-height: 1.6; }
     .review figcaption { color: var(--accent); font-weight: 600; font-size: 0.88rem; }
 
     /* ── INSTAGRAM ── */
