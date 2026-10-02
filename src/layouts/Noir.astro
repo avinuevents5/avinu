@@ -295,11 +295,11 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .main-nav .nav-list { display: flex; gap: 1.6rem; align-items: center; list-style: none; margin: 0; padding: 0; }
       .nav-list > li { position: relative; }
       .nav-list > li:not(.nav-cta) > a {
-        color: var(--muted-text); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--fg); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
         display: inline-flex; align-items: center; gap: 0.35rem;
         padding: 0.5rem 0; transition: color 0.25s;
       }
-      .nav-list > li:not(.nav-cta) > a:hover { color: var(--fg); }
+      .nav-list > li:not(.nav-cta) > a:hover { color: var(--accent-soft); }
       .caret { font-style: normal; font-size: 0.62rem; opacity: 0.7; transition: transform 0.25s; }
       .has-sub:hover .caret { transform: rotate(180deg); }
 
@@ -312,7 +312,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         opacity: 0; visibility: hidden; transition: all 0.22s ease;
       }
       .has-sub:hover .sub, .has-sub:focus-within .sub { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
-      .sub li a { display: block; padding: 0.55rem 0.9rem; border-radius: 8px; color: var(--muted-text); font-size: 0.88rem; white-space: nowrap; transition: all 0.2s; }
+      .sub li a { display: block; padding: 0.55rem 0.9rem; border-radius: 8px; color: var(--fg); font-size: 0.88rem; white-space: nowrap; transition: all 0.2s; }
       .sub li a:hover { background: #ffffff0d; color: var(--accent); }
 
       /* ═══════════════════════════════════════════════════════════════════
