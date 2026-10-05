@@ -112,13 +112,6 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
     <!-- FILM-GRAIN OVERLAY -->
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- UTILITY TOP BAR -->
-    <div class="topbar">
-      <div class="tb-social">
-        {social.map((s) => <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} set:html={s.svg}></a>)}
-      </div>
-    </div>
-
     <header class="site-header">
       <a href="/" class="brand" aria-label="Avinu Events — Home">
         <img class="logo-img" src={LOGO} alt="Avinu Events" width="661" height="295" />
@@ -141,8 +134,9 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
               )}
             </li>
           ))}
-          <li class="nav-phone"><a class="btn-phone" href={`tel:${PHONE.replace(/[^+\d]/g, '')}`} aria-label={`Call us at ${PHONE}`}>📞 {PHONE}</a></li>
-          <li class="nav-cta"><a class="btn-primary" href="/get-a-quote/">Contact us</a></li>
+          <li class="nav-divider" aria-hidden="true"></li>
+          <li class="nav-phone"><a class="hdr-phone" href={`tel:${PHONE.replace(/[^+\d]/g, '')}`} aria-label={`Call us at ${PHONE}`}>📞 {PHONE}</a></li>
+          <li class="nav-cta"><a class="btn-primary" href="/get-a-quote/">Contact Us →</a></li>
         </ul>
       </nav>
       <label for="nav-toggle" class="nav-scrim" aria-hidden="true"></label>
@@ -264,43 +258,48 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         pointer-events: none; z-index: 9999; opacity: 0.025; mix-blend-mode: overlay;
       }
 
-      /* TOP UTILITY BAR */
-      .topbar {
-        display: flex; align-items: center; justify-content: flex-end;
-        padding: 0.55rem var(--gutter); background: var(--midnight-deep); border-bottom: 1px solid var(--line);
-        position: relative; z-index: 60;
-      }
-      .tb-social { display: flex; gap: 1rem; }
-      .tb-social a { color: var(--header-text); display: inline-flex; transition: color 0.2s, transform 0.2s; }
-      .tb-social a:hover { color: var(--accent); transform: translateY(-1px); }
-      .tb-social svg { width: 16px; height: 16px; fill: currentColor; display: block; }
-
-      /* HEADER */
+      /* HEADER — single row, luxury editorial */
       .site-header {
         position: sticky; top: 0; z-index: 50;
-        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-        padding: 0.9rem var(--gutter);
-        border-bottom: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+        min-height: 92px;
+        padding: 0 clamp(2.5rem, 4vw, 3rem);
+        border-bottom: 1px solid rgba(201, 162, 75, 0.18);
       }
-      /* The frosted glass lives on a pseudo-element: backdrop-filter on the header itself would make it
-         the containing block for the fixed mobile menu, clipping the drawer to the header's height. */
       .site-header::before {
         content: ""; position: absolute; inset: 0; z-index: -1;
-        background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background: rgba(8, 9, 12, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       }
-      .brand { display: inline-flex; align-items: center; }
-      .logo-img { height: 46px; width: auto; }
+      .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
+      .logo-img { width: 135px; height: auto; }
 
-      .main-nav .nav-list { display: flex; gap: 1.6rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+      .main-nav .nav-list { display: flex; gap: 2.2rem; align-items: center; list-style: none; margin: 0; padding: 0; }
       .nav-list > li { position: relative; }
-      .nav-list > li:not(.nav-cta) > a {
-        color: var(--header-text); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a {
+        color: var(--header-text); font-size: 0.88rem; letter-spacing: 0.055em; text-transform: uppercase;
         display: inline-flex; align-items: center; gap: 0.35rem;
-        padding: 0.5rem 0; transition: color 0.25s;
+        padding: 0.5rem 0; position: relative; transition: color 0.25s;
       }
-      .nav-list > li:not(.nav-cta) > a:hover { color: var(--accent-soft); }
+      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+        background: var(--accent); transform: scaleX(0); transform-origin: left;
+        transition: transform 0.28s ease;
+      }
+      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a:hover { color: var(--accent-soft); }
+      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a:hover::after { transform: scaleX(1); }
       .caret { font-style: normal; font-size: 0.62rem; opacity: 0.7; transition: transform 0.25s; }
       .has-sub:hover .caret { transform: rotate(180deg); }
+
+      /* Vertical divider between nav links and phone/CTA */
+      .nav-divider { width: 1px; height: 22px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+
+      /* Phone link — subtle, gold, top-right */
+      .hdr-phone {
+        display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap;
+        color: var(--accent-soft); font-size: 0.84rem; font-weight: 500; letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .hdr-phone:hover { color: #fff; }
 
       .sub {
         position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
@@ -325,28 +324,17 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
          / .link-arrow (small uppercase gold text link with trailing arrow).
          ═══════════════════════════════════════════════════════════════════ */
 
-      /* TIER 1 — PRIMARY: solid gold pill.
-         Header "Contact us", hero "Get a Quote", Connect primary actions. */
+      /* TIER 1 — PRIMARY: refined rectangular gold button (luxury editorial, not nightclub pill). */
       .btn-primary {
-        display: inline-block; white-space: nowrap;
-        background: linear-gradient(135deg, #f1d480 0%, #c9a24b 55%, #a8842f 100%);
-        color: #1a1206;
-        padding: 0.85rem 1.8rem; border-radius: 999px;
-        font-family: var(--font-body); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
-        transition: transform 0.2s, filter 0.2s;
+        display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+        background: linear-gradient(135deg, #e8cc74 0%, #c9a24b 55%, #a8842f 100%);
+        color: #14100a;
+        padding: 0.75rem 1.55rem; border-radius: 12px;
+        min-width: 145px; justify-content: center;
+        font-family: var(--font-body); font-weight: 600; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase;
+        transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
       }
-      .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
-
-      /* PHONE CALL BUTTON — sits right before Contact us in the nav */
-      .btn-phone {
-        display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap;
-        padding: 0.85rem 1.4rem; border-radius: 999px;
-        border: 1.5px solid var(--accent);
-        color: var(--accent-soft);
-        font-family: var(--font-body); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.06em;
-        transition: background 0.2s, color 0.2s, transform 0.2s;
-      }
-      .btn-phone:hover { background: rgba(201,162,75,0.12); transform: translateY(-1px); }
+      .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); box-shadow: 0 6px 22px rgba(201,162,75,0.35); }
 
       /* TIER 2 — SECONDARY: ghost / outline. Equal-weight alternative actions. */
       .btn-ghost {
@@ -375,8 +363,8 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .nav-scrim { display: none; }
 
       @media (max-width: 980px) {
-        .topbar { padding-block: 0.5rem; }
-        .site-header { padding-block: 0.8rem; }
+        .site-header { min-height: 72px; padding: 0 1.2rem; }
+        .logo-img { width: 110px; }
         .nav-burger {
           display: flex; flex-direction: column; justify-content: center; gap: 5px;
           width: 30px; height: 30px; cursor: pointer; z-index: 60;
@@ -397,7 +385,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         #nav-toggle:checked ~ .nav-scrim { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 54; }
 
         .main-nav .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
-        .nav-list > li:not(.nav-cta) > a { display: flex; padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
+        .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a { display: flex; padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
         .has-sub .caret { display: none; }
         .sub {
           position: static; transform: none; opacity: 1; visibility: visible;
@@ -405,9 +393,11 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
           padding: 0.3rem 0 0.6rem 0.9rem;
         }
         .sub li a { padding: 0.5rem 0; font-size: 0.8rem; }
-        .nav-phone .btn-phone { display: block; text-align: center; font-size: 1rem; padding: 0.75rem 1rem; }
-        .nav-cta { margin-top: 0.6rem; }
-        .nav-cta .btn-primary { display: block; text-align: center; }
+        .nav-divider { display: none; }
+        .nav-phone { margin-top: 1rem; }
+        .nav-phone .hdr-phone { display: flex; justify-content: center; font-size: 1.05rem; padding: 0.6rem 0; }
+        .nav-cta { margin-top: 0.8rem; }
+        .nav-cta .btn-primary { display: flex; width: 100%; justify-content: center; border-radius: 10px; }
       }
 
       main { min-height: 60vh; }
