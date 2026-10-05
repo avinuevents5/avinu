@@ -77,5 +77,6 @@ export const iggrid = [
   `${U}/2025/05/sound-rental.jpg`,
 ];
 
-export const heroVideo = `${U}/2023/05/Avinu-Music-PROMO.mp4`;
-export const heroPoster = `${U}/2025/05/tyle-is-candid-image.jpg`;
+export const heroVideo = `/video/hero.mp4`;
+export const heroVideoMobile = `/video/hero-720.mp4`;
+export const heroPoster = `/video/hero-poster.jpg`;
