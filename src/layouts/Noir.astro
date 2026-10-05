@@ -114,7 +114,6 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
     <!-- UTILITY TOP BAR -->
     <div class="topbar">
-      <a class="tb-phone" href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}>Call us · {PHONE}</a>
       <div class="tb-social">
         {social.map((s) => <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} set:html={s.svg}></a>)}
       </div>
@@ -142,6 +141,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
               )}
             </li>
           ))}
+          <li class="nav-phone"><a class="btn-phone" href={`tel:${PHONE.replace(/[^+\d]/g, '')}`} aria-label={`Call us at ${PHONE}`}>📞 {PHONE}</a></li>
           <li class="nav-cta"><a class="btn-primary" href="/get-a-quote/">Contact us</a></li>
         </ul>
       </nav>
@@ -266,12 +266,10 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
       /* TOP UTILITY BAR */
       .topbar {
-        display: flex; align-items: center; justify-content: space-between;
+        display: flex; align-items: center; justify-content: flex-end;
         padding: 0.55rem var(--gutter); background: var(--midnight-deep); border-bottom: 1px solid var(--line);
         position: relative; z-index: 60;
       }
-      .tb-phone { color: var(--header-text); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s; }
-      .tb-phone:hover { color: var(--accent); }
       .tb-social { display: flex; gap: 1rem; }
       .tb-social a { color: var(--header-text); display: inline-flex; transition: color 0.2s, transform 0.2s; }
       .tb-social a:hover { color: var(--accent); transform: translateY(-1px); }
@@ -339,6 +337,17 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       }
       .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
 
+      /* PHONE CALL BUTTON — sits right before Contact us in the nav */
+      .btn-phone {
+        display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap;
+        padding: 0.85rem 1.4rem; border-radius: 999px;
+        border: 1.5px solid var(--accent);
+        color: var(--accent-soft);
+        font-family: var(--font-body); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.06em;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+      }
+      .btn-phone:hover { background: rgba(201,162,75,0.12); transform: translateY(-1px); }
+
       /* TIER 2 — SECONDARY: ghost / outline. Equal-weight alternative actions. */
       .btn-ghost {
         display: inline-block; white-space: nowrap;
@@ -367,7 +376,6 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
       @media (max-width: 980px) {
         .topbar { padding-block: 0.5rem; }
-        .tb-phone { font-size: 0.66rem; letter-spacing: 0.1em; }
         .site-header { padding-block: 0.8rem; }
         .nav-burger {
           display: flex; flex-direction: column; justify-content: center; gap: 5px;
@@ -397,13 +405,9 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
           padding: 0.3rem 0 0.6rem 0.9rem;
         }
         .sub li a { padding: 0.5rem 0; font-size: 0.8rem; }
-        .nav-cta { margin-top: 1rem; }
+        .nav-phone .btn-phone { display: block; text-align: center; font-size: 1rem; padding: 0.75rem 1rem; }
+        .nav-cta { margin-top: 0.6rem; }
         .nav-cta .btn-primary { display: block; text-align: center; }
-      }
-
-      @media (max-width: 480px) {
-        .tb-phone { display: none; }
-        .topbar { justify-content: center; }
       }
 
       main { min-height: 60vh; }
