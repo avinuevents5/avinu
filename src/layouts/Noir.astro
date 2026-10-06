@@ -467,7 +467,11 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .foot-social a { color: var(--muted-text); display: inline-flex; transition: color 0.25s, transform 0.2s; }
       .foot-social a:hover { color: var(--accent); transform: translateY(-2px); }
       .foot-social svg { width: 20px; height: 20px; fill: currentColor; display: block; }
-      .foot-meta { color: var(--muted-text); font-size: 0.82rem; letter-spacing: 0.04em; }
+      .foot-meta {
+        color: rgba(255,255,255,0.38); font-size: 0.82rem; letter-spacing: 0.06em;
+        font-family: var(--font-display); font-style: italic; font-weight: 400;
+      }
+      .foot-meta a { color: rgba(255,255,255,0.38); transition: color 0.2s; }
       .foot-meta a:hover { color: var(--accent); }
     </style>
 
