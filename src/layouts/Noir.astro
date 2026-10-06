@@ -56,6 +56,8 @@ const social = [
 // Faint film-grain overlay — inline SVG feTurbulence as a data-URI. Modern = clean, so this is
 // rendered at a barely-there opacity (≈0.025); just enough to avoid a flat digital sheen.
 const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+// CRM (chatbot). En local: PUBLIC_CRM_ORIGIN=http://localhost:3001
+const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
 ---
 
 <!doctype html>
@@ -475,5 +477,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .foot-meta a:hover { color: var(--accent); }
     </style>
 
+    <!-- Chatbot de Avinu (CRM): burbuja + panel. data-origin = dónde vive el CRM. -->
+    <script is:inline src={`${crmOrigin}/chat-widget.js`} data-origin={crmOrigin} defer></script>
   </body>
 </html>
