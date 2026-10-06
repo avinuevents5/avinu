@@ -63,7 +63,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <meta name="robots" content={robots} />
-    <meta name="theme-color" content="#08090c" />
+    <meta name="theme-color" content="#f5f1e8" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/jpeg" href={ICON} />
 
@@ -214,24 +214,49 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
     <style is:global define:vars={{ grain }}>
       :root {
-        /* MODERN MIAMI NOIR — cool midnight palette, gold as the only metal accent. */
-        --bg: #08090c;           /* deep near-black base */
-        --bg-2: #0a0e16;         /* cool midnight depth */
-        --midnight: #0b1018;     /* alternating section band (was wine) */
-        --midnight-deep: #080b12;/* deepest midnight, footer/nav */
-        --fg: #f4efe6;           /* ivory text */
-        --muted-text: #e4ded3;   /* soft ivory — secondary text stays white on black, just a touch below --fg */
+        /* IVORY EDITORIAL — warm ivory base, champagne bands, black type, gold accent.
+           Black is used strategically (header, hero overlays, CTA, footer) via .on-dark scopes. */
+        --ivory: #f5f1e8;        /* main page background */
+        --champagne: #e9e2d6;    /* secondary section band */
+        --ink: #111111;          /* body text */
+        --charcoal: #1a1a1a;     /* dark accent — header, CTA, footer */
+        --bg: var(--ivory);
+        --bg-2: var(--ivory);
+        --midnight: var(--champagne);      /* alternating section band (legacy name) */
+        --midnight-deep: var(--champagne);
+        --fg: var(--ink);
+        --muted-text: #4a453d;   /* warm graphite secondary text */
         --header-text: #ffffff;  /* header chrome matches the pure-white logo */
-        --accent: #c9a24b;       /* refined gold */
-        --accent-soft: #e3c889;  /* soft gold */
-        --line: #ffffff14;
-        --line-gold: rgba(201, 162, 75, 0.30);
+        --accent: #c7a24a;       /* champagne gold — rules, dots, stars, buttons */
+        --accent-ink: #8c6c24;   /* deeper gold for small text on ivory (legible contrast) */
+        --accent-soft: #a8842f;  /* hover gold on light */
+        --line: rgba(17, 17, 17, 0.12);
+        --line-gold: rgba(199, 162, 74, 0.5);
+        --card: rgba(255, 255, 255, 0.35);
+        --card-hover: rgba(255, 255, 255, 0.6);
         --font-display: 'Bodoni Moda', Georgia, serif;
         --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
         --maxw: 1240px;
         /* Shared side gutter: logo, top bar and hero copy all start on this line. */
         --gutter: clamp(1.1rem, 5vw, 5rem);
       }
+      /* DARK SCOPE — header, footer, photo heroes, CTA band and text laid over photos.
+         Re-points the text tokens to light values so everything inside reads on black. */
+      .on-dark,
+      .site-header, .site-footer, .connect-band,
+      .hero, .detail-hero, .dj-hero, .venue-hero,
+      .frame, .person, .rail-item {
+        --fg: #f5f1e8;
+        --muted-text: #ddd6c9;
+        --accent-ink: #e3c889;
+        --accent-soft: #e3c889;
+        --line: rgba(255, 255, 255, 0.14);
+        --line-gold: rgba(199, 162, 74, 0.35);
+        --card: rgba(255, 255, 255, 0.03);
+        --card-hover: rgba(255, 255, 255, 0.07);
+        color: var(--fg);
+      }
+      .connect-band { background: var(--charcoal) !important; }
       * { box-sizing: border-box; }
       /* Clip, not hidden: keeps the sticky header working while stopping the off-canvas menu from widening the page. */
       html, body { overflow-x: clip; }
@@ -244,11 +269,11 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; line-height: 1.03; letter-spacing: -0.015em; margin: 0; }
       a { color: inherit; text-decoration: none; }
       img { max-width: 100%; display: block; }
-      ::selection { background: rgba(201, 162, 75, 0.28); color: var(--accent-soft); }
+      ::selection { background: rgba(199, 162, 74, 0.3); color: var(--ink); }
 
       .eyebrow {
         text-transform: uppercase; letter-spacing: 0.34em; font-size: 0.7rem;
-        font-weight: 600; color: var(--accent); font-family: var(--font-body);
+        font-weight: 600; color: var(--accent-ink); font-family: var(--font-body);
       }
 
       /* FILM GRAIN — barely-there, static (modern, clean) */
@@ -268,7 +293,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       }
       .site-header::before {
         content: ""; position: absolute; inset: 0; z-index: -1;
-        background: rgba(8, 9, 12, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        background: rgba(26, 26, 26, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       }
       .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
       .logo-img { width: 135px; height: auto; }
@@ -304,7 +329,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .sub {
         position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
         min-width: 230px; list-style: none; margin: 0; padding: 0.9rem 0;
-        background: rgba(8, 9, 12, 0.97); backdrop-filter: blur(18px);
+        background: rgba(26, 26, 26, 0.97); backdrop-filter: blur(18px);
         border: 1px solid var(--line); border-top: 1px solid var(--line-gold); border-radius: 2px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
         opacity: 0; visibility: hidden; transition: all 0.22s ease;
@@ -341,7 +366,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         display: inline-block; white-space: nowrap;
         background: transparent; color: var(--fg);
         padding: 0.85rem 1.8rem; border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid color-mix(in srgb, var(--fg) 40%, transparent);
         font-family: var(--font-body); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
         transition: border-color 0.25s, color 0.25s, transform 0.2s;
       }
@@ -351,7 +376,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
          All inline navigational links. Arrow supplied via ::after (no markup needed). */
       .link-arrow {
         display: inline-flex; align-items: center; gap: 0.5rem;
-        color: var(--accent); font-family: var(--font-body); font-weight: 600;
+        color: var(--accent-ink); font-family: var(--font-body); font-weight: 600;
         font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
         transition: color 0.25s, filter 0.25s;
       }
@@ -376,7 +401,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
         .main-nav {
           position: fixed; top: 0; right: 0; bottom: 0; width: min(86vw, 360px);
-          background: var(--midnight-deep); border-left: 1px solid var(--line-gold);
+          background: var(--charcoal); border-left: 1px solid var(--line-gold);
           transform: translateX(100%); visibility: hidden;
           transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
           padding: 5.5rem 1.6rem 2rem; overflow-y: auto; z-index: 55;
@@ -406,7 +431,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .site-footer {
         position: relative; overflow: hidden;
         border-top: 1px solid var(--line-gold);
-        background: linear-gradient(180deg, var(--midnight) 0%, var(--midnight-deep) 100%);
+        background: linear-gradient(180deg, var(--charcoal) 0%, #111111 100%);
         padding: 5rem 1.5rem 4rem;
       }
       /* Subtle Miami-skyline strip across the footer backdrop. */
@@ -417,7 +442,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 55%);
       }
       .foot-skyline svg { width: 100%; height: 100%; display: block; }
-      .foot-skyline .sk-towers rect { fill: #11192a; }
+      .foot-skyline .sk-towers rect { fill: #262626; }
       .foot-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.7; }
       .foot-inner { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; text-align: center; }
       .foot-brand img { height: 60px; width: auto; margin: 0 auto; }

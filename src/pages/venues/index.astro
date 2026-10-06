@@ -22,7 +22,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
   description="Here is our list of recommended venues for weddings, corporate, and social events. Please click on any of the following event venues to know more."
 >
   <!-- ░░ PAGE HEADER ░░ -->
-  <section class="page-head" style={`--head-img:url('${HEAD_IMG}')`}>
+  <section class="page-head on-dark" style={`--head-img:url('${HEAD_IMG}')`}>
     <div class="ph-bg" aria-hidden="true"></div>
     <div class="ph-inner">
       <p class="eyebrow">Venues</p>
@@ -35,6 +35,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       <div class="ph-actions">
         <a class="btn-primary" href="/get-a-quote/">Looking for a kosher venue?</a>
       </div>
+      <a class="ph-venue-link" href="/venues/apply/">Venue owner? Apply to be featured →</a>
     </div>
   </section>
 
@@ -54,6 +55,20 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
     </div>
   </section>
 
+  <!-- ░░ VENUE PARTNER CTA — deliberately quiet so the page still reads as "for couples" ░░ -->
+  <section class="band partner-band">
+    <div class="partner-card" data-reveal>
+      <p class="eyebrow">Are you a venue?</p>
+      <h2 class="partner-h2">Get featured on <span class="ital">Avinu Events</span></h2>
+      <p class="partner-sub">Join our curated network of wedding and event venues in South Florida.</p>
+      <p class="partner-body">
+        If your property is a strong fit for weddings, corporate events, private celebrations, or
+        kosher events, we'd love to learn more about your space.
+      </p>
+      <a class="btn-ghost" href="/venues/apply/">Apply to be featured</a>
+    </div>
+  </section>
+
   <!-- ░░ CONNECT CTA ░░ -->
   <ConnectCTA />
 
@@ -62,13 +77,33 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
     .page-head { position: relative; isolation: isolate; overflow: hidden; padding: 7.5rem 1.5rem 5rem; text-align: center; }
     .ph-bg { position: absolute; inset: 0; z-index: -1; background: var(--head-img) center / cover no-repeat; }
     .ph-bg::after { content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(8,9,12,0.55) 0%, rgba(8,9,12,0.62) 55%, var(--bg) 100%),
-                  radial-gradient(ellipse at center, rgba(8,9,12,0.15), rgba(8,9,12,0.55)); }
+      background: linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0.62) 100%),
+                  radial-gradient(ellipse at center, rgba(17,17,17,0.1), rgba(17,17,17,0.5)); }
     .page-head .ph-sub { color: var(--muted-text); }
     .ph-inner { max-width: var(--maxw); margin: 0 auto; }
     .page-head h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 1rem 0; }
     .ph-sub { color: var(--muted-text); max-width: 44rem; margin: 0 auto; font-size: 1.05rem; }
     .ph-actions { margin-top: 2rem; }
+    .ph-venue-link {
+      display: inline-block; margin-top: 1.1rem;
+      font-size: 0.85rem; letter-spacing: 0.04em; color: var(--muted-text); opacity: 0.8;
+      border-bottom: 1px solid transparent; transition: color 0.25s, opacity 0.25s, border-color 0.25s;
+    }
+    .ph-venue-link:hover { color: var(--accent-soft); opacity: 1; border-color: var(--line-gold); }
+
+    /* VENUE PARTNER CTA */
+    .ital { font-style: italic; font-weight: 400; }
+    .partner-band { padding-top: 4rem; padding-bottom: 4rem; }
+    .partner-card {
+      max-width: 46rem; text-align: center;
+      padding: clamp(2.2rem, 5vw, 3.2rem) clamp(1.5rem, 5vw, 3.5rem);
+      border: 1px solid var(--line); border-top: 1px solid var(--line-gold); border-radius: 18px;
+      background: var(--card);
+    }
+    .partner-card .eyebrow { display: block; }
+    .partner-h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.8rem 0 0.9rem; }
+    .partner-sub { color: var(--fg); margin: 0 0 0.6rem; }
+    .partner-body { color: var(--muted-text); font-size: 0.95rem; max-width: 36rem; margin: 0 auto 1.8rem; }
 
     /* SECTION SHELL — alternating black / midnight bands */
     .band { padding: 5rem 1.5rem; }
@@ -84,7 +119,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
     .venue-card {
       display: flex; flex-direction: column;
       border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
-      background: #ffffff05;
+      background: var(--card);
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
     .venue-card:hover {

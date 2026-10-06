@@ -102,7 +102,7 @@ const services = [
 
     /* SERVICE TILES */
     .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #ffffff05; transition: border-color 0.25s, transform 0.25s; }
+    .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); transition: border-color 0.25s, transform 0.25s; }
     .tile:hover { border-color: var(--line-gold); transform: translateY(-4px); }
     /* Vertical portrait framing — anchored to the top so faces/heads are never cropped. */
     .tile-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center top; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }

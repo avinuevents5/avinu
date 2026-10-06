@@ -6,17 +6,17 @@ export const instagram = 'https://www.instagram.com/avinuevents/';
 export const googleReviews = 'https://www.google.com/search?q=Avinu+Music+%26+Productions+reviews';
 
 export const singers = [
-  { name: 'Anais Vivas', img: `${U}/2023/08/anais-new.jpg`, href: '/anais-vivas/' },
   { name: 'Mark Levine', img: `${U}/2023/08/levine.jpg`, href: '/mark-levine/' },
+  { name: 'Anais', img: `${U}/2023/08/anais-new.jpg`, href: '/anais-vivas/' },
 ];
 
 export const djs = [
-  { name: 'DJ Mansel', img: `${U}/2023/08/m12.jpg` },
-  { name: 'DJ Ricky', img: `${U}/2023/08/rr1.jpg` },
-  { name: 'DJ Trey', img: `${U}/2023/08/tt1.jpg` },
-  { name: 'DJ Grant', img: `${U}/2023/08/g1.jpg` },
   { name: 'DJ Lance', img: `${U}/2023/08/l1-1.jpg` },
   { name: 'DJ Levine', img: `${U}/2023/08/l12.jpg` },
+  { name: 'DJ Ricky', img: `${U}/2023/08/rr1.jpg` },
+  { name: 'DJ Mansel', img: `${U}/2023/08/m12.jpg` },
+  { name: 'DJ Trey', img: `${U}/2023/08/tt1.jpg` },
+  { name: 'DJ Grant', img: `${U}/2023/08/g1.jpg` },
 ];
 
 export const musicians = [

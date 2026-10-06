@@ -93,14 +93,17 @@ const [feature, ...restReviews] = reviews;
         <span class="idx">01</span>
         <p class="eyebrow">Vocalists</p>
         <h2 class="talent-title">Our<br /><span class="ital">Singers</span></h2>
-        <p class="talent-copy">Ceremony soloists whose voices carry the weight of the moment — from the chuppah to the first dance.</p>
+        <p class="talent-copy">Exceptional vocalists who bring emotion and presence to every moment — from the ceremony and cocktail hour to dinner and dancing.</p>
         <a class="link-arrow" href="/jewish-ceremony-singer/">View all</a>
       </div>
       <div class="talent-media singers-rail" data-reveal-group>
         {singers.map((p) => (
-          <a class="frame portrait" href={p.href}>
+          <a class="frame portrait singer-card" href={p.href} aria-label={`View ${p.name}'s profile`}>
             <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
-            <span class="frame-name">{p.name}</span>
+            <span class="singer-label">
+              <span class="singer-name">{p.name}</span>
+              <span class="link-arrow">View profile</span>
+            </span>
           </a>
         ))}
       </div>
@@ -109,7 +112,7 @@ const [feature, ...restReviews] = reviews;
 
   <!-- ░░ DJS — rail left / index right (midnight band) ░░ -->
   <section class="talent midnight" id="djs">
-    <div class="talent-grid reverse">
+    <div class="talent-grid stacked">
       <div class="talent-index" data-reveal>
         <span class="idx">02</span>
         <p class="eyebrow">On the decks</p>
@@ -118,7 +121,7 @@ const [feature, ...restReviews] = reviews;
         <a class="link-arrow" href="/best-djs-in-south-florida/">View all</a>
       </div>
       <div class="talent-media" data-reveal>
-        <div class="rail" data-reveal-group>
+        <div class="rail rail-4" id="dj-rail" data-reveal-group>
           {djs.map((p) => (
             <a class="frame rail-item" href="/best-djs-in-south-florida/">
               <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
@@ -126,6 +129,9 @@ const [feature, ...restReviews] = reviews;
             </a>
           ))}
         </div>
+        <button class="rail-next" type="button" data-rail="dj-rail" aria-label="See more DJs">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -281,18 +287,20 @@ const [feature, ...restReviews] = reviews;
     .hero-scrim {
       position: absolute; inset: 0; z-index: -1;
       background:
-        radial-gradient(120% 80% at 18% 72%, rgba(11,16,24,0.5), transparent 60%),
-        linear-gradient(180deg, rgba(8,9,12,0.4) 0%, rgba(8,9,12,0.16) 34%, rgba(8,9,12,0.82) 86%, var(--bg) 100%);
+        radial-gradient(120% 80% at 18% 72%, rgba(17,17,17,0.45), transparent 60%),
+        linear-gradient(180deg, rgba(17,17,17,0.35) 0%, rgba(17,17,17,0.12) 34%, rgba(17,17,17,0.55) 100%);
     }
     /* Signature Miami skyline rising from the bottom of the hero, fading the video above it. */
+    /* Hidden on the ivory theme — the silhouette was built to dissolve into a black page. */
     .hero-skyline {
+      display: none;
       position: absolute; left: 0; right: 0; bottom: 0; z-index: -2;
       height: clamp(140px, 26vh, 240px); pointer-events: none;
       mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
       -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
     }
     .hero-skyline svg { width: 100%; height: 100%; display: block; }
-    .hero-skyline .sk-towers rect { fill: #0c121f; }
+    .hero-skyline .sk-towers rect { fill: #161616; }
     .hero-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.78; }
     .hero-content { padding: 2.5rem var(--gutter); max-width: 64rem; }
     .hero-kicker { display: block; margin-bottom: 1.2rem; }
@@ -338,6 +346,12 @@ const [feature, ...restReviews] = reviews;
     .singers-rail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .singers-rail .frame:first-child { transform: translateY(-2rem); }
     .singers-rail .frame:last-child { transform: translateY(2rem); }
+    /* Singer cards are profile links — make that obvious: gold ring + lift shadow on hover/focus, explicit CTA. */
+    .singer-card { transition: box-shadow 0.35s ease; }
+    .singer-card:hover, .singer-card:focus-visible { box-shadow: 0 0 0 1px var(--accent), 0 18px 44px rgba(0,0,0,0.5); outline: none; }
+    .singer-card:hover .link-arrow::after, .singer-card:focus-visible .link-arrow::after { transform: translateX(5px); }
+    .singer-label { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; z-index: 2; display: flex; flex-direction: column; gap: 0.45rem; }
+    .singer-name { font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.65rem); letter-spacing: -0.01em; color: #fff; }
 
     .rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
     .rail-item { scroll-snap-align: start; }
@@ -345,14 +359,25 @@ const [feature, ...restReviews] = reviews;
     .rail::-webkit-scrollbar { height: 5px; }
     .rail::-webkit-scrollbar-thumb { background: var(--line-gold); border-radius: 999px; }
 
+    /* DJs: header above, full-width rail showing 4 cards on desktop + arrow to page right. */
+    .talent-grid.stacked { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .talent-grid.stacked .talent-copy { max-width: 48ch; }
+    .talent-media:has(.rail-next) { position: relative; }
+    .rail-4 { grid-auto-columns: calc((100% - 3 * 1.25rem) / 4); }
+    .rail-next { position: absolute; right: -1.4rem; top: calc(50% - 0.5rem); transform: translateY(-50%); z-index: 3; width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px solid var(--accent); background: rgba(26,26,26,0.8); backdrop-filter: blur(6px); display: grid; place-items: center; cursor: pointer; transition: background 0.25s, opacity 0.25s; }
+    .rail-next svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: var(--accent); stroke-width: 1.8; }
+    .rail-next:hover, .rail-next:focus-visible { background: var(--accent); outline: none; }
+    .rail-next:hover svg, .rail-next:focus-visible svg { stroke: #08090c; }
+    .rail-next[data-end] { opacity: 0; pointer-events: none; }
+
     /* ── SERVICES (cinematic rows) ── */
     .services { padding: clamp(5rem, 10vh, 8rem) clamp(1.5rem, 6vw, 6rem); }
     .svc-head { max-width: var(--maxw); margin: 0 auto 3.5rem; text-align: center; }
-    .svc-head .idx-04 { -webkit-text-stroke-color: rgba(227,200,137,0.35); margin: 0 auto 1rem; text-align: center; }
+    .svc-head .idx-04 { -webkit-text-stroke-color: var(--line-gold); margin: 0 auto 1rem; text-align: center; }
     .svc-head .eyebrow { display: block; margin-bottom: 0.7rem; }
     .svc-title { font-size: clamp(2.2rem, 5vw, 3.6rem); }
     .svc-rows { max-width: var(--maxw); margin: 0 auto; display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); }
-    .svc-row { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 380px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(11,16,24,0.4); transition: border-color 0.3s; }
+    .svc-row { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 380px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--card); transition: border-color 0.3s; }
     .svc-row:hover { border-color: var(--line-gold); }
     .svc-row.flip { grid-template-columns: 0.85fr 1.15fr; }
     .svc-row.flip .svc-img { order: 2; }
@@ -360,7 +385,7 @@ const [feature, ...restReviews] = reviews;
     .svc-img { background-size: cover; background-position: center; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
     .svc-row:hover .svc-img { transform: scale(1.04); }
     .svc-text { padding: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; justify-content: center; }
-    .svc-num { font-family: var(--font-display); color: var(--accent); font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 0.6rem; }
+    .svc-num { font-family: var(--font-display); color: var(--accent-ink); font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 0.6rem; }
     .svc-name { font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
     .svc-desc { color: var(--muted-text); margin: 1rem 0 1.6rem; max-width: 32ch; }
 
@@ -382,17 +407,18 @@ const [feature, ...restReviews] = reviews;
     /* ── CLIENTS ── */
     /* Loose, box-free logo line; per-logo heights (data) equalise visual weight. */
     .logo-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2.5rem 4rem; max-width: 1040px; margin: 0 auto; }
-    .logo { width: auto; max-width: 100%; object-fit: contain; opacity: 0.8; transition: opacity 0.3s; }
+    /* Source logos are white PNGs — render them as black marks on the light band. */
+    .logo { width: auto; max-width: 100%; object-fit: contain; filter: brightness(0); opacity: 0.72; transition: opacity 0.3s; }
     .logo:hover { opacity: 1; }
     @media (max-width: 640px) { .logo-row { gap: 1.8rem 2.4rem; } .logo { zoom: 0.75; } }
 
     /* ── AWARDS (full-colour chips, legible) ── */
     .awards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 920px; }
     .award-cell { margin: 0; text-align: center; }
-    .award-chip { display: flex; align-items: center; justify-content: center; padding: 2rem; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.02); min-height: 170px; transition: border-color 0.3s; }
+    .award-chip { display: flex; align-items: center; justify-content: center; padding: 2rem; border: 1px solid var(--charcoal); border-radius: 6px; background: var(--charcoal); min-height: 170px; transition: border-color 0.3s; }
     .award-cell:hover .award-chip { border-color: var(--line-gold); }
     .award-logo { width: auto; max-width: 100%; object-fit: contain; }
-    .award-note { margin-top: 1rem; color: var(--accent); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em; }
+    .award-note { margin-top: 1rem; color: var(--accent-ink); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em; }
 
     /* ── REVIEWS ── */
     .stars { color: var(--accent); letter-spacing: 0.18em; font-size: 1.3rem; }
@@ -402,7 +428,7 @@ const [feature, ...restReviews] = reviews;
     .feature-quote blockquote { margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.4; color: var(--fg); }
     .feature-quote figcaption { margin-top: 1.4rem; color: var(--fg); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .review { margin: 0; padding: 1.9rem; background: rgba(8,9,12,0.4); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
+    .review { margin: 0; padding: 1.9rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
     .review:hover { border-color: var(--line-gold); transform: translateY(-3px); }
     .review blockquote { margin: 0.8rem 0; font-size: 0.95rem; color: var(--muted-text); line-height: 1.6; }
     .review figcaption { color: var(--fg); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
@@ -419,8 +445,8 @@ const [feature, ...restReviews] = reviews;
 
     /* ── CONNECT ── */
     .connect { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .connect-col { padding: 2.6rem 2rem; border: 1px solid var(--line); border-radius: 6px; text-align: center; background: rgba(8,9,12,0.35); transition: all 0.3s; }
-    .connect-col:hover { border-color: var(--accent); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .connect-col { padding: 2.6rem 2rem; border: 1px solid var(--line); border-radius: 6px; text-align: center; background: var(--card); transition: all 0.3s; }
+    .connect-col:hover { border-color: var(--accent); transform: translateY(-4px); background: var(--card-hover); }
     .ci { width: 30px; height: 30px; fill: var(--accent); margin: 0 auto 1.1rem; }
     .connect-col h3 { font-size: 1.55rem; margin-bottom: 0.4rem; }
     .connect-col p { color: var(--muted-text); margin: 0 0 1.4rem; }
@@ -432,6 +458,8 @@ const [feature, ...restReviews] = reviews;
       .talent-grid, .talent-grid.reverse { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
       .talent-grid.reverse .talent-index { order: 1; }
       .talent-grid.reverse .talent-media { order: 2; }
+      .rail-4 { grid-auto-columns: minmax(220px, 70%); }
+      .rail-next { right: 0.25rem; }
       .svc-row, .svc-row.flip { grid-template-columns: 1fr; }
       .svc-row.flip .svc-img { order: 1; }
       .svc-row.flip .svc-text { order: 2; }
@@ -472,6 +500,20 @@ const [feature, ...restReviews] = reviews;
         animate(Array.from(group.children), { opacity: [0, 1], y: [34, 0] },
           { delay: stagger(0.08), duration: 0.75, ease: [0.16, 1, 0.3, 1] });
       }, { margin: '0px 0px -10% 0px' });
+    });
+
+    // Rail arrows — page one card to the right; hide once the end is reached.
+    document.querySelectorAll<HTMLButtonElement>('.rail-next').forEach((btn) => {
+      const rail = document.getElementById(btn.dataset.rail!);
+      if (!rail) return;
+      const sync = () => btn.toggleAttribute('data-end', rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4);
+      btn.addEventListener('click', () => {
+        const card = rail.firstElementChild as HTMLElement | null;
+        rail.scrollBy({ left: (card?.offsetWidth ?? 250) + 20, behavior: 'smooth' });
+      });
+      rail.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
     });
   </script>
 </Noir>

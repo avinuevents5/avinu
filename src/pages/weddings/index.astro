@@ -134,14 +134,14 @@ const steps = [
 
     /* ── HIGHLIGHTS grid ── */
     .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: rgba(8,9,12,0.35); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
-    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: rgba(8,9,12,0.6); }
+    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: var(--card); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
+    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: var(--card-hover); }
     .hl-title { font-size: 1.55rem; margin-bottom: 0.5rem; }
     .hl-desc { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; flex: 1; }
 
     /* ── STEPS ── */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .step { padding: 2rem 1.8rem; border: 1px solid var(--line); border-radius: 6px; background: rgba(11,16,24,0.3); }
+    .step { padding: 2rem 1.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
     .step-n { display: block; font-family: var(--font-display); font-size: 2.4rem; color: transparent; -webkit-text-stroke: 1px var(--line-gold); margin-bottom: 1rem; }
     .step-title { font-size: 1.35rem; margin-bottom: 0.6rem; }
     .step-body { color: var(--muted-text); font-size: 0.95rem; }

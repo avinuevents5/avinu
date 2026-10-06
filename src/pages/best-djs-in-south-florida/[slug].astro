@@ -125,7 +125,7 @@ const others = (await getCollection('djs'))
     /* HERO */
     .dj-hero { position: relative; height: 68vh; min-height: 460px; display: flex; align-items: flex-end; overflow: hidden; }
     .dj-hero-img { position: absolute; inset: 0; background-size: cover; background-position: center 30%; transform: scale(1.02); }
-    .dj-hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 2%, rgba(8,9,12,0.45) 45%, rgba(8,9,12,0.25) 100%); }
+    .dj-hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.45) 45%, rgba(17,17,17,0.25) 100%); }
     .dj-hero-content { position: relative; z-index: 2; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem 3rem; }
     .dj-hero-content h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); margin-top: 0.6rem; }
     .back-link {
@@ -149,7 +149,7 @@ const others = (await getCollection('djs'))
     .bio :global(p:first-child) { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; color: var(--fg); }
     .bio :global(em) { color: var(--fg); font-style: italic; }
 
-    .stats { position: sticky; top: 6rem; border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: #ffffff05; }
+    .stats { position: sticky; top: 6rem; border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: var(--card); }
     .stat-block { margin-bottom: 1.8rem; }
     .chips { list-style: none; margin: 0.9rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .chips li {
@@ -181,7 +181,7 @@ const others = (await getCollection('djs'))
     .rail-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.78), transparent 55%); }
     .rail-name { position: absolute; left: 1rem; bottom: 0.9rem; z-index: 2; font-family: var(--font-display); font-size: 1.1rem; }
     .rail::-webkit-scrollbar { height: 6px; }
-    .rail::-webkit-scrollbar-thumb { background: #ffffff22; border-radius: 999px; }
+    .rail::-webkit-scrollbar-thumb { background: var(--line-gold); border-radius: 999px; }
 
     /* CLOSING CTA */
     .cta-band { text-align: center; }

@@ -1,0 +1,133 @@
+---
+import Noir from '../../../layouts/Noir.astro';
+import { phone } from '../../../data/home';
+
+const tel = phone.replace(/[^+\d]/g, '');
+
+// LeadConnector form ID for the venue application (build it in LeadConnector,
+// then paste the ID from its embed code here). Empty = show the call/text fallback.
+const VENUE_FORM_ID = '';
+
+const asks = [
+  'Venue name, contact name, email & phone',
+  'Website & address',
+  'Capacity, and indoor / outdoor spaces',
+  'Event types you host',
+  'Kosher capabilities & catering policy',
+  'Parking / valet',
+  'A few photos of the space',
+  'A short description, and why you want to be featured',
+];
+---
+
+<Noir
+  title="Apply to Be Featured — Venues"
+  description="Own or manage a wedding or event venue in South Florida? Apply to be featured in the Avinu Events curated venue network."
+>
+  <!-- ░░ PAGE HEADER ░░ -->
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Venue partners</p>
+    <h1 class="head-h1">Apply to be <span class="ital">featured</span></h1>
+    <p class="head-sub">
+      Join our curated network of wedding and event venues in South Florida. If your property is a
+      strong fit for weddings, corporate events, private celebrations, or kosher events, we'd love to
+      learn more about your space.
+    </p>
+  </section>
+
+  <section class="apply">
+    <div class="apply-grid">
+      <!-- LEFT: what we look for -->
+      <aside class="apply-aside" data-reveal>
+        <p class="eyebrow">What we'll ask</p>
+        <ul class="aside-list">
+          {asks.map((a) => <li>{a}</li>)}
+        </ul>
+        <p class="aside-note">
+          Every venue is reviewed by our team. We feature properties we'd be proud to send our own
+          couples to.
+        </p>
+        <a class="link-arrow" href="/venues/">Back to venues</a>
+      </aside>
+
+      <!-- RIGHT: application form -->
+      {VENUE_FORM_ID ? (
+        <div class="apply-form-wrap" data-reveal>
+          <iframe
+            src={`https://link.avinumusic.com/widget/form/${VENUE_FORM_ID}`}
+            class="lc-form"
+            id={`inline-${VENUE_FORM_ID}`}
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-activation-type="alwaysActivated"
+            data-deactivation-type="neverDeactivate"
+            data-form-name="Avinu — Venue Application"
+            data-layout-iframe-id={`inline-${VENUE_FORM_ID}`}
+            data-form-id={VENUE_FORM_ID}
+            title="Venue application"
+          ></iframe>
+        </div>
+      ) : (
+        <div class="apply-fallback" data-reveal>
+          <p class="eyebrow">Start your application</p>
+          <h2 class="fb-h2">Tell us about your <span class="ital">space</span></h2>
+          <p class="fb-sub">
+            Call or text our partnerships team with your venue name and website, and we'll follow up
+            to learn more and collect photos.
+          </p>
+          <div class="fb-actions">
+            <a class="btn-primary" href={`sms:${tel}`}>Text {phone}</a>
+            <a class="btn-ghost" href={`tel:${tel}`}>Call us</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  {VENUE_FORM_ID && <script is:inline src="https://link.avinumusic.com/js/form_embed.js"></script>}
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 42rem; margin: 1.6rem auto 0; }
+
+    .apply { padding: clamp(1rem, 3vh, 2rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
+    .apply-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: stretch; }
+
+    .apply-aside,
+    .apply-fallback { border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 8px; background: var(--card); padding: 2rem; display: flex; flex-direction: column; }
+    .apply-aside .eyebrow,
+    .apply-fallback .eyebrow { display: block; margin-bottom: 1rem; }
+    .aside-list { list-style: none; margin: 0 0 1.6rem; padding: 0; display: grid; gap: 0.75rem; }
+    .aside-list li { position: relative; padding-left: 1.5rem; color: var(--muted-text); font-size: 0.95rem; }
+    .aside-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .aside-note { color: var(--muted-text); font-size: 0.9rem; margin: 0 0 1.6rem; }
+    .apply-aside .link-arrow { margin-top: auto; }
+
+    .apply-fallback { justify-content: center; text-align: center; }
+    .fb-h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .fb-sub { color: var(--muted-text); max-width: 30rem; margin: 1rem auto 2rem; }
+    .fb-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .apply-form-wrap { border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45); border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .lc-form { width: 100%; min-height: 900px; border: 0; display: block; }
+
+    @media (max-width: 900px) {
+      .apply-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html.js) [data-reveal] { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    import { animate, inView } from 'motion';
+    inView('[data-reveal]', (el) => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+    }, { margin: '0px 0px -10% 0px' });
+  </script>
+</Noir>

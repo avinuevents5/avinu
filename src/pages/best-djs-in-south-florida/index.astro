@@ -74,7 +74,7 @@ const djs = (await getCollection('djs')).sort(
     .dj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .dj-card {
       display: flex; flex-direction: column; overflow: hidden; border-radius: 18px;
-      border: 1px solid var(--line); background: #ffffff05;
+      border: 1px solid var(--line); background: var(--card);
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
     .dj-card:hover {
