@@ -121,12 +121,21 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
 
     /* LAYOUT — copy + sticky details panel */
     .venue-layout { display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 3rem; align-items: start; }
-    .why-eyebrow { display: block; margin-bottom: 0.8rem; }
+    .why-eyebrow { display: block; margin-bottom: 1.1rem; }
     .venue-summary {
-      font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-      line-height: 1.4; color: var(--fg); margin: 0 0 2rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.65;
+      letter-spacing: 0.008em;
+      color: var(--muted-text);
+      margin: 0 0 2.2rem;
+      max-width: 52ch;
+      border-left: 1px solid rgba(201,162,75,0.35);
+      padding-left: 1.4rem;
     }
-    .venue-body :global(p) { color: var(--muted-text); font-size: 1.02rem; margin: 0 0 1.2rem; }
+    .venue-body :global(p) { color: var(--muted-text); font-size: 1rem; line-height: 1.75; margin: 0 0 1.2rem; }
     .venue-body :global(h4) { font-size: 1.3rem; color: var(--fg); margin: 2rem 0 0.8rem; }
     .venue-body :global(img) { border-radius: 14px; margin: 1.5rem 0; }
     .back-link { margin-top: 1.5rem; }
