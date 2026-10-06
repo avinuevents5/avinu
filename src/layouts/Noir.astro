@@ -19,9 +19,12 @@ const {
 } = Astro.props;
 const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 
-const siteName = 'Avinu Music & Productions';
+const siteName = 'Avinu Events';
 const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
 const year = new Date().getFullYear();
+
+// External client portal. TODO: replace with the real portal URL.
+const CLIENT_AREA_URL = '#';
 
 // Navigation mirrors the official avinuevents.com menu: Event Services / Venues / Contact us.
 const nav = [
@@ -35,6 +38,7 @@ const nav = [
       { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
     ],
   },
+  { label: 'Client Area', href: CLIENT_AREA_URL, external: true },
   { label: 'Venues', href: '/venues/' },
 ];
 
@@ -126,7 +130,7 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         <ul class="nav-list">
           {nav.map((item) => (
             <li class={item.children ? 'has-sub' : ''}>
-              <a href={item.href}>{item.label}{item.children && <i class="caret">▾</i>}</a>
+              <a href={item.href} {...(item.external && item.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{item.label}{item.children && <i class="caret">▾</i>}</a>
               {item.children && (
                 <ul class="sub">
                   {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
@@ -191,12 +195,14 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       </div>
       <div class="foot-inner">
         <a href="/" class="foot-brand"><img src={LOGO} alt="Avinu Events" width="661" height="295" /></a>
-        <p class="foot-tag">South Florida's premier event production company — since 2012.</p>
+        <p class="foot-tag">South Florida's premier event production company&ensp;—&ensp;since 2012.</p>
         <div class="foot-social">
           {social.map((s) => <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} set:html={s.svg}></a>)}
         </div>
         <p class="foot-meta">
-          <a href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}>{PHONE}</a> · &copy; {year} Avinu Music &amp; Productions
+          <a href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}>{PHONE}</a>
+          &ensp;·&ensp;<a href="mailto:info@avinuevents.com">info@avinuevents.com</a>
+          &ensp;·&ensp;&copy; {year} Avinu Events
         </p>
       </div>
     </footer>
@@ -215,18 +221,18 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
     <style is:global define:vars={{ grain }}>
       :root {
         /* IVORY EDITORIAL — warm ivory base, champagne bands, black type, gold accent.
-           Black is used strategically (header, hero overlays, CTA, footer) via .on-dark scopes. */
+           Black is used strategically (hero overlays, CTA, footer) via .on-dark scopes. */
         --ivory: #f5f1e8;        /* main page background */
         --champagne: #e9e2d6;    /* secondary section band */
         --ink: #111111;          /* body text */
-        --charcoal: #1a1a1a;     /* dark accent — header, CTA, footer */
+        --charcoal: #1a1a1a;     /* dark accent — CTA, footer */
         --bg: var(--ivory);
         --bg-2: var(--ivory);
         --midnight: var(--champagne);      /* alternating section band (legacy name) */
         --midnight-deep: var(--champagne);
         --fg: var(--ink);
         --muted-text: #4a453d;   /* warm graphite secondary text */
-        --header-text: #ffffff;  /* header chrome matches the pure-white logo */
+        --header-text: var(--ink); /* light header — black logo + black menu */
         --accent: #c7a24a;       /* champagne gold — rules, dots, stars, buttons */
         --accent-ink: #8c6c24;   /* deeper gold for small text on ivory (legible contrast) */
         --accent-soft: #a8842f;  /* hover gold on light */
@@ -240,10 +246,10 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         /* Shared side gutter: logo, top bar and hero copy all start on this line. */
         --gutter: clamp(1.1rem, 5vw, 5rem);
       }
-      /* DARK SCOPE — header, footer, photo heroes, CTA band and text laid over photos.
+      /* DARK SCOPE — footer, photo heroes, CTA band and text laid over photos.
          Re-points the text tokens to light values so everything inside reads on black. */
       .on-dark,
-      .site-header, .site-footer, .connect-band,
+      .site-footer, .connect-band,
       .hero, .detail-hero, .dj-hero, .venue-hero,
       .frame, .person, .rail-item {
         --fg: #f5f1e8;
@@ -289,14 +295,16 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
         min-height: 92px;
         padding: 0 clamp(2.5rem, 4vw, 3rem);
-        border-bottom: 1px solid rgba(201, 162, 75, 0.18);
+        border-bottom: 1px solid rgba(199, 162, 74, 0.35);
       }
       .site-header::before {
         content: ""; position: absolute; inset: 0; z-index: -1;
-        background: rgba(26, 26, 26, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        background: rgba(245, 241, 232, 0.94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 1px 18px rgba(17, 17, 17, 0.04);
       }
       .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
-      .logo-img { width: 135px; height: auto; }
+      /* Source wordmark is white — render it black on the ivory header. */
+      .logo-img { width: 135px; height: auto; filter: brightness(0); }
 
       .main-nav .nav-list { display: flex; gap: 2.2rem; align-items: center; list-style: none; margin: 0; padding: 0; }
       .nav-list > li { position: relative; }
@@ -310,38 +318,40 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         background: var(--accent); transform: scaleX(0); transform-origin: left;
         transition: transform 0.28s ease;
       }
-      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a:hover { color: var(--accent-soft); }
+      .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a:hover { color: var(--accent-ink); }
       .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a:hover::after { transform: scaleX(1); }
       .caret { font-style: normal; font-size: 0.62rem; opacity: 0.7; transition: transform 0.25s; }
       .has-sub:hover .caret { transform: rotate(180deg); }
 
       /* Vertical divider between nav links and phone/CTA */
-      .nav-divider { width: 1px; height: 22px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+      .nav-divider { width: 1px; height: 22px; background: var(--line-gold); margin: 0 0.4rem; }
 
       /* Phone link — subtle, gold, top-right */
       .hdr-phone {
         display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap;
-        color: var(--accent-soft); font-size: 0.84rem; font-weight: 500; letter-spacing: 0.04em;
+        color: var(--accent-ink); font-size: 0.84rem; font-weight: 500; letter-spacing: 0.04em;
         transition: color 0.2s;
       }
-      .hdr-phone:hover { color: #fff; }
+      .hdr-phone:hover { color: var(--ink); }
 
       .sub {
         position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
-        min-width: 230px; list-style: none; margin: 0; padding: 0.9rem 0;
-        background: rgba(26, 26, 26, 0.97); backdrop-filter: blur(18px);
-        border: 1px solid var(--line); border-top: 1px solid var(--line-gold); border-radius: 2px;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        min-width: 240px; list-style: none; margin: 0; padding: 0.8rem 0;
+        background: rgba(250, 247, 241, 0.98); backdrop-filter: blur(18px);
+        border: 1px solid rgba(199, 162, 74, 0.22); border-top: 2px solid var(--accent); border-radius: 2px;
+        box-shadow: 0 22px 48px rgba(60, 45, 20, 0.12);
         opacity: 0; visibility: hidden; transition: all 0.22s ease;
       }
       .has-sub:hover .sub, .has-sub:focus-within .sub { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
       /* Same voice as the top-level nav: small caps-style uppercase, airy tracking, no chrome. */
       .sub li a {
-        display: block; padding: 0.6rem 1.6rem; color: var(--header-text);
-        font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
-        white-space: nowrap; transition: color 0.2s;
+        display: block; padding: 0.65rem 1.7rem; color: var(--muted-text);
+        font-size: 0.74rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+        white-space: nowrap; border-left: 2px solid transparent;
+        transition: color 0.2s, background 0.2s, border-color 0.2s;
       }
-      .sub li a:hover { color: var(--accent-soft); }
+      .sub li + li a { border-top: 1px solid rgba(199, 162, 74, 0.12); }
+      .sub li a:hover { color: var(--ink); background: var(--champagne); border-left-color: var(--accent); }
 
       /* ═══════════════════════════════════════════════════════════════════
          UNIFIED CTA SYSTEM — single source of truth (shared by layout + pages)
@@ -401,13 +411,13 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
         .main-nav {
           position: fixed; top: 0; right: 0; bottom: 0; width: min(86vw, 360px);
-          background: var(--charcoal); border-left: 1px solid var(--line-gold);
+          background: var(--ivory); border-left: 1px solid var(--line-gold);
           transform: translateX(100%); visibility: hidden;
           transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
           padding: 5.5rem 1.6rem 2rem; overflow-y: auto; z-index: 55;
         }
         #nav-toggle:checked ~ .main-nav { transform: translateX(0); visibility: visible; }
-        #nav-toggle:checked ~ .nav-scrim { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 54; }
+        #nav-toggle:checked ~ .nav-scrim { display: block; position: fixed; inset: 0; background: rgba(17,17,17,0.35); z-index: 54; }
 
         .main-nav .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
         .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a { display: flex; padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
@@ -417,7 +427,8 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
           box-shadow: none; background: transparent; border: none; border-top: none; min-width: 0;
           padding: 0.3rem 0 0.6rem 0.9rem;
         }
-        .sub li a { padding: 0.5rem 0; font-size: 0.8rem; }
+        .sub li a { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
+        .sub li + li a { border-top: none; }
         .nav-divider { display: none; }
         .nav-phone { margin-top: 1rem; }
         .nav-phone .hdr-phone { display: flex; justify-content: center; font-size: 1.05rem; padding: 0.6rem 0; }
@@ -446,7 +457,11 @@ const grain = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
       .foot-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.7; }
       .foot-inner { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; text-align: center; }
       .foot-brand img { height: 60px; width: auto; margin: 0 auto; }
-      .foot-tag { color: var(--muted-text); margin: 1.3rem 0 1.6rem; font-family: var(--font-display); font-size: 1.05rem; }
+      .foot-tag {
+        color: rgba(255,255,255,0.55); margin: 1.3rem 0 1.8rem;
+        font-family: var(--font-display); font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+        font-weight: 400; font-style: italic; letter-spacing: 0.01em; line-height: 1.5;
+      }
       .foot-social { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.6rem; }
       .foot-social a { color: var(--muted-text); display: inline-flex; transition: color 0.25s, transform 0.2s; }
       .foot-social a:hover { color: var(--accent); transform: translateY(-2px); }
