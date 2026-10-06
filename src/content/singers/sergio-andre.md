@@ -16,7 +16,6 @@ gallery:
   - "/wp-content/uploads/2023/08/Sergio-singer-1.jpeg"
   - "/wp-content/uploads/2023/08/Sergio-083-Edit-1-scaled.jpg"
   - "/wp-content/uploads/2023/08/Sergio-316-Edit-1-scaled.jpg"
-  - "/wp-content/uploads/2023/08/DSC_0046-e-1-1-scaled.jpg"
 summary: "Venezuelan multilingual vocalist and Mark Levine's right-hand collaborator, with a global following of over 50,000."
 originalUrl: "https://avinuevents.com/sergio-andre/"
 order: 4

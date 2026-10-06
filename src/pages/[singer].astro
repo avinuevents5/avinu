@@ -164,9 +164,9 @@ const others = (await getCollection('singers'))
     .tracks { max-width: 820px; margin: 0 auto; display: grid; gap: 1.25rem; }
     .sc-player { border: 1px solid var(--line); border-radius: 14px; display: block; }
 
-    /* GALLERY */
-    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .g-cell { border-radius: 14px; overflow: hidden; }
+    /* GALLERY — fills exactly one row however many images there are */
+    .gallery { display: flex; gap: 1rem; }
+    .g-cell { border-radius: 14px; overflow: hidden; flex: 1; min-width: 0; }
     .g-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
     .g-cell:hover .g-img { transform: scale(1.06); }
 
