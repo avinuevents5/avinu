@@ -58,6 +58,10 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
         if (e.origin !== crmOrigin || !e.data || typeof e.data !== 'object') return;
         if (e.data.type === 'avinu-inquire-height' && typeof e.data.height === 'number') {
           frame.style.height = Math.max(480, Math.ceil(e.data.height)) + 'px';
+        } else if (e.data.type === 'avinu-inquire-wide') {
+          // Pantalla final (agenda + resumen): sin columna lateral, todo el ancho para el formulario.
+          var grid = frame.closest('.quote-grid');
+          if (grid) grid.classList.toggle('is-wide', !!e.data.wide);
         } else if (e.data.type === 'avinu-inquire-scroll') {
           var top = frame.getBoundingClientRect().top + window.scrollY - 90;
           if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
@@ -85,6 +89,9 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     .quote { padding: clamp(2.5rem, 7vh, 5rem) var(--gutter) clamp(4rem, 8vh, 6rem); }
     .quote-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: clamp(2rem, 4vw, 4.5rem); align-items: start; }
     .quote-main { min-width: 0; }
+    .quote-grid.is-wide { grid-template-columns: minmax(0, 1fr); }
+    .quote-grid.is-wide .quote-aside { display: none; }
+    .quote-grid.is-wide .head-call { display: block; }
 
     .page-head { max-width: 44rem; }
     .head-kicker { display: block; margin-bottom: 1rem; }
