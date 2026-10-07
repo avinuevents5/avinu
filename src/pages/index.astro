@@ -67,7 +67,6 @@ const [feature, ...restReviews] = reviews;
     <div class="hero-content">
       <p class="eyebrow hero-kicker">South Florida Event Production</p>
       <h1 class="hero-h1">The ultimate production company for <span class="ital">special events.</span></h1>
-      <p class="hero-sub">Over a decade of experience in corporate, weddings, bar mitzvahs, and social events.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="/get-a-quote/">Get a Quote</a>
         <a class="btn-ghost" href="#singers">Explore Talent</a>
@@ -78,6 +77,7 @@ const [feature, ...restReviews] = reviews;
 
   <!-- ░░ INTRO + PILLS ░░ -->
   <section class="intro" id="intro">
+    <p class="intro-sub" data-reveal>Over a decade of experience in corporate, weddings, bar mitzvahs, and social events.</p>
     <div class="pills" data-reveal>
       <a href="#singers">Singers</a>
       <a href="#djs">DJ's</a>
@@ -296,15 +296,17 @@ const [feature, ...restReviews] = reviews;
     .hero-kicker { display: block; margin-bottom: 1.2rem; }
     .hero-h1 { font-size: clamp(2.6rem, 6vw, 5.75rem); line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; color: #fff; }
     .hero-h1 .ital { font-weight: 600; }
-    .hero-sub { color: var(--muted-text); font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 32rem; margin: 1.3rem 0 2rem; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
     .scroll-cue { position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 1px solid var(--line-gold); border-radius: 999px; }
     .scroll-cue span { position: absolute; top: 8px; left: 50%; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 2px; background: var(--accent); animation: scrollBob 1.8s ease-in-out infinite; }
     @keyframes scrollBob { 0%,100% { transform: translateY(0); opacity: 1; } 60% { transform: translateY(14px); opacity: 0.2; } }
     @media (prefers-reduced-motion: reduce) { .scroll-cue span { animation: none; } }
 
     /* ── INTRO ── */
-    .intro { max-width: 54rem; margin: 0 auto; padding: clamp(5rem, 10vh, 8rem) 1.5rem 3rem; text-align: center; }
+    .intro { max-width: 72rem; margin: 0 auto; padding: clamp(3rem, 7vh, 4.5rem) 1.5rem 3rem; text-align: center; }
+    /* One editorial line directly under the hero video; wraps (balanced) only on small screens. */
+    .intro-sub { margin: 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.15rem, 1.9vw, 1.65rem); line-height: 1.35; color: var(--fg); text-wrap: balance; }
+    @media (min-width: 900px) { .intro-sub { white-space: nowrap; } }
     .intro .eyebrow { display: block; margin-bottom: 1.4rem; }
     .intro-lead { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.32; color: var(--fg); }
     .intro-lead em { font-style: italic; color: var(--fg); }
