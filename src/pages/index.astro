@@ -114,9 +114,11 @@ const [feature, ...restReviews] = reviews;
     <div class="talent-grid stacked">
       <div class="talent-index" data-reveal>
         <p class="eyebrow">On the decks</p>
-        <h2 class="talent-title">Our <span class="ital">DJ's</span></h2>
-        <p class="talent-copy">Six resident selectors reading the room all night — open-format sets engineered for a full, fearless dancefloor.</p>
-        <a class="link-arrow" href="/best-djs-in-south-florida/">View all</a>
+        <div class="talent-row">
+          <h2 class="talent-title">Our <span class="ital">DJ's</span></h2>
+          <p class="talent-copy">Open-format sets engineered for a full, fearless dancefloor.</p>
+          <a class="link-arrow" href="/best-djs-in-south-florida/">View all</a>
+        </div>
       </div>
       <div class="talent-media" data-reveal>
         <div class="rail rail-4" id="dj-rail" data-reveal-group>
@@ -272,7 +274,21 @@ const [feature, ...restReviews] = reviews;
     .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 
     /* ── HERO ── */
-    .hero { position: relative; height: 100svh; min-height: 620px; display: flex; align-items: center; overflow: hidden; }
+    /* Framed hero: the video sits inset on the ivory page like a gallery piece, not full-bleed. */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; align-items: center;
+      width: min(1360px, calc(100% - 2 * var(--gutter)));
+      height: min(76svh, 780px); min-height: 500px;
+      margin: clamp(1.25rem, 3vw, 2.5rem) auto 0;
+      border-radius: 10px;
+      box-shadow: 0 34px 70px -34px rgba(17, 17, 17, 0.5), 0 2px 6px rgba(17, 17, 17, 0.06);
+    }
+    /* Thin gold inner frame. */
+    .hero::after {
+      content: ''; position: absolute; inset: clamp(10px, 1.2vw, 16px); z-index: 1; pointer-events: none;
+      border: 1px solid rgba(199, 162, 74, 0.5); border-radius: 6px;
+    }
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; }
     .hero-scrim {
       position: absolute; inset: 0; z-index: -1;
@@ -292,9 +308,9 @@ const [feature, ...restReviews] = reviews;
     .hero-skyline svg { width: 100%; height: 100%; display: block; }
     .hero-skyline .sk-towers rect { fill: #161616; }
     .hero-skyline .sk-lights circle { fill: var(--accent-soft); opacity: 0.78; }
-    .hero-content { padding: 2.5rem var(--gutter); max-width: 64rem; }
+    .hero-content { position: relative; z-index: 2; padding: 2.5rem clamp(1.75rem, 5vw, 4.5rem); max-width: 56rem; }
     .hero-kicker { display: block; margin-bottom: 1.2rem; }
-    .hero-h1 { font-size: clamp(2.6rem, 6vw, 5.75rem); line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; color: #fff; }
+    .hero-h1 { font-size: clamp(2.2rem, 4.8vw, 4.6rem); line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; color: #fff; }
     .hero-h1 .ital { font-weight: 600; }
     .hero-actions { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
     .scroll-cue { position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 1px solid var(--line-gold); border-radius: 999px; }
@@ -352,8 +368,15 @@ const [feature, ...restReviews] = reviews;
     .rail::-webkit-scrollbar-thumb { background: var(--line-gold); border-radius: 999px; }
 
     /* DJs: header above, full-width rail showing 4 cards on desktop + arrow to page right. */
-    .talent-grid.stacked { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
-    .talent-grid.stacked .talent-copy { max-width: 48ch; }
+    .talent-grid.stacked { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+    /* Compact header: title, one-line copy and link share a single baseline-aligned row. */
+    .talent-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem 2rem; }
+    .talent-row .talent-copy { margin: 0; max-width: none; flex: 1 1 22ch; font-size: clamp(1rem, 1.25vw, 1.15rem); }
+    .talent-row .link-arrow { margin-left: auto; }
+    @media (max-width: 640px) {
+      .talent-row { display: block; }
+      .talent-row .talent-copy { margin: 0.7rem 0 1rem; }
+    }
     .talent-media:has(.rail-next) { position: relative; }
     .rail-4 { grid-auto-columns: calc((100% - 3 * 1.25rem) / 4); }
     .rail-next { position: absolute; right: -1.4rem; top: calc(50% - 0.5rem); transform: translateY(-50%); z-index: 3; width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px solid var(--accent); background: rgba(26,26,26,0.8); backdrop-filter: blur(6px); display: grid; place-items: center; cursor: pointer; transition: background 0.25s, opacity 0.25s; }

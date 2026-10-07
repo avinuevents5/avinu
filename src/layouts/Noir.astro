@@ -124,7 +124,8 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
         <img class="logo-img" src={LOGO} alt="Avinu Events" width="661" height="295" />
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+      <!-- autocomplete=off: stops the browser restoring a checked (open) menu across reloads. -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" autocomplete="off" hidden />
       <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </label>
@@ -425,7 +426,9 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
         .main-nav .nav-list { flex-direction: column; align-items: stretch; gap: 0.2rem; }
         .nav-list > li:not(.nav-cta):not(.nav-phone):not(.nav-divider) > a { display: flex; padding: 0.75rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
         .has-sub .caret { display: none; }
-        .sub {
+        /* Selector list matches the desktop hover/focus rule's specificity, so a tapped
+           (sticky :hover / :focus-within) parent can't re-apply the centred transform. */
+        .has-sub .sub, .has-sub:hover .sub, .has-sub:focus-within .sub {
           position: static; transform: none; opacity: 1; visibility: visible;
           box-shadow: none; background: transparent; border: none; border-top: none; min-width: 0;
           padding: 0.3rem 0 0.6rem 0.9rem;
