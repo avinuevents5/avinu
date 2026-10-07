@@ -3,16 +3,16 @@
   "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/myevent",
+      "source": "/myevent{/}?",
       "destination": "https://avinu-crm.vercel.app/myevent"
     },
     {
-      "source": "/myevent/:path*",
-      "destination": "https://avinu-crm.vercel.app/myevent/:path*"
+      "source": "/myevent/:path(.*)",
+      "destination": "https://avinu-crm.vercel.app/myevent/:path"
     },
     {
-      "source": "/myevent-static/:path*",
-      "destination": "https://avinu-crm.vercel.app/myevent-static/:path*"
+      "source": "/myevent-static/:path(.*)",
+      "destination": "https://avinu-crm.vercel.app/myevent-static/:path"
     }
   ],
   "redirects": [
