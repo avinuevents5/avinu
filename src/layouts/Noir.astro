@@ -23,8 +23,8 @@ const siteName = 'Avinu Events';
 const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
 const year = new Date().getFullYear();
 
-// External client portal. TODO: replace with the real portal URL.
-const CLIENT_AREA_URL = '#';
+// Portal del cliente: el CRM servido en /myevent (proxy en vercel.json).
+const CLIENT_AREA_URL = '/myevent/';
 
 // Navigation mirrors the official avinuevents.com menu: Event Services / Venues / Contact us.
 const nav = [
@@ -38,7 +38,7 @@ const nav = [
       { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
     ],
   },
-  { label: 'Client Area', href: CLIENT_AREA_URL, external: true },
+  { label: 'Client Area', href: CLIENT_AREA_URL },
   { label: 'Venues', href: '/venues/' },
 ];
 
