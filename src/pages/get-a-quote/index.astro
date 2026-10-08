@@ -62,6 +62,12 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
           // Pantalla final (agenda + resumen): sin columna lateral, todo el ancho para el formulario.
           var grid = frame.closest('.quote-grid');
           if (grid) grid.classList.toggle('is-wide', !!e.data.wide);
+        } else if (e.data.type === 'avinu-inquire-reveal' && typeof e.data.top === 'number') {
+          // Un elemento del formulario (p. ej. el calendario de la fecha) debe verse entero:
+          // se centra en la pantalla.
+          var h = typeof e.data.height === 'number' ? e.data.height : 0;
+          var y = frame.getBoundingClientRect().top + window.scrollY + e.data.top - Math.max(16, (window.innerHeight - h) / 2);
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
         } else if (e.data.type === 'avinu-inquire-scroll') {
           var top = frame.getBoundingClientRect().top + window.scrollY - 90;
           if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
