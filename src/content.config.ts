@@ -51,6 +51,8 @@ const singers = defineCollection({
   schema: z.object({
     title: z.string(),
     role: z.string().optional(),
+    // false = page <title> is the bare name, without the " — Avinu Events" suffix.
+    titleSuffix: z.boolean().optional(),
     specialties: z.array(z.string()).optional(),
     languages: z.array(z.string()).optional(),
     photo: z.string().optional(),

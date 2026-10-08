@@ -1,5 +1,6 @@
 ---
-title: "Noam Agami"
+title: "Noam"
+titleSuffix: false
 connectNote: "Noam Agami, hailing from the sacred lands of Israel, is a singer whose voice resonates deeply with audiences across the globe. Renowned for his rendition of the Israeli National Anthem and his enchanting performances at weddings, Noam's artistry is a blend of passion and profound emotion. Dive into the world of Noam and experience a musical journey that evokes pride, romance, and sheer auditory delight."
 videos:
   - "bPZXgXIS7ak"

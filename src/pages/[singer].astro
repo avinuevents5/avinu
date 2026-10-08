@@ -18,7 +18,7 @@ const others = (await getCollection('singers'))
   .map((e) => ({ name: e.data.title, photo: e.data.photo ?? '', href: `/${e.id}/` }));
 ---
 
-<Noir title={title} description={summary ?? role}>
+<Noir title={title} titleSuffix={entry.data.titleSuffix ?? true} description={summary ?? role}>
   <!-- COMPACT HEADER -->
   <section class="page-head">
     <div class="ph-inner">

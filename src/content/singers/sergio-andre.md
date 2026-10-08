@@ -1,5 +1,6 @@
 ---
-title: "Sergio Andre Garcia"
+title: "Sergio"
+titleSuffix: false
 connectNote: "Sergio Andre, a multilingual singer from Venezuela, mesmerizes audiences with his performances in Spanish, English, and Jewish music. With a global fanbase and a flair for wedding videography, his artistry spans both music and film. Dive into Sergio's world to experience a harmonious blend of melodies and visual storytelling."
 videos:
   - "Tewuxxx5cZQ"

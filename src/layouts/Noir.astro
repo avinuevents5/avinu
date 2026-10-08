@@ -4,6 +4,8 @@
 // Reuses the official avinuevents.com nav, social icons, favicon and white wordmark.
 export interface Props {
   title: string;
+  /** false = use the title exactly as given (no " — Avinu Events" suffix). */
+  titleSuffix?: boolean;
   description?: string;
   canonical?: string;
   robots?: string;
@@ -12,6 +14,7 @@ export interface Props {
 
 const {
   title,
+  titleSuffix = true,
   description = '',
   canonical = Astro.url.href,
   robots = 'index, follow',
@@ -20,7 +23,7 @@ const {
 const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 
 const siteName = 'Avinu Events';
-const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
+const fullTitle = !titleSuffix || title.includes(siteName) ? title : `${title} — ${siteName}`;
 const year = new Date().getFullYear();
 
 // Portal del cliente: el CRM servido en /myevent (proxy en vercel.json).
