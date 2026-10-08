@@ -13,9 +13,22 @@
     {
       "source": "/myevent-static/:path(.*)",
       "destination": "https://avinu-crm.vercel.app/myevent-static/:path"
+    },
+    {
+      "source": "/book{/}?",
+      "destination": "https://avinu-crm.vercel.app/book"
+    },
+    {
+      "source": "/book/:path(.*)",
+      "destination": "https://avinu-crm.vercel.app/book/:path"
     }
   ],
   "redirects": [
+    {
+      "source": "/booking{/}?",
+      "destination": "/book",
+      "statusCode": 301
+    },
     {
       "source": "/home{/}?",
       "destination": "/",
