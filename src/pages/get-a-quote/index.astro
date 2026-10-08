@@ -54,6 +54,23 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     (function () {
       var frame = document.getElementById('avinu-inquire');
       if (!frame) return;
+      // Dónde está el formulario respecto a la pantalla: el CRM lo usa para abrir
+      // ventanas (p. ej. el calendario de la fecha) en el centro de lo que se ve.
+      function sendViewport() {
+        if (!frame.contentWindow) return;
+        frame.contentWindow.postMessage(
+          { type: 'avinu-inquire-viewport', top: frame.getBoundingClientRect().top, height: window.innerHeight },
+          crmOrigin
+        );
+      }
+      var ticking = false;
+      function onMove() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; sendViewport(); });
+      }
+      window.addEventListener('scroll', onMove, { passive: true });
+      window.addEventListener('resize', onMove);
       window.addEventListener('message', function (e) {
         if (e.origin !== crmOrigin || !e.data || typeof e.data !== 'object') return;
         if (e.data.type === 'avinu-inquire-height' && typeof e.data.height === 'number') {
@@ -62,12 +79,8 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
           // Pantalla final (agenda + resumen): sin columna lateral, todo el ancho para el formulario.
           var grid = frame.closest('.quote-grid');
           if (grid) grid.classList.toggle('is-wide', !!e.data.wide);
-        } else if (e.data.type === 'avinu-inquire-reveal' && typeof e.data.top === 'number') {
-          // Un elemento del formulario (p. ej. el calendario de la fecha) debe verse entero:
-          // se centra en la pantalla.
-          var h = typeof e.data.height === 'number' ? e.data.height : 0;
-          var y = frame.getBoundingClientRect().top + window.scrollY + e.data.top - Math.max(16, (window.innerHeight - h) / 2);
-          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        } else if (e.data.type === 'avinu-inquire-viewport-request') {
+          sendViewport();
         } else if (e.data.type === 'avinu-inquire-scroll') {
           var top = frame.getBoundingClientRect().top + window.scrollY - 90;
           if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
