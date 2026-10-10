@@ -430,7 +430,8 @@ const [feature, ...restReviews] = reviews;
     /* Source logos are white PNGs — render them as black marks on the light band. */
     .logo { width: auto; max-width: 100%; object-fit: contain; filter: brightness(0); opacity: 0.72; transition: opacity 0.3s; }
     .logo:hover { opacity: 1; }
-    @media (max-width: 640px) { .logo-row { gap: 1.8rem 2.4rem; } .logo { zoom: 0.75; } }
+    /* Mobile: one logo per row, centered (wrapped rows looked scattered). */
+    @media (max-width: 640px) { .logo-row { flex-direction: column; gap: 2.2rem; } .logo { zoom: 0.75; } }
 
     /* ── AWARDS (full-colour chips, legible) ── */
     .awards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 920px; }
