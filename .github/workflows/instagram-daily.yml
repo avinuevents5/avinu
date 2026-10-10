@@ -1,0 +1,20 @@
+# Vuelve a publicar la web una vez al día para traer las últimas publicaciones de
+# Instagram (el feed de Behold se lee al construir la web; ver src/data/instagram.ts).
+# Usa el Deploy Hook de Vercel guardado como secreto VERCEL_DEPLOY_HOOK.
+name: Instagram daily refresh
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # 11:00 UTC = 7:00 AM en Miami (6:00 AM en invierno)
+  workflow_dispatch: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "Falta el secreto VERCEL_DEPLOY_HOOK"; exit 1; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Deploy solicitado"
