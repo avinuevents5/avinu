@@ -136,17 +136,19 @@ const [feature, ...restReviews] = reviews;
     </div>
   </section>
 
-  <!-- ░░ MUSICIANS — index left / rail right ░░ -->
+  <!-- ░░ MUSICIANS — header above, full-width rail (same layout as DJs) ░░ -->
   <section class="talent" id="musicians">
-    <div class="talent-grid">
+    <div class="talent-grid stacked">
       <div class="talent-index" data-reveal>
         <p class="eyebrow">Live music</p>
-        <h2 class="talent-title">Our <span class="ital">Musicians</span></h2>
-        <p class="talent-copy">Strings, brass and keys — soloists and ensembles that lend live texture to ceremony, cocktail hour and beyond.</p>
-        <a class="link-arrow" href="/wedding-musicians-and-band/">View all</a>
+        <div class="talent-row">
+          <h2 class="talent-title">Our <span class="ital">Musicians</span></h2>
+          <p class="talent-copy">Strings, brass and keys — soloists and ensembles that lend live texture to ceremony, cocktail hour and beyond.</p>
+          <a class="link-arrow" href="/wedding-musicians-and-band/">View all</a>
+        </div>
       </div>
       <div class="talent-media" data-reveal>
-        <div class="rail" data-reveal-group>
+        <div class="rail rail-4" id="musician-rail" data-reveal-group>
           {musicians.map((p) => (
             <a class="frame rail-item" href="/wedding-musicians-and-band/">
               <div class="frame-img" style={`background-image:url('${p.img}')`}></div>
@@ -154,6 +156,9 @@ const [feature, ...restReviews] = reviews;
             </a>
           ))}
         </div>
+        <button class="rail-next" type="button" data-rail="musician-rail" aria-label="See more musicians">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
       </div>
     </div>
   </section>
