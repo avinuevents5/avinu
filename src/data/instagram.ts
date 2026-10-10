@@ -33,9 +33,9 @@ function cleanCaption(raw: string): string {
     .replace(/\s+([!?.,])/g, '$1')
     .trim()
     .replace(/[\s,:;–-]+$/, '');
-  if (text.length <= 64) return text;
-  const cut = text.slice(0, 64);
-  return `${cut.slice(0, cut.lastIndexOf(' ') > 30 ? cut.lastIndexOf(' ') : 64)}…`;
+  if (text.length <= 34) return text;
+  const cut = text.slice(0, 34);
+  return `${cut.slice(0, cut.lastIndexOf(' ') > 16 ? cut.lastIndexOf(' ') : 34)}…`;
 }
 
 const shortDate = (iso?: string) =>
