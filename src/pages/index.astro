@@ -1,9 +1,13 @@
 ---
 import Noir from '../layouts/Noir.astro';
 import ConnectCTA from '../components/ConnectCTA.astro';
-import { singers, djs, musicians, services, specializing, clients, awards, reviews, iggrid, phone, instagram, googleReviews, heroVideo, heroVideoMobile, heroPoster } from '../data/home';
+import { singers, djs, musicians, services, specializing, clients, awards, reviews, phone, instagram, googleReviews, heroVideo, heroVideoMobile, heroPoster } from '../data/home';
+import { loadInstagram } from '../data/instagram';
 
 const tel = phone.replace(/[^+\d]/g, '');
+
+// Instagram: últimas publicaciones (se piden al construir la web; ver data/instagram.ts).
+const igPosts = await loadInstagram();
 
 // Featured pull-quote + the remaining reviews for an editorial treatment.
 const [feature, ...restReviews] = reviews;
@@ -259,9 +263,9 @@ const [feature, ...restReviews] = reviews;
       <h2 class="band-h2">From the <span class="ital">feed</span></h2>
     </header>
     <div class="ig-grid" data-reveal-group>
-      {iggrid.map((src) => (
-        <a class="ig-cell" href={instagram} target="_blank" rel="noopener" aria-label="View on Instagram">
-          <div class="ig-img" style={`background-image:url('${src}')`}></div>
+      {igPosts.map((p) => (
+        <a class="ig-cell" href={p.href} target="_blank" rel="noopener" aria-label={`View on Instagram: ${p.alt}`}>
+          <div class="ig-img" style={`background-image:url('${p.src}')`}></div>
           <span class="ig-mark">&rarr;</span>
         </a>
       ))}
