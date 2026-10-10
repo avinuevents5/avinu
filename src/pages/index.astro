@@ -273,12 +273,7 @@ const [feature, ...restReviews] = reviews;
       {ig.posts.map((p) => (
         <a class="ig-tile" href={p.href} target="_blank" rel="noopener" aria-label={`View on Instagram${p.caption ? `: ${p.caption}` : ''}`}>
           <div class="ig-img" style={`background-image:url('${p.src}')`}></div>
-          {p.caption || p.date ? (
-            <span class="ig-cap">
-              {p.date ? <span class="ig-meta">{p.video ? 'Reel' : 'Post'} · {p.date}</span> : null}
-              {p.caption ? <span class="ig-text">{p.caption}</span> : null}
-            </span>
-          ) : null}
+          {p.caption ? <span class="ig-cap"><span class="ig-text">{p.caption}</span></span> : null}
         </a>
       ))}
     </div>
@@ -489,7 +484,6 @@ const [feature, ...restReviews] = reviews;
     .ig-tile::before { content: ''; position: absolute; inset: 0.55rem; z-index: 3; border: 1px solid rgba(227, 200, 137, 0); border-radius: 3px; transition: border-color 0.4s, inset 0.4s; pointer-events: none; }
     .ig-tile:hover::before { border-color: rgba(227, 200, 137, 0.75); inset: 0.7rem; }
     .ig-cap { position: absolute; left: 1.05rem; right: 1.05rem; bottom: 1.05rem; z-index: 2; display: flex; flex-direction: column; gap: 0.45rem; }
-    .ig-meta { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(227, 200, 137, 0.92); }
     .ig-text { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.005em; font-optical-sizing: none; font-variation-settings: 'opsz' 96; color: rgba(255, 255, 255, 0.94); -webkit-font-smoothing: antialiased; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
     /* ── CONNECT ── */
