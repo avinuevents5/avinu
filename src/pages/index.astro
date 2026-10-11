@@ -1,16 +1,20 @@
 ---
 import Noir from '../layouts/Noir.astro';
 import ConnectCTA from '../components/ConnectCTA.astro';
-import { singers, djs, musicians, services, specializing, clients, awards, reviews, phone, instagram, googleReviews, heroVideo, heroVideoMobile, heroPoster } from '../data/home';
+import { singers, djs, musicians, services, specializing, clients, awards, phone, instagram, heroVideo, heroVideoMobile, heroPoster } from '../data/home';
 import { loadInstagram } from '../data/instagram';
+import { loadReviews } from '../data/reviews';
 
 const tel = phone.replace(/[^+\d]/g, '');
 
 // Instagram: últimas publicaciones (se piden al construir la web; ver data/instagram.ts).
 const ig = await loadInstagram();
 
+// Google: calificación, total y reseñas de 5 estrellas (al construir; ver data/reviews.ts).
+const rv = await loadReviews();
+
 // Featured pull-quote + the remaining reviews for an editorial treatment.
-const [feature, ...restReviews] = reviews;
+const [feature, ...restReviews] = rv.reviews;
 
 // Talent sections share the editorial 2-column "index / rail" structure; side alternates.
 ---
@@ -235,7 +239,7 @@ const [feature, ...restReviews] = reviews;
     <header class="band-head" data-reveal>
       <p class="eyebrow">Reviews</p>
       <h2 class="band-h2">Loved by our <span class="ital">clients</span></h2>
-      <p class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span> 4.5 · 51 Google reviews</p>
+      <p class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span> {rv.rating} · {rv.count} Google reviews</p>
     </header>
 
     <figure class="feature-quote" data-reveal>
@@ -253,7 +257,7 @@ const [feature, ...restReviews] = reviews;
         </figure>
       ))}
     </div>
-    <div class="band-foot" data-reveal><a class="link-arrow" href={googleReviews} target="_blank" rel="noopener">Read all on Google</a></div>
+    <div class="band-foot" data-reveal><a class="link-arrow" href={rv.href} target="_blank" rel="noopener">Read all on Google</a></div>
   </section>
 
   <!-- ░░ INSTAGRAM — header row + staggered editorial gallery (live via Behold) ░░ -->

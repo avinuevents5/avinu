@@ -1,5 +1,6 @@
 # Vuelve a publicar la web una vez al día para traer las últimas publicaciones de
-# Instagram (el feed de Behold se lee al construir la web; ver src/data/instagram.ts).
+# Instagram y las reseñas de Google (se leen al construir la web; ver src/data/instagram.ts
+# y src/data/reviews.ts).
 # Usa el Deploy Hook de Vercel guardado como secreto VERCEL_DEPLOY_HOOK.
 name: Instagram daily refresh
 
