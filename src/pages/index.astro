@@ -86,7 +86,7 @@ const [feature, ...restReviews] = reviews;
       <a href="#singers">Singers</a>
       <a href="#djs">DJ's</a>
       <a href="#musicians">Musicians</a>
-      <a href="#services">Additional Services</a>
+      <a href="#services"><span class="pill-extra">Additional </span>Services</a>
     </div>
   </section>
 
@@ -344,6 +344,14 @@ const [feature, ...restReviews] = reviews;
     .pills { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
     .pills a { padding: 0.55rem 1.4rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-text); transition: all 0.25s; }
     .pills a:hover { border-color: var(--accent); color: var(--accent-ink); }
+    /* Teléfono: una sola barra (un contorno, 4 partes con líneas finas) en vez de botones en dos filas. */
+    @media (max-width: 640px) {
+      .pills { display: flex; width: fit-content; max-width: 100%; margin-left: auto; margin-right: auto; flex-wrap: nowrap; gap: 0; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+      .pills a { border: 0; border-radius: 0; padding: 0.7rem 0.85rem; font-size: 0.68rem; white-space: nowrap; }
+      .pills a + a { border-left: 1px solid var(--line); }
+      .pills a:hover { background: rgba(201, 162, 75, 0.08); }
+      .pill-extra { display: none; }
+    }
 
     /* ── section rhythm: midnight bands vs near-black ── */
     .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
