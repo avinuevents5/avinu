@@ -13,6 +13,9 @@ const ig = await loadInstagram();
 // Google: calificación, total y reseñas de 5 estrellas (al construir; ver data/reviews.ts).
 const rv = await loadReviews();
 
+// Logo "G" de Google a color, junto a la calificación y en cada tarjeta de reseña.
+const gLogo = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>';
+
 // Featured pull-quote + the remaining reviews for an editorial treatment.
 const [feature, ...restReviews] = rv.reviews;
 
@@ -239,7 +242,7 @@ const [feature, ...restReviews] = rv.reviews;
     <header class="band-head" data-reveal>
       <p class="eyebrow">Reviews</p>
       <h2 class="band-h2">Loved by our <span class="ital">clients</span></h2>
-      <p class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span> {rv.rating} · {rv.count} Google reviews</p>
+      <p class="rating-line"><span class="g-logo" set:html={gLogo} /><span class="stars" aria-hidden="true">★★★★★</span> {rv.rating} · {rv.count} Google reviews</p>
     </header>
 
     <figure class="feature-quote" data-reveal>
@@ -254,6 +257,7 @@ const [feature, ...restReviews] = rv.reviews;
     <div class="review-grid" data-reveal-group>
       {restReviews.map((r) => (
         <figure class="review">
+          <span class="g-logo sm" set:html={gLogo} />
           <span class="stars sm" aria-hidden="true">★★★★★</span>
           <blockquote>{r.text}</blockquote>
           <figcaption class="who">
@@ -444,6 +448,9 @@ const [feature, ...restReviews] = rv.reviews;
     .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
     .band-head .eyebrow { display: block; }
     .rating-line { color: var(--muted-text); margin-top: 1.1rem; font-size: 0.95rem; letter-spacing: 0.04em; }
+    .g-logo { display: inline-block; width: 1.15rem; height: 1.15rem; vertical-align: -0.2rem; margin-right: 0.55rem; }
+    .g-logo :global(svg) { display: block; width: 100%; height: 100%; }
+    .g-logo.sm { position: absolute; top: 1.7rem; right: 1.7rem; width: 1.05rem; height: 1.05rem; margin: 0; }
     .band-foot { text-align: center; margin-top: 3rem; }
 
     /* ── SPECIALIZING ── */
@@ -482,7 +489,7 @@ const [feature, ...restReviews] = rv.reviews;
     .feature-quote .who img, .feature-quote .who .initial { width: 2.5rem; height: 2.5rem; }
     .who .initial { display: grid; place-items: center; background: var(--card); color: var(--accent-ink); font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0; }
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .review { margin: 0; padding: 1.9rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
+    .review { position: relative; margin: 0; padding: 1.9rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
     .review:hover { border-color: var(--line-gold); transform: translateY(-3px); }
     .review blockquote { margin: 0.8rem 0; font-size: 0.95rem; color: var(--muted-text); line-height: 1.6; }
     .review figcaption { color: var(--fg); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
