@@ -8,7 +8,7 @@
 // se busca el negocio por nombre en cada build).
 import { reviews as staticReviews, googleReviews } from './home';
 
-export type Review = { name: string; text: string };
+export type Review = { name: string; text: string; photo?: string };
 export type ReviewsData = { rating: string; count: number; reviews: Review[]; href: string };
 
 const SHOWN = 4; // 1 cita destacada + 3 tarjetas
@@ -19,7 +19,8 @@ type PlaceReview = {
   rating?: number;
   text?: { text?: string };
   originalText?: { text?: string };
-  authorAttribution?: { displayName?: string };
+  publishTime?: string;
+  authorAttribution?: { displayName?: string; photoUri?: string };
 };
 type Place = { id?: string; rating?: number; userRatingCount?: number; reviews?: PlaceReview[]; googleMapsUri?: string };
 
@@ -70,10 +71,12 @@ export async function loadReviews(): Promise<ReviewsData> {
     if (!place.rating || !place.userRatingCount) throw new Error('Places: no rating');
     const live = (place.reviews ?? [])
       .filter((r) => r.rating === 5)
+      .sort((a, b) => (b.publishTime ?? '').localeCompare(a.publishTime ?? ''))
       .map((r, i) => ({
         name: r.authorAttribution?.displayName?.trim() ?? '',
         // Texto original (español o inglés), no la traducción de Google.
         text: clip(r.originalText?.text ?? r.text?.text ?? '', i === 0 ? 120 : 140),
+        photo: r.authorAttribution?.photoUri,
       }))
       .filter((r) => r.name && r.text);
     const names = new Set(live.map((r) => r.name));

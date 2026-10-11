@@ -245,7 +245,10 @@ const [feature, ...restReviews] = rv.reviews;
     <figure class="feature-quote" data-reveal>
       <span class="quote-glyph" aria-hidden="true">&ldquo;</span>
       <blockquote>{feature.text}</blockquote>
-      <figcaption>— {feature.name}</figcaption>
+      <figcaption class="who">
+        {feature.photo ? <img src={feature.photo} alt="" width="40" height="40" loading="lazy" referrerpolicy="no-referrer" /> : <span class="initial" aria-hidden="true">{feature.name[0]}</span>}
+        {feature.name}
+      </figcaption>
     </figure>
 
     <div class="review-grid" data-reveal-group>
@@ -253,7 +256,10 @@ const [feature, ...restReviews] = rv.reviews;
         <figure class="review">
           <span class="stars sm" aria-hidden="true">★★★★★</span>
           <blockquote>{r.text}</blockquote>
-          <figcaption>— {r.name}</figcaption>
+          <figcaption class="who">
+            {r.photo ? <img src={r.photo} alt="" width="32" height="32" loading="lazy" referrerpolicy="no-referrer" /> : <span class="initial" aria-hidden="true">{r.name[0]}</span>}
+            {r.name}
+          </figcaption>
         </figure>
       ))}
     </div>
@@ -470,6 +476,11 @@ const [feature, ...restReviews] = rv.reviews;
     .quote-glyph { position: absolute; top: -1.2rem; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 7rem; line-height: 1; color: var(--line-gold); }
     .feature-quote blockquote { margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.4; color: var(--fg); }
     .feature-quote figcaption { margin-top: 1.4rem; color: var(--fg); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    .who { display: flex; align-items: center; gap: 0.7rem; }
+    .feature-quote .who { justify-content: center; }
+    .who img, .who .initial { flex: none; width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover; border: 1px solid var(--line-gold); }
+    .feature-quote .who img, .feature-quote .who .initial { width: 2.5rem; height: 2.5rem; }
+    .who .initial { display: grid; place-items: center; background: var(--card); color: var(--accent-ink); font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0; }
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .review { margin: 0; padding: 1.9rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.3s, transform 0.3s; }
     .review:hover { border-color: var(--line-gold); transform: translateY(-3px); }
