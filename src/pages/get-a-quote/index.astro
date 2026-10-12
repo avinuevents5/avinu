@@ -1,9 +1,8 @@
 ---
 import Noir from '../../layouts/Noir.astro';
-import { phone, instagram } from '../../data/home';
+import { phone } from '../../data/home';
 
 const tel = phone.replace(/[^+\d]/g, '');
-const sideImg = '/wp-content/uploads/2023/08/dj1.jpg';
 
 // Formulario del CRM (avinu-crm). Cambiar aquí cuando tenga dominio propio (p. ej. app.avinuevents.com).
 const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
@@ -14,7 +13,7 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
   title="Contact us"
   description="Get a quote for your event from Avinu Music & Productions — South Florida's premier event-production house. DJs, ceremony singers, live musicians, lighting and full production. Call +1 754-547-4415."
 >
-  <!-- ░░ PLAN YOUR EVENT ░░ — formulario del CRM integrado en la página + contacto al costado -->
+  <!-- ░░ PLAN YOUR EVENT ░░ — formulario del CRM integrado en la página, a todo el ancho -->
   <section class="quote">
     <div class="quote-grid">
       <div class="quote-main">
@@ -32,20 +31,6 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
           loading="eager"
         ></iframe>
       </div>
-
-      <!-- Contacto directo: columna angosta que acompaña el scroll (escritorio) -->
-      <aside class="quote-aside">
-        <div class="aside-img" style={`background-image:url('${sideImg}')`}></div>
-        <p class="eyebrow">Talk to us</p>
-        <a class="phone-big" href={`tel:${tel}`}>{phone}</a>
-        <p class="aside-note">Weddings, corporate galas, mitzvahs and private celebrations across South Florida.</p>
-        <ul class="aside-list">
-          <li>Free, no-obligation consultation</li>
-          <li>Custom proposal tailored to your day</li>
-          <li>A full staff of planners and producers</li>
-        </ul>
-        <a class="link-arrow" href={instagram} target="_blank" rel="noopener">Follow @avinuevents</a>
-      </aside>
     </div>
   </section>
 
@@ -76,9 +61,7 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
         if (e.data.type === 'avinu-inquire-height' && typeof e.data.height === 'number') {
           frame.style.height = Math.max(480, Math.ceil(e.data.height)) + 'px';
         } else if (e.data.type === 'avinu-inquire-wide') {
-          // Pantalla final (agenda + resumen): sin columna lateral, todo el ancho para el formulario.
-          var grid = frame.closest('.quote-grid');
-          if (grid) grid.classList.toggle('is-wide', !!e.data.wide);
+          // Ya no hay columna lateral: el formulario ocupa todo el ancho en todos los pasos.
         } else if (e.data.type === 'avinu-inquire-viewport-request') {
           sendViewport();
         } else if (e.data.type === 'avinu-inquire-scroll') {
@@ -104,34 +87,20 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
   <style>
     .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 
-    /* ── LAYOUT: formulario + columna de contacto ── */
+    /* ── LAYOUT: formulario a todo el ancho (laptop ≈ 1060px, pantallas grandes hasta 1200px) ── */
     .quote { padding: clamp(2.5rem, 7vh, 5rem) var(--gutter) clamp(4rem, 8vh, 6rem); }
-    .quote-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: clamp(2rem, 4vw, 4.5rem); align-items: start; }
+    .quote-grid { max-width: clamp(1060px, 75vw, 1200px); margin: 0 auto; }
     .quote-main { min-width: 0; }
-    .quote-grid.is-wide { grid-template-columns: minmax(0, 1fr); }
-    .quote-grid.is-wide .quote-aside { display: none; }
-    .quote-grid.is-wide .head-call { display: block; }
 
     .page-head { max-width: 44rem; }
     .head-kicker { display: block; margin-bottom: 1rem; }
     .head-h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: -0.03em; line-height: 1.02; }
     .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 1.2rem 0 0; }
-    .head-call { display: none; margin: 0.9rem 0 0; color: var(--muted-text); font-size: 0.95rem; }
+    .head-call { margin: 0.9rem 0 0; color: var(--muted-text); font-size: 0.95rem; }
     .head-call a { color: var(--fg); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
     /* Formulario: sin caja, mismo marfil que la página */
     .inq-frame { display: block; width: 100%; height: 760px; border: 0; margin-top: clamp(1.2rem, 3vh, 2rem); background: transparent; transition: height 0.25s ease; }
-
-    /* Contacto: angosto y fijo al hacer scroll */
-    .quote-aside { position: sticky; top: 110px; padding-left: clamp(1.25rem, 2vw, 2rem); border-left: 1px solid var(--line-gold); }
-    .aside-img { aspect-ratio: 4 / 3; background-size: cover; background-position: center; border-radius: 4px; margin-bottom: 1.4rem; }
-    .quote-aside .eyebrow { display: block; margin-bottom: 0.6rem; }
-    .phone-big { font-family: var(--font-body); font-weight: 600; font-size: 1.45rem; color: var(--fg); letter-spacing: 0.01em; font-variant-numeric: lining-nums tabular-nums; transition: color 0.25s; }
-    .phone-big:hover { color: var(--accent-soft); }
-    .aside-note { color: var(--muted-text); font-size: 0.9rem; margin: 0.8rem 0 1.2rem; }
-    .aside-list { list-style: none; margin: 0 0 1.4rem; padding: 0; display: grid; gap: 0.55rem; }
-    .aside-list li { position: relative; padding-left: 1.3rem; color: var(--muted-text); font-size: 0.88rem; }
-    .aside-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
     .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
     .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
@@ -142,13 +111,6 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
     .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
     .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    /* Tablet/móvil: sin columna lateral; el teléfono queda en una línea bajo el título */
-    @media (max-width: 1023px) {
-      .quote-grid { grid-template-columns: 1fr; }
-      .quote-aside { display: none; }
-      .head-call { display: block; }
-    }
 
     @media (prefers-reduced-motion: no-preference) {
       :global(html.js) [data-reveal] { opacity: 0; }
