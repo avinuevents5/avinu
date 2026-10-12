@@ -60,7 +60,9 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
         if (e.data.type === 'avinu-inquire-height' && typeof e.data.height === 'number') {
           frame.style.height = Math.max(480, Math.ceil(e.data.height)) + 'px';
         } else if (e.data.type === 'avinu-inquire-wide') {
-          // Ya no hay columna lateral: el formulario ocupa todo el ancho en todos los pasos.
+          // Paso final (gracias + agenda): sin el encabezado grande, para que el calendario entre en la pantalla.
+          var grid = frame.closest('.quote-grid');
+          if (grid) grid.classList.toggle('is-done', !!e.data.wide);
         } else if (e.data.type === 'avinu-inquire-viewport-request') {
           sendViewport();
         } else if (e.data.type === 'avinu-inquire-scroll') {
@@ -90,6 +92,8 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     .quote { padding: clamp(1.5rem, 4.5vh, 3.25rem) var(--gutter) clamp(4rem, 8vh, 6rem); }
     .quote-grid { max-width: clamp(1060px, 75vw, 1200px); margin: 0 auto; }
     .quote-main { min-width: 0; }
+    .quote-grid.is-done .page-head { display: none; }
+    .quote-grid.is-done .inq-frame { margin-top: 0; }
 
     .page-head { max-width: 44rem; }
     .head-kicker { display: block; margin-bottom: 1rem; }
