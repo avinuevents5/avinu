@@ -20,8 +20,7 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
         <header class="page-head">
           <p class="eyebrow head-kicker">Get a quote</p>
           <h1 class="head-h1">Plan your <span class="ital">event</span></h1>
-          <p class="head-sub">Let's build your proposal together.</p>
-          <p class="head-call">Prefer to talk? <a href={`tel:${tel}`}>Call {phone}</a></p>
+          <p class="head-sub">Let's build your proposal together. <span class="head-call">Prefer to talk? <a href={`tel:${tel}`}>Call {phone}</a></span></p>
         </header>
         <iframe
           id="avinu-inquire"
@@ -88,19 +87,20 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 
     /* ── LAYOUT: formulario a todo el ancho (laptop ≈ 1060px, pantallas grandes hasta 1200px) ── */
-    .quote { padding: clamp(2.5rem, 7vh, 5rem) var(--gutter) clamp(4rem, 8vh, 6rem); }
+    .quote { padding: clamp(1.5rem, 4.5vh, 3.25rem) var(--gutter) clamp(4rem, 8vh, 6rem); }
     .quote-grid { max-width: clamp(1060px, 75vw, 1200px); margin: 0 auto; }
     .quote-main { min-width: 0; }
 
     .page-head { max-width: 44rem; }
     .head-kicker { display: block; margin-bottom: 1rem; }
     .head-h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: -0.03em; line-height: 1.02; }
-    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 1.2rem 0 0; }
-    .head-call { margin: 0.9rem 0 0; color: var(--muted-text); font-size: 0.95rem; }
+    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 0.9rem 0 0; }
+    /* Teléfono en la misma línea que el subtítulo (una línea menos antes del formulario) */
+    .head-call { margin-left: 0.6rem; font-size: 0.95rem; white-space: nowrap; }
     .head-call a { color: var(--fg); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
     /* Formulario: sin caja, mismo marfil que la página */
-    .inq-frame { display: block; width: 100%; height: 760px; border: 0; margin-top: clamp(1.2rem, 3vh, 2rem); background: transparent; transition: height 0.25s ease; }
+    .inq-frame { display: block; width: 100%; height: 760px; border: 0; margin-top: clamp(1rem, 2.2vh, 1.5rem); background: transparent; transition: height 0.25s ease; }
 
     .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
     .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
