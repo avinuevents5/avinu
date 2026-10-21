@@ -19,19 +19,13 @@ const others = (await getCollection('singers'))
 ---
 
 <Noir title={title} titleSuffix={entry.data.titleSuffix ?? true} description={summary ?? role}>
-  <!-- COMPACT HEADER -->
-  <section class="page-head">
-    <div class="ph-inner">
-      <p class="eyebrow" data-reveal>Vocalist</p>
-      <h1 data-reveal>{title}</h1>
-      {role && <p class="role" data-reveal>{role}</p>}
-    </div>
-  </section>
-
-  <!-- BIO + PHOTO -->
-  <section class="band">
+  <!-- BIO + PHOTO (title sits beside the photo) -->
+  <section class="band bio-band">
     <div class="bio-grid">
       <div class="bio" data-reveal>
+        <p class="eyebrow">Vocalist</p>
+        <h1>{title}</h1>
+        {role && <p class="role">{role}</p>}
         <div class="prose"><Content /></div>
         <div class="facts-row">
           {languages.length > 0 && (
@@ -44,7 +38,7 @@ const others = (await getCollection('singers'))
         <a class="btn-primary bio-cta" href="/get-a-quote/">Book {firstName}</a>
       </div>
       <div class="bio-photo" data-reveal>
-        <div class="bp-img" style={`background-image:url('${photo}')`}></div>
+        <img class="bp-img" src={photo} alt={title} />
       </div>
     </div>
   </section>
@@ -132,11 +126,9 @@ const others = (await getCollection('singers'))
   </section>
 
   <style>
-    /* COMPACT HEADER */
-    .page-head { padding: 5.5rem 1.5rem 0.5rem; text-align: center; }
-    .ph-inner { max-width: 60rem; margin: 0 auto; }
-    .page-head h1 { font-size: clamp(2.8rem, 7vw, 5rem); margin: 0.8rem 0 0; }
-    .role { color: var(--fg); font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 2.4vw, 1.5rem); margin: 0.7rem 0 0; }
+    /* TITLE (inside the bio column) */
+    .bio h1 { font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1.05; margin: 0.6rem 0 0; }
+    .role { color: var(--fg); font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 2.4vw, 1.35rem); margin: 0.5rem 0 1.75rem; }
 
     /* SHELL */
     .band { padding: 4.5rem 1.5rem; }
@@ -146,14 +138,13 @@ const others = (await getCollection('singers'))
     .band-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 0.5rem; }
 
     /* BIO + PHOTO */
-    .bio-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3.5rem; align-items: start; }
+    .bio-band { padding-top: 5.5rem; }
+    .bio-grid { display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: center; }
     .prose :global(p) { color: var(--muted-text); font-size: 1.05rem; line-height: 1.78; margin: 0 0 1.25rem; }
-    .prose :global(p:first-child) { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--fg); }
     .facts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
     .fact h3 { font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem; color: var(--accent-ink); margin-bottom: 0.5rem; }
     .fact p { color: var(--fg); font-size: 0.95rem; margin: 0; }
-    .bio-photo { position: sticky; top: 6rem; }
-    .bp-img { aspect-ratio: 4 / 5; border-radius: 18px; background-size: cover; background-position: center; border: 1px solid var(--line); }
+    .bp-img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); }
 
     /* VIDEOS */
     .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem; max-width: 920px; margin: 0 auto; }
@@ -188,8 +179,7 @@ const others = (await getCollection('singers'))
 
     @media (max-width: 900px) {
       .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .bio-photo { position: static; order: -1; }
-      .bp-img { aspect-ratio: 16 / 10; }
+      .bio-photo { order: -1; max-width: 420px; width: 100%; margin: 0 auto; }
       .gallery { grid-template-columns: repeat(2, 1fr); }
       .connect-cols { grid-template-columns: 1fr; gap: 1.5rem; }
       .ccol p { min-height: 0; }
