@@ -1,14 +1,15 @@
 ---
 import Noir from '../../layouts/Noir.astro';
-import { phone } from '../../data/home';
+import { phone, reviews as savedReviews } from '../../data/home';
 import { loadReviews } from '../../data/reviews';
 
 const tel = phone.replace(/[^+\d]/g, '');
 const IMG = '/img/weddings';
 
-// Reseña real de Google: la primera que hable de una boda; si no hay, la destacada del home.
+// Reseña real de Google que hable de una boda: primero las de Google en vivo, luego las guardadas en home.ts.
 const rv = await loadReviews();
-const review = rv.reviews.find((r) => /wedding|boda/i.test(r.text)) ?? rv.reviews[0];
+const isWedding = (r: { text: string }) => /wedding|boda/i.test(r.text);
+const review = rv.reviews.find(isWedding) ?? savedReviews.find(isWedding) ?? rv.reviews[0];
 
 const services = [
   { title: "DJ's", img: 'dj.jpg', href: '/best-djs-in-south-florida/', body: 'The most requested, reliable DJs in South Florida — reading the room from cocktail hour to the last song.' },
