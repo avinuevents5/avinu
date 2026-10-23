@@ -1,7 +1,7 @@
 ---
 title: "Sergio"
 titleSuffix: false
-connectNote: "Sergio Andre, a multilingual singer from Venezuela, mesmerizes audiences with his performances in Spanish, English, and Jewish music. With a global fanbase and a flair for wedding videography, his artistry spans both music and film. Dive into Sergio's world to experience a harmonious blend of melodies and visual storytelling."
+connectNote: "Sergio Andre, a multilingual singer from Venezuela, mesmerizes audiences with his performances in Spanish and English. With a global fanbase and a flair for wedding videography, his artistry spans both music and film. Dive into Sergio's world to experience a harmonious blend of melodies and visual storytelling."
 videos:
   - "Tewuxxx5cZQ"
 role: "Inspiring Multilingual Singer"
@@ -9,7 +9,6 @@ photo: "/wp-content/uploads/2023/08/sr.jpg"
 languages:
   - "Spanish"
   - "English"
-  - "Jewish repertoire"
 specialties:
   - "Soul-stirring love songs"
   - "Wedding videography"
@@ -22,6 +21,6 @@ originalUrl: "https://avinuevents.com/sergio-andre/"
 order: 4
 ---
 
-Hailing from Venezuela, Sergio Andre is a talented multilingual singer who captivates audiences with performances in Spanish, English, and Jewish music.
+Hailing from Venezuela, Sergio Andre is a talented multilingual singer who captivates audiences with performances in Spanish and English.
 
 As a close collaborator of Mark Levine, Sergio brings passion and versatility to every performance. With over 50,000 followers worldwide, his soulful music has touched countless hearts. Beyond the stage, he also specializes in wedding videography, capturing unforgettable moments alongside the Levine Events Team.
