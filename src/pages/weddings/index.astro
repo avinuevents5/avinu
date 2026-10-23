@@ -1,90 +1,109 @@
 ---
 import Noir from '../../layouts/Noir.astro';
-import ConnectCTA from '../../components/ConnectCTA.astro';
 import { phone } from '../../data/home';
+import { loadReviews } from '../../data/reviews';
 
 const tel = phone.replace(/[^+\d]/g, '');
-const hero = '/wp-content/uploads/2018/12/weddings1.jpg';
+const IMG = '/img/weddings';
 
-// The production toolkit pulled from the original /weddings/ copy.
-const toolkit = [
-  'Top-of-the-line EV & QSC sound systems',
-  'DJ displays: turf grass, bamboo, formal black, LED white',
-  'Intelligent dance lighting, uplighting & bistro string',
-  'Custom logo monograms',
-  'Indoor sparklers',
-  'LED walls',
+// Reseña real de Google: la primera que hable de una boda; si no hay, la destacada del home.
+const rv = await loadReviews();
+const review = rv.reviews.find((r) => /wedding|boda/i.test(r.text)) ?? rv.reviews[0];
+
+const services = [
+  { title: "DJ's", img: 'dj.jpg', href: '/best-djs-in-south-florida/', body: 'The most requested, reliable DJs in South Florida — reading the room from cocktail hour to the last song.' },
+  { title: 'Ceremony Singers', img: 'ceremony-singer.jpg', href: '/jewish-ceremony-singer/', body: 'Soulful voices for your walk down the aisle, in the languages that matter to your family.' },
+  { title: 'Musicians', img: 'musicians.jpg', href: '/wedding-musicians-and-band/', body: 'Strings, sax, piano and full bands to elevate the ceremony, cocktail hour and dance floor.' },
+  { title: 'Photo & Video', img: 'photo-video.jpg', href: '/photography-and-videography/', body: "Cinematic coverage that captures the moments you'll want to relive for decades." },
+  { title: 'Screens & LED Walls', img: 'led-walls.jpg', href: '/led-pannels/', body: 'Custom visuals, monograms and live feeds that turn the room into a show.' },
+  { title: 'Lighting', img: 'lighting.jpg', href: '/wedding-lighting-in-south-florida/', body: 'Uplighting, intelligent dance lighting, bistro strings and indoor sparklers.' },
 ];
 
-// Resolve old WP slugs to the live nav structure.
-const highlights = [
-  { label: "DJ's", href: '/best-djs-in-south-florida/' },
-  { label: 'Ceremony Singers', href: '/jewish-ceremony-singer/' },
-  { label: 'Musicians', href: '/wedding-musicians-and-band/' },
-  { label: 'Photo & Video', href: '/photography-and-videography/' },
-  { label: 'Screens & LED Walls', href: '/led-pannels/' },
-  { label: 'Lighting', href: '/wedding-lighting-in-south-florida/' },
+const moments = [
+  { t: 'Ceremony', title: 'The walk down the aisle', body: 'Live singer or strings, wireless mics for the officiant and vows, cue-perfect processional.' },
+  { t: 'Cocktail', title: 'Guests arrive to atmosphere', body: 'Sax, piano or an acoustic set while the room flips — lighting already setting the mood.' },
+  { t: 'Entrance', title: 'Your grand entrance', body: 'Your song, your monogram on the LED wall, the MC introducing your bridal party.' },
+  { t: 'First dance', title: 'The moment everyone films', body: 'Lights drop, haze and spotlight, and a mix built from your music planner.' },
+  { t: 'Party', title: 'A packed dance floor', body: 'DJ plus live musicians, intelligent lighting and indoor sparklers for the peak moments.' },
+  { t: 'Last song', title: 'A send-off to remember', body: 'The final track you chose, timed to the exit — and nothing for you to worry about.' },
 ];
 
 const steps = [
-  { n: '01', title: 'A menu of specialties', body: 'We begin with a menu of our specialty options.' },
-  { n: '02', title: 'Meet your talent', body: 'Connect with our DJ on a Zoom or phone call, so you know exactly what to expect and all your questions are answered.' },
-  { n: '03', title: 'We produce, you celebrate', body: 'From there on, we manage your event, so you can focus on what matters: being fully present and celebrating you.' },
+  { n: '01', title: 'Tell us about your day', body: 'Share your date, venue and vision in a 2-minute quote form.' },
+  { n: '02', title: 'Meet your talent', body: 'A Zoom or phone call with your DJ, so you know exactly what to expect.' },
+  { n: '03', title: 'Plan online, then celebrate', body: 'Build your music and timeline in your client portal. On the day, we run it all.' },
 ];
 ---
 
 <Noir
   title="Weddings"
-  description="South Florida's most spectacular weddings — DJs, ceremony singers, live musicians, lighting, LED walls and full production, planned to the last detail by Avinu Music & Productions."
+  description="South Florida's most spectacular weddings — DJs, ceremony singers, live musicians, lighting, LED walls and full production, planned with you by Avinu Events."
+  image={`${IMG}/hero-entrance.jpg`}
 >
-  <!-- ░░ PAGE HEADER ░░ -->
-  <section class="page-head">
-    <p class="eyebrow head-kicker">Weddings · South Florida</p>
-    <h1 class="head-h1">The Most Spectacular<br /><span class="ital">Wedding</span></h1>
-    <p class="head-sub">Let's do something amazing! That's what our clients seek, and that's exactly what we strive for.</p>
-  </section>
-
-  <!-- ░░ INTRO + HERO IMAGE ░░ -->
-  <section class="feature">
-    <div class="feature-grid">
-      <div class="feature-media" data-reveal>
-        <div class="feature-img" style={`background-image:url('${hero}')`}></div>
+  <!-- ░░ HERO ░░ -->
+  <section class="wed-hero">
+    <div class="hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Weddings · South Florida</p>
+        <h1 class="hero-h1">The most spectacular <span class="ital">wedding</span> of your life.</h1>
+        <p class="hero-lead">DJs, ceremony singers, live musicians, lighting and LED walls — produced by one team, planned with you from the first call to the last song.</p>
+        <div class="actions">
+          <a class="btn-primary" href="/get-a-quote/">Get a quote →</a>
+          <a class="btn-ghost" href={`tel:${tel}`}>Call {phone}</a>
+        </div>
+        <div class="proof">
+          <div><b>20+</b>years performing</div>
+          <div><b>Hundreds</b>of South Florida weddings</div>
+          <div><b>One</b>team for music, light &amp; screens</div>
+        </div>
       </div>
-      <div class="feature-copy" data-reveal>
-        <p class="eyebrow">Our craft</p>
-        <p class="lead">The secret is in a variety of tools — starting by carefully selecting our talent of DJ's and musicians, then layering in modern production equipment.</p>
-        <ul class="toolkit">
-          {toolkit.map((t) => <li>{t}</li>)}
-        </ul>
-        <p class="note">
-          Founder and head DJ/singer Mark Levine has been performing for over 20 years. Precision is
-          key in this industry, so he built systems and technology to make your planning flawless —
-          ask us about our online music planner to start building your request list and timeline.
-        </p>
-        <p class="signoff">"Together we can do the impossible." — ML</p>
-      </div>
+      <figure class="hero-fig" data-reveal>
+        <img src={`${IMG}/hero-entrance.jpg`} alt="Bride and groom making their grand entrance under gold lights" width="1100" height="1375" fetchpriority="high" />
+      </figure>
     </div>
   </section>
 
-  <!-- ░░ HIGHLIGHTS ░░ -->
+  <!-- ░░ SERVICES ░░ -->
   <section class="band midnight">
     <header class="band-head" data-reveal>
-      <p class="eyebrow">Our talent</p>
-      <h2 class="band-h2">Get to know our <span class="ital">DJ's</span></h2>
-      <p class="band-intro">The most requested, reliable and qualified, with performance in hundreds of events.</p>
+      <p class="eyebrow">Everything under one roof</p>
+      <h2 class="band-h2">Built around your <span class="ital">day</span></h2>
+      <p class="band-intro">Pick what you need — we coordinate it all so every piece speaks the same language on the night.</p>
     </header>
-    <div class="hl-grid" data-reveal-group>
-      {highlights.map((h) => (
-        <a class="hl-card" href={h.href}>
-          <h3 class="hl-title">{h.label}</h3>
-          <span class="link-arrow">Explore</span>
+    <div class="svc-grid" data-reveal-group>
+      {services.map((s) => (
+        <a class="svc" href={s.href} style={`background-image:url('${IMG}/${s.img}')`}>
+          <div class="svc-tx">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+            <span>Explore →</span>
+          </div>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- ░░ PROCESS ░░ -->
+  <!-- ░░ YOUR NIGHT ░░ -->
   <section class="band">
+    <header class="band-head" data-reveal>
+      <p class="eyebrow">Your night, moment by moment</p>
+      <h2 class="band-h2">We're there for <span class="ital">every</span> chapter</h2>
+    </header>
+    <div class="timeline" data-reveal-group>
+      {moments.map((m) => (
+        <div class="tl-row">
+          <span class="tl-t">{m.t}</span>
+          <div>
+            <h3>{m.title}</h3>
+            <p>{m.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ░░ PROCESS ░░ -->
+  <section class="band midnight">
     <header class="band-head" data-reveal>
       <p class="eyebrow">So how does this work?</p>
       <h2 class="band-h2">A process built around <span class="ital">you</span></h2>
@@ -100,66 +119,117 @@ const steps = [
     </div>
   </section>
 
-  <ConnectCTA />
+  <!-- ░░ REVIEW ░░ -->
+  <section class="band">
+    <div class="quote-grid">
+      <figure class="quote-fig" data-reveal>
+        <img src={`${IMG}/couple-dance.jpg`} alt="Bride and groom dancing with their guests" width="1100" height="1375" loading="lazy" />
+      </figure>
+      <div data-reveal>
+        <p class="eyebrow">From our couples</p>
+        <blockquote class="quote">“{review.text}”</blockquote>
+        <p class="quote-name">— {review.name}</p>
+        <a class="quote-link" href={rv.href} target="_blank" rel="noopener">★★★★★ {rv.rating} · {rv.count} Google reviews →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CLOSING CTA ░░ -->
+  <section class="band midnight cta">
+    <div class="cta-inner" data-reveal>
+      <p class="eyebrow">Let's do something amazing</p>
+      <h2 class="cta-h2">Tell us about your <span class="ital">wedding</span></h2>
+      <p class="cta-sub">Founder Mark Levine has been performing for over 20 years. “Together we can do the impossible.”</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="/get-a-quote/">Get a quote →</a>
+        <a class="btn-ghost" href={`tel:${tel}`}>Call {phone}</a>
+      </div>
+    </div>
+  </section>
 
   <style>
     .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 
-    /* ── PAGE HEADER ── */
-    .page-head { max-width: 60rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem); text-align: center; }
-    .head-kicker { display: block; margin-bottom: 1.3rem; }
-    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.03em; }
-    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 40rem; margin: 1.6rem auto 0; }
+    /* ── HERO ── */
+    .wed-hero { padding: clamp(3rem, 7vh, 5.5rem) var(--gutter) clamp(3.5rem, 8vh, 6rem); }
+    .hero-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    .hero-copy .eyebrow { display: block; }
+    .hero-h1 { font-size: clamp(2.8rem, 6.4vw, 5.4rem); letter-spacing: -0.03em; margin: 1rem 0 1.4rem; }
+    .hero-lead { color: var(--muted-text); font-size: clamp(1rem, 1.4vw, 1.12rem); max-width: 34rem; margin: 0; }
+    .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .proof { display: flex; gap: 2.2rem; flex-wrap: wrap; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+    .proof div { font-size: 0.82rem; color: var(--muted-text); }
+    .proof b { display: block; font-family: var(--font-display); font-weight: 500; font-size: 2rem; color: var(--fg); line-height: 1.1; }
+    .hero-fig { margin: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.35); }
+    .hero-fig img { display: block; width: 100%; height: auto; }
 
-    /* ── FEATURE (intro + hero image) ── */
-    .feature { padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(4rem, 8vh, 6rem); }
-    .feature-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-    .feature-img { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: 6px; }
-    .feature-copy .eyebrow { display: block; margin-bottom: 0.9rem; }
-    .lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.35; color: var(--fg); margin: 0 0 1.6rem; }
-    .toolkit { list-style: none; margin: 0 0 1.8rem; padding: 0; display: grid; gap: 0.65rem; }
-    .toolkit li { position: relative; padding-left: 1.5rem; color: var(--muted-text); font-size: 0.98rem; }
-    .toolkit li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-    .note { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; }
-    .signoff { font-family: var(--font-display); font-style: italic; color: var(--fg); font-size: 1.15rem; }
+    .hero-grid > *, .quote-grid > *, .svc-grid > *, .steps > *, .tl-row > * { min-width: 0; }
 
-    /* ── generic band shell (mirrors home) ── */
+    /* ── generic band shell ── */
     .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
     .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
     .midnight { background: linear-gradient(180deg, var(--midnight-deep), var(--midnight) 50%, var(--midnight-deep)); }
     .band-head { text-align: center; margin-bottom: 3rem; }
     .band-head .eyebrow { display: block; }
-    .band-h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.7rem; }
-    .band-intro { color: var(--muted-text); margin-top: 1.1rem; max-width: 44rem; margin-left: auto; margin-right: auto; }
+    .band-h2 { font-size: clamp(2rem, 4.4vw, 3.3rem); margin-top: 0.7rem; }
+    .band-intro { color: var(--muted-text); margin-top: 1rem; max-width: 44rem; margin-left: auto; margin-right: auto; }
 
-    /* ── HIGHLIGHTS grid ── */
-    .hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .hl-card { display: flex; flex-direction: column; padding: 2.1rem 1.9rem; border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.4); border-radius: 6px; background: var(--card); transition: border-color 0.3s, transform 0.3s, background 0.3s; }
-    .hl-card:hover { border-color: var(--line-gold); transform: translateY(-4px); background: var(--card-hover); }
-    .hl-title { font-size: 1.55rem; margin-bottom: 0.5rem; }
-    .hl-desc { color: var(--muted-text); font-size: 0.95rem; margin: 0 0 1.4rem; flex: 1; }
+    /* ── SERVICES: text over photo ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .svc { position: relative; aspect-ratio: 4 / 3.4; border-radius: 10px; overflow: hidden; background: #222 center / cover no-repeat; display: flex; align-items: flex-end; color: #fff; transition: transform 0.35s, box-shadow 0.35s; }
+    .svc::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(10,8,5,0.55) 58%, rgba(10,8,5,0.88) 100%); transition: background 0.35s; }
+    .svc:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.6); }
+    .svc:hover::before { background: linear-gradient(180deg, rgba(0,0,0,0.05) 20%, rgba(10,8,5,0.6) 52%, rgba(10,8,5,0.92) 100%); }
+    .svc-tx { position: relative; padding: 1.5rem 1.6rem; }
+    .svc h3 { font-size: 1.7rem; color: #fff; }
+    .svc p { font-size: 0.92rem; line-height: 1.5; color: rgba(255, 255, 255, 0.86); margin: 0.45rem 0 0.9rem; }
+    .svc span { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #e3c889; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; max-width: 58rem; }
+    .timeline::before { content: ''; position: absolute; left: 7.4rem; top: 0.6rem; bottom: 0.6rem; width: 1px; background: var(--line-gold); }
+    .tl-row { display: grid; grid-template-columns: 6.4rem 1fr; gap: 2rem; padding: 1.15rem 0; position: relative; }
+    .tl-row::after { content: ''; position: absolute; left: 7.1rem; top: 1.65rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .tl-t { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; text-align: right; padding-top: 0.15rem; }
+    .tl-row h3 { font-size: 1.3rem; }
+    .tl-row p { margin: 0.25rem 0 0; color: var(--muted-text); font-size: 0.95rem; }
 
     /* ── STEPS ── */
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .step { padding: 2rem 1.8rem; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
-    .step-n { display: block; font-family: var(--font-display); font-size: 2.4rem; color: transparent; -webkit-text-stroke: 1px var(--line-gold); margin-bottom: 1rem; }
-    .step-title { font-size: 1.35rem; margin-bottom: 0.6rem; }
-    .step-body { color: var(--muted-text); font-size: 0.95rem; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .step { padding: 2rem 1.8rem; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+    .step-n { display: block; font-family: var(--font-display); font-size: 2.6rem; color: transparent; -webkit-text-stroke: 1px var(--line-gold); margin-bottom: 0.8rem; }
+    .step-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .step-body { color: var(--muted-text); font-size: 0.95rem; margin: 0; }
+
+    /* ── REVIEW ── */
+    .quote-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    .quote-fig { margin: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.35); }
+    .quote-fig img { display: block; width: 100%; height: auto; }
+    .quote-grid .eyebrow { display: block; }
+    .quote { margin: 0.9rem 0 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.8vw, 2.2rem); line-height: 1.3; color: var(--fg); }
+    .quote-name { margin: 1.2rem 0 0; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); font-weight: 600; }
+    .quote-link { display: inline-block; margin-top: 1.4rem; font-size: 0.9rem; color: var(--muted-text); border-bottom: 1px solid var(--line-gold); }
+    .quote-link:hover { color: var(--accent-ink); }
 
     /* ── CLOSING CTA ── */
-    .cta-band { text-align: center; }
+    .cta { text-align: center; }
     .cta-inner { max-width: 44rem; }
-    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 0.7rem; }
+    .cta-inner .eyebrow { display: block; }
+    .cta-h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 0.7rem; }
     .cta-sub { color: var(--muted-text); margin: 1.2rem 0 2rem; }
-    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
 
     @media (max-width: 900px) {
-      .feature-grid { grid-template-columns: 1fr; }
-      .hl-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid, .quote-grid { grid-template-columns: minmax(0, 1fr); }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
     }
-    @media (max-width: 560px) {
-      .hl-grid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 5.4rem; }
+      .tl-row { grid-template-columns: 4.4rem 1fr; gap: 1.6rem; }
+      .tl-row::after { left: 5.1rem; }
+      .tl-t { font-size: 1rem; }
     }
 
     @media (prefers-reduced-motion: no-preference) {
