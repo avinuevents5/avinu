@@ -67,6 +67,26 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
 <html lang="en">
   <head>
     <script is:inline>document.documentElement.classList.add('js');</script>
+    <!-- De dónde llegó la persona (Instagram / Google): se recuerda 30 días y Get a quote se lo pasa al formulario del CRM (Lead Source). -->
+    <script is:inline>
+      (function () {
+        try {
+          var p = new URLSearchParams(location.search), s = null;
+          var u = (p.get('utm_source') || '').toLowerCase();
+          if (u === 'instagram' || u === 'ig') s = 'instagram';
+          else if (u === 'google' || u === 'gbp' || u === 'gmb') s = 'google';
+          else if (p.get('gclid') || p.get('gbraid') || p.get('wbraid')) s = 'google';
+          else if (/\bInstagram\b/i.test(navigator.userAgent)) s = 'instagram';
+          else if (/\bGSA\//.test(navigator.userAgent)) s = 'google';
+          else if (document.referrer) {
+            var h = new URL(document.referrer).hostname.toLowerCase();
+            if (/(^|\.)instagram\.com$/.test(h)) s = 'instagram';
+            else if (/(^|\.)google\.[a-z.]+$/.test(h)) s = 'google';
+          }
+          if (s) localStorage.setItem('avinu_lead_src', JSON.stringify({ s: s, t: Date.now() }));
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>

@@ -24,7 +24,7 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
         </header>
         <iframe
           id="avinu-inquire"
-          src={inquireUrl}
+          data-src={inquireUrl}
           class="inq-frame"
           title="Plan your event — Avinu Events"
           loading="eager"
@@ -38,6 +38,15 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     (function () {
       var frame = document.getElementById('avinu-inquire');
       if (!frame) return;
+      // Se carga aquí para pasarle de dónde llegó la persona (ver Noir.astro), vigente 30 días.
+      var src = frame.getAttribute('data-src');
+      try {
+        var saved = JSON.parse(localStorage.getItem('avinu_lead_src') || 'null');
+        if (saved && (saved.s === 'instagram' || saved.s === 'google') && Date.now() - saved.t < 30 * 864e5) {
+          src += '&src=' + saved.s;
+        }
+      } catch (e) {}
+      frame.src = src;
       // Dónde está el formulario respecto a la pantalla: el CRM lo usa para abrir
       // ventanas (p. ej. el calendario de la fecha) en el centro de lo que se ve.
       function sendViewport() {
