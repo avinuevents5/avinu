@@ -70,7 +70,8 @@ const sections: { title: string; video: string; body: string; start?: number; po
     .f-text h2 { font-size: clamp(1.9rem, 3.4vw, 2.9rem); margin-bottom: 1.1rem; }
     .f-text p { color: var(--muted-text); margin: 0; font-size: clamp(1.15rem, 0.55rem + 0.75vw, 1.35rem); line-height: 1.7; }
     .f-media { aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #000; }
-    .f-media iframe { width: 100%; height: 100%; border: 0; display: block; }
+    /* :global: también el iframe que crea el script al tocar la miniatura (no lleva el atributo de Astro) */
+    .f-media :global(iframe) { width: 100%; height: 100%; border: 0; display: block; }
     .yt-poster { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; }
     .yt-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .yt-play { position: absolute; inset: 0; display: grid; place-items: center; }
