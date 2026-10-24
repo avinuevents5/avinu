@@ -79,11 +79,28 @@ const others = (await getCollection('singers'))
   {gallery.length > 0 && (
     <section class="band midnight">
       <header class="band-head" data-reveal><p class="eyebrow">Gallery</p><h2>On the stage</h2></header>
-      <div class="gallery" data-reveal-group>
-        {gallery.map((src) => (
-          <div class="g-cell"><div class="g-img" style={`background-image:url('${src}')`}></div></div>
-        ))}
-      </div>
+      {gallery.length > 4 ? (
+        // Más de 4 fotos: carrusel. Se ven las 4 primeras (2 en el celular) y las flechas pasan página.
+        <div class="g-carousel" data-carousel>
+          <button type="button" class="g-arrow g-prev" aria-label="Previous photos" data-prev hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <div class="g-track" data-track data-reveal-group>
+            {gallery.map((src) => (
+              <div class="g-cell"><div class="g-img" style={`background-image:url('${src}')`}></div></div>
+            ))}
+          </div>
+          <button type="button" class="g-arrow g-next" aria-label="More photos" data-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      ) : (
+        <div class="gallery" data-reveal-group>
+          {gallery.map((src) => (
+            <div class="g-cell"><div class="g-img" style={`background-image:url('${src}')`}></div></div>
+          ))}
+        </div>
+      )}
     </section>
   )}
 
@@ -161,6 +178,19 @@ const others = (await getCollection('singers'))
     .g-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
     .g-cell:hover .g-img { transform: scale(1.06); }
 
+    /* Carrusel (más de 4 fotos): 4 por vista, 2 en el celular; se desliza con el dedo o con las flechas */
+    .g-carousel { position: relative; }
+    .g-track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+    .g-track::-webkit-scrollbar { display: none; }
+    .g-track .g-cell { flex: 0 0 calc((100% - 3rem) / 4); scroll-snap-align: start; }
+    .g-arrow { position: absolute; top: 50%; z-index: 2; transform: translateY(-50%); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.28); background: rgba(10, 10, 10, 0.6); color: #fff; cursor: pointer; backdrop-filter: blur(6px); transition: background 0.2s ease, border-color 0.2s ease; }
+    .g-arrow:hover { background: rgba(10, 10, 10, 0.85); border-color: rgba(255, 255, 255, 0.6); }
+    .g-arrow:focus-visible { outline: 2px solid #d9b866; outline-offset: 2px; }
+    .g-arrow[hidden] { display: none; }
+    .g-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .g-prev { left: -23px; }
+    .g-next { right: -23px; }
+
     /* CONNECT */
     .connect-inner { max-width: var(--maxw); }
     .connect h2 { font-family: var(--font-display); font-style: italic; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2.5rem; }
@@ -181,6 +211,9 @@ const others = (await getCollection('singers'))
       .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .bio-photo { order: -1; max-width: 420px; width: 100%; margin: 0 auto; }
       .gallery { grid-template-columns: repeat(2, 1fr); }
+      .g-track .g-cell { flex-basis: calc((100% - 1rem) / 2); }
+      .g-prev { left: 6px; }
+      .g-next { right: 6px; }
       .connect-cols { grid-template-columns: 1fr; gap: 1.5rem; }
       .ccol p { min-height: 0; }
       .others { grid-template-columns: 1fr; }
@@ -195,6 +228,25 @@ const others = (await getCollection('singers'))
 
   <script>
     import { animate, inView, stagger } from 'motion';
+
+    // Carrusel de la galería: las flechas pasan una página (lo que se ve) y se ocultan en los extremos.
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((c) => {
+      const track = c.querySelector<HTMLElement>('[data-track]');
+      const prev = c.querySelector<HTMLButtonElement>('[data-prev]');
+      const next = c.querySelector<HTMLButtonElement>('[data-next]');
+      if (!track || !prev || !next) return;
+      const step = () => track.clientWidth + 16; // ancho visible + el espacio entre fotos
+      const update = () => {
+        prev.hidden = track.scrollLeft < 4;
+        next.hidden = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      };
+      prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
+      next.addEventListener('click', () => track.scrollBy({ left: step() }));
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    });
+
     if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       inView('[data-reveal]', (el) => {
         animate(el, { opacity: [0, 1], y: [28, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });

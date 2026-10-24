@@ -20,9 +20,9 @@ specialties:
 gallery:
   - "/wp-content/uploads/2023/07/DSC09160-scaled.jpg"
   - "/wp-content/uploads/2023/07/DSC09116-scaled.jpg"
-  - "/wp-content/uploads/2023/07/DSC09125-scaled.jpg"
   - "/wp-content/uploads/2023/07/DSC09127-scaled.jpg"
   - "/wp-content/uploads/2023/07/DSC09135-scaled.jpg"
+  - "/wp-content/uploads/2023/07/DSC09125-scaled.jpg"
   - "/wp-content/uploads/2023/07/DSC09184-scaled.jpg"
   - "/wp-content/uploads/2023/07/DSC09215-scaled.jpg"
   - "/wp-content/uploads/2023/07/0.-Profile-pic-scaled.jpg"
