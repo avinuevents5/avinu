@@ -49,7 +49,7 @@ const others = (await getCollection('djs'))
         {d.specialties && d.specialties.length > 0 && (
           <div class="stat-block">
             <p class="eyebrow">Specializes in</p>
-            <ul class="chips">
+            <ul class="specs">
               {d.specialties.map((s) => <li>{s}</li>)}
             </ul>
           </div>
@@ -144,6 +144,11 @@ const others = (await getCollection('djs'))
 
     .stats { position: sticky; top: 6rem; border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: var(--card); }
     .stat-block { margin-bottom: 1.8rem; }
+    /* Especialidades: lista editorial (Bodoni + rayita dorada), no parecen botones */
+    .specs { list-style: none; margin: 1rem 0 0; padding: 0; }
+    .specs li { display: flex; align-items: center; gap: 0.9rem; padding: 0.75rem 0; border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 1.32rem; line-height: 1.2; color: var(--fg); }
+    .specs li:first-child { border-top: 0; padding-top: 0.2rem; }
+    .specs li::before { content: ""; flex: none; width: 18px; height: 1px; background: var(--accent); }
     .chips { list-style: none; margin: 0.9rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .chips li {
       padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
