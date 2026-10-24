@@ -1,4 +1,5 @@
 ---
+import SpeaksLine from '../../components/SpeaksLine.astro';
 import { getCollection, render } from 'astro:content';
 import Noir from '../../layouts/Noir.astro';
 import ConnectCTA from '../../components/ConnectCTA.astro';
@@ -34,6 +35,7 @@ const others = (await getCollection('djs'))
       <a class="back-link" href="/best-djs-in-south-florida/">All DJs</a>
       {d.role && <p class="eyebrow">{d.role}</p>}
       <h1>{d.title}</h1>
+      {d.languages && d.languages.length > 0 && <SpeaksLine languages={d.languages} tone="light" />}
     </div>
   </section>
 
@@ -49,14 +51,6 @@ const others = (await getCollection('djs'))
             <p class="eyebrow">Specializes in</p>
             <ul class="chips">
               {d.specialties.map((s) => <li>{s}</li>)}
-            </ul>
-          </div>
-        )}
-        {d.languages && d.languages.length > 0 && (
-          <div class="stat-block">
-            <p class="eyebrow">Fluent languages</p>
-            <ul class="chips chips-soft">
-              {d.languages.map((l) => <li>{l}</li>)}
             </ul>
           </div>
         )}

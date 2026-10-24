@@ -1,0 +1,46 @@
+---
+// Línea "Speaks English · Spanish · …" junto al nombre (perfiles de DJs y cantantes).
+// A los clientes les importa saber en qué idioma les hablará el artista: va donde se ve primero.
+// "Some Hebrew" / "Basic Spanish" se muestran como "Hebrew (basic)" / "Spanish (basic)".
+// tone="light": sobre la foto oscura (DJs); tone="dark": sobre fondo claro (cantantes).
+interface Props { languages: string[]; tone?: 'light' | 'dark' }
+const { languages, tone = 'light' } = Astro.props;
+
+const items = languages
+  .map((raw) => raw.trim())
+  .filter(Boolean)
+  .map((raw) => {
+    const m = raw.match(/^(some|basic)\s+(.+)$/i);
+    return m ? { name: m[2], note: 'basic' } : { name: raw, note: '' };
+  });
+---
+
+{items.length > 0 && (
+  <p class:list={['speaks', tone]}>
+    <span class="lead">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H9l-5 4V5Z" /></svg>
+      Speaks
+    </span>
+    {items.map((it, i) => (
+      <>
+        {i > 0 && <span class="dot" aria-hidden="true"></span>}
+        <span class="lang">{it.name}{it.note && <small>{` (${it.note})`}</small>}</span>
+      </>
+    ))}
+  </p>
+)}
+
+<style>
+  .speaks { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.9rem; margin: 1.1rem 0 0; font-size: 1.12rem; font-weight: 500; line-height: 1.4; }
+  .lead { display: inline-flex; align-items: center; gap: 0.5rem; margin-right: 0.3rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+  .lead svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: #c7a24a; }
+  .lang small { font-size: 0.8em; font-weight: 400; }
+  .light { color: #fff; }
+  .light .lead { color: #e3c889; }
+  .light small { color: rgba(245, 241, 232, 0.75); }
+  .dark { color: var(--fg); }
+  .dark .lead { color: var(--accent-ink); }
+  .dark small { color: var(--muted-text); }
+  @media (max-width: 600px) { .speaks { font-size: 1rem; } }
+</style>

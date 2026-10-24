@@ -1,5 +1,6 @@
 ---
 import Noir from '../layouts/Noir.astro';
+import SpeaksLine from '../components/SpeaksLine.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -26,11 +27,9 @@ const others = (await getCollection('singers'))
         <p class="eyebrow">Vocalist</p>
         <h1>{title}</h1>
         {role && <p class="role">{role}</p>}
+        {languages.length > 0 && <SpeaksLine languages={languages} tone="dark" />}
         <div class="prose"><Content /></div>
         <div class="facts-row">
-          {languages.length > 0 && (
-            <div class="fact"><h3>Fluent Languages</h3><p>{languages.join(', ')}</p></div>
-          )}
           {specialties.length > 0 && (
             <div class="fact"><h3>Specializes In</h3><p>{specialties.join(', ')}</p></div>
           )}
@@ -145,6 +144,8 @@ const others = (await getCollection('singers'))
   <style>
     /* TITLE (inside the bio column) */
     .bio h1 { font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1.05; margin: 0.6rem 0 0; }
+    /* Línea de idiomas debajo del rol: separada del texto */
+    .bio :global(.speaks) { margin: -0.6rem 0 1.9rem; }
     .role { color: var(--fg); font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 2.4vw, 1.35rem); margin: 0.5rem 0 1.75rem; }
 
     /* SHELL */
