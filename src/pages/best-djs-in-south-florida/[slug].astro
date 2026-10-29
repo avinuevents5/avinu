@@ -20,6 +20,16 @@ const d = dj.data;
 // (often a full-bleed action photo); fall back to the roster portrait.
 const heroImg = d.gallery?.[0] ?? d.photo;
 
+// "In Distinguished Company": on the live site only entries Mark confirmed, with a
+// photo we have rights to. The local preview (astro dev) also shows the pending
+// ones as placeholders so the layout can be reviewed.
+const isPreview = import.meta.env.DEV;
+const company = (d.company ?? []).filter(
+  (c) => isPreview || (c.confirmed && c.photo && c.photoRights),
+);
+const initials = (name: string) =>
+  name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
+
 // Other DJs for the footer roster strip.
 const others = (await getCollection('djs'))
   .filter((o) => o.id !== dj.id)
@@ -59,6 +69,53 @@ const others = (await getCollection('djs'))
     </div>
   </section>
 
+  <!-- IN DISTINGUISHED COMPANY -->
+  {company.length > 0 && (
+    <section class="band company-band" aria-labelledby="company-title">
+      <header class="band-head company-head" data-reveal>
+        <p class="eyebrow">On the international stage</p>
+        <h2 id="company-title">In Distinguished Company</h2>
+        <span class="company-rule" aria-hidden="true"></span>
+        {d.companyIntro && <p class="company-sub">{d.companyIntro}</p>}
+        {isPreview && (
+          <p class="company-draft-note">
+            Internal preview — pending entries are hidden on the live site until Mark confirms the work and a licensed photo is added.
+          </p>
+        )}
+      </header>
+      <ul class="company" role="list" data-reveal-group>
+        {company.map((c) => {
+          const live = !!(c.confirmed && c.photo && c.photoRights);
+          return (
+            <li class="company-item">
+              <figure>
+                <div class="company-photo">
+                  {c.photo ? (
+                    <img src={c.photo} alt={c.name} width="600" height="800" loading="lazy" decoding="async" />
+                  ) : (
+                    <div class="company-placeholder" role="img" aria-label={`Photo pending: ${c.name}`}>
+                      <span class="ph-mono">{initials(c.name)}</span>
+                      <span class="ph-label">Photo pending</span>
+                    </div>
+                  )}
+                </div>
+                <figcaption>
+                  <span class="company-name">{c.name}</span>
+                  {c.confirmed && c.note && <span class="company-note">{c.note}</span>}
+                  {isPreview && !live && (
+                    <span class="company-pending">
+                      {!c.confirmed ? 'Awaiting Mark’s confirmation' : !c.photo ? 'Needs a photo' : 'Needs photo rights'}
+                    </span>
+                  )}
+                </figcaption>
+              </figure>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )}
+
   <!-- VIDEOS -->
   {d.videos && d.videos.length > 0 && (
     <section class="band videos-band">
@@ -89,11 +146,28 @@ const others = (await getCollection('djs'))
         <p class="eyebrow">In the mix</p>
         <h2>Gallery</h2>
       </header>
-      <div class="gallery" data-reveal-group>
-        {d.gallery.map((src) => (
-          <div class="gal-cell" style={`background-image:url('${src}')`}></div>
-        ))}
-      </div>
+      {d.gallery.length > 4 ? (
+        // Más de 4 fotos: carrusel como "On the stage" de los cantantes. Se ven 4 (2 en el celular).
+        <div class="g-carousel" data-carousel>
+          <button type="button" class="g-arrow g-prev" aria-label="Previous photos" data-prev hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <div class="g-track" data-track data-reveal-group>
+            {d.gallery.map((src) => (
+              <div class="g-cell"><div class="g-img" style={`background-image:url('${src}')`}></div></div>
+            ))}
+          </div>
+          <button type="button" class="g-arrow g-next" aria-label="More photos" data-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      ) : (
+        <div class="gallery" data-reveal-group>
+          {d.gallery.map((src) => (
+            <div class="g-cell"><div class="g-img" style={`background-image:url('${src}')`}></div></div>
+          ))}
+        </div>
+      )}
     </section>
   )}
 
@@ -160,13 +234,68 @@ const others = (await getCollection('djs'))
     .chips.chips-soft li { color: var(--muted-text); }
     .stat-cta { display: block; text-align: center; margin-top: 0.5rem; }
 
-    /* GALLERY */
-    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .gal-cell {
-      aspect-ratio: 4 / 5; border-radius: 14px; background-size: cover; background-position: center;
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    /* IN DISTINGUISHED COMPANY */
+    .company-band { padding-top: 3.5rem; padding-bottom: 1.5rem; }
+    .company-band + .videos-band { padding-top: 3rem; }
+    .company-head { margin-bottom: 2.75rem; }
+    .company-rule { display: block; width: 44px; height: 1px; margin: 1.4rem auto 0; background: var(--accent); }
+    .company-sub { max-width: 34rem; margin: 1.2rem auto 0; font-size: 1.08rem; line-height: 1.7; color: var(--muted-text); }
+    .company-draft-note {
+      display: inline-block; margin: 1.2rem auto 0; padding: 0.5rem 0.9rem; border: 1px dashed var(--line-gold);
+      border-radius: 8px; font-size: 0.8rem; color: var(--accent-ink);
     }
-    .gal-cell:hover { transform: scale(1.03); }
+    .company-band .company { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .company figure { margin: 0; }
+    .company-photo { aspect-ratio: 3 / 4; border-radius: 10px; overflow: hidden; background: var(--champagne); border: 1px solid var(--line); }
+    .company-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;
+      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .company-item:hover .company-photo img { transform: scale(1.025); }
+    .company-placeholder {
+      height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.9rem;
+      border: 1px dashed var(--line-gold); border-radius: 10px;
+      background: linear-gradient(160deg, var(--champagne), var(--ivory));
+    }
+    .ph-mono { font-family: var(--font-display); font-size: 2.6rem; letter-spacing: 0.04em; color: var(--accent-ink); }
+    .ph-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-text); }
+    .company figcaption { display: flex; flex-direction: column; gap: 0.35rem; padding-top: 1rem; text-align: center; }
+    .company-name { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.2; color: var(--fg); }
+    .company-note { font-size: 0.95rem; line-height: 1.55; color: var(--muted-text); }
+    .company-pending { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
+
+    /* Tablet: two columns */
+    @media (max-width: 1024px) {
+      .company-band .company { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; max-width: 640px; }
+    }
+    /* Mobile: swipeable carousel with scroll-snap */
+    @media (max-width: 640px) {
+      .company-band .company {
+        display: flex; gap: 1rem; max-width: none; overflow-x: auto; overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        margin: 0 -1.5rem; padding: 0 1.5rem 1rem; scroll-padding-inline: 1.5rem; scrollbar-width: none;
+      }
+      .company::-webkit-scrollbar { display: none; }
+      .company-item { flex: 0 0 72%; scroll-snap-align: start; }
+    }
+
+    /* GALLERY */
+    .gallery { display: flex; gap: 1rem; }
+    .g-cell { border-radius: 14px; overflow: hidden; flex: 1; min-width: 0; }
+    .g-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .g-cell:hover .g-img { transform: scale(1.06); }
+    /* Carrusel (más de 4 fotos): 4 por vista, 2 en el celular; con el dedo o con las flechas */
+    .g-carousel { position: relative; }
+    .g-track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+    .g-track::-webkit-scrollbar { display: none; }
+    .g-track .g-cell { flex: 0 0 calc((100% - 3rem) / 4); scroll-snap-align: start; }
+    .g-arrow { position: absolute; top: 50%; z-index: 2; transform: translateY(-50%); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.28); background: rgba(10, 10, 10, 0.6); color: #fff; cursor: pointer; backdrop-filter: blur(6px); transition: background 0.2s ease, border-color 0.2s ease; }
+    .g-arrow:hover { background: rgba(10, 10, 10, 0.85); border-color: rgba(255, 255, 255, 0.6); }
+    .g-arrow:focus-visible { outline: 2px solid #d9b866; outline-offset: 2px; }
+    .g-arrow[hidden] { display: none; }
+    .g-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .g-prev { left: -23px; }
+    .g-next { right: -23px; }
 
     /* VIDEOS */
     .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem; max-width: 920px; margin: 0 auto; }
@@ -192,10 +321,11 @@ const others = (await getCollection('djs'))
     @media (max-width: 860px) {
       .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .stats { position: static; }
-      .gallery { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .gallery { grid-template-columns: 1fr; }
+      .gallery { flex-wrap: wrap; }
+      .gallery .g-cell { flex: 0 0 calc((100% - 1rem) / 2); }
+      .g-track .g-cell { flex-basis: calc((100% - 1rem) / 2); }
+      .g-prev { left: 6px; }
+      .g-next { right: 6px; }
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -206,6 +336,24 @@ const others = (await getCollection('djs'))
 
   <script>
     import { animate, inView, stagger } from 'motion';
+
+    // Carrusel de la galería (igual que en los cantantes): las flechas pasan una página y se ocultan en los extremos.
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((c) => {
+      const track = c.querySelector<HTMLElement>('[data-track]');
+      const prev = c.querySelector<HTMLButtonElement>('[data-prev]');
+      const next = c.querySelector<HTMLButtonElement>('[data-next]');
+      if (!track || !prev || !next) return;
+      const step = () => track.clientWidth + 16;
+      const update = () => {
+        prev.hidden = track.scrollLeft < 4;
+        next.hidden = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      };
+      prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
+      next.addEventListener('click', () => track.scrollBy({ left: step() }));
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    });
 
     inView('[data-reveal]', (el) => {
       animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });

@@ -43,6 +43,18 @@ const djs = defineCollection({
     connectNote: z.string().optional(),
     originalUrl: z.string().optional(),
     order: z.number().optional(),
+    // "In Distinguished Company": recognized artists the DJ has worked with.
+    // An entry only goes live when `confirmed` is true (Mark confirmed the work),
+    // it has a `photo` and `photoRights` says why we may use it (own photo /
+    // license). Until then it shows only in the local preview, as a placeholder.
+    companyIntro: z.string().optional(),
+    company: z.array(z.object({
+      name: z.string(),
+      note: z.string().optional(),
+      photo: z.string().optional(),
+      photoRights: z.string().optional(),
+      confirmed: z.boolean().optional(),
+    })).optional(),
   }),
 });
 
