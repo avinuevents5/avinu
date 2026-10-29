@@ -83,7 +83,11 @@ const others = (await getCollection('djs'))
           </p>
         )}
       </header>
-      <ul class="company" role="list" data-reveal-group>
+      <div class="g-carousel company-carousel" data-carousel>
+        <button type="button" class="g-arrow g-prev" aria-label="Previous artists" data-prev hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+      <ul class="company" role="list" data-track data-reveal-group>
         {company.map((c) => {
           const live = !!(c.confirmed && c.photo && c.photoRights);
           return (
@@ -113,6 +117,10 @@ const others = (await getCollection('djs'))
           );
         })}
       </ul>
+        <button type="button" class="g-arrow g-next" aria-label="More artists" data-next hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
     </section>
   )}
 
@@ -268,15 +276,16 @@ const others = (await getCollection('djs'))
     @media (max-width: 1024px) {
       .company-band .company { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; max-width: 640px; }
     }
-    /* Mobile: swipeable carousel with scroll-snap */
+    /* Mobile: carrusel como la galería — 2 fotos enteras por vista, con el dedo o con la flecha */
     @media (max-width: 640px) {
       .company-band .company {
         display: flex; gap: 1rem; max-width: none; overflow-x: auto; overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-        margin: 0 -1.5rem; padding: 0 1.5rem 1rem; scroll-padding-inline: 1.5rem; scrollbar-width: none;
+        scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
       }
       .company::-webkit-scrollbar { display: none; }
-      .company-item { flex: 0 0 72%; scroll-snap-align: start; }
+      .company-item { flex: 0 0 calc((100% - 1rem) / 2); scroll-snap-align: start; }
+      .company-name { font-size: 1.15rem; }
+      .company-carousel .g-arrow { top: calc((100vw - 3rem - 1rem) / 2 * 4 / 3 / 2); }
     }
 
     /* GALLERY */
