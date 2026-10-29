@@ -25,31 +25,31 @@ gallery:
 summary: "A multilingual singer and DJ renowned for captivating performances at ceremonies worldwide — from Disney singer to sharing the stage with Andrea Bocelli, Juanes and more."
 originalUrl: "https://avinuevents.com/best-djs-in-south-florida/djlevine"
 order: 1
-# In Distinguished Company — PENDING Mark's confirmation. Nothing here is public
-# until an entry has confirmed: true, a photo and photoRights (own photo or license).
-# /_preview/ photos are local-only (git-ignored) press photos with unknown rights.
+# In Distinguished Company — an entry is public only with confirmed: true, a photo
+# and photoRights. 2026-10-29: the four published with the photos Avinu provided
+# (use confirmed by Avinu). Add `note` once Mark confirms the work done with each.
 companyIntro: "Moments from an international career alongside some of the most recognized names in music and entertainment."
 company:
   - name: "Andrea Bocelli"
     note: ""
-    photo: "/_preview/company/andrea-bocelli.jpg"
-    photoRights: ""
-    confirmed: false
+    photo: "/images/djs/company/andrea-bocelli.jpg"
+    photoRights: "Use confirmed by Avinu Events (2026-10-29)"
+    confirmed: true
   - name: "Juanes"
     note: ""
-    photo: "/_preview/company/juanes.jpg"
-    photoRights: ""
-    confirmed: false
+    photo: "/images/djs/company/juanes.jpg"
+    photoRights: "Use confirmed by Avinu Events (2026-10-29)"
+    confirmed: true
   - name: "Marta Sánchez"
     note: ""
-    photo: "/_preview/company/marta-sanchez.jpg"
-    photoRights: ""
-    confirmed: false
+    photo: "/images/djs/company/marta-sanchez.jpg"
+    photoRights: "Use confirmed by Avinu Events (2026-10-29)"
+    confirmed: true
   - name: "Dwayne Johnson"
     note: ""
-    photo: "/_preview/company/dwayne-johnson.jpg"
-    photoRights: ""
-    confirmed: false
+    photo: "/images/djs/company/dwayne-johnson.jpg"
+    photoRights: "Use confirmed by Avinu Events (2026-10-29)"
+    confirmed: true
 ---
 
 Mark Levine is a remarkable and multilingual singer and DJ, renowned for his captivating performances at ceremonies worldwide. Hailing from Venezuela, Mark embarked on his singing journey as a Disney singer and quickly gained recognition. His talent transcended boundaries as he graced television shows and prestigious events, sharing the stage with luminaries such as Andrea Bocelli, Dwayne Johnson, Juanes, Martha Sanchez, and many others.
