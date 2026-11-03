@@ -49,6 +49,7 @@ const singers = entries.map((e) => ({
           <div class="person-img" style={`background-image:url('${p.photo}')`}></div>
           <div class="person-cap">
             <span class="person-name">{p.name}</span>
+            <svg class="person-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
         </a>
       ))}
@@ -76,8 +77,11 @@ const singers = entries.map((e) => ({
     .person-img { aspect-ratio: 3 / 4; background-size: cover; background-position: center top; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
     .person:hover .person-img { transform: scale(1.06); }
     .person::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.1) 60%, transparent); }
-    .person-cap { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; z-index: 2; display: flex; flex-direction: column; gap: 0.3rem; }
+    .person-cap { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
     .person-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.05; }
+    .person-arrow { width: 1.7rem; height: 1.7rem; flex-shrink: 0; color: var(--accent-ink); opacity: 0; transform: translateX(-8px); transition: opacity 0.3s, transform 0.3s; }
+    .person:hover .person-arrow, .person:focus-visible .person-arrow { opacity: 1; transform: translateX(0); }
+    @media (hover: none) { .person-arrow { opacity: 0.85; transform: none; } }
 
     /* CLOSING CTA */
     .cta { text-align: center; }
