@@ -81,7 +81,6 @@ const singers = entries.map((e) => ({
     .person-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.05; }
     .person-arrow { width: 1.7rem; height: 1.7rem; flex-shrink: 0; color: var(--accent-ink); opacity: 0; transform: translateX(-8px); transition: opacity 0.3s, transform 0.3s; }
     .person:hover .person-arrow, .person:focus-visible .person-arrow { opacity: 1; transform: translateX(0); }
-    @media (hover: none) { .person-arrow { opacity: 0.85; transform: none; } }
 
     /* CLOSING CTA */
     .cta { text-align: center; }
