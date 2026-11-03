@@ -8,20 +8,15 @@ const entries = (await getCollection('singers')).sort(
   (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
 );
 
-// Editorial one-liners per singer (from the live "Meet the Avinu Singers" copy).
-const moods: Record<string, string> = {
-  'mark-levine': 'Inspirational · Charismatic',
-  'sergio-andre': 'Peaceful · Transcending',
-  'noam-agami': 'Uplifting · Moving',
-  'anais-vivas': 'Heartening · Joyful',
+// Short stage names shown on the cards (the profile page keeps the full name).
+const cardNames: Record<string, string> = {
+  'mark-levine': 'Levine',
 };
 
 const singers = entries.map((e) => ({
   slug: e.id,
-  name: e.data.title,
-  role: e.data.role ?? '',
+  name: cardNames[e.id] ?? e.data.title,
   photo: e.data.photo ?? '',
-  mood: moods[e.id] ?? '',
   href: `/${e.id}/`,
 }));
 ---
@@ -53,10 +48,7 @@ const singers = entries.map((e) => ({
         <a class="person" href={p.href}>
           <div class="person-img" style={`background-image:url('${p.photo}')`}></div>
           <div class="person-cap">
-            {p.mood && <span class="person-mood">{p.mood}</span>}
             <span class="person-name">{p.name}</span>
-            {p.role && <span class="person-role">{p.role}</span>}
-            <span class="link-arrow">View profile</span>
           </div>
         </a>
       ))}
@@ -85,11 +77,7 @@ const singers = entries.map((e) => ({
     .person:hover .person-img { transform: scale(1.06); }
     .person::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.1) 60%, transparent); }
     .person-cap { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; z-index: 2; display: flex; flex-direction: column; gap: 0.3rem; }
-    .person-mood { font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-ink); }
     .person-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.05; }
-    .person-role { font-size: 0.82rem; color: var(--muted-text); margin-bottom: 0.5rem; }
-    .person-cap .link-arrow { font-size: 0.66rem; opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
-    .person:hover .person-cap .link-arrow { opacity: 1; transform: translateY(0); }
 
     /* CLOSING CTA */
     .cta { text-align: center; }
