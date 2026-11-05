@@ -5,8 +5,11 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const venues = await getCollection('venues');
-  // ATJC tiene página propia: src/pages/venues/aventura-turnberry-jewish-center/
-  return venues.filter((venue) => venue.id !== 'aventura-turnberry-jewish-center').map((venue) => ({
+  // Venues con página propia (diseño inmersivo): ATJC y los que tienen src/data/venues/<slug>.json
+  // (cada uno con su src/pages/venues/<slug>/index.astro que usa components/VenueImmersive.astro).
+  const own = new Set(['aventura-turnberry-jewish-center',
+    ...Object.keys(import.meta.glob('../../data/venues/*.json')).map((f) => f.split('/').pop().replace('.json', '')).filter((n) => !n.endsWith('.photos'))]);
+  return venues.filter((venue) => !own.has(venue.id)).map((venue) => ({
     params: { slug: venue.id },
     props: { venue },
   }));

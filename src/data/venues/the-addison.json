@@ -1,0 +1,275 @@
+{
+  "slug": "the-addison",
+  "name": "The Addison of Boca Raton",
+  "media_note": "Fotos de theaddisonofbocaraton.com (2026-11-05). PENDIENTE permiso del venue. Datos: informe Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md",
+  "credit": "The Addison of Boca Raton",
+  "brand": {
+    "title": "The Addison",
+    "sub": "Boca Raton · Since 1925"
+  },
+  "seo": {
+    "title": "The Addison of Boca Raton · Weddings, Mitzvahs & Celebrations",
+    "description": "Weddings, bar & bat mitzvahs and celebrations at The Addison of Boca Raton: Addison Mizner's 1925 landmark, ceremonies beneath century-old banyans, up to 250 guests and Glatt Kosher catering under ORB supervision. Production by Avinu Events."
+  },
+  "hero": {
+    "photo": "just-married",
+    "photoMobile": "courtyard-aisle",
+    "kicker": "Boca Raton, Florida · Addison Mizner, 1925",
+    "h1": [
+      "The Addison"
+    ],
+    "h1em": "of Boca Raton",
+    "lead": "Addison Mizner’s 1925 landmark: ceremonies beneath century-old banyans, rooms for up to 250 guests, and a Glatt Kosher kitchen supervised by the ORB.",
+    "secondary": "Explore the property",
+    "facts": [
+      [
+        "250",
+        "Guests seated"
+      ],
+      [
+        "Glatt",
+        "Kosher · ORB"
+      ],
+      [
+        "1925",
+        "Mizner landmark"
+      ]
+    ]
+  },
+  "intro": {
+    "kicker": "The Property",
+    "h2": "A 1920s landmark, <em>made for celebrations</em>",
+    "paras": [
+      "Built by architect Addison Mizner in 1925 as the administration building for his Boca Raton development, The Addison still carries the arches, courtyards and old-Florida glamour of the era.",
+      "Today it hosts weddings, bar and bat mitzvahs and milestone celebrations, with an event manager and an in-house kitchen coordinating every detail."
+    ],
+    "a": "banyan-courtyard",
+    "b": "centerpiece",
+    "stats": [
+      [
+        "250",
+        "Guests seated"
+      ],
+      [
+        "4.7",
+        "Google · 1,003 reviews"
+      ],
+      [
+        "ORB",
+        "Glatt Kosher"
+      ]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "bride-doorway",
+        "title": "Weddings",
+        "text": "Exchange vows beneath century-old banyans, then move into the rooms of Mizner’s landmark for dinner and dancing, without leaving the property.",
+        "points": [
+          "Ceremony, cocktails and reception on one property",
+          "Seating for up to 250 guests",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at The Addison"
+      },
+      {
+        "id": "mitzvah",
+        "label": "Bar & Bat Mitzvahs",
+        "short": "Mitzvahs",
+        "photo": "courtyard-party",
+        "title": "Bar & Bat Mitzvahs",
+        "text": "A Glatt Kosher kitchen under ORB supervision, and a courtyard that turns into a dance floor after dark.",
+        "points": [
+          "Glatt Kosher menus supervised by the ORB",
+          "Courtyard and indoor rooms for the party and the lounge",
+          "DJ, MC, dancers and LED by Avinu Events"
+        ],
+        "cta": "Plan a mitzvah at The Addison"
+      },
+      {
+        "id": "galas",
+        "label": "Galas & Social",
+        "short": "Galas",
+        "photo": "gala-dinner",
+        "title": "Galas & social events",
+        "text": "Black-tie dinners, milestone birthdays and corporate evenings, with plated service, entrées chosen at the table and wine poured tableside.",
+        "points": [
+          "Plated, tableside service",
+          "Private rooms for smaller dinners",
+          "Stage sound, projection and lighting by Avinu Events"
+        ],
+        "cta": "Plan an event at The Addison"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The property, transformed",
+    "h2": "From the banyans <em>to the dance floor</em>",
+    "text": "Ceremony beneath the trees, dinner under the glass roof and a courtyard that glows after dark. Choose a moment to see the property change.",
+    "moments": [
+      {
+        "title": "Ceremony",
+        "text": "Beneath the banyans",
+        "photo": "ceremony-arch",
+        "wide": true,
+        "pos": "50% 55%"
+      },
+      {
+        "title": "Reception",
+        "text": "Dinner in the glass-roofed hall",
+        "photo": "atrium-dinner",
+        "wide": true
+      },
+      {
+        "title": "Late night",
+        "text": "The courtyard after dark",
+        "photo": "courtyard-violet",
+        "wide": true
+      }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Indoors and out, <em>on one property</em>",
+    "text": "Reserve a single room or the whole estate, with exclusive use of the courtyard and gardens.",
+    "items": [
+      {
+        "name": "The Courtyard",
+        "photo": "courtyard-tables",
+        "text": "Century-old banyan trees and a cascading fountain, for ceremonies, cocktail hours and dinners under the sky."
+      },
+      {
+        "name": "The Hall",
+        "photo": "atrium-florals",
+        "text": "A glass-roofed hall with room for dinner, a dance floor and hanging florals."
+      },
+      {
+        "name": "Private Rooms",
+        "photo": "private-room",
+        "text": "Wood-panelled and arched-window rooms for rehearsal dinners, showers and intimate celebrations."
+      }
+    ],
+    "note": "Up to 250 guests seated across the property. Room-by-room capacities and floor plans available from the venue."
+  },
+  "galleryTitle": "Inside <em>The Addison</em>",
+  "gallery": {
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "courtyard",
+        "Courtyard"
+      ],
+      [
+        "rooms",
+        "Rooms"
+      ],
+      [
+        "celebrations",
+        "Celebrations"
+      ],
+      [
+        "details",
+        "Details"
+      ]
+    ],
+    "items": [
+      "courtyard-aisle",
+      "arched-room",
+      "bride-balcony",
+      "banyan-lights",
+      "gold-room",
+      "dinner-party",
+      "fountain-decor",
+      "blue-table",
+      "quince",
+      "courtyard-night",
+      "floral-room",
+      "long-table",
+      "casino",
+      "round-table",
+      "navy-table",
+      "fountain-tables",
+      "banyan-alley",
+      "facade"
+    ]
+  },
+  "cuisine": {
+    "kicker": "In-house cuisine",
+    "h2": "Elevated cuisine, <em>Glatt Kosher</em> when you need it",
+    "paras": [
+      "The Addison’s in-house kitchen, led by Executive Chef Patrick Duffy, plates every course to order, with entrées chosen at the table and wine poured tableside.",
+      "For kosher celebrations, a Glatt Kosher program supervised by the Orthodox Rabbinical Board (ORB) has earned a Five Star Diamond Award."
+    ],
+    "listLabel": "Highlights of the kitchen",
+    "highlights": [
+      [
+        "ORB",
+        "Glatt Kosher supervision"
+      ],
+      [
+        "Five Star",
+        "Diamond Award for Glatt Kosher catering"
+      ],
+      [
+        "Plated",
+        "Entrées chosen at the table"
+      ],
+      [
+        "In-house",
+        "Executive Chef Patrick Duffy"
+      ]
+    ],
+    "items": [
+      "dish-seared-fish",
+      "dish-soup",
+      "dish-beet-salad",
+      "chef-station",
+      "dish-salmon",
+      "dish-taco",
+      "dish-canape",
+      "dish-macaron"
+    ]
+  },
+  "reviews": {
+    "kicker": "Couples and families who celebrated here",
+    "rating": "4.7",
+    "count": "1,003 Google reviews",
+    "src": "Reviews from WeddingWire and Bark · Rating from Google",
+    "items": [
+      {
+        "q": "The outdoor ceremony space, framed by stunning banyan trees, completely transports you.",
+        "who": "Lauren · WeddingWire · April 2026"
+      },
+      {
+        "q": "What stood out the most was the service. Everyone is super friendly and helpful.",
+        "who": "Thor · WeddingWire · April 2026"
+      },
+      {
+        "q": "We had our daughters bat mitzvah here and it was amazing.",
+        "who": "Bat mitzvah family · Bark"
+      }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Boca Raton to Miami: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting on the Mizner arches, pin-spotting and courtyard lighting designed around the property."
+  },
+  "plan": {
+    "bg": "courtyard-night",
+    "at": "at The Addison",
+    "forThis": "The Addison",
+    "address": "2 E Camino Real, Boca Raton, FL 33432",
+    "venueLabel": "The Addison of Boca Raton",
+    "venuePhone": "+15613720568",
+    "venuePhoneLabel": "561-372-0568"
+  },
+  "footer": "The Addison of Boca Raton · 2 E Camino Real, Boca Raton"
+}

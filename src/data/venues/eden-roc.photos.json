@@ -1,0 +1,177 @@
+{
+ "beach-couple": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride and groom embracing on the beach beneath a floral arch",
+  "cap": "A beach portrait at Eden Roc",
+  "cat": "ceremonies"
+ },
+ "hotel-aerial": {
+  "w": 1600,
+  "h": 986,
+  "alt": "Eden Roc’s tower and pools above the beach and the Atlantic",
+  "cap": "Eden Roc, on the Atlantic",
+  "cat": "outdoors"
+ },
+ "beach-arch": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A white floral ceremony arch on the sand facing the ocean",
+  "cap": "A ceremony set on the sand",
+  "cat": "ceremonies"
+ },
+ "ballroom-wedding": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A ballroom wedding reception in blush tones with florals and a dance floor",
+  "cap": "A wedding reception in the ballroom",
+  "cat": "rooms"
+ },
+ "pompeii-lounge": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Pompeii Ballroom with lounge seating around a patterned dance floor",
+  "cap": "The Pompeii Ballroom, set for a celebration",
+  "cat": "rooms"
+ },
+ "led-stage": {
+  "w": 1600,
+  "h": 986,
+  "alt": "An event stage with an LED wall and colored lighting",
+  "cap": "A stage with LED wall and lighting",
+  "cat": "rooms"
+ },
+ "garden-aisle": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A ceremony aisle on the Eden Roc Garden lawn facing the ocean at dusk",
+  "cap": "Ceremony in the Eden Roc Garden",
+  "cat": "ceremonies"
+ },
+ "pompeii-gold": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long tables with gold chairs and white florals in the Pompeii Ballroom",
+  "cap": "Dinner in the Pompeii Ballroom",
+  "cat": "rooms"
+ },
+ "pool-night": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The pool lit in blue and violet for a night reception",
+  "cap": "A pool reception after dark",
+  "cat": "outdoors"
+ },
+ "pompeii-pink": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long tables with pink lighting and tall florals in the Pompeii Ballroom",
+  "cap": "The Pompeii Ballroom in pink",
+  "cat": "rooms"
+ },
+ "ballroom-rounds": {
+  "w": 1600,
+  "h": 1053,
+  "alt": "Round tables set for a dinner in an Eden Roc ballroom",
+  "cap": "An Eden Roc ballroom set for dinner",
+  "cat": "rooms"
+ },
+ "promenade": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Promenade Room with lounge seating and red florals",
+  "cap": "The Promenade Room",
+  "cat": "rooms"
+ },
+ "garden-night": {
+  "w": 1600,
+  "h": 1053,
+  "alt": "Dozens of round tables on the Eden Roc Garden lawn at night",
+  "cap": "The Eden Roc Garden at night",
+  "cat": "outdoors"
+ },
+ "spa-garden": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A floral ceremony stage in the Spa Garden",
+  "cap": "The Spa Garden",
+  "cat": "ceremonies"
+ },
+ "spa-terrace": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Cocktail tables with blue linens on the Spa Terrace",
+  "cap": "The Spa Terrace",
+  "cat": "outdoors"
+ },
+ "spa-garden-wedding": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guests watching a couple walk the aisle in the Spa Garden",
+  "cap": "A Spa Garden ceremony",
+  "cat": "ceremonies"
+ },
+ "mandap": {
+  "w": 1600,
+  "h": 1053,
+  "alt": "A mandap with florals and an aisle of marigold petals",
+  "cap": "A ceremony with florals and petals",
+  "cat": "ceremonies"
+ },
+ "ballroom-aisle": {
+  "w": 1600,
+  "h": 1053,
+  "alt": "A ballroom set for a ceremony with a long white aisle",
+  "cap": "A ballroom ceremony",
+  "cat": "ceremonies"
+ },
+ "terrace-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long table set on an oceanfront terrace",
+  "cap": "A long table on the terrace",
+  "cat": "outdoors"
+ },
+ "garden-evening": {
+  "w": 1600,
+  "h": 1042,
+  "alt": "Tables on the lawn beneath the hotel towers at dusk",
+  "cap": "The lawn at dusk",
+  "cat": "outdoors"
+ },
+ "beach-party": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A beach party setup with umbrellas and lanterns",
+  "cap": "A party on the beach",
+  "cat": "outdoors"
+ },
+ "sunset-terrace": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "An oceanfront terrace set for an event at sunset",
+  "cap": "The terrace at sunset",
+  "cat": "outdoors"
+ },
+ "pool-aerial": {
+  "w": 1160,
+  "h": 800,
+  "alt": "The pool deck and cabanas from above",
+  "cap": "The pool deck",
+  "cat": "outdoors"
+ },
+ "ballroom-dinner": {
+  "w": 1600,
+  "h": 1053,
+  "alt": "A ballroom with round tables and white linens",
+  "cap": "A ballroom set with white linens",
+  "cat": "rooms"
+ },
+ "hotel-palms": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The hotel facade framed by palm trees and sunlight",
+  "cap": "Eden Roc in the sun",
+  "cat": "outdoors"
+ }
+}

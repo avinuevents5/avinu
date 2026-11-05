@@ -1,0 +1,100 @@
+{
+  "slug": "eden-roc",
+  "name": "Eden Roc Miami Beach",
+  "media_note": "Fotos de edenrochotelmiami.com (2026-11-05). PENDIENTE permiso del hotel. Capacidades: Venue Deck oficial (2021). Kosher NO verificado: no afirmarlo. Datos: Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md",
+  "credit": "Eden Roc Miami Beach",
+  "brand": { "title": "Eden Roc", "sub": "Miami Beach · Since 1956" },
+  "seo": {
+    "title": "Eden Roc Miami Beach · Weddings, Mitzvahs & Celebrations",
+    "description": "Weddings, bar & bat mitzvahs and galas at Eden Roc Miami Beach: Morris Lapidus's oceanfront landmark, with ballrooms for up to 800 guests indoors and 1,500 outdoors. Music, lighting and production by Avinu Events."
+  },
+  "hero": {
+    "photo": "beach-couple",
+    "pos": "50% 35%",
+    "kicker": "Miami Beach, Florida · Morris Lapidus, 1956",
+    "h1": ["Eden Roc"],
+    "h1em": "Miami Beach",
+    "lead": "Seventy years of Miami Beach glamour: oceanfront ceremonies, ballrooms where the stars of the 1950s performed, and room for up to 800 guests indoors.",
+    "secondary": "Explore the hotel",
+    "facts": [["800", "Guests indoors"], ["1,500", "Guests outdoors"], ["1956", "Morris Lapidus"]]
+  },
+  "intro": {
+    "kicker": "The Hotel",
+    "h2": "Retro glamour, <em>on the beach</em>",
+    "paras": [
+      "Designed by Morris Lapidus in the mid-1950s, Eden Roc was a stage for the stars of the era: its Mona Lisa Room once hosted Frank Sinatra, and the Pompeii Ballroom began life as a nightclub.",
+      "Today its ballrooms, gardens and oceanfront terraces host weddings and celebrations of every size, from dinners on the terrace to 1,500 guests on the lawn."
+    ],
+    "a": "hotel-aerial",
+    "b": "beach-arch",
+    "stats": [["70,000+", "Sq ft of event space"], ["8", "Ballrooms & terraces"], ["70", "Years in 2026"]]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      { "id": "weddings", "label": "Weddings", "short": "Weddings", "photo": "ballroom-wedding", "title": "Weddings",
+        "text": "Say “I do” in the Eden Roc Garden or on the sand, then dance in a ballroom with the ocean a few steps away.",
+        "points": ["Ceremonies in the garden or on the beach", "Ballrooms for up to 800 guests", "Ceremony music, DJ and lighting by Avinu Events"],
+        "cta": "Plan a wedding at Eden Roc" },
+      { "id": "mitzvah", "label": "Bar & Bat Mitzvahs", "short": "Mitzvahs", "photo": "pompeii-lounge", "title": "Bar & Bat Mitzvahs",
+        "text": "The Pompeii Ballroom, a 1950s nightclub turned ballroom, is built for a party: lounge seating, a big dance floor and room for every generation.",
+        "points": ["Pompeii Ballroom: 380 seated, 675 for a reception", "Lounges, stage and dance floor in one room", "DJ, MC, dancers and LED by Avinu Events"],
+        "cta": "Plan a mitzvah at Eden Roc" },
+      { "id": "galas", "label": "Galas & Corporate", "short": "Galas", "photo": "led-stage", "title": "Galas & corporate events",
+        "text": "Award nights, fundraisers and conferences, with ballrooms that seat up to 500 and garden receptions for 1,500.",
+        "points": ["Eden Roc Ballroom II: 500 seated, 806 for a reception", "Eden Roc Garden: up to 1,500 for receptions", "Stage sound, projection and LED walls by Avinu Events"],
+        "cta": "Plan an event at Eden Roc" }
+    ]
+  },
+  "film": {
+    "kicker": "The hotel, transformed",
+    "h2": "From the garden <em>to the ballroom</em>",
+    "text": "A ceremony on the lawn facing the ocean, dinner in the Pompeii Ballroom and a pool that glows after dark. Choose a moment.",
+    "moments": [
+      { "title": "Ceremony", "text": "In the Eden Roc Garden", "photo": "garden-aisle", "wide": true },
+      { "title": "Reception", "text": "Dinner in the Pompeii Ballroom", "photo": "pompeii-gold", "wide": true },
+      { "title": "Late night", "text": "By the pool after dark", "photo": "pool-night", "wide": true }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Ballrooms, gardens <em>and the sea</em>",
+    "text": "More than 70,000 square feet of indoor and outdoor event space, from a terrace for 80 to a lawn for 1,500.",
+    "items": [
+      { "name": "Pompeii Ballroom", "photo": "pompeii-pink", "capacity": "380 seated · 675 reception", "text": "A 1950s nightclub turned ballroom, where the biggest names of the era performed." },
+      { "name": "Eden Roc Ballrooms", "photo": "ballroom-rounds", "capacity": "Up to 500 seated · 806 reception", "text": "The hotel’s largest indoor rooms, for weddings, galas and conferences." },
+      { "name": "Eden Roc Garden", "photo": "garden-night", "capacity": "560 seated · 1,500 reception", "text": "An oceanfront lawn for ceremonies and the largest receptions on the property." },
+      { "name": "Promenade Room", "photo": "promenade", "capacity": "230 seated · 275 reception", "text": "A lounge-style room for cocktail hours and smaller receptions." },
+      { "name": "Spa Garden", "photo": "spa-garden", "capacity": "200 seated · 250 reception", "text": "A garden beside the spa, with an indoor room on standby." },
+      { "name": "Spa Terrace", "photo": "spa-terrace", "capacity": "80 seated · 250 reception", "text": "An elevated terrace for cocktails above the pool." }
+    ],
+    "note": "Capacities from the hotel’s venue deck. The Mona Lisa Ballroom (260 seated) is also available; confirm current layouts with the hotel."
+  },
+  "galleryTitle": "Inside <em>Eden Roc</em>",
+  "gallery": {
+    "cats": [["all", "All"], ["ceremonies", "Ceremonies"], ["rooms", "Ballrooms"], ["outdoors", "Outdoors"]],
+    "items": ["spa-garden-wedding", "terrace-table", "pompeii-gold", "mandap", "garden-evening", "ballroom-dinner", "beach-party", "ballroom-aisle", "sunset-terrace", "pool-aerial", "hotel-palms", "beach-couple"]
+  },
+  "reviews": {
+    "kicker": "Couples who celebrated here",
+    "src": "Reviews from WeddingWire",
+    "items": [
+      { "q": "The entire experience was stress free as a bride!", "who": "Melissa · WeddingWire · November 2023" },
+      { "q": "Service was excellent during our wedding night and also throughout the entire weekend…", "who": "Katie · WeddingWire · December 2020" }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Miami Beach to Boca Raton: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting, pin-spotting and dance-floor lighting for the ballrooms, and sound designed for the garden and the beach."
+  },
+  "plan": {
+    "bg": "garden-night",
+    "at": "at Eden Roc",
+    "forThis": "Eden Roc",
+    "address": "4525 Collins Ave, Miami Beach, FL 33140",
+    "venueLabel": "Eden Roc weddings",
+    "venuePhone": "+13057047605",
+    "venuePhoneLabel": "305-704-7605"
+  },
+  "footer": "Eden Roc Miami Beach · 4525 Collins Ave, Miami Beach"
+}

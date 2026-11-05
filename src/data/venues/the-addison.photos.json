@@ -1,0 +1,268 @@
+{
+ "just-married": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Newlyweds walking out of their courtyard ceremony as guests cheer",
+  "cap": "Just married, in the courtyard",
+  "cat": "celebrations"
+ },
+ "bride-doorway": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A bride in a lace gown framed by a white Moorish arch",
+  "cap": "A bride beneath one of Mizner’s arches",
+  "cat": "celebrations"
+ },
+ "courtyard-party": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The courtyard at night under violet lighting, set for a party",
+  "cap": "The courtyard lit for an evening celebration",
+  "cat": "courtyard"
+ },
+ "gala-dinner": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Black-linen tables with crystal and red florals in a candlelit room",
+  "cap": "A black-tie dinner setting",
+  "cat": "rooms"
+ },
+ "facade": {
+  "w": 1600,
+  "h": 900,
+  "alt": "The Addison’s Mediterranean facade with its reflecting fountain",
+  "cap": "The Addison, on East Camino Real",
+  "cat": "courtyard"
+ },
+ "centerpiece": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A tall white floral centerpiece over a dressed round table",
+  "cap": "A white floral centerpiece",
+  "cat": "details"
+ },
+ "ceremony-arch": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A floral ceremony arch and white chairs in the courtyard",
+  "cap": "Ceremony set beneath the banyans",
+  "cat": "courtyard"
+ },
+ "atrium-dinner": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Round tables beneath a glass roof in the atrium hall",
+  "cap": "Dinner in the glass-roofed hall",
+  "cat": "rooms"
+ },
+ "courtyard-violet": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The banyan courtyard washed in violet light at night",
+  "cap": "The courtyard after dark",
+  "cat": "courtyard"
+ },
+ "courtyard-tables": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Dinner tables beneath the courtyard’s century-old banyans",
+  "cap": "Tables beneath the banyans",
+  "cat": "courtyard"
+ },
+ "atrium-florals": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Hanging floral chandeliers over tables in the glass-roofed hall",
+  "cap": "Hanging florals in the hall",
+  "cat": "rooms"
+ },
+ "private-room": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A wood-panelled private dining room with round tables",
+  "cap": "A wood-panelled private room",
+  "cat": "rooms"
+ },
+ "dish-seared-fish": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Seared fish with purple potato purée and asparagus",
+  "cap": "Seared fish, purple potato purée",
+  "cat": "cuisine"
+ },
+ "dish-salmon": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Salmon fillet with purple potato purée and a lotus chip",
+  "cap": "Salmon with purple potato purée",
+  "cat": "cuisine"
+ },
+ "dish-beet-salad": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A beet and cucumber salad with tomato",
+  "cap": "Beet and cucumber salad",
+  "cat": "cuisine"
+ },
+ "dish-taco": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A bite-size taco served with a lime wedge",
+  "cap": "Mini taco with lime",
+  "cat": "cuisine"
+ },
+ "dish-soup": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Tomato soup with a grilled cheese crostini",
+  "cap": "Tomato soup and grilled cheese",
+  "cat": "cuisine"
+ },
+ "dish-canape": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A seared canapé with microgreens",
+  "cap": "Seared canapé",
+  "cat": "cuisine"
+ },
+ "dish-macaron": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A raspberry macaron with gold leaf",
+  "cap": "Raspberry macaron with gold leaf",
+  "cat": "cuisine"
+ },
+ "chef-station": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A chef cooking at a live station",
+  "cap": "A live-action station",
+  "cat": "cuisine"
+ },
+ "courtyard-aisle": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A ceremony aisle running beneath the banyans to the courtyard",
+  "cap": "A courtyard ceremony aisle",
+  "cat": "courtyard"
+ },
+ "banyan-lights": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "String lights hanging from the banyans over cocktail tables",
+  "cap": "String lights under the banyans",
+  "cat": "courtyard"
+ },
+ "courtyard-night": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Courtyard tables under string lights in the evening",
+  "cap": "Courtyard dinner under string lights",
+  "cat": "courtyard"
+ },
+ "fountain-decor": {
+  "w": 1600,
+  "h": 1069,
+  "alt": "The courtyard fountain dressed with flowers for an event",
+  "cap": "The courtyard fountain, dressed for an event",
+  "cat": "courtyard"
+ },
+ "fountain-tables": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Tables set around the courtyard fountain",
+  "cap": "Tables around the fountain",
+  "cat": "courtyard"
+ },
+ "banyan-courtyard": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Long views of the courtyard tables under the banyans",
+  "cap": "The banyan courtyard",
+  "cat": "courtyard"
+ },
+ "arched-room": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A reception room with arched windows and blush linens",
+  "cap": "A room with arched windows",
+  "cat": "rooms"
+ },
+ "blue-table": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A table with blue patterned linens and gold chairs",
+  "cap": "Blue patterned linens",
+  "cat": "details"
+ },
+ "gold-room": {
+  "w": 1600,
+  "h": 2397,
+  "alt": "Blush and gold tables beneath a wood ceiling",
+  "cap": "Blush and gold, beneath a wood ceiling",
+  "cat": "rooms"
+ },
+ "long-table": {
+  "w": 1600,
+  "h": 2396,
+  "alt": "A long wooden table in a sunlit room",
+  "cap": "A long table in a sunlit room",
+  "cat": "rooms"
+ },
+ "navy-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long table with navy linens in a bright room",
+  "cap": "A long table in navy",
+  "cat": "rooms"
+ },
+ "floral-room": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A room filled with red and orange florals",
+  "cap": "A room in red and orange blooms",
+  "cat": "rooms"
+ },
+ "bride-balcony": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A bride in a cathedral-length gown on a white balustrade balcony",
+  "cap": "A bride on the balcony",
+  "cat": "celebrations"
+ },
+ "quince": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A quinceañera in a lilac gown at the carved front doors",
+  "cap": "A quinceañera at the front doors",
+  "cat": "celebrations"
+ },
+ "dinner-party": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "Guests at a dinner party beneath a floral installation at night",
+  "cap": "A dinner party beneath the flowers",
+  "cat": "celebrations"
+ },
+ "casino": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A casino craps table under purple light",
+  "cap": "Casino night",
+  "cat": "celebrations"
+ },
+ "round-table": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "A dressed round table with gold chairs",
+  "cap": "Gold chairs and a dressed table",
+  "cat": "details"
+ },
+ "banyan-alley": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A path between banyan trees leading to the building",
+  "cap": "The banyan walk",
+  "cat": "courtyard"
+ }
+}
