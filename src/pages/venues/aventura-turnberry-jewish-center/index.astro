@@ -1,0 +1,989 @@
+---
+// Página propia del venue ATJC (propuesta D, 2026-11-05). Reemplaza a la plantilla
+// común [slug].astro solo para este venue (excluido allí en getStaticPaths).
+// Contenido y medios: bloque MEDIA al inicio del script. Fotos/videos de Premier
+// Event Catering (@eatwithpremier) — PENDIENTE permiso formal de Premier.
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Aventura Turnberry Jewish Center · Celebrations in Aventura</title>
+<meta name="description" content="Weddings, bar & bat mitzvahs and galas at Aventura Turnberry Jewish Center: a ballroom for up to 650 guests with in-house kosher cuisine by Premier Event Catering. Production by Avinu Events." />
+<link rel="canonical" href="https://www.avinuevents.com/venues/aventura-turnberry-jewish-center/" />
+<meta name="theme-color" content="#0e0d0c" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" />
+<!-- LCP: la foto del hero se pide primero -->
+<link rel="preload" as="image" href="/venues/atjc/media/wedding-chuppah-1600.webp" imagesrcset="/venues/atjc/media/wedding-chuppah-800.webp 800w, /venues/atjc/media/wedding-chuppah-1600.webp 1600w" imagesizes="100vw" fetchpriority="high" />
+<style is:inline>
+  :root {
+    --ink: #0e0d0c; --ink-2: #171513; --paper: #f4efe6; --paper-2: #ebe3d6; --stone: #8a8174;
+    --text: #22201c; --muted: #5d574e; --gold: #c9a55a; --gold-2: #e4cd94; --line: rgba(14,13,12,.12); --line-d: rgba(255,255,255,.12);
+    --serif: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif; --sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+    --gutter: clamp(1.25rem, 5vw, 5.5rem); --maxw: 1320px; --nav-h: 76px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: var(--sans); color: var(--text); background: var(--paper); line-height: 1.65; font-size: 16px; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+  .kicker { font-size: .7rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .skip { position: fixed; left: 1rem; top: -60px; z-index: 100; background: var(--gold); color: var(--ink); padding: .6rem 1rem; border-radius: 4px; text-decoration: none; font-weight: 600; }
+  .skip:focus { top: 1rem; }
+
+  /* Botones */
+  .btn { display: inline-flex; align-items: center; gap: .7rem; padding: 1rem 1.5rem; border-radius: 999px; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); }
+  .btn svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--gold-2); }
+  .btn-line { border-color: rgba(255,255,255,.45); color: #fff; backdrop-filter: blur(6px); background: rgba(255,255,255,.04); }
+  .btn-line:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+  .btn-ink { background: var(--ink); color: #fff; }
+  .btn-ink:hover { background: #2a2622; }
+
+  /* ═════ NAV ═════ */
+  .nav { position: fixed; inset: 0 0 auto 0; z-index: 40; height: var(--nav-h); display: flex; align-items: center; color: #fff; transition: background .45s var(--ease), color .45s var(--ease), box-shadow .45s var(--ease), backdrop-filter .45s; }
+  .nav .wrap { display: flex; align-items: center; gap: 2rem; width: 100%; max-width: none; }
+  .nav.solid { background: rgba(244,239,230,.92); color: var(--ink); backdrop-filter: saturate(140%) blur(14px); box-shadow: 0 1px 0 var(--line); }
+  .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.05; margin-right: auto; }
+  .brand b { font-family: var(--serif); font-weight: 500; font-size: 1.45rem; letter-spacing: .01em; }
+  .brand span { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; opacity: .75; }
+  .nav-links { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; font-size: .74rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; opacity: .85; position: relative; padding: .4rem 0; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+  .nav-links a:hover, .nav-links a[aria-current="true"] { opacity: 1; }
+  .nav-links a:hover::after, .nav-links a[aria-current="true"]::after { transform: scaleX(1); }
+  .nav .btn { padding: .75rem 1.15rem; }
+  .nav:not(.solid) .btn-gold { background: rgba(201,165,90,.92); }
+  .menu-btn { display: none; background: none; border: 0; width: 44px; height: 44px; cursor: pointer; padding: 0; }
+  .menu-btn span { display: block; width: 22px; height: 1.5px; background: currentColor; margin: 5px auto; transition: transform .3s var(--ease), opacity .3s; }
+  .nav.open .menu-btn span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav.open .menu-btn span:nth-child(2) { opacity: 0; }
+  .nav.open .menu-btn span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ═════ HERO ═════ */
+  .hero { position: relative; height: 100svh; min-height: 620px; color: #fff; overflow: hidden; background: var(--ink); }
+  .hero-media, .hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-media img { object-position: 50% 42%; }
+  .hero-media video { opacity: 0; transition: opacity 1.2s var(--ease); }
+  .hero-media video.ready { opacity: 1; }
+  /* Degradado solo abajo-izquierda: la foto se ve entera */
+  .hero::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(10,9,8,.72) 0%, rgba(10,9,8,.25) 42%, rgba(10,9,8,0) 62%), linear-gradient(0deg, rgba(10,9,8,.7) 0%, rgba(10,9,8,0) 38%), linear-gradient(180deg, rgba(10,9,8,.45) 0%, rgba(10,9,8,0) 18%); }
+  .hero-copy { position: absolute; z-index: 2; left: var(--gutter); bottom: clamp(3rem, 9vh, 6.5rem); max-width: min(560px, 38vw); }
+  .hero-copy .kicker { color: var(--gold-2); display: block; margin-bottom: 1.2rem; }
+  .hero h1 { font-size: clamp(3rem, 5.4vw, 5.6rem); line-height: .95; }
+  .hero h1 span, .hero h1 em { display: block; }
+  .hero h1 em { font-style: italic; color: var(--gold-2); }
+  .hero-lead { margin: 1.4rem 0 2.1rem; max-width: 40ch; font-size: 1.06rem; color: rgba(255,255,255,.86); }
+  .hero-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+  .hero-facts { position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(3rem, 9vh, 6.5rem); display: grid; gap: 1.1rem; text-align: right; }
+  .hero-facts div { border-right: 1px solid rgba(228,205,148,.6); padding-right: 1rem; }
+  .hero-facts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 2.1rem; line-height: 1; }
+  .hero-facts span { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+  .scroll-cue { position: absolute; z-index: 2; left: 50%; bottom: 1.4rem; transform: translateX(-50%); width: 1px; height: 46px; background: rgba(255,255,255,.25); overflow: hidden; }
+  .scroll-cue::after { content: ''; position: absolute; left: 0; top: -46px; width: 1px; height: 46px; background: #fff; animation: cue 2.4s var(--ease) infinite; }
+  @keyframes cue { to { top: 46px; } }
+  .hero-credit { position: absolute; z-index: 2; right: 1rem; top: calc(var(--nav-h) + .6rem); font-size: .62rem; letter-spacing: .08em; color: rgba(255,255,255,.55); }
+
+  /* ═════ Revelado al hacer scroll ═════ */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .12s; } .reveal.d2 { transition-delay: .24s; } .reveal.d3 { transition-delay: .36s; }
+  .img-reveal { overflow: hidden; }
+  .img-reveal img { transform: scale(1.08); transition: transform 1.6s var(--ease); }
+  .img-reveal.in img { transform: scale(1); }
+
+  /* ═════ INTRO EDITORIAL (asimétrica) ═════ */
+  .intro { padding: clamp(5rem, 13vh, 9rem) 0; }
+  .intro-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; align-items: start; }
+  .intro-text { grid-column: 1 / span 6; padding-top: 2rem; }
+  .intro-text h2 { font-size: clamp(2.4rem, 4.4vw, 4.2rem); margin: 1.1rem 0 1.6rem; }
+  .intro-text h2 em { font-style: italic; color: #8c6c24; }
+  .intro-text p { color: var(--muted); max-width: 48ch; margin: 0 0 1.1rem; font-size: 1.04rem; }
+  .intro-a { grid-column: 8 / span 5; margin-top: 0; }
+  .intro-b { grid-column: 7 / span 3; margin-top: -9rem; position: relative; z-index: 1; box-shadow: 0 30px 60px rgba(0,0,0,.18); }
+  .intro-figure figcaption { font-size: .72rem; color: var(--stone); margin-top: .6rem; letter-spacing: .04em; text-align: right; }
+  .intro-a img, .intro-b img { width: 100%; height: auto; }
+  .intro-stats { grid-column: 1 / span 6; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem; }
+  .intro-stats b { display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 400; line-height: 1; color: var(--ink); }
+  .intro-stats span { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+
+  /* ═════ CELEBRACIONES (selector) ═════ */
+  .celebrate { background: var(--ink); color: #f1ece3; padding: clamp(5rem, 12vh, 8rem) 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.6rem; flex-wrap: wrap; }
+  .sec-head h2 { font-size: clamp(2.4rem, 4.6vw, 4.4rem); margin-top: .9rem; }
+  .sec-head h2 em { font-style: italic; color: var(--gold-2); }
+  .tabs { display: inline-flex; gap: .3rem; padding: .3rem; border: 1px solid var(--line-d); border-radius: 999px; }
+  .tab { background: none; border: 0; padding: .75rem 1.3rem; border-radius: 999px; font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); cursor: pointer; transition: background .35s var(--ease), color .35s var(--ease); white-space: nowrap; }
+  .tab[aria-selected="true"] { background: var(--gold); color: var(--ink); }
+  .t-short { display: none; }
+  .tab:hover:not([aria-selected="true"]) { color: #fff; }
+  .stage { display: grid; grid-template-columns: auto minmax(320px, 500px); justify-content: center; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  /* El recuadro tiene la proporción real del medio: reel = 9:16 exacto, foto = horizontal.
+     Misma altura en las tres pestañas; solo cambia el ancho (animado), sin espacios vacíos. */
+  .stage-figure { margin: 0; }
+  .stage-media { --h: min(68vh, 580px); --ar: 1.25; position: relative; height: var(--h); width: calc(var(--h) * var(--ar)); max-width: 100%;
+    overflow: hidden; border-radius: 2px; background: #000; transition: width .75s var(--ease); }
+  .comp { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility 0s linear .7s; }
+  .comp.on { opacity: 1; visibility: visible; transition: opacity .7s var(--ease), visibility 0s; }
+  .comp > img, .comp .vp, .comp video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .comp-photo img { transform: scale(1.03); transition: transform 1.4s var(--ease); }
+  .comp-photo.on img { transform: none; }
+  .stage-cap { margin-top: .9rem; min-height: 1.4em; font-size: .74rem; letter-spacing: .04em; color: rgba(255,255,255,.5); transition: opacity .4s var(--ease); }
+  .stage-cap.out { opacity: 0; }
+  .stage-copy { transition: opacity .5s var(--ease), transform .5s var(--ease); }
+  .stage-copy.out { opacity: 0; transform: translateY(10px); }
+  .stage-copy h3 { font-size: clamp(2rem, 3.2vw, 3rem); margin-bottom: 1rem; }
+  .stage-copy p { color: rgba(255,255,255,.72); margin: 0 0 1.6rem; max-width: 46ch; }
+  .stage-copy ul { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: .9rem; }
+  .stage-copy li { display: grid; grid-template-columns: 22px 1fr; gap: .7rem; color: rgba(255,255,255,.86); font-size: .96rem; }
+  .stage-copy li::before { content: ''; width: 14px; height: 1px; background: var(--gold); margin-top: .8rem; }
+
+  /* ═════ BALLROOM FILM / TRANSFORMACIONES ═════ */
+  .film { background: var(--ink-2); color: #f1ece3; padding: clamp(5rem, 12vh, 8rem) 0; }
+  .film-frame { position: relative; aspect-ratio: 16 / 9; background: #171513; overflow: hidden; border-radius: 2px; }
+  .film-frame img, .film-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .film-frame img { opacity: 0; transition: opacity .9s var(--ease); }
+  .film-frame img.on { opacity: 1; }
+  .film-frame img.wide { object-fit: cover; }   /* foto horizontal a todo el ancho; recorte mínimo arriba/abajo */
+  /* Fondo = el mismo medio ampliado y desenfocado. scale > 1 esconde el borde claro que deja el blur;
+     solo baja la luz (sin saturar ni teñir) para que el centro nítido mande. */
+  .film-frame .fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: blur(34px) brightness(.58); transform: scale(1.25); opacity: 0; transition: opacity .9s var(--ease); }
+  .film-frame .fill.on { opacity: 1; }
+  .film-status { position: absolute; top: 1rem; left: 1rem; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.7); background: rgba(0,0,0,.5); padding: .4rem .7rem; border-radius: 3px; }
+  .film-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 1.4rem; border-top: 1px solid var(--line-d); }
+  .film-step { text-align: left; background: none; border: 0; border-top: 2px solid transparent; margin-top: -1px; padding: 1.2rem 1rem 0 0; cursor: pointer; color: rgba(255,255,255,.5); transition: color .3s, border-color .3s; }
+  .film-step b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: inherit; }
+  .film-step span { font-size: .85rem; }
+  .film-step[aria-pressed="true"] { color: #fff; border-top-color: var(--gold); }
+  .film-step:hover { color: #fff; }
+  .film-step:focus:not(:focus-visible) { outline: none; }
+  .film-step:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  .film-steps.mouse .film-step:focus { outline: none; }
+
+
+  /* Reproductor de video común */
+  .vp { position: relative; overflow: hidden; }
+  .vp video { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .vp-ctrls { position: absolute; z-index: 3; right: .7rem; bottom: .7rem; display: flex; gap: .4rem; }
+  .vp-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(10,9,8,.5); backdrop-filter: blur(6px); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; opacity: .75; transition: opacity .3s, background .3s; }
+  .vp-btn:hover, .vp-btn:focus-visible { opacity: 1; background: rgba(10,9,8,.75); }
+  .vp-btn svg { width: 14px; height: 14px; }
+  .film-frame .vp { position: absolute; inset: 0; z-index: 1; opacity: 0; transition: opacity .8s var(--ease); pointer-events: none; }
+  .film-frame .vp.on { opacity: 1; pointer-events: auto; }
+  .film-frame .vp-ctrls { top: .8rem; bottom: auto; }
+  .hero-vp { position: absolute; inset: 0; z-index: 0; }
+  .hero-vp video { object-fit: cover; opacity: 0; transition: opacity 1.2s var(--ease); }
+  .hero-vp.ready video { opacity: 1; }
+  .hero-vp .vp-ctrls { display: none; }
+  .hero-pause { position: absolute; z-index: 3; right: 1rem; bottom: 1rem; }
+
+  /* ═════ GALERÍA ═════ */
+  .gallery { padding: clamp(5rem, 12vh, 8rem) 0; }
+  .sec-head.light h2 em { color: #8c6c24; }
+  .chips { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .chip { background: none; border: 1px solid var(--line); padding: .6rem 1.05rem; border-radius: 999px; font-size: .74rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; color: var(--muted); transition: all .3s var(--ease); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .grid { columns: 3; column-gap: 1rem; }
+  .tile { break-inside: avoid; margin: 0 0 1rem; position: relative; display: block; width: 100%; padding: 0; border: 0; background: #ddd; cursor: zoom-in; overflow: hidden; border-radius: 2px; transition: opacity .45s var(--ease), transform .45s var(--ease); }
+  .tile img { width: 100%; height: auto; transition: transform .9s var(--ease); }
+  .tile:hover img { transform: scale(1.035); }
+  .tile .cap { position: absolute; inset: auto 0 0 0; padding: 2.2rem 1rem .8rem; text-align: left; font-size: .78rem; color: #fff; background: linear-gradient(0deg, rgba(0,0,0,.6), transparent); opacity: 0; transition: opacity .4s var(--ease); }
+  .tile:hover .cap, .tile:focus-visible .cap { opacity: 1; }
+  .tile.hide { display: none; }
+
+  /* Lightbox */
+  dialog.lb { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(8,7,6,.97); color: #fff; }
+  dialog.lb::backdrop { background: rgba(0,0,0,.8); }
+  .lb-inner { position: absolute; inset: 0; display: grid; grid-template-rows: auto 1fr auto; }
+  .lb-top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.2rem; font-size: .8rem; letter-spacing: .12em; color: rgba(255,255,255,.7); }
+  .lb-fig { position: relative; margin: 0; display: flex; align-items: center; justify-content: center; padding: 0 4.5rem; min-height: 0; touch-action: pan-y; }
+  .lb-fig img { max-width: 100%; max-height: 100%; object-fit: contain; transition: opacity .35s var(--ease); }
+  .lb-fig img.fade { opacity: 0; }
+  .lb-cap { text-align: center; padding: 1rem 1.2rem 1.4rem; font-size: .9rem; color: rgba(255,255,255,.8); }
+  .lb-cap small { display: block; font-size: .7rem; color: rgba(255,255,255,.45); margin-top: .3rem; letter-spacing: .05em; }
+  .icon-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.04); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .3s, border-color .3s; }
+  .icon-btn:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); }
+  .lb-prev { left: 1rem; } .lb-next { right: 1rem; }
+
+  /* ═════ CUISINE (Premier) ═════ */
+  .cuisine { background: #12100e; color: #efe8dc; padding: clamp(5rem, 12vh, 8rem) 0 clamp(4rem, 10vh, 6rem); overflow: hidden; }
+  .cuisine-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
+  .cuisine h2 { font-size: clamp(2.4rem, 4.6vw, 4.4rem); margin: .9rem 0 1.4rem; }
+  .cuisine h2 em { font-style: italic; color: var(--gold-2); }
+  .cuisine p { color: rgba(255,255,255,.7); max-width: 50ch; margin: 0 0 1rem; }
+  .lineage { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line-d); }
+  .lineage li { list-style: none; padding: 1.1rem .8rem 0 0; position: relative; }
+  .lineage li::before { content: ''; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .lineage b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: #fff; }
+  .lineage span { font-size: .8rem; color: rgba(255,255,255,.6); line-height: 1.45; display: block; }
+  .lineage { padding: 0; margin: 0; }
+  .courses-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+  .courses-bar .kicker { color: var(--gold-2); }
+  .courses-ctrl { display: flex; gap: .5rem; }
+  .courses { --edge: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--edge) 1rem; scroll-padding-inline: var(--edge); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .courses::-webkit-scrollbar { display: none; }
+  .course { flex: 0 0 clamp(260px, 30vw, 440px); scroll-snap-align: start; margin: 0; }
+  .course .ph-wrap { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 2px; background: #000; }
+  .course img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+  .course:hover img { transform: scale(1.04); }
+  .courses { align-items: flex-end; }
+  .course-v { flex-basis: clamp(200px, 17vw, 260px); }
+  .course-v .ph-wrap { aspect-ratio: 9 / 16; }
+  .course-v .vp { width: 100%; height: 100%; }
+  .course-v video { object-fit: cover; }
+  .course figcaption { margin-top: .9rem; font-family: var(--serif); font-size: 1.35rem; color: #fff; }
+  .course figcaption small { display: block; font-family: var(--sans); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: .2rem; }
+  .cuisine .icon-btn { border-color: rgba(255,255,255,.25); }
+
+  /* ═════ VOICES (reseñas, control manual) ═════ */
+  .voices { padding: clamp(5rem, 12vh, 8rem) 0; text-align: center; }
+  .voices blockquote { margin: 1.6rem auto 1.4rem; max-width: 30ch; font-family: var(--serif); font-size: clamp(1.8rem, 3.3vw, 3rem); line-height: 1.18; color: var(--ink); transition: opacity .45s var(--ease); min-height: 3.6em; }
+  .voices blockquote.fade { opacity: 0; }
+  .voices cite { font-style: normal; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: #8c6c24; }
+  .voices .src { display: block; margin-top: .4rem; font-size: .72rem; color: var(--stone); letter-spacing: .04em; }
+  .voices-ctrl { display: flex; justify-content: center; align-items: center; gap: 1.2rem; margin-top: 2rem; }
+  .voices .icon-btn { color: var(--ink); border-color: var(--line); }
+  .voices .icon-btn:hover { background: var(--paper-2); border-color: var(--ink); }
+  .dots { display: flex; gap: .55rem; }
+  .dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(14,13,12,.2); cursor: pointer; transition: background .3s, transform .3s; }
+  .dots button[aria-current="true"] { background: var(--gold); transform: scale(1.3); }
+
+  /* ═════ PRODUCTION (Avinu, discreto) ═════ */
+  .production { background: var(--paper-2); padding: clamp(5rem, 12vh, 8rem) 0; }
+  .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .prod-grid h2 { font-size: clamp(2.2rem, 3.8vw, 3.6rem); margin: .9rem 0 1.2rem; }
+  .prod-grid h2 em { font-style: italic; color: #8c6c24; }
+  .prod-grid > div > p { color: var(--muted); max-width: 48ch; margin: 0 0 2rem; }
+  .pillars { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .pillar { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
+  .pillar b { font-family: var(--serif); font-weight: 500; font-size: 1.45rem; color: var(--ink); }
+  .pillar span { color: var(--muted); font-size: .95rem; }
+  .prod-media { position: relative; }
+  .prod-media img { width: 100%; height: auto; border-radius: 2px; }
+  .prod-media .inset { position: absolute; width: 38%; left: -8%; bottom: -10%; border: 6px solid var(--paper-2); box-shadow: 0 20px 40px rgba(0,0,0,.18); }
+  .prod-media figcaption { font-size: .72rem; color: var(--stone); margin-top: .7rem; text-align: right; }
+  .avinu-sign { display: flex; align-items: center; gap: .8rem; margin-top: 2rem; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+  .avinu-sign img { width: 84px; filter: brightness(0); opacity: .75; }
+
+  /* ═════ PLAN (CTA final) ═════ */
+  .plan { position: relative; color: #fff; padding: clamp(6rem, 16vh, 10rem) 0; overflow: hidden; background: var(--ink); }
+  .plan-bg { position: absolute; inset: 0; }
+  .plan-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .35; }
+  .plan .wrap { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end; }
+  .plan h2 { font-size: clamp(2.8rem, 5.6vw, 5.4rem); margin-top: 1rem; }
+  .plan h2 em { font-style: italic; color: var(--gold-2); }
+  .plan-card { background: rgba(14,13,12,.72); backdrop-filter: blur(10px); border: 1px solid var(--line-d); border-radius: 6px; padding: 2rem; }
+  .plan-card p { margin: 0 0 1.4rem; color: rgba(255,255,255,.75); }
+  .plan-card .btn { width: 100%; justify-content: center; margin-bottom: .7rem; }
+  .plan-card dl { margin: 1.4rem 0 0; display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; font-size: .86rem; border-top: 1px solid var(--line-d); padding-top: 1.2rem; }
+  .plan-card dt { color: rgba(255,255,255,.5); }
+  .plan-card dd { margin: 0; text-align: right; }
+  .plan-card a { text-decoration-color: rgba(255,255,255,.3); text-underline-offset: 3px; }
+
+  footer { background: #0a0908; color: rgba(255,255,255,.45); font-size: .76rem; padding: 2rem var(--gutter) calc(2rem + env(safe-area-inset-bottom)); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  footer a { color: rgba(255,255,255,.6); }
+
+  /* Barra fija de CTA en móvil */
+  .mobile-cta { display: none; }
+
+  /* Marcas de material pendiente (solo con ?notes) */
+  .note-badge { display: none; }
+  body.notes .note-badge { display: inline-block; position: absolute; z-index: 5; top: .6rem; right: .6rem; background: #ffe9a8; color: #5a4300; font-size: .62rem; font-weight: 600; letter-spacing: .06em; padding: .25rem .5rem; border-radius: 3px; }
+
+  /* ═════════ MÓVIL (diseño propio, no solo encogido) ═════════ */
+  @media (max-width: 900px) {
+    :root { --nav-h: 64px; }
+    .nav-links, .nav .wrap > .btn { display: none; }
+    .menu-btn { display: block; }
+    .nav.open { background: var(--ink); color: #fff; backdrop-filter: none; }
+    .nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: var(--ink); padding: 1.5rem var(--gutter) 6rem; }
+    .nav.open .nav-links a { display: block; font-family: var(--serif); font-size: 2.1rem; letter-spacing: 0; text-transform: none; padding: .9rem 0; border-bottom: 1px solid var(--line-d); opacity: 1; }
+    .nav.open .nav-links a::after { display: none; }
+
+    .hero { height: 92svh; min-height: 560px; }
+    .hero-media img { object-position: 50% 40%; }
+    .hero::after { background: linear-gradient(0deg, rgba(10,9,8,.88) 0%, rgba(10,9,8,.35) 45%, rgba(10,9,8,0) 70%), linear-gradient(180deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 22%); }
+    .hero-copy { left: var(--gutter); right: var(--gutter); bottom: 2.2rem; max-width: none; }
+    .hero h1 span { display: inline; }
+    .hero h1 { font-size: clamp(2.6rem, 12vw, 3.6rem); }
+    .hero-lead { font-size: .98rem; margin: 1rem 0 1.5rem; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { justify-content: center; padding: .95rem 1rem; }
+    .hero-facts, .scroll-cue { display: none; }
+    .hero-pause { top: calc(var(--nav-h) + 1.6rem); bottom: auto; width: 40px; height: 40px; }
+
+    .intro-grid { display: flex; flex-direction: column; gap: 0; }
+    .intro-text { padding-top: 0; }
+    .intro-a { margin: 2rem 0 0 18%; }
+    .intro-b { width: 62%; margin: -4.5rem 0 0 0; }
+    .intro-stats { margin-top: 2.5rem; order: 5; }
+    .intro-stats b { font-size: 2rem; }
+
+    .sec-head { margin-bottom: 1.6rem; }
+    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; gap: .3rem; padding: .3rem; }
+    .tab { padding: .75rem .4rem; font-size: .7rem; letter-spacing: .08em; text-align: center; }
+    .t-full { display: none; }
+    .t-short { display: inline; }
+    .stage { grid-template-columns: 1fr; gap: 1.6rem; }
+    .stage-media { --h: min(72svh, 620px); margin: 0 auto; }
+    .stage-media.is-photo { width: 100%; }
+    .stage-cap { text-align: center; }
+
+    .film-frame { aspect-ratio: 4 / 5; margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
+    .film-steps { grid-template-columns: repeat(3, 1fr); }
+    .film-step b { font-size: 1.2rem; }
+    .film-step span { display: none; }
+    .film-frame img.wide { object-fit: contain; }
+
+    .grid { columns: 2; column-gap: .6rem; }
+    .tile { margin-bottom: .6rem; }
+    .tile .cap { display: none; }
+    .chips { overflow-x: auto; flex-wrap: nowrap; width: 100%; scrollbar-width: none; }
+    .chip { flex: 0 0 auto; }
+    .lb-fig { padding: 0; }
+    .lb-prev, .lb-next { top: auto; bottom: -3.6rem; transform: none; }
+    .lb-inner { grid-template-rows: auto 1fr auto auto; }
+    .lb-cap { padding-bottom: 5rem; }
+
+    .cuisine-grid { grid-template-columns: 1fr; }
+    .lineage { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line-d); margin-left: .3rem; }
+    .lineage li { padding: 0 0 1.1rem 1.4rem; }
+    .lineage li::before { top: .55rem; left: -4px; }
+    .course { flex-basis: 78vw; }
+    .courses-ctrl { display: none; }
+    .course-v { flex-basis: 56vw; }
+
+    .prod-grid { grid-template-columns: 1fr; }
+    .prod-media { order: -1; margin-bottom: 2rem; }
+    .prod-media .inset { left: auto; right: 4%; bottom: -12%; width: 42%; }
+    .pillar { grid-template-columns: 1fr; gap: .2rem; }
+
+    .plan .wrap { grid-template-columns: 1fr; }
+    .plan { padding-bottom: 7rem; }
+
+    .mobile-cta { display: flex; gap: .6rem; position: fixed; z-index: 35; left: 0; right: 0; bottom: 0; padding: .7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom)); background: rgba(14,13,12,.94); backdrop-filter: blur(12px); transform: translateY(110%); transition: transform .45s var(--ease); }
+    .mobile-cta.show { transform: none; }
+    .mobile-cta a { flex: 1; justify-content: center; padding: .9rem; }
+    .mobile-cta .btn-line { flex: 0 0 auto; }
+  }
+
+  /* Respeta "reducir movimiento" */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+    .img-reveal img { transform: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ═════ NAV ═════ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Aventura Turnberry Jewish Center, back to top">
+      <b>Aventura Turnberry</b><span>Jewish Center · Aventura</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#ballroom">The Ballroom</a></li>
+        <li><a href="#celebrations">Celebrations</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#cuisine">Cuisine</a></li>
+        <li><a href="#production">Production</a></li>
+        <li><a href="#plan">Plan</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-gold" href="#plan">Check your date</a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+<!-- ═════ HERO ═════ -->
+<section class="hero" id="top" aria-label="Aventura Turnberry Jewish Center">
+  <div class="hero-media" id="hero-media">
+    <img id="hero-poster" src="/venues/atjc/media/wedding-chuppah-1600.webp" srcset="/venues/atjc/media/wedding-chuppah-800.webp 800w, /venues/atjc/media/wedding-chuppah-1600.webp 1600w" sizes="100vw" width="1600" height="1066" alt="A couple beneath a floral chuppah in the ATJC ballroom" fetchpriority="high" decoding="async" />
+  </div>
+  <span class="note-badge" style="top:auto;bottom:1rem;right:1rem">Video oficial pendiente (el hero ya acepta MP4/WebM)</span>
+  <div class="hero-copy">
+    <span class="kicker">Aventura, Florida · Celebrations since 1990</span>
+    <h1><span>Aventura</span> <span>Turnberry</span> <em>Jewish Center</em></h1>
+    <p class="hero-lead">A ballroom for up to 650 guests, kosher cuisine prepared in-house by Premier Event Catering, and a team that has hosted South Florida’s simchas for more than three decades.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#plan">Plan your celebration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="#ballroom">Explore the ballroom</a>
+    </div>
+  </div>
+  <div class="hero-facts" aria-hidden="true">
+    <div><b>650</b><span>Guests</span></div>
+    <div><b>Kosher</b><span>In-house</span></div>
+    <div><b>1990</b><span>Since</span></div>
+  </div>
+  <span class="hero-credit" id="hero-credit">Photo: Domino Arts Photography</span>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</section>
+
+<!-- ═════ INTRO EDITORIAL ═════ -->
+<section class="intro" id="ballroom">
+  <div class="wrap intro-grid">
+    <div class="intro-text">
+      <span class="kicker reveal">The Ballroom</span>
+      <h2 class="reveal d1">One room, <em>every kind</em> of celebration</h2>
+      <p class="reveal d2">In the heart of Aventura, ATJC brings the synagogue, the ballroom and the kitchen together on one campus. Weddings, bar and bat mitzvahs, brit milah, Shabbat brunches and community galas all happen here.</p>
+      <p class="reveal d3">Décor, lighting and catering are coordinated in-house, so families plan with one team instead of five.</p>
+    </div>
+    <figure class="intro-figure intro-a img-reveal reveal">
+      <span class="note-badge">Ideal: salón renovado</span>
+      <img src="/venues/atjc/media/ballroom-led-floor-800.webp" srcset="/venues/atjc/media/ballroom-led-floor-800.webp 800w, /venues/atjc/media/ballroom-led-floor-1600.webp 887w" sizes="(max-width: 900px) 80vw, 40vw" width="800" height="923" alt="The ATJC ballroom set for a reception, with an illuminated LED dance floor" loading="lazy" decoding="async" />
+      <figcaption>The ballroom, set for a reception</figcaption>
+    </figure>
+    <figure class="intro-figure intro-b img-reveal reveal d2">
+      <img src="/venues/atjc/media/tablescape-florals-800.webp" width="768" height="1024" alt="A tablescape with pink roses, crystal glassware and floral china" loading="lazy" decoding="async" />
+    </figure>
+    <div class="intro-stats reveal">
+      <div><b>650</b><span>Guests in the ballroom</span></div>
+      <div><b>2,000+</b><span>Off-site catering</span></div>
+      <div><b>35</b><span>Years of simchas</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ CELEBRATIONS (selector) ═════ -->
+<section class="celebrate" id="celebrations">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker reveal">Celebrations</span>
+        <h2 class="reveal d1">Made for <em>milestones</em></h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Type of celebration" id="tabs"></div>
+    </div>
+    <div class="stage" id="stage-panel" role="tabpanel" tabindex="0">
+      <figure class="stage-figure"><div class="stage-media" id="stage-media"></div><figcaption class="stage-cap" id="stage-cap"></figcaption></figure>
+      <div class="stage-copy" id="stage-copy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ BALLROOM FILM / TRANSFORMATIONS ═════ -->
+<section class="film" id="film" aria-labelledby="film-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker reveal">The room, transformed</span>
+        <h2 class="reveal d1" id="film-title">From chuppah <em>to dance floor</em></h2>
+      </div>
+      <p class="reveal d2" style="max-width:42ch;color:rgba(255,255,255,.65);margin:0">The same ballroom moves from ceremony to reception to late-night lounge. Choose a moment to see the room change.</p>
+    </div>
+    <div class="film-frame reveal" id="film-frame">
+      <span class="film-status" id="film-status">Official ballroom film coming soon</span>
+      <span class="note-badge">Slot listo para video del venue</span>
+    </div>
+    <div class="film-steps" id="film-steps" role="group" aria-label="Moments of the evening"></div>
+
+  </div>
+</section>
+
+<!-- ═════ GALLERY ═════ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head light">
+      <div>
+        <span class="kicker reveal" style="color:#8c6c24">Gallery</span>
+        <h2 class="reveal d1">Inside <em>ATJC</em></h2>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter gallery"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ═════ CUISINE ═════ -->
+<section class="cuisine" id="cuisine">
+  <div class="wrap cuisine-grid">
+    <div>
+      <span class="kicker reveal" style="color:var(--gold-2)">Premier Event Catering</span>
+      <h2 class="reveal d1">Four generations of <em>kosher</em> cuisine</h2>
+      <p class="reveal d2">Every celebration at ATJC is catered in-house by Premier Event Catering, the Pollak family’s kitchen and the venue’s caterer since 1990. Menus are built for each event: plated dinners, stations, Shabbat brunch and a kosher sushi bar.</p>
+    </div>
+    <ol class="lineage reveal d2" aria-label="The Pollak family in kosher catering">
+      <li><b>1954</b><span>Pollak’s Delicatessen, Williamsburg, Brooklyn</span></li>
+      <li><b>Bronx</b><span>Bummy’s Caterers, New York</span></li>
+      <li><b>Cincinnati</b><span>Prestige Caterers, Ohio</span></li>
+      <li><b>Miami</b><span>Premier Caterers</span></li>
+      <li><b>1990</b><span>Events by Premier at ATJC, Aventura</span></li>
+    </ol>
+  </div>
+  <div class="wrap courses-bar">
+    <span class="kicker">From the kitchen</span>
+    <div class="courses-ctrl">
+      <button class="icon-btn" id="courses-prev" aria-label="Previous dishes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="icon-btn" id="courses-next" aria-label="Next dishes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="courses" id="courses" tabindex="0" aria-label="Dishes by Premier Event Catering"></div>
+</section>
+
+<!-- ═════ VOICES ═════ -->
+<section class="voices" aria-labelledby="voices-title">
+  <div class="wrap">
+    <span class="kicker reveal" style="color:#8c6c24" id="voices-title">Families who celebrated here</span>
+    <blockquote id="quote" aria-live="polite"></blockquote>
+    <cite id="quote-who"></cite>
+    <span class="src">Reviews shared publicly by Premier Event Catering</span>
+    <div class="voices-ctrl">
+      <button class="icon-btn" id="q-prev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="dots" id="q-dots" role="group" aria-label="Choose a review"></div>
+      <button class="icon-btn" id="q-next" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ PRODUCTION (Avinu, discreto) ═════ -->
+<section class="production" id="production">
+  <div class="wrap prod-grid">
+    <div>
+      <span class="kicker reveal" style="color:#8c6c24">Music, lighting &amp; production</span>
+      <h2 class="reveal d1">The room sets the stage. <em>We fill it.</em></h2>
+      <p class="reveal d2">Avinu Events produces the entertainment for celebrations across South Florida: the music for the ceremony, the energy of the dance floor and the light that shapes the room.</p>
+      <div class="pillars reveal d2">
+        <div class="pillar"><b>Music</b><span>DJs and MCs, ceremony singers and cantors, live musicians and bands.</span></div>
+        <div class="pillar"><b>Lighting</b><span>Uplighting, pin-spotting and dance-floor lighting designed around the ballroom.</span></div>
+        <div class="pillar"><b>Production</b><span>Sound, LED walls and projection for entrances, speeches and montages.</span></div>
+      </div>
+      <div class="avinu-sign reveal d3"><img src="/img/avinu-white.png" alt="Avinu Events" width="84" height="38" loading="lazy" /> Production partner</div>
+    </div>
+    <figure class="prod-media reveal img-reveal">
+      <img src="/venues/atjc/media/avinu-event-outdoor-1600.webp" srcset="/venues/atjc/media/avinu-event-outdoor-800.webp 800w, /venues/atjc/media/avinu-event-outdoor-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" width="1600" height="1067" alt="An evening celebration produced by Avinu Events, with string lights and an illuminated dance floor" loading="lazy" decoding="async" />
+      <img class="inset" src="/venues/atjc/media/avinu-dj-800.webp" width="640" height="427" alt="An Avinu Events DJ performing" loading="lazy" decoding="async" />
+      <figcaption>An Avinu Events production in South Florida</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═════ PLAN (CTA final) ═════ -->
+<section class="plan" id="plan" aria-labelledby="plan-title">
+  <div class="plan-bg"><img src="/venues/atjc/media/ballroom-led-floor-1600.webp" width="887" height="1024" alt="" loading="lazy" decoding="async" /></div>
+  <div class="wrap">
+    <div>
+      <span class="kicker reveal" style="color:var(--gold-2)">Begin planning</span>
+      <h2 class="reveal d1" id="plan-title">Your celebration <em>at ATJC</em></h2>
+    </div>
+    <div class="plan-card reveal d2">
+      <p>Share your date and guest count. We’ll send music, ceremony and lighting options designed for this ballroom.</p>
+      <a class="btn btn-gold" href="https://www.avinuevents.com/get-a-quote/">Check your date <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=20400+NE+30th+Ave+Aventura+FL+33180" target="_blank" rel="noopener">Get directions</a>
+      <dl>
+        <dt>Address</dt><dd>20400 NE 30th Ave, Aventura, FL 33180</dd>
+        <dt>Venue &amp; catering</dt><dd>Premier Event Catering · <a href="tel:+19543836669">954-383-6669</a></dd>
+        <dt>Entertainment</dt><dd>Avinu Events · <a href="tel:+17545474415">754-547-4415</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>Aventura Turnberry Jewish Center · Kosher catering by Premier Event Catering</span>
+  <span>Page by <a href="https://www.avinuevents.com">Avinu Events</a> · Food &amp; venue photography: Premier Event Catering / Domino Arts</span>
+</footer>
+
+<div class="mobile-cta" id="mobile-cta">
+  <a class="btn btn-gold" href="#plan">Check your date</a>
+  <a class="btn btn-line" href="tel:+17545474415" aria-label="Call Avinu Events">Call</a>
+</div>
+
+<!-- Lightbox -->
+<dialog class="lb" id="lb" aria-label="Photo viewer">
+  <div class="lb-inner">
+    <div class="lb-top"><span id="lb-count"></span><button class="icon-btn" id="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <figure class="lb-fig" id="lb-fig">
+      <img id="lb-img" alt="" />
+      <button class="icon-btn lb-prev" id="lb-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="icon-btn lb-next" id="lb-next" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg></button>
+    </figure>
+    <div class="lb-cap" id="lb-cap"></div>
+  </div>
+</dialog>
+
+<script is:inline>
+/* ════════════════════════════════════════════════════════════════
+   CONTENIDO Y MEDIOS: todo se cambia aquí.
+   Cuando ATJC/Premier entregue su material oficial:
+   - Video del hero: MEDIA.hero.video = { mp4: '/venues/atjc/media/hero.mp4', webm: '/venues/atjc/media/hero.webm' }
+   - Video del salón: MEDIA.film.video = { mp4: '/venues/atjc/media/ballroom.mp4' }
+   - Fotos: agregar a MEDIA.photos (base = nombre sin -800/-1600.webp)
+   Nada de este archivo inventa material: si falta un video, se muestra la foto.
+   ════════════════════════════════════════════════════════════════ */
+const MEDIA = {
+  hero: { video: null, mobileVideo: 'dreamy' },   // video vertical solo en móvil (encaja 9:16)
+  film: { video: null },
+  // Reels de @eatwithpremier (Premier Event Catering) bajados por el equipo; comprimidos a 540x960 sin audio.
+  // PENDIENTE: permiso de Premier antes de publicar.
+  videos: {
+    dreamy:     { mp4: '/venues/atjc/media/vid-dreamy.mp4',     poster: '/venues/atjc/media/vid-dreamy-poster.jpg',     label: 'A reception with floral hoops, long tables and rose lighting' },
+    mitzvah:    { mp4: '/venues/atjc/media/vid-mitzvah.mp4',    poster: '/venues/atjc/media/vid-mitzvah-poster.jpg',    audio: true,    label: 'B\u2019nai Mitzvah d\u00e9cor: neon signs, a living wall and desserts' },
+    sheerclass: { mp4: '/venues/atjc/media/vid-sheerclass.mp4', poster: '/venues/atjc/media/vid-sheerclass-poster.jpg', label: 'Candlelit tables in front of an LED screen' },
+    sushi:      { mp4: '/venues/atjc/media/vid-sushi.mp4',      poster: '/venues/atjc/media/vid-sushi-poster.jpg',      label: 'Kosher sushi station', cap: 'Kosher sushi bar' },
+    crostini:   { mp4: '/venues/atjc/media/vid-crostini.mp4',   poster: '/venues/atjc/media/vid-crostini-poster.jpg',   label: 'Steak seared and served as crostini', cap: 'Steak crostini' },
+    elevate:    { mp4: '/venues/atjc/media/vid-elevate.mp4',    poster: '/venues/atjc/media/vid-elevate-poster.jpg',    label: 'Fresh salads plated during an event', cap: 'Salads, plated live' },
+  },
+  photos: {
+    'wedding-chuppah':        { w: 2000, h: 1333, alt: 'A couple beneath a floral chuppah in the ATJC ballroom', cap: 'Wedding beneath a floral chuppah', credit: 'Domino Arts Photography', cat: 'ceremony' },
+    'ballroom-led-floor':     { w: 887,  h: 1024, alt: 'The ATJC ballroom set for a reception, with an illuminated LED dance floor', cap: 'The ballroom, set for a reception', credit: 'Premier Event Catering', cat: 'ballroom' },
+    'lounge-violet':          { w: 768,  h: 1024, alt: 'Lounge seating under floral columns and violet lighting', cap: 'Lounge seating in the ballroom', credit: 'Premier Event Catering', cat: 'decor' },
+    'tablescape-florals':     { w: 768,  h: 1024, alt: 'A tablescape with pink roses, crystal glassware and floral china', cap: 'Tablescape with roses and crystal', credit: 'Premier Event Catering', cat: 'decor' },
+    'tables-mirrored':        { w: 768,  h: 1024, alt: 'Mirrored round tables with sculptural centerpieces under violet lighting', cap: 'Mirrored tables and centerpieces', credit: 'Premier Event Catering', cat: 'decor' },
+    'dish-dry-aged-ribeye':   { w: 2477, h: 1651, alt: 'Dry-aged ribeye steaks on a wooden board', cap: 'Dry-aged ribeye', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-faroe-salmon':      { w: 2093, h: 1512, alt: 'Faroe Island salmon in a cast-iron pan', cap: 'Faroe Island salmon', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-grouper-ceviche':   { w: 2477, h: 1651, alt: 'Black grouper ceviche served in small bowls', cap: 'Black grouper ceviche', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-bluefin-maki':      { w: 1696, h: 1131, alt: 'Bluefin tuna maki in a bamboo steamer', cap: 'Bluefin tuna maki', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-ora-king-tartare':  { w: 2477, h: 1651, alt: 'Ora King salmon tartare with crisp skin and herb oils', cap: 'Ora King salmon tartare', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-tuna-tataki':       { w: 2477, h: 1651, alt: 'Seared tuna tataki', cap: 'Tuna tataki', credit: 'Premier Event Catering', cat: 'cuisine' },
+    'dish-butternut-heirloom':{ w: 2477, h: 1651, alt: 'Roasted butternut squash with heirloom tomatoes', cap: 'Roasted butternut squash, heirloom tomatoes', credit: 'Premier Event Catering', cat: 'cuisine' },
+  },
+};
+
+const CELEBRATIONS = [
+  { id: 'weddings', label: 'Weddings', short: 'Weddings', photo: 'wedding-chuppah', title: 'Weddings',
+    // ar = proporción del recuadro; pos = punto de enfoque de la foto (cover)
+    media: { type: 'photo', photo: 'wedding-chuppah', ar: 1.3, pos: '52% 46%', posMobile: '50% 50%',
+             caption: 'Wedding beneath a floral chuppah \u00b7 Photo: Domino Arts Photography' },
+    text: 'Ceremony, cocktail hour and reception without moving your guests: the chuppah, the dinner and the dancing all happen under one roof.',
+    points: ['Ballroom seating for up to 650 guests', 'Kosher menus by Premier Event Catering', 'Ceremony music, DJ and lighting by Avinu Events'] },
+  { id: 'mitzvah', label: 'Bar & Bat Mitzvahs', short: 'Mitzvahs', photo: 'lounge-violet', video: 'mitzvah',
+    media: { type: 'reel', video: 'mitzvah', ar: 9 / 16, caption: 'B\u2019nai Mitzvah d\u00e9cor and desserts \u00b7 Video: Premier Event Catering' }, title: 'Bar & Bat Mitzvahs',
+    text: 'A synagogue and a ballroom on the same campus, so the service and the party flow into each other.',
+    points: ['Lounge seating, themed décor and a full dance floor', 'Kosher menus for every generation at the table', 'DJ, MC, dancers and LED walls by Avinu Events'] },
+  { id: 'galas', label: 'Galas', short: 'Galas', photo: 'tables-mirrored', video: 'sheerclass',
+    media: { type: 'reel', video: 'sheerclass', ar: 9 / 16, caption: 'Candlelit tables and an LED stage \u00b7 Video: Premier Event Catering' }, title: 'Galas & community events',
+    text: 'Seated dinners and fundraisers for the community, with a kitchen that also caters off-site events of 2,000 guests or more.',
+    points: ['Seated dinners for up to 650 in the ballroom', 'Off-site kosher catering for 2,000+', 'Stage sound, projection and LED by Avinu Events'] },
+];
+
+const MOMENTS = [
+  { title: 'Ceremony', text: 'Beneath the chuppah', photo: 'wedding-chuppah', plain: true, wide: true, pos: '50% 46%' },
+  { title: 'Reception', text: 'Dinner and the dance floor', photo: 'ballroom-led-floor', video: 'dreamy', plain: true },
+  { title: 'Late night', text: 'Lounge and conversation', photo: 'lounge-violet', plain: true },
+];
+
+const GALLERY_CATS = [ ['all', 'All'], ['ballroom', 'Ballroom'], ['ceremony', 'Ceremony'], ['decor', 'Décor'], ['cuisine', 'Cuisine'] ];
+const GALLERY = ['ballroom-led-floor', 'wedding-chuppah', 'tablescape-florals', 'dish-dry-aged-ribeye', 'lounge-violet', 'dish-grouper-ceviche', 'tables-mirrored', 'dish-bluefin-maki', 'dish-ora-king-tartare', 'dish-faroe-salmon'];
+const COURSES = ['dish-ora-king-tartare', { video: 'sushi' }, 'dish-grouper-ceviche', 'dish-bluefin-maki', { video: 'crostini' }, 'dish-tuna-tataki', 'dish-faroe-salmon', { video: 'elevate' }, 'dish-dry-aged-ribeye', 'dish-butternut-heirloom'];
+
+// Reseñas reales publicadas por Premier en Instagram (texto literal, recortado con …)
+const REVIEWS = [
+  { q: 'This is our second event at this venue … we will celebrate our 3rd kid’s wedding in due time. Guests are still raving about this!', who: 'Zighelboim Wedding · August 2025' },
+  { q: 'The new renovation has truly transformed the space, giving it a glamorous and modern feel that’s perfect for any occasion.', who: 'Jenny Ivcher · December 2024' },
+  { q: 'Jeremy, Steven, Zack, and the rest of the team at Aventura Turnberry synagogue worked with heart and soul to make everything run smoothly.', who: 'Dahan Wedding · March 2025' },
+  { q: 'He went above and beyond, accommodating last-minute changes … The menu was not only thoughtfully curated but absolutely delicious!', who: 'Farbman Bar Mitzvah · August 2025' },
+  { q: 'Their food is delicious, their service is outstanding, and the venue is beautiful and well located.', who: 'Cohen family · March 2025' },
+];
+
+/* ═══════════════ utilidades ═══════════════ */
+const $ = (s, el = document) => el.querySelector(s);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const saveData = navigator.connection && navigator.connection.saveData;
+const src = (n, size = 1600) => `/venues/atjc/media/${n}-${size}.webp`;
+const srcset = (n) => { const p = MEDIA.photos[n]; return `${src(n, 800)} 800w, ${src(n, 1600)} ${Math.min(1600, p.w)}w`; };
+function img(n, { sizes = '100vw', lazy = true, cls = '' } = {}) {
+  const p = MEDIA.photos[n]; const el = new Image();
+  el.src = src(n, 800); el.srcset = srcset(n); el.sizes = sizes; el.alt = p.alt;
+  el.width = Math.min(1600, p.w); el.height = Math.round(el.width * p.h / p.w); el.decoding = 'async';
+  if (lazy) el.loading = 'lazy'; if (cls) el.className = cls; return el;
+}
+function mountVideo(container, v, poster, { eager = false } = {}) {
+  // Solo si hay video real y el usuario no pidió reducir movimiento / ahorrar datos.
+  if (!v || reduced || saveData) return null;
+  const video = document.createElement('video');
+  Object.assign(video, { muted: true, loop: true, playsInline: true, autoplay: true, preload: eager ? 'auto' : 'none', poster });
+  video.setAttribute('muted', ''); video.setAttribute('aria-hidden', 'true');
+  if (v.webm) video.append(Object.assign(document.createElement('source'), { src: v.webm, type: 'video/webm' }));
+  if (v.mp4) video.append(Object.assign(document.createElement('source'), { src: v.mp4, type: 'video/mp4' }));
+  video.addEventListener('playing', () => video.classList.add('ready'), { once: true });
+  container.append(video);
+  return video;
+}
+
+/* ═══════════════ Reproductor común: play solo visible + botón de pausa ═══════════════ */
+const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+const ICON_SOUND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
+const ICON_MUTED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path d="M16 9l5 6M21 9l-5 6"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>';
+const autoplayOK = !reduced && !saveData;
+const vpObs = new IntersectionObserver(es => es.forEach(e => { e.target._vp.visible = e.isIntersecting; e.target._vp.sync(); }), { threshold: .3 });
+function vplayer(key, { cls = '' } = {}) {
+  const v = MEDIA.videos[key];
+  const el = document.createElement('div'); el.className = 'vp ' + cls;
+  const video = document.createElement('video');
+  Object.assign(video, { muted: true, loop: true, playsInline: true, preload: 'none', poster: v.poster });
+  video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-label', v.label);
+  video.append(Object.assign(document.createElement('source'), { src: v.mp4, type: 'video/mp4' }));
+  const ctrls = document.createElement('div'); ctrls.className = 'vp-ctrls';
+  const btn = document.createElement('button'); btn.className = 'vp-btn'; ctrls.append(btn);
+  if (v.audio) {
+    const snd = document.createElement('button'); snd.className = 'vp-btn';
+    const paintSnd = () => { snd.innerHTML = video.muted ? ICON_MUTED : ICON_SOUND; snd.setAttribute('aria-label', (video.muted ? 'Turn sound on' : 'Mute') + ': ' + v.label); snd.setAttribute('aria-pressed', String(!video.muted)); };
+    snd.addEventListener('click', () => { video.muted = !video.muted; if (!video.muted && video.paused) { st.userPaused = false; video.play().catch(() => {}); } paintSnd(); });
+    video.addEventListener('volumechange', paintSnd); paintSnd(); ctrls.append(snd);
+  }
+  el.append(video, ctrls);
+  const st = { visible: false, active: true, userPaused: !autoplayOK };
+  const paint = () => { const playing = !video.paused; btn.innerHTML = playing ? ICON_PAUSE : ICON_PLAY; btn.setAttribute('aria-label', (playing ? 'Pause' : 'Play') + ' video: ' + v.label); };
+  st.sync = () => {
+    if (st.visible && st.active && !st.userPaused) video.play().catch(() => {});
+    else { if (!video.paused) video.pause(); if (!st.active && !video.muted) video.muted = true; }
+  };
+  video.addEventListener('play', paint); video.addEventListener('pause', paint);
+  video.addEventListener('playing', () => el.classList.add('ready'), { once: true });
+  btn.addEventListener('click', () => { st.userPaused = !video.paused; if (!st.userPaused) video.play().catch(() => {}); else video.pause(); });
+  paint();
+  el._vp = st; vpObs.observe(el);
+  return { el, video, setActive(a) { st.active = a; st.sync(); }, pause() { st.userPaused = true; video.pause(); }, play() { st.userPaused = false; st.sync(); } };
+}
+
+/* ═══════════════ HERO: video si existe; si no, la foto (sin botón de play falso) ═══════════════ */
+const heroVideo = mountVideo($('#hero-media'), MEDIA.hero.video, src('wedding-chuppah'), { eager: true });
+if (heroVideo) {
+  // Pausa el video cuando el hero sale de pantalla (ahorra CPU/batería)
+  new IntersectionObserver(([e]) => { e.isIntersecting ? heroVideo.play().catch(() => {}) : heroVideo.pause(); }).observe($('.hero'));
+}
+// Móvil: el reel vertical llena la pantalla; en escritorio queda la foto (un vertical estirado se vería borroso)
+if (!heroVideo && MEDIA.hero.mobileVideo && matchMedia('(max-width: 900px)').matches && autoplayOK) {
+  const hv = vplayer(MEDIA.hero.mobileVideo, { cls: 'hero-vp' });
+  hv.video.preload = 'auto'; $('#hero-media').append(hv.el);
+  $('#hero-credit').textContent = 'Video: Premier Event Catering';
+  const hb = document.createElement('button'); hb.className = 'icon-btn hero-pause'; hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video');
+  hb.addEventListener('click', () => {
+    if (hv.video.paused) { hv.play(); hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video'); }
+    else { hv.pause(); hb.innerHTML = ICON_PLAY; hb.setAttribute('aria-label', 'Play background video'); }
+  });
+  $('.hero').append(hb);
+}
+
+/* ═══════════════ NAV: transparente sobre el hero, sólida al bajar ═══════════════ */
+const nav = $('#nav'), mobileCta = $('#mobile-cta');
+let pastHero = false, atPlan = false;
+const syncCta = () => mobileCta.classList.toggle('show', pastHero && !atPlan && !nav.classList.contains('open'));
+new IntersectionObserver(([e]) => { atPlan = e.isIntersecting; syncCta(); }, { threshold: .15 }).observe(document.getElementById('plan'));
+const heroObs = new IntersectionObserver(([e]) => {
+  nav.classList.toggle('solid', !e.isIntersecting);
+  pastHero = !e.isIntersecting; syncCta();
+}, { rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 76}px 0px 0px 0px`, threshold: 0 });
+heroObs.observe($('.hero'));
+const menuBtn = $('#menu-btn');
+function setMenu(open) {
+  nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  document.body.style.overflow = open ? 'hidden' : '';
+  syncCta();
+}
+menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+// Sección activa en el menú
+const links = [...document.querySelectorAll('.nav-links a')];
+const secObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'));
+}), { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('main > section').forEach(sec => secObs.observe(sec));
+
+/* ═══════════════ Revelado al hacer scroll ═══════════════ */
+if (!reduced && 'IntersectionObserver' in window) {
+  const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal, .img-reveal').forEach(el => ro.observe(el));
+} else document.querySelectorAll('.reveal, .img-reveal').forEach(el => el.classList.add('in'));
+
+/* ═══════════════ CELEBRATIONS: selector sin recargar ═══════════════ */
+const tabsEl = $('#tabs'), stageMedia = $('#stage-media'), stageCopy = $('#stage-copy'), stageCap = $('#stage-cap');
+const stagePanels = {}, stagePlayers = {};
+const isMobile = matchMedia('(max-width: 900px)');
+function buildPanel(c, i) {
+  const m = c.media, panel = document.createElement('div');
+  if (m.type === 'photo') {
+    panel.className = 'comp comp-photo';
+    const im = img(m.photo, { sizes: '(max-width: 900px) 100vw, 56vw', lazy: i !== 0 });
+    const setPos = () => { im.style.objectPosition = isMobile.matches ? (m.posMobile || m.pos) : m.pos; };
+    setPos(); isMobile.addEventListener('change', setPos);
+    panel.append(im);
+  } else {
+    panel.className = 'comp comp-reel';
+    const pl = vplayer(m.video); pl.setActive(false); stagePlayers[c.id] = pl; panel.append(pl.el);
+  }
+  stageMedia.append(panel); stagePanels[c.id] = panel;
+}
+CELEBRATIONS.forEach((c, i) => {
+  const b = document.createElement('button');
+  Object.assign(b, { className: 'tab', id: 'tab-' + c.id, role: 'tab' });
+  b.setAttribute("aria-label", c.label);
+  b.innerHTML = `<span class="t-full">${c.label}</span><span class="t-short" aria-hidden="true">${c.short}</span>`;
+  b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'stage-panel'); b.setAttribute('aria-selected', i === 0); b.tabIndex = i === 0 ? 0 : -1;
+  b.addEventListener('click', () => selectCelebration(i, true));
+  tabsEl.append(b);
+  buildPanel(c, i);
+});
+tabsEl.addEventListener('keydown', e => {
+  const tabs = [...tabsEl.children], cur = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+  let n = null;
+  if (e.key === 'ArrowRight') n = (cur + 1) % tabs.length; if (e.key === 'ArrowLeft') n = (cur - 1 + tabs.length) % tabs.length;
+  if (e.key === 'Home') n = 0; if (e.key === 'End') n = tabs.length - 1;
+  if (n !== null) { e.preventDefault(); selectCelebration(n, true); tabs[n].focus(); }
+});
+function selectCelebration(i, animate) {
+  const c = CELEBRATIONS[i];
+  [...tabsEl.children].forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
+  $('#stage-panel').setAttribute('aria-labelledby', 'tab-' + c.id);
+  Object.entries(stagePanels).forEach(([id, el]) => el.classList.toggle('on', id === c.id));
+  Object.entries(stagePlayers).forEach(([id, pl]) => pl.setActive(id === c.id));
+  stageMedia.style.setProperty('--ar', c.media.ar);
+  stageMedia.classList.toggle('is-photo', c.media.type === 'photo');
+  if (animate && !reduced) { stageCap.classList.add('out'); setTimeout(() => { stageCap.textContent = c.media.caption; stageCap.classList.remove('out'); }, 300); }
+  else stageCap.textContent = c.media.caption;
+  const render = () => {
+    stageCopy.innerHTML = `<h3>${c.title}</h3><p>${c.text}</p><ul>${c.points.map(p => `<li>${p}</li>`).join('')}</ul><a class="btn btn-gold" href="#plan">Plan ${c.label.toLowerCase().startsWith('gala') ? 'a gala' : c.id === 'weddings' ? 'a wedding' : 'a mitzvah'} at ATJC</a>`;
+    stageCopy.classList.remove('out');
+  };
+  if (animate && !reduced) { stageCopy.classList.add('out'); setTimeout(render, 260); } else render();
+}
+selectCelebration(0, false);
+
+/* ═══════════════ FILM / TRANSFORMACIONES ═══════════════ */
+const filmFrame = $('#film-frame'), filmSteps = $('#film-steps');
+const filmVideo = MEDIA.film.video ? mountVideo(filmFrame, MEDIA.film.video, src('ballroom-led-floor')) : null;
+if (filmVideo) {
+  $('#film-status').remove();
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) { filmVideo.preload = 'auto'; filmVideo.play().catch(() => {}); } else filmVideo.pause(); }, { threshold: .35 }).observe(filmFrame);
+}
+const filmPlayers = [];
+const filmImgs = MOMENTS.map((m, i) => {
+  if (m.video) {
+    const pl = vplayer(m.video); pl.setActive(false); filmPlayers[i] = pl;
+    filmFrame.prepend(pl.el); return [pl.el];   // fondo liso #171513, sin desenfoque
+  }
+  const im = img(m.photo, { sizes: '(max-width: 900px) 100vw, 80vw' }); filmFrame.prepend(im);
+  if (m.wide) { im.classList.add('wide'); im.style.objectPosition = m.pos || '50% 50%'; }
+  if (m.plain) return [im];   // fondo liso #171513, sin desenfoque
+  const fill = img(m.photo, { cls: 'fill' }); fill.alt = ''; fill.srcset = ''; fill.src = src(m.photo, 800); filmFrame.prepend(fill); return [fill, im];
+});
+MOMENTS.forEach((m, i) => {
+  const b = document.createElement('button'); b.className = 'film-step'; b.setAttribute('aria-pressed', i === 0);
+  b.innerHTML = `<b>${m.title}</b><span>${m.text}</span>`;
+  b.addEventListener('click', () => setMoment(i)); filmSteps.append(b);
+  b.addEventListener('pointerdown', () => filmSteps.classList.add('mouse'));
+  b.addEventListener('keydown', () => filmSteps.classList.remove('mouse'));
+});
+function setMoment(i) {
+  filmImgs.forEach((pair, j) => pair.forEach(im => im.classList.toggle('on', j === i)));
+  filmPlayers.forEach((pl, j) => pl && pl.setActive(j === i));
+  [...filmSteps.children].forEach((b, j) => b.setAttribute('aria-pressed', j === i));
+}
+setMoment(0);
+
+/* ═══════════════ GALERÍA + LIGHTBOX ═══════════════ */
+const grid = $('#grid'), chips = $('#chips');
+GALLERY.forEach((n, i) => {
+  const p = MEDIA.photos[n]; const b = document.createElement('button');
+  b.className = 'tile reveal'; b.dataset.cat = p.cat; b.dataset.n = n;
+  b.setAttribute('aria-label', `Open photo: ${p.cap}`);
+  b.append(img(n, { sizes: '(max-width: 900px) 50vw, 33vw' }));
+  const cap = document.createElement('span'); cap.className = 'cap'; cap.textContent = p.cap; b.append(cap);
+  b.addEventListener('click', () => openLb(n, b));
+  grid.append(b);
+});
+if (!reduced) { const go = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); go.unobserve(e.target); } }), { rootMargin: '0px 0px -5% 0px' }); grid.querySelectorAll('.tile').forEach(t => go.observe(t)); }
+else grid.querySelectorAll('.tile').forEach(t => t.classList.add('in'));
+GALLERY_CATS.forEach(([id, label], i) => {
+  const b = document.createElement('button'); b.className = 'chip'; b.textContent = label; b.setAttribute('aria-pressed', i === 0);
+  b.addEventListener('click', () => {
+    [...chips.children].forEach(c => c.setAttribute('aria-pressed', c === b));
+    grid.querySelectorAll('.tile').forEach(t => t.classList.toggle('hide', id !== 'all' && t.dataset.cat !== id));
+  });
+  chips.append(b);
+});
+
+const lb = $('#lb'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbCount = $('#lb-count');
+let lbList = [], lbIdx = 0, lbOpener = null;
+function visibleList() { return [...grid.querySelectorAll('.tile:not(.hide)')].map(t => t.dataset.n); }
+function showLb(i, dir = 0) {
+  lbIdx = (i + lbList.length) % lbList.length; const n = lbList[lbIdx], p = MEDIA.photos[n];
+  const apply = () => {
+    lbImg.src = src(n, 1600); lbImg.alt = p.alt;
+    lbCap.innerHTML = `${p.cap}<small>Photo: ${p.credit}</small>`;
+    lbCount.textContent = `${lbIdx + 1} / ${lbList.length}`;
+    lbImg.classList.remove('fade');
+  };
+  if (dir && !reduced) { lbImg.classList.add('fade'); setTimeout(apply, 180); } else apply();
+  // Precarga la siguiente
+  const nx = lbList[(lbIdx + 1) % lbList.length]; new Image().src = src(nx, 1600);
+}
+function openLb(n, opener) { lbList = visibleList(); lbOpener = opener; lb.showModal(); showLb(lbList.indexOf(n)); $('#lb-close').focus(); }
+function closeLb() { lb.close(); }
+lb.addEventListener('close', () => lbOpener && lbOpener.focus());
+$('#lb-close').addEventListener('click', closeLb);
+$('#lb-prev').addEventListener('click', () => showLb(lbIdx - 1, -1));
+$('#lb-next').addEventListener('click', () => showLb(lbIdx + 1, 1));
+lb.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { e.preventDefault(); showLb(lbIdx + 1, 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); showLb(lbIdx - 1, -1); }
+});
+lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-inner')) closeLb(); });
+// Deslizar en móvil
+let sx = null;
+$('#lb-fig').addEventListener('pointerdown', e => { sx = e.clientX; });
+$('#lb-fig').addEventListener('pointerup', e => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 50) showLb(lbIdx + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); });
+
+/* ═══════════════ CUISINE: tira de platos (control manual, sin auto-play) ═══════════════ */
+const courses = $('#courses');
+COURSES.forEach(n => {
+  if (typeof n === 'object') {
+    const v = MEDIA.videos[n.video]; const f = document.createElement('figure'); f.className = 'course course-v';
+    const w = document.createElement('div'); w.className = 'ph-wrap'; w.append(vplayer(n.video).el);
+    f.append(w); const c = document.createElement('figcaption'); c.innerHTML = `${v.cap}<small>Video \u00b7 Premier Event Catering</small>`; f.append(c);
+    courses.append(f); return;
+  }
+  const p = MEDIA.photos[n]; const f = document.createElement('figure'); f.className = 'course';
+  const w = document.createElement('div'); w.className = 'ph-wrap'; w.append(img(n, { sizes: '(max-width: 900px) 78vw, 30vw' }));
+  f.append(w); const c = document.createElement('figcaption'); c.innerHTML = `${p.cap}<small>Premier Event Catering</small>`; f.append(c);
+  courses.append(f);
+});
+const step = () => courses.querySelector('.course').getBoundingClientRect().width + 19;
+$('#courses-prev').addEventListener('click', () => courses.scrollBy({ left: -step(), behavior: reduced ? 'auto' : 'smooth' }));
+$('#courses-next').addEventListener('click', () => courses.scrollBy({ left: step(), behavior: reduced ? 'auto' : 'smooth' }));
+courses.addEventListener('keydown', e => { if (e.key === 'ArrowRight') courses.scrollBy({ left: step() }); if (e.key === 'ArrowLeft') courses.scrollBy({ left: -step() }); });
+
+/* ═══════════════ VOICES: reseñas con control manual ═══════════════ */
+const quote = $('#quote'), quoteWho = $('#quote-who'), dots = $('#q-dots');
+let qi = 0;
+REVIEWS.forEach((r, i) => { const d = document.createElement('button'); d.setAttribute('aria-label', `Review ${i + 1}: ${r.who}`); d.addEventListener('click', () => showQ(i)); dots.append(d); });
+function showQ(i) {
+  qi = (i + REVIEWS.length) % REVIEWS.length; const r = REVIEWS[qi];
+  const apply = () => { quote.textContent = `“${r.q}”`; quoteWho.textContent = r.who; quote.classList.remove('fade'); };
+  if (!reduced && quote.textContent) { quote.classList.add('fade'); setTimeout(apply, 300); } else apply();
+  [...dots.children].forEach((d, j) => d.setAttribute('aria-current', j === qi));
+}
+$('#q-prev').addEventListener('click', () => showQ(qi - 1));
+$('#q-next').addEventListener('click', () => showQ(qi + 1));
+showQ(0);
+
+/* ═══════════════ ?notes: marca el material pendiente (uso interno) ═══════════════ */
+if (new URLSearchParams(location.search).has('notes')) document.body.classList.add('notes');
+</script>
+</body>
+</html>

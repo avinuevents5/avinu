@@ -5,7 +5,8 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const venues = await getCollection('venues');
-  return venues.map((venue) => ({
+  // ATJC tiene página propia: src/pages/venues/aventura-turnberry-jewish-center/
+  return venues.filter((venue) => venue.id !== 'aventura-turnberry-jewish-center').map((venue) => ({
     params: { slug: venue.id },
     props: { venue },
   }));
