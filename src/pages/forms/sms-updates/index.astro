@@ -1,0 +1,303 @@
+---
+// Landing sola (sin el menú del sitio) para el opt-in de SMS que pide Twilio en
+// la campaña A2P 10DLC. No se enlaza desde el menú; la URL se declara en Twilio
+// como "opt-in proof". noindex para que no salga en Google.
+const LOGO = '/img/avinu-white.png';
+const ICON = '/wp-content/uploads/2023/06/icon-gold-avinu-scaled.jpg';
+const PHOTO = '/wp-content/uploads/2025/05/home-page-scaled.jpeg';
+// El envío lo recibe el CRM (manda el aviso a info@). En local: PUBLIC_CRM_ORIGIN=http://localhost:3140
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text Updates — Avinu Events</title>
+    <meta name="description" content="Sign up to receive text message updates from Avinu Events about your event." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href={ICON} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+    />
+    <style define:vars={{ photo: `url('${PHOTO}')` }}>
+      :root {
+        --ivory: #f5f1e8;
+        --champagne: #e9e2d6;
+        --ink: #111111;
+        --muted: #4a453d;
+        --accent: #c7a24a;
+        --accent-ink: #8c6c24;
+        --line: rgba(17, 17, 17, 0.14);
+        --display: 'Bodoni Moda', Georgia, serif;
+        --body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+        --gutter: clamp(1.1rem, 4vw, 4rem);
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        min-height: 100vh;
+        background: var(--ivory);
+        color: var(--ink);
+        font-family: var(--body);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 1.1rem var(--gutter);
+        border-bottom: 1px solid var(--line);
+      }
+      .logo img { width: 130px; height: auto; filter: brightness(0); display: block; }
+      .hdr-phone {
+        font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--ink); text-decoration: none;
+      }
+      .hdr-phone:hover { color: var(--accent-ink); }
+
+      .split { flex: 1; display: grid; grid-template-columns: 1.1fr 1fr; }
+
+      .visual {
+        position: relative; overflow: hidden; min-height: 600px;
+        background: #111 var(--photo) center / cover no-repeat;
+        color: #fff;
+        display: flex; align-items: flex-end;
+      }
+      .visual::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(10, 10, 12, 0) 15%, rgba(10, 10, 12, 0.55) 45%, rgba(10, 10, 12, 0.9) 100%);
+      }
+      .visual-copy { position: relative; z-index: 1; padding: clamp(2rem, 4vw, 3.5rem) var(--gutter); max-width: 660px; }
+      .eyebrow {
+        display: inline-flex; align-items: center; gap: 0.7rem;
+        font-size: 0.74rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+        color: #e3c578; margin-bottom: 1rem; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+      }
+      .visual h2, .visual p { text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45); }
+      .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+      .visual h2 {
+        font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 3.6vw, 3.2rem);
+        line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 1rem;
+      }
+      .visual h2 em { font-style: italic; font-weight: 400; color: #f1dfae; }
+      .visual p { margin: 0; color: rgba(255, 255, 255, 0.86); font-size: 1.02rem; max-width: 46ch; }
+      .perks { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; }
+      .perks li { font-size: 0.86rem; color: rgba(255, 255, 255, 0.92); display: flex; align-items: center; gap: 0.5rem; }
+      .perks li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+      .form-side {
+        display: flex; align-items: center; justify-content: center;
+        padding: clamp(2rem, 5vw, 4.5rem) var(--gutter);
+      }
+      .card { width: 100%; max-width: 500px; }
+      h1 {
+        font-family: var(--display); font-weight: 500;
+        font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -0.01em;
+        margin: 0 0 0.6rem;
+      }
+      .lead { color: var(--muted); margin: 0 0 1.9rem; font-size: 1rem; }
+      label.field { display: block; margin-bottom: 1.1rem; }
+      .label {
+        display: block; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em;
+        text-transform: uppercase; margin-bottom: 0.4rem;
+      }
+      .label .opt { font-weight: 500; letter-spacing: 0.04em; text-transform: none; color: var(--muted); }
+      input[type='text'], input[type='tel'], input[type='email'] {
+        width: 100%; font: inherit; font-size: 1rem; padding: 0.8rem 0.9rem;
+        border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--ink);
+      }
+      input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+      .consent {
+        display: flex; gap: 0.75rem; align-items: flex-start;
+        background: var(--champagne); border-radius: 4px; padding: 1rem;
+        margin: 0.4rem 0 1.4rem; font-size: 0.85rem; line-height: 1.5; color: #2a2721; cursor: pointer;
+      }
+      .consent input { margin-top: 0.2rem; width: 1.1rem; height: 1.1rem; flex: none; accent-color: var(--accent-ink); }
+      .consent a { color: var(--accent-ink); }
+      button {
+        width: 100%; font: inherit; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.14em;
+        text-transform: uppercase; padding: 1.05rem; border: 0; border-radius: 4px;
+        background: var(--ink); color: #fff; cursor: pointer;
+      }
+      button:hover { background: #2b2b2b; }
+      button:disabled { opacity: 0.6; cursor: wait; }
+      .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+      .error { color: #9b2c2c; font-size: 0.85rem; margin: -0.6rem 0 1rem; display: none; }
+      .thanks { display: none; text-align: center; padding: 2rem 0; }
+      .thanks h2 { font-family: var(--display); font-weight: 500; font-size: 2.2rem; margin: 0 0 0.6rem; }
+      .thanks p { color: var(--muted); margin: 0; }
+      .done form, .done .intro { display: none; }
+      .done .thanks { display: block; }
+
+      footer {
+        padding: 1.2rem var(--gutter); border-top: 1px solid var(--line);
+        font-size: 0.8rem; color: var(--muted);
+        display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+      }
+      footer a { color: var(--muted); }
+      footer nav { display: flex; gap: 1.2rem; }
+
+      @media (max-width: 900px) {
+        .split { grid-template-columns: 1fr; }
+        .visual { min-height: 380px; }
+      }
+      @media (max-width: 480px) {
+        .row { grid-template-columns: 1fr; gap: 0; }
+        .hdr-phone { font-size: 0.7rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="/" aria-label="Avinu Events home">
+        <img src={LOGO} alt="Avinu Events" width="661" height="295" />
+      </a>
+      <a class="hdr-phone" href="tel:+17545474415">+1 754-547-4415</a>
+    </header>
+
+    <div class="split">
+      <section class="visual" aria-label="An Avinu Events celebration">
+        <div class="visual-copy">
+          <span class="eyebrow">Avinu Events · South Florida</span>
+          <h2>Every detail of your event, <em>right in your pocket.</em></h2>
+          <p>
+            From the first call to the last dance, our team keeps you in the loop by text, so nothing
+            about your celebration slips through the cracks.
+          </p>
+          <ul class="perks">
+            <li>Booking confirmations</li>
+            <li>Planning reminders</li>
+            <li>Day-of coordination</li>
+          </ul>
+        </div>
+      </section>
+
+      <main class="form-side">
+        <div class="card" id="card">
+          <div class="intro">
+            <h1>Get text updates</h1>
+            <p class="lead">
+              Sign up to receive text messages from Avinu Events about your event: booking details,
+              planning reminders and day-of coordination.
+            </p>
+          </div>
+
+          <form id="sms-form" novalidate data-endpoint={`${CRM_ORIGIN}/api/sms-optin`}>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="row">
+              <label class="field">
+                <span class="label">First name</span>
+                <input type="text" name="first_name" autocomplete="given-name" required />
+              </label>
+              <label class="field">
+                <span class="label">Last name</span>
+                <input type="text" name="last_name" autocomplete="family-name" required />
+              </label>
+            </div>
+            <label class="field">
+              <span class="label">Mobile phone</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="(555) 555-5555" required />
+            </label>
+            <label class="field">
+              <span class="label">Email <span class="opt">(optional)</span></span>
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+
+            <label class="consent">
+              <input type="checkbox" name="sms_consent" value="yes" />
+              <span id="consent-text">
+                By checking this box, I agree to receive text messages from <strong>Avinu Events</strong>
+                at the phone number provided about my event inquiry, consultation scheduling, proposals,
+                booking confirmations, event coordination, appointment reminders and customer support.
+                Message frequency varies. Message and data rates may apply.
+                Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help. Consent is not
+                a condition of purchase. See our <a href="/privacy-policy/">Privacy Policy</a> and
+                <a href="/terms/">Terms &amp; Conditions</a>.
+              </span>
+            </label>
+
+            <p class="error" id="form-error" role="alert"></p>
+            <button type="submit">Sign up for texts</button>
+          </form>
+
+          <div class="thanks" aria-live="polite">
+            <h2>Thank you!</h2>
+            <p>You're signed up for text updates from Avinu Events. Reply STOP at any time to opt out.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <span>© {year} Avinu Events · South Florida</span>
+      <nav>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+      </nav>
+    </footer>
+
+    <script>
+      const form = document.getElementById('sms-form') as HTMLFormElement;
+      const card = document.getElementById('card') as HTMLElement;
+      const err = document.getElementById('form-error') as HTMLElement;
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const consentText = (document.getElementById('consent-text')?.textContent || '').replace(/\s+/g, ' ').trim();
+
+      const showError = (msg: string) => {
+        err.textContent = msg;
+        err.style.display = 'block';
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const first = String(data.get('first_name') || '').trim();
+        const last = String(data.get('last_name') || '').trim();
+        const phone = String(data.get('phone') || '').trim();
+        const phoneDigits = phone.replace(/\D/g, '');
+        const consent = data.get('sms_consent') === 'yes';
+
+        if (!first || !last) return showError('Please enter your first and last name.');
+        if (phoneDigits.length < 10) return showError('Please enter a valid mobile phone number.');
+        if (!consent) return showError('Please check the box to agree to receive text messages.');
+        err.style.display = 'none';
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+          const res = await fetch(form.dataset.endpoint as string, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              firstName: first,
+              lastName: last,
+              phone,
+              email: String(data.get('email') || '').trim(),
+              consent: true,
+              consentText,
+              pageUrl: location.href,
+              website: String(data.get('website') || ''),
+            }),
+          });
+          const out = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(out.error || 'Something went wrong. Please try again.');
+          card.classList.add('done');
+        } catch (ex) {
+          showError(ex instanceof Error && ex.message !== 'Failed to fetch'
+            ? ex.message
+            : 'Something went wrong. Please try again or call us at 754-547-4415.');
+          btn.disabled = false;
+          btn.textContent = 'Sign up for texts';
+        }
+      });
+    </script>
+  </body>
+</html>

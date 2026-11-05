@@ -1,94 +1,71 @@
 ---
 import Noir from '../../layouts/Noir.astro';
 
-// Legal copy lifted verbatim (lightly formatted) from the original
-// /terms-and-conditions/ page. Grouped into readable sections.
-const generalTerms = [
-  'Client wishes to engage with company for services (not limited to): event and talent management.',
-  'Upon receipt of contract and deposit, company agrees to provide the services mentioned here.',
-  'Levine Events will provide the services entered in a contract/invoice, and client is accountable for the amount entered in this agreement, unless otherwise noted.',
-  'Client has the ability and legal right to use the event location on the specified date.',
-];
-
-const sections = [
+// Términos generales del sitio + SMS (registro A2P 10DLC de Twilio)
+// (sin las cláusulas del contrato de servicio antiguo).
+const TERMS_UPDATED = 'November 5, 2026';
+type SiteBlock = { p?: string; strong?: string; label?: string };
+const siteTerms: { title: string; blocks: SiteBlock[] }[] = [
   {
-    title: 'Music Selections',
-    body: [
-      'If music is to be played at the event, a list will be provided by client (if applicable). The music list shall be provided to the company via email 5 days before the event. Music is performed at the discretion of talent, under no obligation to play any selections. Company will use their own discretion to play the requests of the client and guests. Company and staff shall not be responsible for all unavailable music selections.',
+    title: '1. Our Services',
+    blocks: [
+      { p: 'Avinu Events provides professional entertainment and event production services, including DJ entertainment, live musicians, ceremony entertainment, lighting, audiovisual production, and related event services.' },
+      { p: 'Service availability, pricing, and specific deliverables depend on the event requirements and the terms of each individual proposal or agreement.' },
     ],
   },
   {
-    title: 'Working Conditions',
-    body: [
-      'Client shall provide staff(s) with safe and appropriate working conditions. This may include at least a 6-foot by 6-foot area for setup, space for setting up speakers and lighting stands/trussing (if applicable). Client shall provide crowd control if warranted; and furnishing directions to place of engagement. Client is responsible for paying any charges by the venue. These charges may include, but are not limited to, parking, and use of electric power.',
+    title: '2. Inquiries and Proposals',
+    blocks: [
+      { p: 'Submitting an inquiry or requesting a quotation does not constitute a confirmed booking.' },
+      { p: 'Proposals are subject to availability, pricing confirmation, and any applicable service agreements.' },
+      { p: 'An event booking is confirmed only according to the terms specified in the applicable booking agreement.' },
     ],
   },
   {
-    title: 'Arrival Times',
-    body: [
-      'Access to the event location is requested of at least 60 minutes before the starting time of the event, with proper access to loading dock and elevators. In addition, a minimum of 60 minutes will be required for take down upon completion of the event.',
+    title: '3. Event Bookings and Payments',
+    blocks: [
+      { p: 'Payment schedules, deposits, cancellation terms, and other event-specific conditions will be communicated through the applicable proposal or service agreement.' },
     ],
   },
   {
-    title: 'Cancellation',
-    body: [
-      'This agreement shall be null and void unless received by Levine Events within seven (7) days of the agreement date. If payment and signed contract are not received by Levine Events, the date will no longer be on reserve. All amendments must be in writing. If Levine Events fails to appear at an event, the buyer will receive a total refund.',
-      'If client cancels, it must be in writing. If cancellation occurs by client 6 months before the event date, 50% of the total balance is transferable to another engagement within one (1) year of booking (based on availability) after which time this amount is forfeited. The 50% deposit is non-refundable. If cancellation occurs within 30 days or less of the reserved event date the client is accountable for payment of the full balance due. Any changes to the policy must be provided in writing by company.',
-      'The agreement of the company staff to perform is subject to proven detention by accidents, riots, strikes, epidemics, acts of God, or any other legitimate conditions beyond their control. If such circumstances arise, all reasonable efforts will be made for staff to find replacement entertainment at the agreed upon fees. Should company be unable to procure a replacement, Client shall receive a full refund. Client agrees that in all circumstances, company liability shall be exclusively limited to an amount equal to the performance fee and that staff and company shall not be liable for indirect or consequential damages arising from any breach of contract.',
-      'The buyer and company agree that this contract is not subject to cancellation unless both parties have agreed to such cancellation in writing. In the event the client breaches the contract, he or she shall pay the company the full contract value.',
+    title: '4. SMS Messaging Terms',
+    blocks: [
+      { label: 'Program Name:', p: 'Avinu Events SMS Notifications' },
+      { p: 'By expressly opting in to receive SMS communications from Avinu Events, you agree to receive text messages related to your event inquiry, consultation scheduling, proposal updates, booking confirmations, event coordination, appointment reminders, and customer support.' },
+      { p: 'Promotional messages will be sent only if you have separately opted in to receive marketing SMS communications.' },
+      { label: 'Message Frequency:', p: 'Message frequency varies depending on your event planning activity and interactions with our team.' },
+      { label: 'Message and Data Rates:', p: 'Message and data rates may apply.' },
+      { label: 'Opt-Out:', p: 'You can cancel the SMS service at any time. Reply STOP to any message to unsubscribe. After you send STOP, you will receive confirmation of your unsubscribe request. You will no longer receive messages from that SMS program unless you opt in again.' },
+      { label: 'Help:', p: 'For assistance, reply HELP to any message, email info@avinuevents.com, or call 754-547-4415.' },
+      { label: 'Consent:', p: 'Consent to receive SMS messages is not a condition of purchasing services from Avinu Events.' },
+      { label: 'Carrier Disclaimer:', p: 'Carriers are not liable for any delayed or undelivered messages.' },
     ],
   },
   {
-    title: 'Additional Terms',
-    body: [
-      'It is understood that this is a "Rain or Shine" event, and company compensation is in no way affected by inclement weather. For outdoor performances, Client shall provide overhead shelter for setup area. The company staff reserves the right, in good faith, to stop or cancel the performance should the weather pose a potential danger to him, the equipment, or audience. Every effort will be made to continue the performance. However, safety is paramount in all decisions.',
-      'It is hereby further agreed that the Client shall be held liable for any injury or damages to the staff, or property of the company, while on the premises of said engagement, if damage is caused by Client or guest, members of his organization, engagement invitees, employees, or any other party in attendance, whether invited or not.',
+    title: '5. Website and Client Portal',
+    blocks: [
+      { p: 'Our website and client portal may allow customers to review services, manage event preferences, view proposals, and communicate event planning information.' },
+      { p: 'Customers are responsible for providing accurate information and maintaining the confidentiality of their portal access credentials.' },
     ],
   },
   {
-    title: 'Substitutes',
-    body: [
-      "If, on account of illness of the company staff and entertainers or any other cause beyond the company's control, a substitute will be provided on the same specified terms and conditions as are stated herein. In addition, equipment provided by the company may also be substituted at the company's discretion for the sake of the proper delivery/enhancement of the event(s).",
+    title: '6. Intellectual Property',
+    blocks: [
+      { p: 'Website content, branding, designs, photographs, and other materials owned by Avinu Events may not be reproduced or distributed without authorization.' },
+      { p: 'Third-party materials remain the property of their respective owners.' },
     ],
   },
   {
-    title: 'Damages',
-    body: [
-      'Client shall provide for safe working conditions to all employees, guests invited by client, other contractors, and equipment provided by company and by the event venue. A shaded area will be provided for equipment outside to avoid direct contact with the sun or damages from rain. Under the event of rain, Levine Events staff will request necessary time to move the equipment to a safe location.',
-      'Client assumes responsibility for damages to equipment provided by Levine Events. For this reason, Levine Events reserves the right to deny anyone access to property owned by the company.',
+    title: '7. Limitation of Liability',
+    blocks: [
+      { p: 'To the extent permitted by applicable law, Avinu Events is not responsible for website interruptions, technical errors, or indirect damages arising from use of the website.' },
+      { p: 'Nothing in these Terms limits rights or remedies that cannot legally be excluded.' },
     ],
   },
   {
-    title: 'Indemnification',
-    body: [
-      'As indicated in these conditions, under the event of any misbehavior in breach of this contract by the client, guests, other staff members and vendors, both Levine Events and Client agree to good faith and indemnify against all claims (including legal expenses), obligations and injuries to both parties.',
-    ],
-  },
-  {
-    title: 'Legalities',
-    body: [
-      'Levine Events, and/or all agents are released from any damages/litigation due to client, guests, and any other personnel or properties. All arbitration or litigation will take place in Miami Dade County Courts. Liquidated damage claims will be limited to the contract fee only. Levine Events is not an agent or employee, and is hereby being hired as an independent contractor.',
-      "Client understands that Levine Events did not actively solicit business from client. In addition, client agrees that the company Levine Events was contacted by client at the client's discretion with the knowledge and intention of hiring Levine Events.",
-    ],
-  },
-  {
-    title: 'Insufficient Funds',
-    body: [
-      "If client's check does not clear for any reason, then client agrees to pay a $50.00 service charge and an additional $20 service charge for each collection notice. In the event of non-payment, staff retains the right to attempt collection through the courts. Client will be held responsible for all court fees, legal fees, and collection costs incurred by company.",
-    ],
-  },
-  {
-    title: 'Overtime',
-    body: [
-      'Overtime is calculated in one (1) hour increments at the prorated amount on the invoice per specific service. The time and amount for overtime must be notified to management and paid in cash before the entertainer continues performing, unless otherwise noted.',
-    ],
-  },
-  {
-    title: 'Miscellaneous',
-    body: [
-      'Additional travel fees may apply for travel distances beyond 60 miles of our office in Hollywood, FL and will be calculated per every additional 30 miles per staff member.',
-      'By executing this contract as Client, the person executing said contract, either individually, or as an agent or representative, represents and warrants that he or she is eighteen (18) years of age, and further, if executing said contract as agent or representative, that he or she has the authority to enter into this agreement and should he or she not have such authority, he or she personally accepts and assumes full responsibility and liability under the terms of this contract.',
-      'This contract will supersede any other contract. If any part of this contract is illegal or unenforceable, the remaining provisions of this contract will remain valid and enforceable to both parties. This contract contains the entire agreement between the parties and no statements, promises, or inducements made by any party hereto, or agent or representative of either party hereto, which are not contained in this written contract, shall be valid or binding. This contract shall not be enlarged, modified, or altered except in writing by both parties and endorsed hereon.',
+    title: '8. Changes to These Terms',
+    blocks: [
+      { p: 'We may revise these Terms & Conditions periodically. Updated terms will be published on this page with the corresponding revision date.' },
     ],
   },
 ];
@@ -96,41 +73,42 @@ const sections = [
 
 <Noir
   title="Terms and Conditions"
-  description="Terms and conditions for services provided by Levine Events / Avinu Music & Productions."
+  description="Terms and conditions for the Avinu Events website, SMS program, and event services provided by Levine Events d/b/a Avinu Events."
   robots="noindex, follow"
 >
   <!-- ░░ PAGE HEADER ░░ -->
   <section class="page-head">
     <p class="eyebrow head-kicker">Legal</p>
     <h1 class="head-h1">Terms &amp; <span class="ital">Conditions</span></h1>
-    <p class="head-sub">The agreement is for services between the undersigned purchaser (client) and Levine Events.</p>
+    <p class="head-sub">Last updated: {TERMS_UPDATED}</p>
   </section>
 
   <!-- ░░ LEGAL BODY ░░ -->
   <section class="legal">
     <div class="legal-inner">
       <div class="parties" data-reveal>
-        <p><strong>The Parties.</strong> The agreement is for services between the undersigned purchaser (client) and Levine Events.</p>
-        <p><strong>Services.</strong> Levine Events agrees to provide client with the services mentioned on invoice.</p>
-        <p>The parties agree on the following terms and conditions:</p>
-        <ol class="terms-list">
-          {generalTerms.map((t) => <li>{t}</li>)}
-        </ol>
+        <p>Welcome to Avinu Events. Avinu Events is a brand of Levine Events (&ldquo;Avinu Events,&rdquo; &ldquo;Levine Events,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;). By accessing our website, submitting an inquiry, requesting a proposal, or using our services, you agree to the following Terms &amp; Conditions.</p>
       </div>
 
-      {sections.map((s) => (
-        <article class="clause" data-reveal>
+      {siteTerms.map((s) => (
+        <article class="clause" id={s.title.startsWith('4.') ? 'sms-terms' : undefined} data-reveal>
           <h2 class="clause-title">{s.title}</h2>
-          {s.body.map((p) => <p>{p}</p>)}
+          {s.blocks.map((b) => (b.label ? <p><strong class="lbl">{b.label}</strong> {b.p}</p> : <p>{b.p}</p>))}
+          {s.title.startsWith('4.') && (
+            <p>For information about how we collect and protect your information, please review our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+          )}
         </article>
       ))}
 
       <article class="clause" data-reveal>
-        <h2 class="clause-title">Payment</h2>
-        <p>Payments made by check should be payable to Levine Events and mailed to:</p>
-        <p class="address">Levine Events — 803 S 21 Ave, Hollywood, FL 33020</p>
-        <p>Your booking will be confirmed upon receipt of signed contract and payment.</p>
+        <h2 class="clause-title">9. Contact Information</h2>
+        <p>For questions about these Terms &amp; Conditions, please contact:</p>
+        <p><strong class="lbl">Avinu Events</strong> (Levine Events)<br />
+          Website: <a href="https://www.avinuevents.com">www.avinuevents.com</a><br />
+          Email: <a href="mailto:info@avinuevents.com">info@avinuevents.com</a><br />
+          Phone: <a href="tel:+17545474415">754-547-4415</a></p>
       </article>
+
     </div>
   </section>
 
@@ -159,13 +137,12 @@ const sections = [
     .parties { padding-bottom: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--line); }
     .parties p, .clause p { color: var(--muted-text); font-size: 0.98rem; line-height: 1.75; margin: 0 0 1rem; }
     .parties strong { color: var(--fg); font-weight: 700; }
-    .terms-list { margin: 1rem 0 0; padding-left: 1.3rem; color: var(--muted-text); }
-    .terms-list li { margin-bottom: 0.7rem; line-height: 1.7; }
 
     .clause { padding: 2rem 0; border-bottom: 1px solid var(--line); }
     .clause:last-child { border-bottom: none; }
+    .lbl { color: var(--fg); font-weight: 700; }
+    .clause a { color: var(--accent-ink); }
     .clause-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--fg); margin-bottom: 1rem; }
-    .address { font-family: var(--font-display); color: var(--fg); font-size: 1.05rem; }
 
     .band { padding: clamp(4.5rem, 9vh, 7rem) 1.5rem; }
     .band > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }

@@ -1,0 +1,176 @@
+---
+import Noir from '../../layouts/Noir.astro';
+
+// Privacy Policy (requisito del registro A2P 10DLC de Twilio: debe decir que los
+// números móviles y el consentimiento SMS no se comparten con terceros para marketing).
+const UPDATED = 'November 5, 2026';
+
+type Block = { p?: string; strong?: string; list?: string[] };
+const sections: { title: string; blocks: Block[] }[] = [
+  {
+    title: '1. Information We Collect',
+    blocks: [
+      { p: 'We may collect the following information:' },
+      {
+        list: [
+          'Full name',
+          'Email address',
+          'Phone number',
+          'Event date, location, and type',
+          'Event preferences and service selections',
+          'Information submitted through our contact and inquiry forms',
+          'Communications related to proposals, bookings, and event planning',
+          'Website usage and technical information',
+        ],
+      },
+    ],
+  },
+  {
+    title: '2. How We Use Your Information',
+    blocks: [
+      { p: 'We use your information to:' },
+      {
+        list: [
+          'Respond to inquiries and provide customer support.',
+          'Prepare and send event proposals and quotations.',
+          'Coordinate bookings, appointments, and event details.',
+          'Send event-related updates and reminders.',
+          'Communicate by email, telephone, or SMS when appropriate.',
+          'Improve our website, services, and customer experience.',
+          'Send promotional communications when you have separately consented to receive them.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '3. SMS Communications',
+    blocks: [
+      { p: 'If you provide your phone number and expressly opt in to receive SMS messages from Avinu Events, we may send text messages related to your inquiry, consultation scheduling, proposals, booking confirmations, event planning, and customer support.' },
+      { p: 'If you separately opt in to marketing messages, we may also send promotional offers and service updates.' },
+      { p: 'Message frequency varies based on your interactions with Avinu Events. Message and data rates may apply.' },
+      { p: 'You can opt out of SMS communications at any time by replying STOP to any message. For assistance, reply HELP or contact us at info@avinuevents.com.' },
+      { p: 'Consent to receive SMS messages is not a condition of purchasing any goods or services.' },
+    ],
+  },
+  {
+    title: '4. Mobile Information Privacy',
+    blocks: [
+      { strong: 'No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.' },
+      { p: 'Information sharing with subcontractors and service providers that support our operations, such as customer service, messaging delivery, and technical support, is permitted solely for providing those services.' },
+      { strong: 'Text messaging opt-in data and consent will not be shared with any third parties or affiliates for their marketing or promotional purposes.' },
+    ],
+  },
+  {
+    title: '5. How We Share Information',
+    blocks: [
+      { p: 'We may share personal information with trusted service providers that assist with website hosting, customer relationship management, email delivery, SMS communications, payment processing, and event operations.' },
+      { p: 'These providers may access information only as necessary to perform services on our behalf, subject to appropriate confidentiality and data protection obligations.' },
+      { p: 'We may also disclose information when required by applicable law.' },
+    ],
+  },
+  {
+    title: '6. Data Security and Retention',
+    blocks: [
+      { p: 'We use reasonable administrative, technical, and organizational safeguards to protect personal information from unauthorized access, disclosure, alteration, or destruction.' },
+      { p: 'We retain information for as long as reasonably necessary to provide our services, fulfill legitimate business purposes, comply with legal obligations, and resolve disputes.' },
+    ],
+  },
+  {
+    title: '7. Cookies and Website Analytics',
+    blocks: [
+      { p: 'Our website may use cookies and similar technologies to support website functionality, understand visitor activity, and improve user experience.' },
+      { p: 'You can manage cookies through your browser settings.' },
+    ],
+  },
+  {
+    title: '8. Your Privacy Choices',
+    blocks: [
+      { p: 'You may contact us to request access to, correction of, or deletion of your personal information, subject to applicable legal requirements.' },
+      { p: 'You may unsubscribe from marketing emails using the unsubscribe instructions provided in those messages.' },
+      { p: 'You may stop receiving SMS messages at any time by replying STOP.' },
+    ],
+  },
+  {
+    title: '9. Third-Party Services',
+    blocks: [
+      { p: 'Our website and communications may use third-party platforms for event management, scheduling, payments, email, and SMS delivery. These services may process information according to their respective privacy policies.' },
+    ],
+  },
+  {
+    title: '10. Changes to This Policy',
+    blocks: [
+      { p: 'We may update this Privacy Policy periodically. Any changes will be published on this page with an updated revision date.' },
+    ],
+  },
+];
+---
+
+<Noir
+  title="Privacy Policy"
+  description="How Avinu Events collects, uses, and protects your personal information, including SMS communications."
+>
+  <section class="page-head">
+    <p class="eyebrow head-kicker">Legal</p>
+    <h1 class="head-h1">Privacy <span class="ital">Policy</span></h1>
+    <p class="head-sub">Last updated: {UPDATED}</p>
+  </section>
+
+  <section class="legal">
+    <div class="legal-inner">
+      <div class="intro">
+        <p>
+          Avinu Events is a brand of Levine Events (&ldquo;Avinu Events,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;). At Avinu Events, we value your privacy and are committed to protecting your personal information.
+          This Privacy Policy explains how we collect, use, store, and share information when you visit our
+          website, submit an inquiry, request a proposal, book our services, or communicate with our team.
+        </p>
+      </div>
+
+      {sections.map((s) => (
+        <article class="clause">
+          <h2 class="clause-title">{s.title}</h2>
+          {s.blocks.map((b) =>
+            b.list ? (
+              <ul class="legal-list">{b.list.map((li) => <li>{li}</li>)}</ul>
+            ) : b.strong ? (
+              <p class="emph">{b.strong}</p>
+            ) : (
+              <p>{b.p}</p>
+            )
+          )}
+        </article>
+      ))}
+
+      <article class="clause">
+        <h2 class="clause-title">11. Contact Us</h2>
+        <p>For questions about this Privacy Policy or your personal information, please contact:</p>
+        <p class="contact">
+          <strong>Avinu Events</strong> (Levine Events)<br />
+          Website: <a href="https://www.avinuevents.com">www.avinuevents.com</a><br />
+          Email: <a href="mailto:info@avinuevents.com">info@avinuevents.com</a><br />
+          Phone: <a href="tel:+17545474415">754-547-4415</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <style>
+    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+    .page-head { max-width: 56rem; margin: 0 auto; padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(1.5rem, 3vh, 2.5rem); text-align: center; }
+    .head-kicker { display: block; margin-bottom: 1.3rem; }
+    .head-h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); letter-spacing: -0.03em; }
+    .head-sub { color: var(--muted-text); font-size: 1rem; margin: 1.4rem auto 0; }
+
+    .legal { padding: clamp(2rem, 4vh, 3rem) 1.5rem clamp(3rem, 6vh, 5rem); }
+    .legal-inner { max-width: 48rem; margin: 0 auto; }
+    .intro { padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+    .intro p, .clause p, .legal-list { color: var(--muted-text); font-size: 0.98rem; line-height: 1.75; margin: 0 0 1rem; }
+    .clause { padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .clause:last-child { border-bottom: none; }
+    .clause-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--fg); margin-bottom: 1rem; }
+    .legal-list { padding-left: 1.3rem; }
+    .legal-list li { margin-bottom: 0.4rem; }
+    .emph { color: var(--fg) !important; font-weight: 600; }
+    .contact strong { color: var(--fg); }
+    .clause a { color: var(--accent-ink); }
+  </style>
+</Noir>
