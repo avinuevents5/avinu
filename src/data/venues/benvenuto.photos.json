@@ -1,0 +1,184 @@
+{
+ "main-room": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The main room set with round tables, a crystal chandelier and violet uplighting",
+  "cap": "The main room, dressed in violet light",
+  "cat": "celebrations"
+ },
+ "centerpiece-violet": {
+  "w": 1500,
+  "h": 2250,
+  "alt": "A tall floral centerpiece with candles under violet light",
+  "cap": "A centerpiece in violet light",
+  "cat": "details"
+ },
+ "postcard-front": {
+  "w": 1000,
+  "h": 625,
+  "alt": "A vintage postcard of the Rainbow Gardens building in Boynton Beach, with palms and a flag",
+  "cap": "Rainbow Gardens, Boynton Beach: a vintage postcard",
+  "cat": "history"
+ },
+ "tower-vintage": {
+  "w": 950,
+  "h": 706,
+  "alt": "A vintage photo of the stucco tower and arched windows of the building",
+  "cap": "The tower, in an archival photo",
+  "cat": "history"
+ },
+ "fountain-ceremony": {
+  "w": 1200,
+  "h": 800,
+  "alt": "A courtyard ceremony set before a tiled fountain wall with white chairs and florals",
+  "cap": "A ceremony at the fountain wall",
+  "cat": "weddings"
+ },
+ "table-florals": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "A reception table with red roses and blue hydrangeas",
+  "cap": "A reception table in red and blue",
+  "cat": "details"
+ },
+ "table-gold": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "Place settings with gold chargers and folded napkins",
+  "cap": "Place settings in gold",
+  "cat": "details"
+ },
+ "garden-walk": {
+  "w": 1600,
+  "h": 1028,
+  "alt": "A bride and groom walking down a garden path between hedges",
+  "cap": "In the gardens",
+  "cat": "weddings"
+ },
+ "bar-toast": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "Groomsmen raising glasses of whiskey in a toast",
+  "cap": "A toast at the bar",
+  "cat": "celebrations"
+ },
+ "sparklers": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple leaving through a tunnel of sparklers at night",
+  "cap": "A sparkler send-off",
+  "cat": "weddings"
+ },
+ "bridal-party": {
+  "w": 1000,
+  "h": 667,
+  "alt": "A bride and bridesmaids in navy gowns among tall garden hedges",
+  "cap": "The bridal party in the gardens",
+  "cat": "weddings"
+ },
+ "groomsmen-bar": {
+  "w": 1500,
+  "h": 2250,
+  "alt": "Groomsmen in grey suits at the wood-paneled bar",
+  "cap": "Groomsmen at the bar",
+  "cat": "celebrations"
+ },
+ "couple-palms": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "A bride and groom beneath tall palms",
+  "cap": "Under the palms",
+  "cat": "weddings"
+ },
+ "table-number": {
+  "w": 1500,
+  "h": 2250,
+  "alt": "A table number card among white florals",
+  "cap": "Table details",
+  "cat": "details"
+ },
+ "table-hydrangea": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "A reception table with white hydrangeas and crystal glassware",
+  "cap": "White hydrangeas and crystal",
+  "cat": "details"
+ },
+ "postcard-flowers": {
+  "w": 1000,
+  "h": 622,
+  "alt": "A vintage postcard of flower beds beside the tower",
+  "cap": "The gardens on a vintage postcard",
+  "cat": "history"
+ },
+ "postcard-well": {
+  "w": 1000,
+  "h": 627,
+  "alt": "A vintage postcard of a wishing well pavilion among flowers",
+  "cap": "The wishing well, on a vintage postcard",
+  "cat": "history"
+ },
+ "front-vintage": {
+  "w": 1000,
+  "h": 618,
+  "alt": "An archival photo of the building's long arcaded front along the highway",
+  "cap": "The building, in an archival photo",
+  "cat": "history"
+ },
+ "dish-duck": {
+  "w": 1500,
+  "h": 2250,
+  "alt": "Roasted poultry with basil and a green purée",
+  "cap": "Roasted poultry with basil",
+  "cat": "cuisine"
+ },
+ "dish-tartare": {
+  "w": 1500,
+  "h": 2250,
+  "alt": "A plated dish with cherry tomatoes and microgreens",
+  "cap": "A seasonal plate",
+  "cat": "cuisine"
+ },
+ "dish-ravioli": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "Ravioli with burrata and pea shoots",
+  "cap": "Ravioli with burrata",
+  "cat": "cuisine"
+ },
+ "dish-canapes": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "Trays of canapés with smoked salmon and cream",
+  "cap": "Canapés for cocktail hour",
+  "cat": "cuisine"
+ },
+ "dish-steak-plate": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A steak with roasted vegetables on a white plate",
+  "cap": "Steak with roasted vegetables",
+  "cat": "cuisine"
+ },
+ "dish-salad": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "A crisp cutlet topped with arugula and cherry tomatoes",
+  "cap": "A cutlet with arugula",
+  "cat": "cuisine"
+ },
+ "dish-cake": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "A seared cake with avocado purée and microgreens",
+  "cap": "A seared cake with avocado purée",
+  "cat": "cuisine"
+ },
+ "dish-filet": {
+  "w": 1500,
+  "h": 1000,
+  "alt": "A filet with herb butter and roasted carrots",
+  "cap": "Filet with roasted carrots",
+  "cat": "cuisine"
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "ballroom-white-gold": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ballroom with a large white floral centerpiece, gold-framed chairs and draped ceiling",
+  "cap": "The ballroom, dressed in white and gold",
+  "cat": "ballroom"
+ },
+ "ballroom-stage-florals": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ballroom with white floral wall, stage and round tables set with gold chairs",
+  "cap": "Stage, dance floor and florals",
+  "cat": "ballroom"
+ },
+ "ceremony-garden-aisle": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Outdoor ceremony aisle between white chairs, with white blossom trees and a floral arch",
+  "cap": "Outdoor ceremony setup",
+  "cat": "terrace"
+ },
+ "dusk-chuppah": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "White draped chuppah and rows of chairs outdoors at dusk",
+  "cap": "A draped chuppah at dusk",
+  "cat": "terrace"
+ },
+ "sanctuary-chuppah": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Wedding party beneath a floral chuppah in the sanctuary, with stained glass windows",
+  "cap": "The sanctuary, with its stained glass windows",
+  "cat": "sanctuary"
+ },
+ "sanctuary-aisle": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Sanctuary filled with guests, seen along a white aisle runner toward the altar",
+  "cap": "Ceremony in the sanctuary",
+  "cat": "sanctuary"
+ },
+ "sanctuary-blue-aisle": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Sanctuary aisle lit in blue, with tall floral arrangements on glowing pedestals",
+  "cap": "Sanctuary aisle with colored lighting",
+  "cat": "sanctuary"
+ },
+ "aisle-vertical": {
+  "w": 1440,
+  "h": 1800,
+  "alt": "Draped white aisle with steps and blue uplighting",
+  "cap": "Draped aisle, blue uplighting",
+  "cat": "sanctuary"
+ },
+ "ballroom-purple-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ballroom lit in purple with a draped ceremony aisle and guests seated on both sides",
+  "cap": "Ceremony in the ballroom",
+  "cat": "ballroom"
+ },
+ "chuppah-sparks": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Bride walking in front of a white chuppah, with sparks behind her",
+  "cap": "Ceremony entrance",
+  "cat": "celebrations"
+ },
+ "ballroom-monogram": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ballroom with chandelier, draped ceiling, glowing monogram and long reception tables",
+  "cap": "Ballroom with a custom monogram",
+  "cat": "ballroom"
+ },
+ "first-dance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Couple sharing a first dance on a white dance floor with a gold monogram",
+  "cap": "First dance on a custom floor monogram",
+  "cat": "celebrations"
+ },
+ "floral-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Reception table set with flowers, candles and green and gold place settings",
+  "cap": "Table setting, florals and candlelight",
+  "cat": "details"
+ },
+ "purple-long-table": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Ballroom with a long banquet table lit in purple, with candles and crystal chairs",
+  "cap": "Long table in purple light",
+  "cat": "ballroom"
+ },
+ "pink-drapes": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Ballroom with pink-draped chairs, floral centerpieces and warm uplighting",
+  "cap": "Draped chairs, floral centerpieces",
+  "cat": "details"
+ },
+ "sweetheart-table": {
+  "w": 1024,
+  "h": 768,
+  "alt": "Two white tufted chairs at a sweetheart table banked with white roses",
+  "cap": "Sweetheart table",
+  "cat": "details"
+ },
+ "candles-ballroom": {
+  "w": 1200,
+  "h": 800,
+  "alt": "Ballroom with white draping, candles and lit chandelier",
+  "cap": "Candlelight and chandeliers",
+  "cat": "ballroom"
+ },
+ "warm-reception": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Ballroom with long tables, amber uplighting and floral centerpieces",
+  "cap": "Long tables in amber light",
+  "cat": "ballroom"
+ },
+ "quince-blue-dress": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "Quinceanera in a blue gown with dancers on a lit stage and white gazebo set",
+  "cap": "Quinceanera entrance",
+  "cat": "celebrations"
+ },
+ "quince-chandelier": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "Ballroom with purple lighting, crystal chandelier and a decorated stage",
+  "cap": "Ballroom lit for a quinceanera",
+  "cat": "ballroom"
+ },
+ "mitzvah-dance": {
+  "w": 1600,
+  "h": 1062,
+  "alt": "Guests dancing at a bar mitzvah beneath a chandelier, with colored lighting and LED screen",
+  "cap": "Dance floor at a bar mitzvah",
+  "cat": "celebrations"
+ },
+ "mitzvah-pink-lounge": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "White lounge furniture and draped walls lit in pink for a bat mitzvah",
+  "cap": "Lounge seating for a bat mitzvah",
+  "cat": "details"
+ },
+ "mitzvah-tables": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Round tables with crystal chairs and white linen in a draped white ballroom",
+  "cap": "Round tables set for a party",
+  "cat": "ballroom"
+ },
+ "mitzvah-entrance": {
+  "w": 1600,
+  "h": 1065,
+  "alt": "Guest of honor posing in a draped doorway with red velvet curtains, flanked by two hosts",
+  "cap": "Entrance at a bar mitzvah",
+  "cat": "celebrations"
+ },
+ "dish-filet-tower": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Plated filet on a pink puree with bok choy and a pastry garnish",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-salmon-plate": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Plated salmon with bok choy and baby vegetables",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-white-fish": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Plated white fish fillet with bok choy and pink puree",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-steak-rose": {
+  "w": 1600,
+  "h": 1084,
+  "alt": "Grilled steak with a potato rosette, carrots and okra",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-skewer": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Plated steak with a vegetable and mushroom skewer",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-grilled-salmon": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Grilled salmon with grilled eggplant on a white plate",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-chicken": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Roasted chicken with grilled eggplant and sauce on a square plate",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "dish-pastry-fish": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Plated fish with chickpeas and a baked pastry handle",
+  "cap": "Plated entree",
+  "cat": "cuisine"
+ },
+ "team-flowers": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "Event team in black uniforms posing beneath a hanging floral installation",
+  "cap": "The Eden service team",
+  "cat": "details"
+ }
+}

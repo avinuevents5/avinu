@@ -1,0 +1,163 @@
+{
+ "hero-ballroom": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ritz-Carlton Ballroom set for a wedding reception under a blue chandelier, with floral centerpieces and candlelight",
+  "cap": "The Ritz-Carlton Ballroom, set for a reception",
+  "cat": "weddings"
+ },
+ "ballroom-wide": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Wide view of the Ritz-Carlton Ballroom with round tables, a patterned carpet and blue chandeliers",
+  "cap": "The Ritz-Carlton Ballroom",
+  "cat": "ballroom"
+ },
+ "ballroom-reception": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Reception tables with floral centerpieces beneath a blue chandelier in the ballroom",
+  "cap": "A reception set in the ballroom",
+  "cat": "weddings"
+ },
+ "ballroom-florals": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long table with tall candle holders and white and burgundy florals",
+  "cap": "Candlelit florals",
+  "cat": "weddings"
+ },
+ "ballroom-candles": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Tables with floating candles, hanging florals and gold chairs",
+  "cap": "Candles and florals at the tables",
+  "cat": "weddings"
+ },
+ "pool-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Wedding ceremony set up with white chairs and a draped canopy beside a pool, with palm trees and the ocean beyond",
+  "cap": "A wedding ceremony beside the pool, with the ocean beyond",
+  "cat": "weddings"
+ },
+ "canopy-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Ceremony set up with white chairs along an aisle and a draped canopy with crystal details",
+  "cap": "A ceremony setup with a draped canopy",
+  "cat": "weddings"
+ },
+ "gallery-cocktail": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Gallery set with high cocktail tables and a patterned carpet",
+  "cap": "The Gallery, set for a cocktail reception",
+  "cat": "ballroom"
+ },
+ "venetian-room": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Venetian room with a long dining table set for a seated meal and windows over the beach",
+  "cap": "The Venetian room, set for a seated meal",
+  "cat": "ballroom"
+ },
+ "dilido-palms": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Outdoor tables set among palm trees with the ocean in the distance",
+  "cap": "DiLido, outdoors among the palms",
+  "cat": "outdoors"
+ },
+ "dilido-club": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Garden seating area with wicker chairs and an ocean view",
+  "cap": "The DiLido Beach Club garden",
+  "cat": "outdoors"
+ },
+ "dilido-dining": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Beachfront dining terrace with white-clothed tables and umbrellas under palm trees",
+  "cap": "Beachfront dining under the palms",
+  "cat": "outdoors"
+ },
+ "zaytinya-patio": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Restaurant terrace with wooden tables, blue chairs and plants",
+  "cap": "Zaytinya terrace",
+  "cat": "outdoors"
+ },
+ "balcony-view": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Hotel balcony looking along the beach and the Atlantic",
+  "cap": "A balcony over the beach",
+  "cat": "hotel"
+ },
+ "suite-living": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Suite living room with a blue curved sofa and floor-to-ceiling ocean views",
+  "cap": "A suite living room with ocean views",
+  "cat": "hotel"
+ },
+ "ocean-king": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guest room with a king bed and a window onto the ocean",
+  "cap": "A guest room facing the ocean",
+  "cat": "hotel"
+ },
+ "lapidus-bar": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Lapidus Bar interior with gold pendant lights, a stone bar and yellow banquettes",
+  "cap": "Lapidus Bar",
+  "cat": "dining"
+ },
+ "dinner-spread": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Table of shared dishes with red and white wine",
+  "cap": "A table of shared dishes",
+  "cat": "dining"
+ },
+ "ceviche": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Ceviche served in a white bowl with crisp plantain strips",
+  "cap": "Ceviche",
+  "cat": "dining"
+ },
+ "dessert": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Pastry dessert with whipped cream and dark berries on a glass plate",
+  "cap": "Dessert",
+  "cat": "dining"
+ },
+ "light-bites": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Outdoor table of small plates with white wine",
+  "cap": "Small plates and wine",
+  "cat": "dining"
+ },
+ "cocktail": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Cocktail with a pink garnish on a dark table beside a gold lamp",
+  "cap": "A cocktail at Lapidus Bar",
+  "cat": "dining"
+ },
+ "meeting-room": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Meeting room set classroom-style",
+  "cap": "A meeting room, classroom setup",
+  "cat": "hotel"
+ }
+}

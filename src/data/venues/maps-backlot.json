@@ -1,0 +1,241 @@
+{
+  "slug": "maps-backlot",
+  "name": "MAPS Backlot",
+  "media_note": "Fotos de mapsbacklot.com (galerias /gallery-new/ y paginas de inicio/venue/about, 2026-11-06), originales sin sufijo de tamano. PENDIENTE permiso del venue y credito de fotografos (varios: Danielle+Frankie, Rauvynne+Natalia, Maria+Mike, Mary+Adam, Jaime+Daniel, Nicole+Sumit, etc.; no se conoce el nombre de cada fotografo). Hero = foto de boda de Danielle+Frankie (sin logos). Foto 'drive-in-car' (carro amarillo en el patio, de la pagina de inicio) ilustra 'acceso en vehiculo'/eventos de marca; sin logos. NO hay foto confirmada de la green room ni de los banos: no incluidas como espacio. Fotos 'container-bar' (galeria de inicio) y 'cyc-lounge' (boda Maria+Mike, sala lounge frente a pared de cemento) son las mas cercanas a 'bares de contenedor' y 'paredes cyc' pero NO confirmadas como uno de los dos bares ni como LA pared cyc de cemento. Datos: FAQ oficial mapsbacklot.com/faq (600 de pie / 250 sentados; alquiler 12 h; sonido <80 dB a 25 ft, horarios prohibidos; alcohol hasta 2:30 AM; electricidad limitada/generador; iluminacion de evento a cargo del cliente), mapsbacklot.com/venue (10,500 sq ft, 2 bares, 3 banos, green room con aire acondicionado, 18 ft muros, textos de bodas/eventos privados/marcas), /about-us (testimonios literales), Google Maps verificado 2026-11-06 (4.5, 107 resenas), Instagram @mapsbacklot. DISCREPANCIA: la pagina /venue dice '800 de pie / 250-400 sentados' y '10,000 sq ft'; se uso la cifra del FAQ (600/250) y 10,500 sq ft de la home. Sin kosher. Sin videos. Informes: Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md.",
+  "credit": "MAPS Backlot",
+  "brand": {
+    "title": "MAPS Backlot",
+    "sub": "Wynwood, Miami"
+  },
+  "seo": {
+    "title": "MAPS Backlot · Open-Air Weddings & Events in Wynwood, Miami",
+    "description": "Weddings, private parties and brand events at MAPS Backlot, an open-air event and production space in Miami’s Wynwood Arts District with an iconic cement cyc wall, for up to 600 guests standing and 250 seated. Music, lighting and production by Avinu Events."
+  },
+  "hero": {
+    "photo": "love-night",
+    "photoMobile": "lantern-tree",
+    "pos": "50% 55%",
+    "kicker": "Wynwood, Miami · Open-air event space",
+    "h1": [
+      "MAPS"
+    ],
+    "h1em": "Backlot",
+    "lead": "Wynwood’s open-air event and production space, with an iconic cement cyc wall, mural walls and string lights: an industrial canvas for weddings, private parties and brand events, for up to 600 guests standing and 250 seated.",
+    "secondary": "Explore the Backlot",
+    "facts": [
+      [
+        "600",
+        "Guests standing"
+      ],
+      [
+        "250",
+        "Guests seated"
+      ],
+      [
+        "10,500",
+        "Sq ft, open-air"
+      ]
+    ]
+  },
+  "intro": {
+    "kicker": "The Backlot",
+    "h2": "An industrial canvas, <em>made for celebrations</em>",
+    "paras": [
+      "In Miami’s Wynwood Arts District, MAPS Backlot is a fully permitted, open-air venue built around a signature cement cyc wall that the team protects as its “Mona Lisa.” Its modern, industrial-chic backdrop adapts to a romantic, rustic or anything-in-between vision.",
+      "Every rental includes exclusive use of the venue, an air-conditioned green room, two built-in bars and three restrooms, with drive-in access and a valid assembly license."
+    ],
+    "a": "empty-courtyard",
+    "b": "round-tables-aerial",
+    "stats": [
+      [
+        "12 hrs",
+        "Standard rental: setup, event and breakdown"
+      ],
+      [
+        "2",
+        "Built-in bars"
+      ],
+      [
+        "3",
+        "Restrooms"
+      ]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "petal-entrance",
+        "title": "Weddings",
+        "text": "Say “I do” in a space as unforgettable as your love story: a modern, industrial-chic backdrop under open sky, with the whole venue to yourselves.",
+        "points": [
+          "Exclusive use of the venue for your reserved time",
+          "Up to 250 guests seated, 600 standing",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at MAPS Backlot"
+      },
+      {
+        "id": "private",
+        "label": "Private parties & Milestones",
+        "short": "Milestones",
+        "photo": "batmitzvah-aerial",
+        "title": "Private parties & milestones",
+        "text": "Milestone birthdays, anniversaries, bat mitzvahs or just because: open-air freedom, a green room indoors and a vibe your guests will remember.",
+        "points": [
+          "Two built-in bars and an air-conditioned green room",
+          "A blank canvas for themed sets, lounges and dance floors",
+          "DJ, MC, dancers and LED by Avinu Events"
+        ],
+        "cta": "Plan a celebration at MAPS Backlot"
+      },
+      {
+        "id": "brand",
+        "label": "Brand events & launches",
+        "short": "Brand events",
+        "photo": "drive-in-car",
+        "title": "Brand events & launches",
+        "text": "Product launches, pop-ups, conferences and activations on a canvas with scale: drive-in access, a white cyc wall and room to build.",
+        "points": [
+          "Vehicle access for event or production displays, with pre-approval",
+          "White cyc wall for projections and immersive art",
+          "Sound, LED and lighting by Avinu Events"
+        ],
+        "cta": "Plan an event at MAPS Backlot"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The Backlot, transformed",
+    "h2": "From the ceremony <em>to the last dance</em>",
+    "text": "A ceremony before the white wall, a long table in warm light and a dance floor that glows into the night. Choose a moment.",
+    "moments": [
+      {
+        "title": "Ceremony",
+        "text": "Before the white wall",
+        "photo": "aisle-white-wall",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "Long tables, warm light",
+        "photo": "teal-uplighting",
+        "wide": true
+      },
+      {
+        "title": "Late night",
+        "text": "On the dance floor",
+        "photo": "starry-dance-floor",
+        "wide": true
+      }
+    ]
+  },
+  "spaces": {
+    "kicker": "The space",
+    "h2": "One open-air courtyard, <em>endless layouts</em>",
+    "text": "MAPS Backlot is a location-only venue: an open floor plan under open sky, with bars, walls and a green room to build your night around.",
+    "items": [
+      {
+        "name": "Open-air courtyard",
+        "photo": "sunset-tables",
+        "capacity": "600 standing · 250 seated",
+        "text": "The main open-air event space, an open floor plan for ceremonies, dinners and dancing, with exclusive use for your reserved time."
+      },
+      {
+        "name": "Container bars",
+        "photo": "container-bar",
+        "capacity": "Two built-in bars",
+        "text": "Bars built into the venue’s container structure. Per city ordinance, alcohol service ends at 2:30 AM and bars close by 3:00 AM."
+      },
+      {
+        "name": "Cyc walls",
+        "photo": "cyc-lounge",
+        "capacity": "Cement and white · 18 ft",
+        "text": "The signature cement cyc wall stays untouched; a white cyc wall is available for projections, immersive art and branded environments."
+      },
+      {
+        "name": "Drive-in access",
+        "photo": "drive-in-car",
+        "capacity": "Pre-approved vehicle access",
+        "text": "Vehicles can drive in for event or production displays, with approval from the venue’s Events Manager."
+      }
+    ],
+    "note": "Capacity from the venue: up to 600 guests standing and 250 seated, depending on layout. Confirm layouts, capacity and any extra restrooms with the MAPS Backlot team."
+  },
+  "galleryTitle": "Inside <em>the Backlot</em>",
+  "gallery": {
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "celebrations",
+        "Celebrations"
+      ],
+      [
+        "backlot",
+        "The Backlot"
+      ]
+    ],
+    "items": [
+      "wedding-entrance",
+      "sunset-tables",
+      "first-dance",
+      "batmitzvah-sign",
+      "floral-canopy",
+      "geometric-ceremony",
+      "night-reception",
+      "mural-ceremony",
+      "anniversary-party",
+      "dip-kiss",
+      "ceremony-tree",
+      "tent-party",
+      "purple-reception",
+      "hora-lift",
+      "live-band",
+      "shoulders"
+    ]
+  },
+  "reviews": {
+    "kicker": "Couples and clients who celebrated here",
+    "rating": "4.5",
+    "count": "107 Google reviews",
+    "src": "Testimonials from mapsbacklot.com · Rating from Google",
+    "items": [
+      {
+        "q": "Thank you for allowing us to have the best wedding ever!",
+        "who": "Rauvynne and Natalia · Wedding · mapsbacklot.com"
+      },
+      {
+        "q": "We feel so blessed to have celebrated our wedding at MAPS… there is not a single person who has not commented on how unique and beautiful the venue was.",
+        "who": "Mike & Maria O. · Wedding · mapsbacklot.com"
+      },
+      {
+        "q": "MAPS Backlot is a great blank canvas for any event.",
+        "who": "Tina C. · Brand activation · mapsbacklot.com"
+      }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Miami Beach to Boca Raton. At an open-air venue like the Backlot, the venue provides the stage and we bring the production: the music, the light and a sound system designed to respect the City of Miami’s rules, under 80 dB measured 25 ft from the property line and within the permitted hours. We plan the power needs with the venue team.",
+    "lighting": "Event lighting for an open-air night, with uplighting and dance-floor lighting, and sound designed to stay under the city’s 80 dB limit."
+  },
+  "plan": {
+    "bg": "night-reception",
+    "at": "at MAPS Backlot",
+    "forThis": "MAPS Backlot",
+    "address": "342 NW 24th St, Miami, FL 33127",
+    "venueLabel": "MAPS Backlot",
+    "venuePhone": "+13055327880",
+    "venuePhoneLabel": "305-532-7880"
+  },
+  "footer": "MAPS Backlot · 342 NW 24th St, Miami"
+}

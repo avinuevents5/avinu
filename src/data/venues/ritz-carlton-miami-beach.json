@@ -1,0 +1,171 @@
+{
+  "slug": "ritz-carlton-miami-beach",
+  "name": "The Ritz-Carlton, South Beach",
+  "media_note": "Fotos de ritzcarlton.com (paginas events, weddings y photos, 2026-11-06, versiones 2880 px). PENDIENTE permiso del hotel. Datos: tabla oficial de capacidades y textos de la web oficial (Ballroom 10,212 sq ft; 18 event rooms; 'Jewish and Indian celebrations'; Zaytinya, Lapidus Bar y DiLido Beach Bar por José Andrés Group; DiLido Hotel 1953 por Morris Lapidus). Google 4.3 con 3,238 reseñas e Instagram 43.8K verificados en vivo 2026-11-06. Citas de WeddingWire (2009-2015, antiguas) de Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md. NO se usan las cifras totales de sq ft de la web (20,000 vs 36,000: contradictorias). Kosher NO afirmado como oferta propia (la web solo dice 'specialized options available for kosher gatherings'). Fotos 'pool-ceremony' (miasb-wedding) y 'canopy-ceremony' (rcsobch_00203): lugar exacto no confirmado, van con texto generico. Salon 1-3 y Courtyard no tienen foto confirmada: no llevan tarjeta, solo cifras en la nota. Salon 2/3: 'up to 360' (maximo del schema de la web; la tabla de bodas da 358/342 en recepcion).",
+  "credit": "The Ritz-Carlton, South Beach",
+  "brand": { "title": "Ritz-Carlton", "sub": "South Beach" },
+  "seo": {
+    "title": "The Ritz-Carlton, South Beach · Weddings, Events & Galas",
+    "description": "Weddings, social celebrations, galas and corporate events at The Ritz-Carlton, South Beach, an Art Deco landmark on Lincoln Road with a 10,212-square-foot ballroom for up to 1,075 guests. Music, lighting and production by Avinu Events."
+  },
+  "hero": {
+    "photo": "hero-ballroom",
+    "pos": "50% 55%",
+    "kicker": "Miami Beach, Florida · Art Deco landmark",
+    "h1": ["The Ritz-Carlton,"],
+    "h1em": "South Beach",
+    "lead": "An Art Deco landmark overlooking the beach: a ballroom under blue Baccarat chandeliers, ocean-view terraces and room for up to 1,075 guests.",
+    "secondary": "Explore the hotel",
+    "facts": [["1,075", "Guests, Ballroom reception"], ["10,212", "Sq ft Ballroom"], ["18", "Event rooms"]]
+  },
+  "intro": {
+    "kicker": "The Hotel",
+    "h2": "Where legacy meets <em>timeless elegance</em>",
+    "paras": [
+      "Designed by Morris Lapidus and opened as The DiLido Hotel in 1953, The Ritz-Carlton, South Beach sits on the beach at 1 Lincoln Road, with Atlantic views, a classic ballroom and open-air venues.",
+      "Weddings and events are led by a dedicated Catering and Sales team, with menus that reflect Miami’s diverse culinary scene and a hotel that welcomes Jewish and Indian celebrations."
+    ],
+    "a": "ballroom-wide",
+    "b": "gallery-cocktail",
+    "stats": [["4.3", "Google · 3,238 reviews"], ["840", "Seated in the Ballroom"], ["1953", "Opened as The DiLido Hotel"]]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "pool-ceremony",
+        "title": "Weddings",
+        "text": "Sharing vows amid the swaying palm trees, a lavish reception where the dance floor and glasses are always full, and an ocean-view cocktail hour in between.",
+        "points": [
+          "Ceremonies and receptions in the Ballroom",
+          "Ocean-view spaces for ceremonies and cocktails",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at the Ritz-Carlton"
+      },
+      {
+        "id": "social",
+        "label": "Social celebrations",
+        "short": "Social",
+        "photo": "canopy-ceremony",
+        "title": "Social celebrations",
+        "text": "Anniversaries in the ballroom, themed events tailored to the guest of honor, and celebrations with Jewish or Indian traditions, in rooms from small salons to the grand Ballroom.",
+        "points": [
+          "Anniversaries and themed events",
+          "Rooms for gatherings from 20 to 1,000 guests",
+          "DJ, MC and lighting by Avinu Events"
+        ],
+        "cta": "Plan a celebration at the Ritz-Carlton"
+      },
+      {
+        "id": "galas",
+        "label": "Galas & Corporate",
+        "short": "Galas",
+        "photo": "ballroom-wide",
+        "title": "Galas & corporate events",
+        "text": "Galas, conferences and executive retreats, with state-of-the-art AV, dedicated meeting experts and poolside or beachfront receptions.",
+        "points": [
+          "Ballroom for up to 1,075 guests",
+          "Ten meeting rooms with break-out space",
+          "Sound, lighting and production by Avinu Events"
+        ],
+        "cta": "Plan an event at the Ritz-Carlton"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The hotel, transformed",
+    "h2": "From the ocean <em>to the Ballroom</em>",
+    "text": "A ceremony by the water, cocktails in the Gallery and a Ballroom reception under blue chandeliers. Choose a moment.",
+    "moments": [
+      { "title": "Ceremony", "text": "By the pool and the ocean", "photo": "pool-ceremony", "wide": true },
+      { "title": "Cocktails", "text": "In the Gallery", "photo": "gallery-cocktail", "wide": true },
+      { "title": "Reception", "text": "In the Ballroom", "photo": "ballroom-reception", "wide": true }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "The Ballroom, the Gallery <em>and the beach</em>",
+    "text": "A grand ballroom, event rooms, a beachfront club and open-air terraces, all in one landmark hotel.",
+    "items": [
+      {
+        "name": "The Ritz-Carlton Ballroom",
+        "photo": "ballroom-wide",
+        "capacity": "Up to 1,075 guests",
+        "text": "10,212 sq ft with blue Baccarat chandeliers, for ceremonies and receptions: 840 seated for banquet, 1,075 reception, 1,000 theater."
+      },
+      {
+        "name": "The Gallery",
+        "photo": "gallery-cocktail",
+        "capacity": "2,592 sq ft",
+        "text": "A flexible room, used for cocktail receptions."
+      },
+      {
+        "name": "DiLido Beach Club South",
+        "photo": "dilido-club",
+        "capacity": "5,600 sq ft",
+        "text": "Views of the Atlantic and miles of white sandy beach in a lush lounge setting, for a cocktail reception, brunch or rehearsal dinner."
+      },
+      {
+        "name": "The Venetian",
+        "photo": "venetian-room",
+        "capacity": "Up to 54 guests",
+        "text": "One of the hotel’s smaller rooms, for seated meals and private gatherings."
+      }
+    ],
+    "note": "Capacities from the hotel’s official table: Salon 1, 3,552 sq ft (280 banquet, 372 reception); Salons 2 and 3, 3,404 and 3,256 sq ft (up to 360 each); Outdoor Courtyard, 3,312 sq ft (240 banquet, 350 reception, 370 theater). Confirm layouts with the hotel’s Catering and Sales team."
+  },
+  "galleryTitle": "Inside <em>the Ritz-Carlton</em>",
+  "gallery": {
+    "cats": [["all", "All"], ["weddings", "Weddings"], ["ballroom", "Ballroom & rooms"], ["outdoors", "Outdoors"], ["dining", "Dining"], ["hotel", "The Hotel"]],
+    "items": [
+      "hero-ballroom", "pool-ceremony", "ballroom-florals", "canopy-ceremony", "ballroom-candles", "ballroom-reception",
+      "dilido-palms", "dilido-dining", "zaytinya-patio", "dilido-club", "venetian-room", "meeting-room",
+      "lapidus-bar", "cocktail", "dinner-spread", "balcony-view", "suite-living", "ocean-king"
+    ]
+  },
+  "cuisine": {
+    "kicker": "Dining",
+    "h2": "Globally inspired dining by <em>José Andrés Group</em>",
+    "paras": [
+      "The hotel’s restaurants and bars, Zaytinya, Lapidus Bar and DiLido Beach Bar, are run by José Andrés Group, with poolside receptions on Zaytinya’s terrace and beachfront events at DiLido Beach Bar.",
+      "Customized catering features the bold flavors of Miami, with banquet menus that reflect the city’s diverse culinary scene."
+    ],
+    "listLabel": "At the table",
+    "highlights": [
+      ["Zaytinya", "Terrace receptions by the pool"],
+      ["Lapidus Bar", "José Andrés Group"],
+      ["DiLido", "Beachfront bar events"],
+      ["Catering", "Bold flavors of Miami"]
+    ],
+    "items": ["dinner-spread", "ceviche", "dessert", "light-bites", "cocktail", "lapidus-bar", "zaytinya-patio", "dilido-dining"]
+  },
+  "reviews": {
+    "kicker": "Couples who celebrated here",
+    "rating": "4.3",
+    "count": "3,238 Google reviews",
+    "src": "Quotes from WeddingWire (2009–2015) · Rating from Google",
+    "items": [
+      { "q": "… the location is gorgeous, the outdoor ceremony area is BEAUTIFUL", "who": "Maria · WeddingWire · April 2010" },
+      { "q": "went above and beyond to accommodate my every need and wish!", "who": "Barbara · WeddingWire · September 2009" },
+      { "q": "The staff was amazing and so welcoming.", "who": "Jo · WeddingWire · June 2015" }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Miami Beach to Boca Raton: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting and dance-floor lighting for the Ballroom’s chandeliers and ceilings, and sound designed for each ceremony and cocktail space, within the hotel’s guidelines."
+  },
+  "plan": {
+    "bg": "hero-ballroom",
+    "at": "at the Ritz-Carlton",
+    "forThis": "The Ritz-Carlton, South Beach",
+    "address": "1 Lincoln Rd, Miami Beach, FL 33139",
+    "venueLabel": "The Ritz-Carlton, South Beach",
+    "venuePhone": "+17862764000",
+    "venuePhoneLabel": "786-276-4000"
+  },
+  "footer": "The Ritz-Carlton, South Beach · 1 Lincoln Rd, Miami Beach"
+}

@@ -1,0 +1,279 @@
+{
+  "slug": "eden-regal-ballroom",
+  "name": "Eden Regal Ballroom & Catering",
+  "media_note": "Fotos de cateringbyeden.com (galerias Wedding Spaces, Wedding Ceremonies, Special Events, Quinceanera & Sweet 16, Bar & Bat Mitzvahs, Kosher Menu; 2026-11-06). PENDIENTE permiso del venue; varias fotos de fotografos tienen marca de agua pequena (DA, AVD, Michelle Lawson). Datos: cateringbyeden.com (home, /about-us/, /weddings/), Google Maps verificado 2026-11-06 (4.6 / 235 resenas, 1400 N 46th Ave, 954-922-3344), Instagram @eden_regal_ballroom_catering (13.6K), informe Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md (cita 'great stage for my DJ', WeddingWire, Danit, 19/01/2019). No hay foto confirmada de Cocktail Room ni Bridal Suite: omitidos. La foto de 'terrace' es el montaje de ceremonia exterior (portada de Wedding Ceremonies); el venue habla de 'open-air terrace' y 'garden', sin foto etiquetada. Capacidades de la web con inconsistencias: home 'up to 500', FAQ ballroom Regal 300 / Cocktail Room 150-200 / Grand Ballroom 450; solo se usan 500 (total y sanctuary) y 300 (terrace).",
+  "credit": "Eden Regal Ballroom & Catering",
+  "brand": {
+    "title": "Eden Regal",
+    "sub": "Hollywood · Kosher Weddings & Catering"
+  },
+  "seo": {
+    "title": "Eden Regal Ballroom & Catering · Weddings, Mitzvahs & Quinceañeras in Hollywood, FL",
+    "description": "Weddings, bar & bat mitzvahs and quinceañeras at Eden Regal Ballroom & Catering in Hollywood, Florida: ballroom, sanctuary and open-air terrace for up to 500 guests and Glatt Kosher catering under ORB supervision. Production by Avinu Events."
+  },
+  "hero": {
+    "photo": "ballroom-white-gold",
+    "photoMobile": "aisle-vertical",
+    "kicker": "Hollywood, Florida · Kosher weddings & catering",
+    "h1": [
+      "Eden Regal"
+    ],
+    "h1em": "Ballroom & Catering",
+    "lead": "A family-run ballroom, sanctuary and open-air terrace in Hollywood, with space for up to 500 guests and a Glatt Kosher kitchen supervised by the ORB.",
+    "secondary": "Explore the venue",
+    "facts": [
+      [
+        "500",
+        "Guests, indoors and out"
+      ],
+      [
+        "Glatt",
+        "Kosher · ORB"
+      ],
+      [
+        "4 AM",
+        "Finish, no overtime"
+      ]
+    ]
+  },
+  "intro": {
+    "kicker": "The Venue",
+    "h2": "One property for the ceremony, <em>the dinner and the dance floor</em>",
+    "paras": [
+      "Eden Regal Ballroom & Catering is a family business: a kosher catering and party venue in Hollywood, with beautiful indoor and outdoor settings and a ballroom with a stage for performers, a large dance floor and a fully equipped bar.",
+      "Weddings, bar and bat mitzvahs, quinceañeras and special events are planned step by step with the Eden team, one celebration at a time."
+    ],
+    "a": "sanctuary-chuppah",
+    "b": "ballroom-monogram",
+    "stats": [
+      [
+        "500",
+        "Guests, indoors and out"
+      ],
+      [
+        "4.6",
+        "Google · 235 reviews"
+      ],
+      [
+        "ORB",
+        "Glatt Kosher"
+      ]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "chuppah-sparks",
+        "title": "Weddings",
+        "text": "Say your vows in the sanctuary or outdoors, then move into the ballroom for dinner and dancing, with a private bridal room for getting ready.",
+        "points": [
+          "Sanctuary for ceremonies, open-air terrace for outdoor vows",
+          "Stage, large dance floor and full bar in the ballroom",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at Eden Regal"
+      },
+      {
+        "id": "mitzvah",
+        "label": "Bar & Bat Mitzvahs",
+        "short": "Mitzvahs",
+        "photo": "mitzvah-dance",
+        "title": "Bar & Bat Mitzvahs",
+        "text": "A Glatt Kosher kitchen under ORB supervision, and a ballroom with a stage and a big dance floor for the party.",
+        "points": [
+          "Glatt Kosher menus: meat, parve or dairy",
+          "Saturday events can start 30 minutes after sundown",
+          "DJ, MC, dancers and LED by Avinu Events"
+        ],
+        "cta": "Plan a mitzvah at Eden Regal"
+      },
+      {
+        "id": "quince",
+        "label": "Quinceañeras & Sweet 16",
+        "short": "Quinceañeras",
+        "photo": "quince-blue-dress",
+        "title": "Quinceañeras & Sweet 16",
+        "text": "A draped ballroom that takes any theme, from a grand entrance to the last song, with a menu of Latin, Caribbean and Mediterranean cuisines.",
+        "points": [
+          "Stage and dance floor for the entrance and waltz",
+          "Parties that can run until 4 AM with no overtime charge",
+          "Dancers, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a quinceañera at Eden Regal"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The venue, transformed",
+    "h2": "From the vows <em>to the dance floor</em>",
+    "text": "A ceremony outdoors or in the sanctuary, a dinner in the draped ballroom and a dance floor that stays open late. Choose a moment to see the venue change.",
+    "moments": [
+      {
+        "title": "Ceremony",
+        "text": "An outdoor aisle between white blossom trees",
+        "photo": "ceremony-garden-aisle",
+        "wide": true,
+        "pos": "50% 55%"
+      },
+      {
+        "title": "Reception",
+        "text": "Dinner in the white and gold ballroom",
+        "photo": "ballroom-white-gold",
+        "wide": true
+      },
+      {
+        "title": "Late night",
+        "text": "The first dance on the monogrammed floor",
+        "photo": "first-dance",
+        "wide": true
+      }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Ballroom, sanctuary <em>and open air</em>",
+    "text": "A newly renovated banquet hall for 50 to 500 guests, a sanctuary for ceremonies and an open-air terrace.",
+    "items": [
+      {
+        "name": "The Regal Ballroom",
+        "photo": "ballroom-white-gold",
+        "text": "A draped ballroom with a stage for performers, an enormous dance floor and a fully equipped bar."
+      },
+      {
+        "name": "The Sanctuary",
+        "photo": "sanctuary-chuppah",
+        "text": "High ceilings, stained glass windows and a prominent altar, for ceremonies of up to 500 people."
+      },
+      {
+        "name": "The Open-Air Terrace",
+        "photo": "ceremony-garden-aisle",
+        "text": "Outdoor ceremonies, cocktail hours or receptions for up to 300 people, with the ceremony moving indoors if the weather turns."
+      }
+    ],
+    "note": "Banquet hall for 50 to 500 guests. Room-by-room capacities and floor plans available from the venue."
+  },
+  "galleryTitle": "Inside <em>Eden Regal</em>",
+  "gallery": {
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "ballroom",
+        "Ballroom"
+      ],
+      [
+        "sanctuary",
+        "Sanctuary"
+      ],
+      [
+        "terrace",
+        "Terrace"
+      ],
+      [
+        "celebrations",
+        "Celebrations"
+      ],
+      [
+        "details",
+        "Details"
+      ]
+    ],
+    "items": [
+      "ballroom-stage-florals",
+      "sanctuary-aisle",
+      "dusk-chuppah",
+      "ballroom-monogram",
+      "sanctuary-blue-aisle",
+      "ballroom-purple-ceremony",
+      "aisle-vertical",
+      "purple-long-table",
+      "warm-reception",
+      "candles-ballroom",
+      "mitzvah-tables",
+      "mitzvah-entrance",
+      "quince-chandelier",
+      "mitzvah-pink-lounge",
+      "floral-table",
+      "pink-drapes",
+      "sweetheart-table",
+      "team-flowers"
+    ]
+  },
+  "cuisine": {
+    "kicker": "Kosher catering",
+    "h2": "Fresh cuisine, <em>Glatt Kosher</em> and beautifully plated",
+    "paras": [
+      "Led by Executive Chef Isaac Bruk, Eden's culinary team creates menus with fresh ingredients, combining Latin, Caribbean and Mediterranean cuisines, Jewish recipes and French classics.",
+      "The kitchen is Glatt Kosher under strict ORB supervision, whether the menu is meat, parve or dairy. Guests of any background are welcome to celebrate here."
+    ],
+    "listLabel": "Highlights of the kitchen",
+    "highlights": [
+      [
+        "ORB",
+        "Glatt Kosher supervision"
+      ],
+      [
+        "3",
+        "Meat, parve or dairy"
+      ],
+      [
+        "Latin",
+        "Caribbean · Mediterranean"
+      ],
+      [
+        "Chef",
+        "Executive Chef Isaac Bruk"
+      ]
+    ],
+    "items": [
+      "dish-filet-tower",
+      "dish-salmon-plate",
+      "dish-white-fish",
+      "dish-steak-rose",
+      "dish-skewer",
+      "dish-grilled-salmon",
+      "dish-chicken",
+      "dish-pastry-fish"
+    ]
+  },
+  "reviews": {
+    "kicker": "Families who celebrated here",
+    "rating": "4.6",
+    "count": "235 Google reviews",
+    "src": "Testimonials from cateringbyeden.com and WeddingWire · Rating from Google",
+    "items": [
+      {
+        "q": "Every detail was handled with so much care and heart. The food, the décor, the flow of the event. Everything exceeded our expectations.",
+        "who": "The Sapir Family · Pembroke Pines, Florida · cateringbyeden.com"
+      },
+      {
+        "q": "The food is always fresh, delicious, and beautifully presented. We only eat kosher food, and Eden consistently delivers the quality we trust for our family and guests.",
+        "who": "Rivka Friedman · Fort Lauderdale · cateringbyeden.com"
+      },
+      {
+        "q": "High ceilings, glossy floors, great stage for my DJ.",
+        "who": "Danit · WeddingWire · January 2019"
+      }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Hollywood to Boca Raton: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting on the draped walls, dance-floor and stage lighting designed around the ballroom."
+  },
+  "plan": {
+    "bg": "ballroom-monogram",
+    "at": "at Eden Regal",
+    "forThis": "Eden Regal",
+    "address": "1400 N 46th Ave, Hollywood, FL 33021",
+    "venueLabel": "Eden Regal Ballroom & Catering",
+    "venuePhone": "+19549223344",
+    "venuePhoneLabel": "954-922-3344"
+  },
+  "footer": "Eden Regal Ballroom & Catering · 1400 N 46th Ave, Hollywood"
+}

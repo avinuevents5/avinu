@@ -1,0 +1,205 @@
+{
+ "love-night": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Night view of the open-air courtyard with illuminated LOVE marquee letters and a lit dance floor",
+  "cap": "The courtyard at night",
+  "cat": "weddings"
+ },
+ "lantern-tree": {
+  "w": 833,
+  "h": 1250,
+  "alt": "Paper lanterns hanging from a tree in the courtyard at night",
+  "cap": "Lanterns under the tree",
+  "cat": "backlot"
+ },
+ "wedding-entrance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride and groom entering to cheering guests in front of the container structure",
+  "cap": "A grand entrance",
+  "cat": "weddings"
+ },
+ "petal-entrance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride and groom entering a party as guests toss petals",
+  "cap": "Petals at the entrance",
+  "cat": "weddings"
+ },
+ "first-dance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple’s first dance in front of illuminated LOVE letters",
+  "cap": "First dance",
+  "cat": "weddings"
+ },
+ "floral-canopy": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "A couple under a floral canopy hung with lights at night, with guests around",
+  "cap": "Ceremony under flowers",
+  "cat": "weddings"
+ },
+ "aisle-white-wall": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "A ceremony aisle with seated guests facing a floral arch against a tall white wall",
+  "cap": "Ceremony before the white wall",
+  "cat": "weddings"
+ },
+ "ceremony-tree": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Guests seated for a ceremony under a large tree, with the white wall behind",
+  "cap": "Ceremony under the tree",
+  "cat": "weddings"
+ },
+ "teal-uplighting": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long reception tables glowing under teal uplighting against a tall wall",
+  "cap": "Reception in teal light",
+  "cat": "weddings"
+ },
+ "purple-reception": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long banquet tables set with candles and flowers under purple and amber lighting",
+  "cap": "A candlelit banquet",
+  "cat": "weddings"
+ },
+ "starry-dance-floor": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A lit dance floor with starry light patterns beside glass-topped tables at night",
+  "cap": "A starlit dance floor",
+  "cat": "weddings"
+ },
+ "sunset-tables": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Long reception tables in the courtyard at sunset, with string lights overhead",
+  "cap": "Tables at golden hour",
+  "cat": "backlot"
+ },
+ "container-bar": {
+  "w": 1000,
+  "h": 668,
+  "alt": "Guests seated at tables beside a bar built into a shipping-container structure",
+  "cap": "Dinner beside the container bar",
+  "cat": "backlot"
+ },
+ "cyc-lounge": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Lounge seating arranged in front of a tall concrete wall",
+  "cap": "Lounge against the wall",
+  "cat": "backlot"
+ },
+ "drive-in-car": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "A yellow sports car parked in the courtyard in front of a mural and concrete wall",
+  "cap": "A vehicle display in the courtyard",
+  "cat": "backlot"
+ },
+ "geometric-ceremony": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "A ceremony set with colorful chairs and a geometric-pattern backdrop and aisle",
+  "cap": "A colorful ceremony set",
+  "cat": "weddings"
+ },
+ "geometric-reception": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "A reception with colorful chairs and long tables in front of a geometric backdrop",
+  "cap": "A colorful reception",
+  "cat": "weddings"
+ },
+ "live-band": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "A live band performing against a lit wall during a reception",
+  "cap": "Live music at the reception",
+  "cat": "weddings"
+ },
+ "mural-ceremony": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "A ceremony with gold chairs and a floral arch in front of a colorful painted container wall",
+  "cap": "Ceremony before a painted wall",
+  "cat": "weddings"
+ },
+ "shoulders": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "A groom lifted on guests’ shoulders under string lights while friends cheer",
+  "cap": "Celebration in the courtyard",
+  "cat": "celebrations"
+ },
+ "tent-party": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple dancing under a clear tent strung with lights, surrounded by guests",
+  "cap": "Dancing under the lights",
+  "cat": "weddings"
+ },
+ "anniversary-party": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guests on a dance floor beneath a ceiling of lights at an anniversary party",
+  "cap": "An anniversary party",
+  "cat": "celebrations"
+ },
+ "batmitzvah-sign": {
+  "w": 1600,
+  "h": 901,
+  "alt": "A girl posing beside giant marquee letters spelling a name at a bat mitzvah",
+  "cap": "A bat mitzvah in the courtyard",
+  "cat": "celebrations"
+ },
+ "batmitzvah-aerial": {
+  "w": 1600,
+  "h": 901,
+  "alt": "Aerial view of a bat mitzvah party with a lit dance floor and themed storefront sets",
+  "cap": "A themed bat mitzvah",
+  "cat": "celebrations"
+ },
+ "dip-kiss": {
+  "w": 1600,
+  "h": 1139,
+  "alt": "A groom dipping his bride for a kiss between softly lit walls",
+  "cap": "A kiss in the warm light",
+  "cat": "weddings"
+ },
+ "night-reception": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Night view of a candlelit reception in the courtyard with a tree and string lights",
+  "cap": "The reception at night",
+  "cat": "weddings"
+ },
+ "round-tables-aerial": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Aerial view of round and long tables set for a seated reception in the courtyard",
+  "cap": "A seated reception from above",
+  "cat": "weddings"
+ },
+ "hora-lift": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Guests lifting a couple into the air while the crowd cheers",
+  "cap": "Lifted by their guests",
+  "cat": "weddings"
+ },
+ "empty-courtyard": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "The courtyard before a wedding, with tall concrete walls, string lights and long tables",
+  "cap": "The courtyard, ready for a wedding",
+  "cat": "backlot"
+ }
+}

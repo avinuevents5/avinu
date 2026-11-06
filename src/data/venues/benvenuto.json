@@ -1,0 +1,113 @@
+{
+  "slug": "benvenuto",
+  "name": "Benvenuto",
+  "media_note": "Fotos de benvenutorestaurant.com (2026-11-06), PENDIENTE permiso. Datos verificados 2026-11-06: Google Maps 4.8 (1,042) 'Salón de bodas'; IG @benvenutoevents (4,003, 1730 N Federal Hwy); historia oficial (imagen 'Benvenuto-history-of-venue' de su web): diseñado en 1929 como sede de Rainbow Tropical Gardens de C.O. Miller, quien reunió palmeras para el Boca Raton Club, huracán de 1947, reconstruido y ampliado; capacidades por sala de las tablas oficiales de /facilities; tipos de evento del menú del sitio; cocina del texto de la portada. Reseñas: WeddingWire (informe ronda 2). Las salas sin foto real propia no tienen tarjeta con foto (solo nota). Fuentes: Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md.",
+  "credit": "Benvenuto",
+  "brand": { "title": "Benvenuto", "sub": "Boynton Beach · Palm Beach County" },
+  "seo": {
+    "title": "Benvenuto · Weddings, Mitzvahs & Celebrations in Boynton Beach",
+    "description": "Weddings, bar and bat mitzvahs and celebrations at Benvenuto in Boynton Beach: a 1929 Mizner-inspired building with gardens, a fountain courtyard and rooms for up to 350 guests. Music, lighting and production by Avinu Events."
+  },
+  "hero": {
+    "photo": "main-room",
+    "photoMobile": "centerpiece-violet",
+    "pos": "50% 50%",
+    "kicker": "Boynton Beach, Florida · Built in 1929",
+    "h1": ["Benvenuto"],
+    "h1em": "Boynton Beach",
+    "lead": "A 1929 Mizner-inspired building surrounded by gardens, with a fountain courtyard for ceremonies, a bar and lounge for cocktail hour and rooms for up to 350 guests.",
+    "secondary": "Explore the venue",
+    "facts": [["350", "Guests"], ["1929", "Mizner-inspired"], ["4.8", "Google · 1,042 reviews"]]
+  },
+  "intro": {
+    "kicker": "The Venue",
+    "h2": "A 1929 landmark, <em>steeped in history</em>",
+    "paras": [
+      "Benvenuto occupies a building designed in 1929 as the headquarters of the Rainbow Tropical Gardens, created by horticulturist C.O. Miller, who also gathered the rare palms and plants for the Boca Raton Club. The gardens were a major tourist attraction, where beauty queens were crowned.",
+      "The 1947 hurricane ravaged the gardens, but the sturdy building lost only a few roof tiles. Rebuilt, refurbished and expanded, it has hosted celebrations for more than 40 years, with gardens, Tuscan-influenced architecture and eleven named rooms and spaces."
+    ],
+    "a": "postcard-front",
+    "b": "tower-vintage",
+    "stats": [["11", "Named rooms & spaces"], ["40+", "Years of celebrations"], ["240", "Guests for courtyard ceremonies"]]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      { "id": "weddings", "label": "Weddings", "short": "Weddings", "photo": "fountain-ceremony", "title": "Weddings",
+        "text": "Say “I do” before the fountain wall of the European courtyard, toast at the bar and lounge, then move inside for dinner and dancing.",
+        "points": ["Courtyard ceremonies for up to 240 guests", "Receptions for up to 350 guests", "Ceremony music, DJ and lighting by Avinu Events"],
+        "cta": "Plan a wedding at Benvenuto" },
+      { "id": "mitzvah", "label": "Bar & Bat Mitzvahs", "short": "Mitzvahs", "photo": "table-florals", "title": "Bar & Bat Mitzvahs",
+        "text": "Bar and bat mitzvahs, sweet 16s and quinceañeras, with rooms that open into one another so the party can move from cocktails to the dance floor.",
+        "points": ["Rooms from 30 to 160 guests with dancing", "In-house cuisine and a full bar", "DJ, MC, dancers and lighting by Avinu Events"],
+        "cta": "Plan a mitzvah at Benvenuto" },
+      { "id": "social", "label": "Milestones & Corporate", "short": "Milestones", "photo": "table-gold", "title": "Milestones & corporate events",
+        "text": "Engagements, rehearsal dinners, birthdays, holiday parties and corporate events, from the intimate Tower Room to the full building.",
+        "points": ["Little Room for 30, Tower Room for 18 seated", "Bar and lounge for cocktail hours", "Sound, microphones and staging by Avinu Events"],
+        "cta": "Plan an event at Benvenuto" }
+    ]
+  },
+  "film": {
+    "kicker": "The venue, transformed",
+    "h2": "From the gardens <em>to the last dance</em>",
+    "text": "A walk through the gardens, a toast at the bar and a sparkler send-off at the end of the night. Choose a moment.",
+    "moments": [
+      { "title": "Ceremony", "text": "In the gardens", "photo": "garden-walk", "wide": true },
+      { "title": "Cocktail hour", "text": "At the bar and lounge", "photo": "bar-toast", "wide": true },
+      { "title": "Send-off", "text": "Beneath the sparklers", "photo": "sparklers", "wide": true }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Rooms, courtyard <em>and gardens</em>",
+    "text": "Eleven named rooms and spaces, from the fountain courtyard to the Tower Room, so a celebration can move through the building.",
+    "items": [
+      { "name": "Outdoor European Courtyard", "photo": "fountain-ceremony", "capacity": "240 ceremony · 220 reception", "text": "A stone courtyard with a tiled fountain wall, made for ceremonies and cocktails." },
+      { "name": "Jasmine & Courtyard Rooms", "photo": "main-room", "capacity": "100 + 160 with dancing", "text": "The main room, which can be divided into the Jasmine Room and the Courtyard Room." },
+      { "name": "The Gardens", "photo": "bridal-party", "capacity": "Strolls & portraits", "text": "Hedges, palms and garden paths around the building, for portraits and quiet moments." },
+      { "name": "Bar & Lounge", "photo": "groomsmen-bar", "capacity": "Cocktail hour", "text": "A wood-paneled bar and lounge, a local favorite for a cocktail hour before dinner." }
+    ],
+    "note": "Capacities from Benvenuto’s room charts (banquet with dancing unless noted). Also available: Garden Room 70, Fireplace Room 60, Coral Room 50, Little Room 30 and the Tower Room for 18 seated. Confirm layouts with the venue."
+  },
+  "galleryTitle": "Inside <em>Benvenuto</em>",
+  "gallery": {
+    "cats": [["all", "All"], ["weddings", "Weddings"], ["details", "Details"], ["history", "History"]],
+    "items": ["couple-palms", "centerpiece-violet", "postcard-flowers", "table-hydrangea", "bridal-party", "front-vintage", "table-number", "groomsmen-bar", "postcard-well", "table-gold", "sparklers", "fountain-ceremony"]
+  },
+  "cuisine": {
+    "kicker": "Cuisine",
+    "h2": "Worldly-inspired, <em>made in-house</em>",
+    "paras": [
+      "Benvenuto’s kitchen serves worldly-inspired and exceptional American cuisine, both in the restaurant and for special events.",
+      "Seasonal dishes include duck, filet mignon, salmon filet and beef short rib, with specialty drinks from the bar."
+    ],
+    "listLabel": "Highlights of the kitchen",
+    "highlights": [["In-house", "Restaurant & event kitchen"], ["Seasonal", "Duck, filet mignon, salmon, short rib"], ["Bar", "Specialty drinks & lounge"], ["40+", "Years hosting events"]],
+    "items": ["dish-filet", "dish-ravioli", "dish-canapes", "dish-duck", "dish-cake", "dish-steak-plate", "dish-salad", "dish-tartare"]
+  },
+  "reviews": {
+    "kicker": "Couples and families who celebrated here",
+    "rating": "4.8",
+    "count": "1,042 Google reviews",
+    "src": "Reviews from WeddingWire · Rating from Google",
+    "items": [
+      { "q": "We had the most beautiful and easy wedding we could’ve ever dreamed of!", "who": "Jessica · WeddingWire · December 2025" },
+      { "q": "As parents of the bride, we were able to visit and dance without worrying about one thing!", "who": "Bobbi · WeddingWire · October 2025" },
+      { "q": "Our guests had such an amazing time with the bar and the different rooms we were in.", "who": "Camila · WeddingWire · November 2026" }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Miami Beach to Boca Raton: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting and pin-spotting for the main room, dance-floor lighting, and ceremony sound for the courtyard and the gardens."
+  },
+  "plan": {
+    "bg": "garden-walk",
+    "at": "at Benvenuto",
+    "forThis": "Benvenuto",
+    "address": "1730 N Federal Hwy, Boynton Beach, FL 33435",
+    "venueLabel": "Benvenuto",
+    "venuePhone": "+15613640600",
+    "venuePhoneLabel": "561-364-0600"
+  },
+  "footer": "Benvenuto · 1730 N Federal Hwy, Boynton Beach"
+}
