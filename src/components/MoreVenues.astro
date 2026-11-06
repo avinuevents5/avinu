@@ -58,11 +58,39 @@ const city = (addr?: string) => {
     if (!rail) return;
     document.querySelectorAll('.mv-arrow').forEach((b) =>
       b.addEventListener('click', () => rail.scrollBy({ left: Number(b.dataset.dir) * rail.clientWidth * 0.8, behavior: 'smooth' })));
+    // movil: una tarjeta por vez, flecha discreta sobre la foto
+    const host = rail.parentElement;
+    const svg = (d) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="' + d + '"/></svg>';
+    const mk = (dir) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'mv-car ' + (dir < 0 ? 'mv-car-prev' : 'mv-car-next');
+      b.setAttribute('aria-label', dir < 0 ? 'Previous venue' : 'Next venue');
+      b.innerHTML = svg(dir < 0 ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6');
+      b.addEventListener('click', () => {
+        const it = rail.firstElementChild, gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+        rail.scrollBy({ left: dir * (it.getBoundingClientRect().width + gap), behavior: 'smooth' });
+      });
+      host.append(b); return b;
+    };
+    const prev = mk(-1), next = mk(1);
+    const place = () => {
+      const m = rail.querySelector('.mv-img'); if (!m) return;
+      const r = m.getBoundingClientRect();
+      prev.style.top = next.style.top = (r.top - host.getBoundingClientRect().top + r.height / 2) + 'px';
+    };
+    const sync = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      prev.classList.toggle('show', rail.scrollLeft > 4);
+      next.classList.toggle('show', max > 4 && rail.scrollLeft < max - 4);
+    };
+    rail.addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', () => { place(); sync(); });
+    place(); sync(); setTimeout(() => { place(); sync(); }, 800);
   })();
 </script>
 
 <style>
-  .mv { background: var(--paper, #f4efe6); color: var(--text, #22201c); padding: clamp(4.5rem, 10vh, 7rem) 0 clamp(3.5rem, 8vh, 5rem); border-top: 1px solid var(--line, rgba(14,13,12,.12)); }
+  .mv { background: var(--paper, #f4efe6); color: var(--text, #22201c); padding: clamp(4rem, 9vh, 6rem) 0; border-top: 1px solid var(--line, rgba(14,13,12,.12)); }
   .mv-wrap { max-width: var(--maxw, 1320px); margin: 0 auto; padding: 0 var(--gutter, 5vw); }
   .mv-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; }
   .mv-kicker { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: #8c6c24; margin-bottom: .8rem; }
@@ -87,9 +115,16 @@ const city = (addr?: string) => {
   .mv-card:hover .mv-name { color: #8c6c24; }
   .mv-city { display: block; font-size: .78rem; color: var(--muted, #5d574e); margin-top: .3rem; letter-spacing: .02em; }
   .mv-foot { display: none; }
+  .mv :global(.mv-car) { display: none; }   /* botones creados por JS: estilos globales */
   @media (max-width: 900px) {
     .mv-arrow, .mv-head .mv-all { display: none; }
-    .mv-rail { grid-auto-columns: 68vw; }
+    .mv-rail { grid-auto-columns: 100%; gap: var(--gutter, 5vw); }
+    .mv { position: relative; }
+    .mv :global(.mv-car) { display: flex; position: absolute; z-index: 3; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; border: 1px solid rgba(255,255,255,.6); background: rgba(14,13,12,.36); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; align-items: center; justify-content: center; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .mv :global(.mv-car.show) { opacity: 1; pointer-events: auto; }
+    .mv :global(.mv-car svg) { width: 16px; height: 16px; }
+    .mv :global(.mv-car-next) { right: calc(var(--gutter, 5vw) + .7rem); }
+    .mv :global(.mv-car-prev) { left: calc(var(--gutter, 5vw) + .7rem); }
     .mv-foot { display: block; margin-top: 2rem; }
     .mv-foot .mv-all { margin-left: 0; }
   }
