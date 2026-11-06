@@ -385,9 +385,18 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .grid { columns: 2; column-gap: .6rem; }
     .tile { margin-bottom: .6rem; }
     .tile .cap { display: none; }
-    /* Filtros de galería: todos a la vista (pasan a una 2.ª línea si no caben), nunca cortados */
-    .chips { flex-wrap: wrap; width: 100%; gap: .35rem; }
-    .chip { flex: 0 0 auto; padding: .55rem .8rem; font-size: .66rem; letter-spacing: .06em; }
+    /* Filtros de galería estilo Instagram: una fila que se desliza y llega hasta el borde de la pantalla
+       (no se corta en el margen del texto); difuminado a la derecha/izquierda solo mientras queda algo por ver */
+    .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      width: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); gap: .4rem;
+      scroll-padding-inline: var(--gutter); --fl: 0px; --fr: 0px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%); }
+    .chips::-webkit-scrollbar { display: none; }
+    .chips::after { content: ''; flex: 0 0 1px; }   /* conserva el margen derecho al final del deslizamiento */
+    .chips.more-r { --fr: 44px; }
+    .chips.more-l { --fl: 28px; }
+    .chip { flex: 0 0 auto; }
     .lb-fig { padding: 0; }
     .lb-prev, .lb-next { top: auto; bottom: -3.6rem; transform: none; }
     .lb-inner { grid-template-rows: auto 1fr auto auto; }
@@ -869,9 +878,17 @@ D.gallery.cats.forEach(([id, label], i) => {
   b.addEventListener('click', () => {
     [...chips.children].forEach(c => c.setAttribute('aria-pressed', c === b));
     grid.querySelectorAll('.tile').forEach(t => t.classList.toggle('hide', id !== 'all' && t.dataset.cat !== id));
+    if (chips.scrollWidth > chips.clientWidth) b.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
   });
   chips.append(b);
 });
+/* Difuminado de los filtros solo donde queda algo por deslizar (en escritorio no hay desborde y no aparece) */
+const chipFade = () => {
+  const max = chips.scrollWidth - chips.clientWidth;
+  chips.classList.toggle('more-r', max > 2 && chips.scrollLeft < max - 2);
+  chips.classList.toggle('more-l', max > 2 && chips.scrollLeft > 2);
+};
+chips.addEventListener('scroll', chipFade, { passive: true }); addEventListener('resize', chipFade); chipFade();
 const lb = $('#lb'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbCount = $('#lb-count');
 let lbList = [], lbIdx = 0, lbOpener = null;
 function showLb(i, dir = 0) {
