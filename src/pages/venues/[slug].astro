@@ -1,6 +1,7 @@
 ---
 import Noir from '../../layouts/Noir.astro';
 import ConnectCTA from '../../components/ConnectCTA.astro';
+import MoreVenues from '../../components/MoreVenues.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -101,6 +102,8 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
   </section>
 
   <!-- ░░ CONNECT CTA ░░ -->
+  <MoreVenues current={venue.id} />
+
   <ConnectCTA />
 
   <style>
