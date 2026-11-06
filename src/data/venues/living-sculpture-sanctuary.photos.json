@@ -187,5 +187,12 @@
   "alt": "Woven chandeliers hanging from the wooden roof",
   "cap": "Organic chandeliers in the Sanctuary Center",
   "cat": "reception"
+ },
+ "ibuku-aerial": {
+  "w": 1280,
+  "h": 720,
+  "alt": "IBUKU Avalon's tiled roofs, pool and gardens seen from above",
+  "cap": "IBUKU Avalon from above",
+  "cat": "gardens"
  }
 }

@@ -20,7 +20,7 @@ const links = [
 // Videos opcionales (v.videos = { clave: { mp4, poster, label } }, rutas relativas a /venues/<slug>/media/):
 // celebrations.items[].video, film.moments[].video y hero.mobileVideo los usan; sin video se ve la foto.
 const data = { slug: v.slug, photos, celebrations: v.celebrations.items, moments: v.film.moments, gallery: v.gallery, cuisine: v.cuisine ? v.cuisine.items : [], reviews: v.reviews.items,
-  videos: v.videos || {}, heroMobileVideo: v.hero.mobileVideo || null };
+  videos: v.videos || {}, heroMobileVideo: v.hero.mobileVideo || null, heroVideo: v.hero.video || null };
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 ---
 <!doctype html>
@@ -717,6 +717,26 @@ function vplayer(key, { cls = '' } = {}) {
   btn.addEventListener('click', () => { st.userPaused = !video.paused; if (!st.userPaused) video.play().catch(() => {}); else video.pause(); });
   paint(); el._vp = st; vpObs.observe(el);
   return { el, video, setActive(a) { st.active = a; st.sync(); }, pause() { st.userPaused = true; video.pause(); }, play() { st.userPaused = false; st.sync(); } };
+}
+
+/* HERO en escritorio: video horizontal opcional sobre la foto (aparece al empezar a reproducirse) */
+if (D.heroVideo && VIDS[D.heroVideo] && matchMedia('(min-width: 901px)').matches && autoplayOK) {
+  const v = VIDS[D.heroVideo], video = document.createElement('video');
+  Object.assign(video, { muted: true, loop: true, playsInline: true, autoplay: true, preload: 'auto' });
+  video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-hidden', 'true');
+  video.append(Object.assign(document.createElement('source'), { src: vsrc(v.mp4), type: 'video/mp4' }));
+  video.addEventListener('playing', () => video.classList.add('ready'), { once: true });
+  $('.hero-media').append(video);
+  const hc = $('.hero-credit'); if (hc) hc.textContent = 'Video: ' + CREDIT;
+  let heroUserPaused = false;
+  new IntersectionObserver(([e]) => { e.isIntersecting && !heroUserPaused ? video.play().catch(() => {}) : video.pause(); }).observe($('.hero'));
+  const hb = document.createElement('button'); hb.className = 'icon-btn hero-pause'; hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video');
+  hb.addEventListener('click', () => {
+    heroUserPaused = !video.paused;
+    if (!heroUserPaused) { video.play().catch(() => {}); hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video'); }
+    else { video.pause(); hb.innerHTML = ICON_PLAY; hb.setAttribute('aria-label', 'Play background video'); }
+  });
+  $('.hero').append(hb);
 }
 
 /* HERO en móvil: el reel vertical llena la pantalla; en escritorio queda la foto */

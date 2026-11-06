@@ -1,9 +1,12 @@
 {
   "slug": "living-sculpture-sanctuary",
   "name": "Living Sculpture Sanctuary",
-  "media_note": "Fotos de livingsculpturesanctuary.com (cada foto de espacio sale de la página de ese espacio, 2026-11-06). PENDIENTE permiso. IBUKU Avalon (salón nuevo, sep 2026) sin fotos: solo mencionado en texto. Datos y fuentes: Downloads/avinu-venues-investigacion-weston-lss-2026-11-06.md.",
+  "media_note": "Fotos de livingsculpturesanctuary.com (cada foto de espacio sale de la página de ese espacio, 2026-11-06). PENDIENTE permiso. IBUKU Avalon (salón nuevo, sep 2026) sin fotos: solo mencionado en texto. Datos y fuentes: Downloads/avinu-venues-investigacion-weston-lss-2026-11-06.md. Videos: reels de @livingsculpturesanctuary bajados por el usuario (2026-11-06), recortados sin texto y sin audio, PENDIENTE permiso. Foto IBUKU = fotograma del reel aéreo.",
   "credit": "Living Sculpture Sanctuary",
-  "brand": { "title": "Living Sculpture", "sub": "Davie, Florida · Since 2016" },
+  "brand": {
+    "title": "Living Sculpture",
+    "sub": "Davie, Florida · Since 2016"
+  },
   "seo": {
     "title": "Living Sculpture Sanctuary · Garden Weddings & Celebrations in Davie",
     "description": "Garden weddings and celebrations at Living Sculpture Sanctuary in Davie: century-old oaks, waterfalls, koi ponds and a bonsai wall, for up to 170 guests. Music, lighting and production by Avinu Events."
@@ -13,11 +16,28 @@
     "photoMobile": "wisteria-night",
     "pos": "50% 55%",
     "kicker": "Davie, Florida · A garden sanctuary",
-    "h1": ["Living Sculpture"],
+    "h1": [
+      "Living Sculpture"
+    ],
     "h1em": "Sanctuary",
     "lead": "Century-old oaks, cascading waterfalls, koi ponds and a bonsai wall: a sanctuary built by hand, with ceremonies by the falls and receptions under the oaks for up to 170 guests.",
     "secondary": "Explore the sanctuary",
-    "facts": [["170", "Guests"], ["4.8", "Google · 492 reviews"], ["2016", "Celebrating since"]]
+    "facts": [
+      [
+        "170",
+        "Guests"
+      ],
+      [
+        "4.8",
+        "Google · 492 reviews"
+      ],
+      [
+        "2016",
+        "Celebrating since"
+      ]
+    ],
+    "video": "aerial",
+    "mobileVideo": "gardens"
   },
   "intro": {
     "kicker": "The Sanctuary",
@@ -28,23 +48,70 @@
     ],
     "a": "center-lake",
     "b": "healing-falls",
-    "stats": [["5", "Areas for ceremony to after-party"], ["1", "Event per day, most days"], ["11 pm", "Last call, by the Sanctuary’s rules"]]
+    "stats": [
+      [
+        "5",
+        "Areas for ceremony to after-party"
+      ],
+      [
+        "1",
+        "Event per day, most days"
+      ],
+      [
+        "11 pm",
+        "Last call, by the Sanctuary’s rules"
+      ]
+    ]
   },
   "celebrations": {
     "h2": "Made for <em>milestones</em>",
     "items": [
-      { "id": "weddings", "label": "Weddings", "short": "Weddings", "photo": "oak-ceremony", "title": "Weddings",
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "oak-ceremony",
+        "title": "Weddings",
         "text": "A ceremony by the Healing Falls, cocktails along the Life’s Journey Trail and a reception under the roof of the Sanctuary Center, all in one evening.",
-        "points": ["Ceremonies for about 100 at the Healing Falls Esplanade", "Signature package for up to 170 guests", "Ceremony music, DJ and lighting by Avinu Events"],
-        "cta": "Plan a wedding at the Sanctuary" },
-      { "id": "milestones", "label": "Milestones & Vow Renewals", "short": "Milestones", "photo": "orange-table", "title": "Milestones & vow renewals",
+        "points": [
+          "Ceremonies for about 100 at the Healing Falls Esplanade",
+          "Signature package for up to 170 guests",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at the Sanctuary",
+        "video": "wedding",
+        "caption": "A wedding at the Sanctuary"
+      },
+      {
+        "id": "milestones",
+        "label": "Milestones & Vow Renewals",
+        "short": "Milestones",
+        "photo": "orange-table",
+        "title": "Milestones & vow renewals",
         "text": "Engagement parties, bridal showers, birthdays, vow renewals and celebrations of life, held in a peaceful setting connected to nature.",
-        "points": ["Covered Sanctuary Center for dinner and dancing", "Kosher caterers on the preferred vendor list", "Live music, DJ and lighting by Avinu Events"],
-        "cta": "Plan a celebration at the Sanctuary" },
-      { "id": "corporate", "label": "Corporate & Retreats", "short": "Corporate", "photo": "center-tables", "title": "Corporate events & retreats",
+        "points": [
+          "Covered Sanctuary Center for dinner and dancing",
+          "Kosher caterers on the preferred vendor list",
+          "Live music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a celebration at the Sanctuary"
+      },
+      {
+        "id": "corporate",
+        "label": "Corporate & Retreats",
+        "short": "Corporate",
+        "photo": "center-tables",
+        "title": "Corporate events & retreats",
         "text": "Team celebrations, client dinners and retreats in a garden that slows everyone down, with a Zen Lounge and a covered pavilion for the program.",
-        "points": ["Sanctuary Center with onyx bar and organic chandeliers", "New IBUKU Avalon hall for indoor programs", "Sound, microphones and staging by Avinu Events"],
-        "cta": "Plan an event at the Sanctuary" }
+        "points": [
+          "Sanctuary Center with onyx bar and organic chandeliers",
+          "New IBUKU Avalon hall for indoor programs",
+          "Sound, microphones and staging by Avinu Events"
+        ],
+        "cta": "Plan an event at the Sanctuary",
+        "video": "opening",
+        "caption": "IBUKU Avalon’s grand opening, September 2026"
+      }
     ]
   },
   "film": {
@@ -52,9 +119,24 @@
     "h2": "From the falls <em>to the oaks at night</em>",
     "text": "A ceremony beneath the oaks, a first dance in the Sanctuary Center and tables by the fire after dark. Choose a moment.",
     "moments": [
-      { "title": "Ceremony", "text": "Beneath the oaks", "photo": "aisle-oaks", "wide": true },
-      { "title": "Reception", "text": "In the Sanctuary Center", "photo": "first-dance", "wide": true },
-      { "title": "After dark", "text": "By the fire", "photo": "fire-boulder", "wide": true }
+      {
+        "title": "Ceremony",
+        "text": "Beneath the oaks",
+        "photo": "aisle-oaks",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "In the Sanctuary Center",
+        "photo": "first-dance",
+        "wide": true
+      },
+      {
+        "title": "After dark",
+        "text": "By the fire",
+        "photo": "fire-boulder",
+        "wide": true
+      }
     ]
   },
   "spaces": {
@@ -62,18 +144,83 @@
     "h2": "Waterfalls, oaks <em>and moon gates</em>",
     "text": "The Signature rental opens every area of the Sanctuary for the ceremony, cocktail hour and reception.",
     "items": [
-      { "name": "Healing Falls Esplanade", "photo": "falls-ceremony", "capacity": "About 100 for ceremonies", "text": "A trinity of waterfalls with colored LED lights, hundred-year-old oaks and a fireplace where fire meets water." },
-      { "name": "Life’s Journey Trail", "photo": "moon-gate-wisteria", "capacity": "Cocktail hour", "text": "Zen Moon Gates for past, present and future, the Tree of One and the Cascade of Light." },
-      { "name": "Orchid Forest Stroll", "photo": "bonsai-wall", "capacity": "Strolls & portraits", "text": "A path of orchids past the Rock Zen Garden, the bonsai wall and the Sacred Fire Boulder." },
-      { "name": "Sanctuary Center", "photo": "center-dinner", "capacity": "Up to 120 seated, covered", "text": "A covered rustic pavilion with an onyx bar, organic chandeliers and an arch bridge over the koi ponds." },
-      { "name": "Zen Lounge", "photo": "zen-lounge", "capacity": "Getting-ready suite", "text": "An air-conditioned lounge with an amethyst entrance, private bath and a veranda over the lake." }
+      {
+        "name": "Healing Falls Esplanade",
+        "photo": "falls-ceremony",
+        "capacity": "About 100 for ceremonies",
+        "text": "A trinity of waterfalls with colored LED lights, hundred-year-old oaks and a fireplace where fire meets water."
+      },
+      {
+        "name": "Life’s Journey Trail",
+        "photo": "moon-gate-wisteria",
+        "capacity": "Cocktail hour",
+        "text": "Zen Moon Gates for past, present and future, the Tree of One and the Cascade of Light."
+      },
+      {
+        "name": "Orchid Forest Stroll",
+        "photo": "bonsai-wall",
+        "capacity": "Strolls & portraits",
+        "text": "A path of orchids past the Rock Zen Garden, the bonsai wall and the Sacred Fire Boulder."
+      },
+      {
+        "name": "Sanctuary Center",
+        "photo": "center-dinner",
+        "capacity": "Up to 120 seated, covered",
+        "text": "A covered rustic pavilion with an onyx bar, organic chandeliers and an arch bridge over the koi ponds."
+      },
+      {
+        "name": "IBUKU Avalon",
+        "photo": "ibuku-aerial",
+        "capacity": "180 seated · new in 2026",
+        "text": "The Sanctuary’s new hall, “Home of Mother Earth”, where the indoors and outdoors become one, with a bar built around living trees."
+      },
+      {
+        "name": "Zen Lounge",
+        "photo": "zen-lounge",
+        "capacity": "Getting-ready suite",
+        "text": "An air-conditioned lounge with an amethyst entrance, private bath and a veranda over the lake."
+      }
     ],
-    "note": "Capacities from the Sanctuary. IBUKU Avalon, the new indoor hall opened in 2026, is listed for 180 guests on PartySlate; confirm current layouts with the Sanctuary."
+    "note": "Capacities from the Sanctuary; IBUKU Avalon’s from PartySlate. Confirm current layouts with the Sanctuary."
   },
   "galleryTitle": "Inside <em>the Sanctuary</em>",
   "gallery": {
-    "cats": [["all", "All"], ["ceremonies", "Ceremonies"], ["reception", "Receptions"], ["gardens", "Gardens"], ["portraits", "Portraits"]],
-    "items": ["stone-moon-gate", "nest-night", "wisteria-couple", "arch-bridge", "chandeliers", "cocoon", "koi-falls", "lit-stairs", "bridge-kiss", "lit-path", "the-nest", "bonsai-couple"]
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "ceremonies",
+        "Ceremonies"
+      ],
+      [
+        "reception",
+        "Receptions"
+      ],
+      [
+        "gardens",
+        "Gardens"
+      ],
+      [
+        "portraits",
+        "Portraits"
+      ]
+    ],
+    "items": [
+      "stone-moon-gate",
+      "nest-night",
+      "wisteria-couple",
+      "arch-bridge",
+      "chandeliers",
+      "cocoon",
+      "koi-falls",
+      "lit-stairs",
+      "bridge-kiss",
+      "lit-path",
+      "the-nest",
+      "bonsai-couple"
+    ]
   },
   "reviews": {
     "kicker": "Couples who celebrated here",
@@ -81,9 +228,18 @@
     "count": "492 Google reviews",
     "src": "Reviews from WeddingWire and the Sanctuary · Rating from Google",
     "items": [
-      { "q": "Everyone should trust Mary Luz with their wedding, she has put together an incredible team of vendors that will make your day seamless and easy.", "who": "Jordan · WeddingWire · March 2025" },
-      { "q": "The brand new Ibuku indoor space is absolutely stunning.", "who": "Erin · WeddingWire · February 2026" },
-      { "q": "Our wedding day despite the rain, was absolutely stunning.", "who": "Leslie · Sanctuary bride, 2024" }
+      {
+        "q": "Everyone should trust Mary Luz with their wedding, she has put together an incredible team of vendors that will make your day seamless and easy.",
+        "who": "Jordan · WeddingWire · March 2025"
+      },
+      {
+        "q": "The brand new Ibuku indoor space is absolutely stunning.",
+        "who": "Erin · WeddingWire · February 2026"
+      },
+      {
+        "q": "Our wedding day despite the rain, was absolutely stunning.",
+        "who": "Leslie · Sanctuary bride, 2024"
+      }
     ]
   },
   "production": {
@@ -99,5 +255,27 @@
     "venuePhone": "+19549522500",
     "venuePhoneLabel": "954-952-2500"
   },
-  "footer": "Living Sculpture Sanctuary · 2800 S Flamingo Rd, Davie"
+  "footer": "Living Sculpture Sanctuary · 2800 S Flamingo Rd, Davie",
+  "videos": {
+    "aerial": {
+      "mp4": "vid-aerial.mp4",
+      "poster": "vid-aerial-poster.jpg",
+      "label": "IBUKU Avalon and the gardens from above"
+    },
+    "gardens": {
+      "mp4": "vid-gardens.mp4",
+      "poster": "vid-gardens-poster.jpg",
+      "label": "A walk through the gardens to the lake"
+    },
+    "wedding": {
+      "mp4": "vid-wedding.mp4",
+      "poster": "vid-wedding-poster.jpg",
+      "label": "A wedding at the Sanctuary: the bride, the ceremony and the reception"
+    },
+    "opening": {
+      "mp4": "vid-opening.mp4",
+      "poster": "vid-opening-poster.jpg",
+      "label": "IBUKU Avalon's grand opening: drums, strings, food stations and fire dancers"
+    }
+  }
 }
