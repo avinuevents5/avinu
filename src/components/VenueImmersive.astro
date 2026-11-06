@@ -385,8 +385,9 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .grid { columns: 2; column-gap: .6rem; }
     .tile { margin-bottom: .6rem; }
     .tile .cap { display: none; }
-    .chips { overflow-x: auto; flex-wrap: nowrap; width: 100%; scrollbar-width: none; }
-    .chip { flex: 0 0 auto; }
+    /* Filtros de galería: todos a la vista (pasan a una 2.ª línea si no caben), nunca cortados */
+    .chips { flex-wrap: wrap; width: 100%; gap: .35rem; }
+    .chip { flex: 0 0 auto; padding: .55rem .8rem; font-size: .66rem; letter-spacing: .06em; }
     .lb-fig { padding: 0; }
     .lb-prev, .lb-next { top: auto; bottom: -3.6rem; transform: none; }
     .lb-inner { grid-template-rows: auto 1fr auto auto; }
