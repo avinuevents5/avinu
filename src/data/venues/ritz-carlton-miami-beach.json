@@ -1,9 +1,12 @@
 {
   "slug": "ritz-carlton-miami-beach",
   "name": "The Ritz-Carlton, South Beach",
-  "media_note": "Fotos de ritzcarlton.com (paginas events, weddings y photos, 2026-11-06, versiones 2880 px). PENDIENTE permiso del hotel. Datos: tabla oficial de capacidades y textos de la web oficial (Ballroom 10,212 sq ft; 18 event rooms; 'Jewish and Indian celebrations'; Zaytinya, Lapidus Bar y DiLido Beach Bar por José Andrés Group; DiLido Hotel 1953 por Morris Lapidus). Google 4.3 con 3,238 reseñas e Instagram 43.8K verificados en vivo 2026-11-06. Citas de WeddingWire (2009-2015, antiguas) de Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md. NO se usan las cifras totales de sq ft de la web (20,000 vs 36,000: contradictorias). Kosher NO afirmado como oferta propia (la web solo dice 'specialized options available for kosher gatherings'). Fotos 'pool-ceremony' (miasb-wedding) y 'canopy-ceremony' (rcsobch_00203): lugar exacto no confirmado, van con texto generico. Salon 1-3 y Courtyard no tienen foto confirmada: no llevan tarjeta, solo cifras en la nota. Salon 2/3: 'up to 360' (maximo del schema de la web; la tabla de bodas da 358/342 en recepcion).",
+  "media_note": "Fotos de ritzcarlton.com (paginas events, weddings y photos, 2026-11-06, versiones 2880 px). PENDIENTE permiso del hotel. Datos: tabla oficial de capacidades y textos de la web oficial (Ballroom 10,212 sq ft; 18 event rooms; 'Jewish and Indian celebrations'; Zaytinya, Lapidus Bar y DiLido Beach Bar por José Andrés Group; DiLido Hotel 1953 por Morris Lapidus). Google 4.3 con 3,238 reseñas e Instagram 43.8K verificados en vivo 2026-11-06. Citas de WeddingWire (2009-2015, antiguas) de Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md. NO se usan las cifras totales de sq ft de la web (20,000 vs 36,000: contradictorias). Kosher NO afirmado como oferta propia (la web solo dice 'specialized options available for kosher gatherings'). Fotos 'pool-ceremony' (miasb-wedding) y 'canopy-ceremony' (rcsobch_00203): lugar exacto no confirmado, van con texto generico. Salon 1-3 y Courtyard no tienen foto confirmada: no llevan tarjeta, solo cifras en la nota. Salon 2/3: 'up to 360' (maximo del schema de la web; la tabla de bodas da 358/342 en recepcion). Videos: reels de @ritzcarltonsouthbeach bajados por el usuario (2026-11-06), sin audio, PENDIENTE permiso: hotel/piscina (portada movil), Lapidus Bar y DiLido (carrusel de cocina). Descartados: lobby y vista al mar (texto encima), champan ('More bubbly please'), playa con niños, habitacion, cafe y taller de cocteles (no son de eventos).",
   "credit": "The Ritz-Carlton, South Beach",
-  "brand": { "title": "Ritz-Carlton", "sub": "South Beach" },
+  "brand": {
+    "title": "Ritz-Carlton",
+    "sub": "South Beach"
+  },
   "seo": {
     "title": "The Ritz-Carlton, South Beach · Weddings, Events & Galas",
     "description": "Weddings, social celebrations, galas and corporate events at The Ritz-Carlton, South Beach, an Art Deco landmark on Lincoln Road with a 10,212-square-foot ballroom for up to 1,075 guests. Music, lighting and production by Avinu Events."
@@ -12,11 +15,27 @@
     "photo": "hero-ballroom",
     "pos": "50% 55%",
     "kicker": "Miami Beach, Florida · Art Deco landmark",
-    "h1": ["The Ritz-Carlton,"],
+    "h1": [
+      "The Ritz-Carlton,"
+    ],
     "h1em": "South Beach",
     "lead": "An Art Deco landmark overlooking the beach: a ballroom under blue Baccarat chandeliers, ocean-view terraces and room for up to 1,075 guests.",
     "secondary": "Explore the hotel",
-    "facts": [["1,075", "Guests, Ballroom reception"], ["10,212", "Sq ft Ballroom"], ["18", "Event rooms"]]
+    "facts": [
+      [
+        "1,075",
+        "Guests, Ballroom reception"
+      ],
+      [
+        "10,212",
+        "Sq ft Ballroom"
+      ],
+      [
+        "18",
+        "Event rooms"
+      ]
+    ],
+    "mobileVideo": "hotel"
   },
   "intro": {
     "kicker": "The Hotel",
@@ -27,7 +46,20 @@
     ],
     "a": "ballroom-wide",
     "b": "gallery-cocktail",
-    "stats": [["4.3", "Google · 3,238 reviews"], ["840", "Seated in the Ballroom"], ["1953", "Opened as The DiLido Hotel"]]
+    "stats": [
+      [
+        "4.3",
+        "Google · 3,238 reviews"
+      ],
+      [
+        "840",
+        "Seated in the Ballroom"
+      ],
+      [
+        "1953",
+        "Opened as The DiLido Hotel"
+      ]
+    ]
   },
   "celebrations": {
     "h2": "Made for <em>milestones</em>",
@@ -81,9 +113,24 @@
     "h2": "From the ocean <em>to the Ballroom</em>",
     "text": "A ceremony by the water, cocktails in the Gallery and a Ballroom reception under blue chandeliers. Choose a moment.",
     "moments": [
-      { "title": "Ceremony", "text": "By the pool and the ocean", "photo": "pool-ceremony", "wide": true },
-      { "title": "Cocktails", "text": "In the Gallery", "photo": "gallery-cocktail", "wide": true },
-      { "title": "Reception", "text": "In the Ballroom", "photo": "ballroom-reception", "wide": true }
+      {
+        "title": "Ceremony",
+        "text": "By the pool and the ocean",
+        "photo": "pool-ceremony",
+        "wide": true
+      },
+      {
+        "title": "Cocktails",
+        "text": "In the Gallery",
+        "photo": "gallery-cocktail",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "In the Ballroom",
+        "photo": "ballroom-reception",
+        "wide": true
+      }
     ]
   },
   "spaces": {
@@ -120,11 +167,51 @@
   },
   "galleryTitle": "Inside <em>the Ritz-Carlton</em>",
   "gallery": {
-    "cats": [["all", "All"], ["weddings", "Weddings"], ["ballroom", "Ballroom & rooms"], ["outdoors", "Outdoors"], ["dining", "Dining"], ["hotel", "The Hotel"]],
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "ballroom",
+        "Ballroom & rooms"
+      ],
+      [
+        "outdoors",
+        "Outdoors"
+      ],
+      [
+        "dining",
+        "Dining"
+      ],
+      [
+        "hotel",
+        "The Hotel"
+      ]
+    ],
     "items": [
-      "hero-ballroom", "pool-ceremony", "ballroom-florals", "canopy-ceremony", "ballroom-candles", "ballroom-reception",
-      "dilido-palms", "dilido-dining", "zaytinya-patio", "dilido-club", "venetian-room", "meeting-room",
-      "lapidus-bar", "cocktail", "dinner-spread", "balcony-view", "suite-living", "ocean-king"
+      "hero-ballroom",
+      "pool-ceremony",
+      "ballroom-florals",
+      "canopy-ceremony",
+      "ballroom-candles",
+      "ballroom-reception",
+      "dilido-palms",
+      "dilido-dining",
+      "zaytinya-patio",
+      "dilido-club",
+      "venetian-room",
+      "meeting-room",
+      "lapidus-bar",
+      "cocktail",
+      "dinner-spread",
+      "balcony-view",
+      "suite-living",
+      "ocean-king"
     ]
   },
   "cuisine": {
@@ -136,12 +223,41 @@
     ],
     "listLabel": "At the table",
     "highlights": [
-      ["Zaytinya", "Terrace receptions by the pool"],
-      ["Lapidus Bar", "José Andrés Group"],
-      ["DiLido", "Beachfront bar events"],
-      ["Catering", "Bold flavors of Miami"]
+      [
+        "Zaytinya",
+        "Terrace receptions by the pool"
+      ],
+      [
+        "Lapidus Bar",
+        "José Andrés Group"
+      ],
+      [
+        "DiLido",
+        "Beachfront bar events"
+      ],
+      [
+        "Catering",
+        "Bold flavors of Miami"
+      ]
     ],
-    "items": ["dinner-spread", "ceviche", "dessert", "light-bites", "cocktail", "lapidus-bar", "zaytinya-patio", "dilido-dining"]
+    "items": [
+      "dinner-spread",
+      {
+        "video": "lapidus",
+        "cap": "Cocktails at Lapidus Bar"
+      },
+      "ceviche",
+      {
+        "video": "dilido",
+        "cap": "Oceanfront dining at DiLido"
+      },
+      "dessert",
+      "light-bites",
+      "cocktail",
+      "lapidus-bar",
+      "zaytinya-patio",
+      "dilido-dining"
+    ]
   },
   "reviews": {
     "kicker": "Couples who celebrated here",
@@ -149,9 +265,18 @@
     "count": "3,238 Google reviews",
     "src": "Quotes from WeddingWire (2009–2015) · Rating from Google",
     "items": [
-      { "q": "… the location is gorgeous, the outdoor ceremony area is BEAUTIFUL", "who": "Maria · WeddingWire · April 2010" },
-      { "q": "went above and beyond to accommodate my every need and wish!", "who": "Barbara · WeddingWire · September 2009" },
-      { "q": "The staff was amazing and so welcoming.", "who": "Jo · WeddingWire · June 2015" }
+      {
+        "q": "… the location is gorgeous, the outdoor ceremony area is BEAUTIFUL",
+        "who": "Maria · WeddingWire · April 2010"
+      },
+      {
+        "q": "went above and beyond to accommodate my every need and wish!",
+        "who": "Barbara · WeddingWire · September 2009"
+      },
+      {
+        "q": "The staff was amazing and so welcoming.",
+        "who": "Jo · WeddingWire · June 2015"
+      }
     ]
   },
   "production": {
@@ -167,5 +292,22 @@
     "venuePhone": "+17862764000",
     "venuePhoneLabel": "786-276-4000"
   },
-  "footer": "The Ritz-Carlton, South Beach · 1 Lincoln Rd, Miami Beach"
+  "footer": "The Ritz-Carlton, South Beach · 1 Lincoln Rd, Miami Beach",
+  "videos": {
+    "hotel": {
+      "mp4": "vid-hotel.mp4",
+      "poster": "vid-hotel-poster.jpg",
+      "label": "The hotel, the pool and the ocean in South Beach"
+    },
+    "lapidus": {
+      "mp4": "vid-lapidus.mp4",
+      "poster": "vid-lapidus-poster.jpg",
+      "label": "Cocktails at Lapidus Bar"
+    },
+    "dilido": {
+      "mp4": "vid-dilido.mp4",
+      "poster": "vid-dilido-poster.jpg",
+      "label": "Oceanfront dining at DiLido"
+    }
+  }
 }

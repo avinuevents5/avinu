@@ -432,7 +432,8 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .course { flex-basis: 100%; }
     .courses { gap: var(--gutter); }
     .courses-ctrl { display: none; }
-    .course-v { flex-basis: 56vw; }
+    .course-v { flex-basis: 100%; }
+    .course-v .ph-wrap { aspect-ratio: 3 / 2; }   /* en movil, mismo alto que los platos: una tarjeta por vez */
 
     .production { padding: 3.5rem 0; }                        /* mismo espacio sobre la foto que al final */
     .avinu-sign { justify-content: center; margin-top: 3.5rem; }  /* centrado, mismo espacio arriba y abajo */
@@ -960,9 +961,18 @@ $('#lb-fig').addEventListener('pointerup', e => { if (sx === null) return; const
 const courses = $('#courses');
 if (courses) {
   COURSES.forEach(n => {
-    const p = PH[n]; const f = document.createElement('figure'); f.className = 'course';
-    const w = document.createElement('div'); w.className = 'ph-wrap'; w.append(img(n, { sizes: '(max-width: 900px) 78vw, 30vw' }));
-    f.append(w); const c = document.createElement('figcaption'); c.innerHTML = `${p.cap}<small>${CREDIT}</small>`; f.append(c); courses.append(f);
+    const f = document.createElement('figure'); f.className = 'course';
+    const w = document.createElement('div'); w.className = 'ph-wrap';
+    const c = document.createElement('figcaption');
+    if (n && typeof n === 'object' && n.video && VIDS[n.video]) {
+      // video opcional dentro del carrusel de cocina: { "video": "clave", "cap": "..." }
+      f.classList.add('course-v'); w.append(vplayer(n.video).el);
+      c.innerHTML = `${n.cap || VIDS[n.video].label}<small>Video: ${CREDIT}</small>`;
+    } else {
+      const p = PH[n]; w.append(img(n, { sizes: '(max-width: 900px) 78vw, 30vw' }));
+      c.innerHTML = `${p.cap}<small>${CREDIT}</small>`;
+    }
+    f.append(w, c); courses.append(f);
   });
   const step = () => courses.querySelector('.course').getBoundingClientRect().width + 19;
   $('#courses-prev').addEventListener('click', () => courses.scrollBy({ left: -step(), behavior: reduced ? 'auto' : 'smooth' }));
