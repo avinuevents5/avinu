@@ -364,8 +364,11 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .intro-stats b { font-size: 2rem; }
 
     .sec-head { margin-bottom: 1.6rem; }
-    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; gap: .3rem; padding: .3rem; }
+    /* Una sola fila con tantas columnas como pestañas (3 o 4) */
+    .tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); width: 100%; gap: .3rem; padding: .3rem; }
     .tab { padding: .75rem .4rem; font-size: .7rem; letter-spacing: .08em; text-align: center; }
+    .tabs:has(> :nth-child(4)) { gap: .15rem; }
+    .tabs:has(> :nth-child(4)) .tab { padding: .75rem .15rem; font-size: .6rem; letter-spacing: .03em; }
     .t-full { display: none; }
     .t-short { display: inline; }
     .stage { grid-template-columns: 1fr; gap: 1.6rem; }
