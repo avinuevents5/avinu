@@ -3,6 +3,7 @@
 // común [slug].astro solo para este venue (excluido allí en getStaticPaths).
 // Contenido y medios: bloque MEDIA al inicio del script. Fotos/videos de Premier
 // Event Catering (@eatwithpremier) — PENDIENTE permiso formal de Premier.
+import MoreVenues from '../../../components/MoreVenues.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -90,6 +91,12 @@
     background: linear-gradient(90deg, rgba(10,9,8,.72) 0%, rgba(10,9,8,.25) 42%, rgba(10,9,8,0) 62%), linear-gradient(0deg, rgba(10,9,8,.7) 0%, rgba(10,9,8,0) 38%), linear-gradient(180deg, rgba(10,9,8,.45) 0%, rgba(10,9,8,0) 18%); }
   .hero-copy { position: absolute; z-index: 2; left: var(--gutter); bottom: clamp(3rem, 9vh, 6.5rem); max-width: min(560px, 38vw); }
   .hero-copy .kicker { color: var(--gold-2); display: block; margin-bottom: 1.2rem; }
+  .hero-back { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.4rem; color: rgba(255,255,255,.72); font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: color .25s; }
+  .hero-back::before { content: '←'; font-size: .9rem; letter-spacing: 0; }
+  .hero-back:hover { color: #fff; }
+  .nav-out a { opacity: .75; }
+  .nav-out a::before { content: '← '; }
+  @media (min-width: 901px) and (max-width: 1399px) { .nav-out { display: none; } }   /* en anchos medios el menu no da; queda el enlace de la portada */
   .hero h1 { font-size: clamp(3rem, 5.4vw, 5.6rem); line-height: .95; }
   .hero h1 span, .hero h1 em { display: block; }
   .hero h1 em { font-style: italic; color: var(--gold-2); }
@@ -420,6 +427,7 @@
         <li><a href="#cuisine">Cuisine</a></li>
         <li><a href="#production">Production</a></li>
         <li><a href="#plan">Plan</a></li>
+        <li class="nav-out"><a href="/venues/">All venues</a></li>
       </ul>
     </nav>
     <div class="lang" role="group" aria-label="Language"><a href="/venues/aventura-turnberry-jewish-center/" aria-current="page" lang="en" hreflang="en">EN</a><i aria-hidden="true">·</i><a href="/es/venues/aventura-turnberry-jewish-center/" lang="es" hreflang="es" title="Ver en español">ES</a></div>
@@ -436,6 +444,7 @@
   </div>
   <span class="note-badge" style="top:auto;bottom:1rem;right:1rem">Video oficial pendiente (el hero ya acepta MP4/WebM)</span>
   <div class="hero-copy">
+    <a class="hero-back" href="/venues/">All venues</a>
     <span class="kicker">Aventura, Florida · Celebrations since 1990</span>
     <h1><span>Aventura</span> <span>Turnberry</span> <em>Jewish Center</em></h1>
     <p class="hero-lead">A ballroom for up to 650 guests, kosher cuisine prepared in-house by Premier Event Catering, and a team that has hosted South Florida’s simchas for more than three decades.</p>
@@ -611,6 +620,7 @@
     </div>
   </div>
 </section>
+<MoreVenues current="aventura-turnberry-jewish-center" />
 </main>
 
 <footer>

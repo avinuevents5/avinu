@@ -27,7 +27,13 @@ def t(en, es):
     s = s.replace(en, es)
 
 # ───────── Encabezado y SEO ─────────
-s = re.sub(r'^---.*?---\n', '---\n// GENERADA por scripts/atjc-venue-es.py desde la versión en inglés. No editar a mano.\n---\n', s, count=1, flags=re.S)
+s = re.sub(r'^---.*?---\n', "---\n// GENERADA por scripts/atjc-venue-es.py desde la versión en inglés. No editar a mano.\n"
+           "import MoreVenues from '../../../../components/MoreVenues.astro';\n---\n", s, count=1, flags=re.S)
+
+# ───────── Volver al listado y "Más venues" ─────────
+t('<li class="nav-out"><a href="/venues/">All venues</a></li>', '<li class="nav-out"><a href="/venues/">Todos los venues</a></li>')
+t('<a class="hero-back" href="/venues/">All venues</a>', '<a class="hero-back" href="/venues/">Todos los venues</a>')
+t('<MoreVenues current="aventura-turnberry-jewish-center" />', '<MoreVenues current="aventura-turnberry-jewish-center" lang="es" />')
 t('<html lang="en">', '<html lang="es">')
 t('<title>Aventura Turnberry Jewish Center · Celebrations in Aventura</title>',
   '<title>Aventura Turnberry Jewish Center · Celebraciones en Aventura</title>')

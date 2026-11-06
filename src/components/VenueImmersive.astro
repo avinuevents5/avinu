@@ -5,6 +5,7 @@
 // Medios: public/venues/<slug>/media/<foto>-800.webp y -1600.webp
 // Fotos tomadas de la web oficial de cada venue: PENDIENTE permiso del venue (ver data.media_note).
 interface Props { v: any; photos: Record<string, any> }
+import MoreVenues from './MoreVenues.astro';
 const { v, photos } = Astro.props;
 const M = `/venues/${v.slug}/media/`;
 const src = (n: string, s = 1600) => `${M}${n}-${s}.webp`;
@@ -108,6 +109,12 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     background: linear-gradient(90deg, rgba(10,9,8,.72) 0%, rgba(10,9,8,.25) 42%, rgba(10,9,8,0) 62%), linear-gradient(0deg, rgba(10,9,8,.7) 0%, rgba(10,9,8,0) 38%), linear-gradient(180deg, rgba(10,9,8,.45) 0%, rgba(10,9,8,0) 18%); }
   .hero-copy { position: absolute; z-index: 2; left: var(--gutter); bottom: clamp(3rem, 9vh, 6.5rem); max-width: min(560px, 38vw); }
   .hero-copy .kicker { color: var(--gold-2); display: block; margin-bottom: 1.2rem; }
+  .hero-back { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.4rem; color: rgba(255,255,255,.72); font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: color .25s; }
+  .hero-back::before { content: '←'; font-size: .9rem; letter-spacing: 0; }
+  .hero-back:hover { color: #fff; }
+  .nav-out a { opacity: .75; }
+  .nav-out a::before { content: '← '; }
+  @media (min-width: 901px) and (max-width: 1399px) { .nav-out { display: none; } }   /* en anchos medios el menu no da; queda el enlace de la portada */
   .hero h1 { font-size: clamp(3rem, 5.4vw, 5.6rem); line-height: .95; }
   .hero h1 span, .hero h1 em { display: block; }
   .hero h1 em { font-style: italic; color: var(--gold-2); }
@@ -472,6 +479,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     <nav aria-label="Sections">
       <ul class="nav-links" id="nav-links">
         {links.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}
+        <li class="nav-out"><a href="/venues/">All venues</a></li>
       </ul>
     </nav>
     <a class="btn btn-gold" href="#plan">Check your date</a>
@@ -488,6 +496,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     </picture>
   </div>
   <div class="hero-copy">
+    <a class="hero-back" href="/venues/">All venues</a>
     <span class="kicker">{v.hero.kicker}</span>
     <h1>{v.hero.h1.map((l: string) => <span>{l} </span>)}<em>{v.hero.h1em}</em></h1>
     <p class="hero-lead">{v.hero.lead}</p>
@@ -665,6 +674,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     </div>
   </div>
 </section>
+<MoreVenues current={v.slug} />
 </main>
 
 <footer>

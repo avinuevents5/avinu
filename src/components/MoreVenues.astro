@@ -1,0 +1,96 @@
+---
+// "Keep exploring": fila de los demas venues al final de cada pagina de venue (como "Other DJs" en la
+// pagina de cada DJ), para que el cliente siga viendo opciones sin volver atras.
+// Uso: <MoreVenues current="the-addison" />  (mismo orden que /venues/)
+import { getCollection } from 'astro:content';
+
+interface Props { current: string; lang?: 'en' | 'es' }
+const { current, lang = 'en' } = Astro.props;
+const T = lang === 'es'
+  ? { kicker: 'Sigue explorando', h2: 'Más venues', em: 'en el sur de Florida', all: 'Ver todos los venues', prev: 'Venues anteriores', next: 'Más venues' }
+  : { kicker: 'Keep exploring', h2: 'More venues', em: 'in South Florida', all: 'View all venues', prev: 'Previous venues', next: 'Next venues' };
+
+const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+const venues = (await getCollection('venues'))
+  .filter((v) => v.id !== current)
+  .sort((a, b) => {
+    const ao = a.data.order ?? 999;
+    const bo = b.data.order ?? 999;
+    return ao !== bo ? ao - bo : a.data.title.localeCompare(b.data.title);
+  });
+const city = (addr?: string) => {
+  // "2600 Country Club Way, Weston, FL 33332" -> "Weston, FL"
+  const p = (addr || '').split(',').map((s) => s.trim()).filter(Boolean);
+  return p.length >= 3 ? `${p[p.length - 2]}, ${p[p.length - 1].split(' ')[0]}` : '';
+};
+---
+<section class="mv" aria-labelledby="mv-title">
+  <div class="mv-wrap">
+    <div class="mv-head">
+      <div>
+        <span class="mv-kicker">{T.kicker}</span>
+        <h2 id="mv-title">{T.h2} <em>{T.em}</em></h2>
+      </div>
+      <div class="mv-actions">
+        <button class="mv-arrow" type="button" data-dir="-1" aria-label={T.prev}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="mv-arrow" type="button" data-dir="1" aria-label={T.next}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        <a class="mv-all" href="/venues/">{T.all}</a>
+      </div>
+    </div>
+  </div>
+  <div class="mv-rail" id="mv-rail">
+    {venues.map((v) => (
+      <a class="mv-card" href={`/venues/${v.id}/`}>
+        <span class="mv-img"><img src={v.data.image ?? FALLBACK} alt="" width="560" height="420" loading="lazy" decoding="async" /></span>
+        <span class="mv-name">{v.data.title}</span>
+        {city(v.data.address) && <span class="mv-city">{city(v.data.address)}</span>}
+      </a>
+    ))}
+  </div>
+  <div class="mv-wrap mv-foot">
+    <a class="mv-all" href="/venues/">{T.all}</a>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const rail = document.getElementById('mv-rail');
+    if (!rail) return;
+    document.querySelectorAll('.mv-arrow').forEach((b) =>
+      b.addEventListener('click', () => rail.scrollBy({ left: Number(b.dataset.dir) * rail.clientWidth * 0.8, behavior: 'smooth' })));
+  })();
+</script>
+
+<style>
+  .mv { background: var(--paper, #f4efe6); color: var(--text, #22201c); padding: clamp(4.5rem, 10vh, 7rem) 0 clamp(3.5rem, 8vh, 5rem); border-top: 1px solid var(--line, rgba(14,13,12,.12)); }
+  .mv-wrap { max-width: var(--maxw, 1320px); margin: 0 auto; padding: 0 var(--gutter, 5vw); }
+  .mv-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; }
+  .mv-kicker { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: #8c6c24; margin-bottom: .8rem; }
+  .mv h2 { font-family: var(--serif, Georgia, serif); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.02; margin: 0; color: var(--ink, #0e0d0c); }
+  .mv h2 em { font-style: italic; color: #8c6c24; }
+  .mv-actions { display: flex; align-items: center; gap: .6rem; flex-shrink: 0; }
+  .mv-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line, rgba(14,13,12,.12)); background: transparent; color: var(--ink, #0e0d0c); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background .3s, border-color .3s; }
+  .mv-arrow:hover { background: var(--ink, #0e0d0c); color: #fff; border-color: var(--ink, #0e0d0c); }
+  .mv-arrow svg { width: 18px; height: 18px; }
+  .mv-all { display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 1.4rem; border-radius: 999px; border: 1px solid var(--ink, #0e0d0c); color: var(--ink, #0e0d0c); text-decoration: none; font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin-left: .4rem; transition: background .3s, color .3s; }
+  .mv-all::after { content: '→'; }
+  .mv-all:hover { background: var(--ink, #0e0d0c); color: #fff; }
+  .mv-rail { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 22vw, 300px); gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    padding: 0 max(var(--gutter, 5vw), calc((100vw - var(--maxw, 1320px)) / 2 + var(--gutter, 5vw))) .5rem;
+    scroll-padding-inline: max(var(--gutter, 5vw), calc((100vw - var(--maxw, 1320px)) / 2 + var(--gutter, 5vw))); }
+  .mv-rail::-webkit-scrollbar { display: none; }
+  .mv-card { scroll-snap-align: start; text-decoration: none; color: inherit; display: block; }
+  .mv-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 2px; background: var(--paper-2, #ebe3d6); }
+  .mv-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+  .mv-card:hover .mv-img img { transform: scale(1.05); }
+  .mv-name { display: block; font-family: var(--serif, Georgia, serif); font-size: 1.4rem; line-height: 1.1; margin-top: .9rem; color: var(--ink, #0e0d0c); }
+  .mv-card:hover .mv-name { color: #8c6c24; }
+  .mv-city { display: block; font-size: .78rem; color: var(--muted, #5d574e); margin-top: .3rem; letter-spacing: .02em; }
+  .mv-foot { display: none; }
+  @media (max-width: 900px) {
+    .mv-arrow, .mv-head .mv-all { display: none; }
+    .mv-rail { grid-auto-columns: 68vw; }
+    .mv-foot { display: block; margin-top: 2rem; }
+    .mv-foot .mv-all { margin-left: 0; }
+  }
+</style>
