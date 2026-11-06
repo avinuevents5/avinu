@@ -72,6 +72,8 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
           // Paso final (gracias + agenda): sin el encabezado grande, para que el calendario entre en la pantalla.
           var grid = frame.closest('.quote-grid');
           if (grid) grid.classList.toggle('is-done', !!e.data.wide);
+          // Calendly del constructor abierto: más ancho, para que Calendly use sus dos columnas (desde ~1,110 px).
+          if (grid) grid.classList.toggle('is-cal', !!e.data.cal);
         } else if (e.data.type === 'avinu-inquire-viewport-request') {
           sendViewport();
         } else if (e.data.type === 'avinu-inquire-scroll') {
@@ -103,6 +105,8 @@ const inquireUrl = `${crmOrigin}/inquire?embed=1`;
     .quote-main { min-width: 0; }
     .quote-grid.is-done .page-head { display: none; }
     .quote-grid.is-done .inq-frame { margin-top: 0; }
+    /* Calendly abierto en el constructor: hasta 1200px aunque la pantalla sea de laptop (1280–1480), siempre dentro del margen. */
+    .quote-grid.is-cal { max-width: min(1200px, 100%); }
 
     .page-head { max-width: 44rem; }
     .head-kicker { display: block; margin-bottom: 1rem; }
