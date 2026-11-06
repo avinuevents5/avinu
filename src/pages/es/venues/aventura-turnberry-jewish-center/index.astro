@@ -408,8 +408,15 @@ import MoreVenues from '../../../../components/MoreVenues.astro';
 
     .mobile-cta { display: flex; gap: .6rem; position: fixed; z-index: 35; left: 0; right: 0; bottom: 0; padding: .7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom)); background: rgba(14,13,12,.94); backdrop-filter: blur(12px); transform: translateY(110%); transition: transform .45s var(--ease); }
     .mobile-cta.show { transform: none; }
-    .mobile-cta a { flex: 1; justify-content: center; padding: .9rem; }
-    .mobile-cta .btn-line { flex: 0 0 auto; }
+    /* Barra flotante: nombre del venue + llamar (icono discreto) y dos acciones del mismo ancho */
+    .mobile-cta { flex-direction: column; gap: .5rem; }
+    .mcta-top { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+    .mcta-label { font-size: .7rem; letter-spacing: .04em; color: rgba(255,255,255,.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mcta-call { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.75); display: inline-flex; align-items: center; justify-content: center; }
+    .mcta-call svg { width: 14px; height: 14px; }
+    .mcta-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .mcta-btns .btn { justify-content: center; padding: .85rem .5rem; font-size: .68rem; letter-spacing: .1em; white-space: nowrap; }
+    footer { padding-bottom: calc(8.5rem + env(safe-area-inset-bottom)); }   /* que la barra no tape el pie */
   }
 
   /* Respeta "reducir movimiento" */
@@ -631,7 +638,7 @@ import MoreVenues from '../../../../components/MoreVenues.astro';
     </div>
   </div>
 </section>
-<MoreVenues current="aventura-turnberry-jewish-center" lang="es" />
+<MoreVenues current="aventura-turnberry-jewish-center" foot={false} lang="es" />
 </main>
 
 <footer>
@@ -640,8 +647,8 @@ import MoreVenues from '../../../../components/MoreVenues.astro';
 </footer>
 
 <div class="mobile-cta" id="mobile-cta">
-  <a class="btn btn-gold" href="#plan">Consulta tu fecha</a>
-  <a class="btn btn-line" href="tel:+17545474415" aria-label="Llamar a Avinu Events">Llamar</a>
+  <div class="mcta-top"><span class="mcta-label">Aventura Turnberry Jewish Center · Aventura</span><a class="mcta-call" href="tel:+17545474415" aria-label="Llamar a Avinu Events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6.6 3.5l2.6 4.2-1.8 1.6a12.5 12.5 0 0 0 7.3 7.3l1.6-1.8 4.2 2.6-.9 2.9c-.2.6-.8 1-1.4 1A16.6 16.6 0 0 1 2.7 6.3c0-.6.4-1.2 1-1.4z"/></svg></a></div>
+  <div class="mcta-btns"><a class="btn btn-gold" href="#plan">Consulta tu fecha</a><a class="btn btn-line" href="/venues/">Ver más venues</a></div>
 </div>
 
 <!-- Lightbox -->

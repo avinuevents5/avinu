@@ -33,7 +33,7 @@ s = re.sub(r'^---.*?---\n', "---\n// GENERADA por scripts/atjc-venue-es.py desde
 # ───────── Volver al listado y "Más venues" ─────────
 t('<li class="nav-out"><a href="/venues/">All venues</a></li>', '<li class="nav-out"><a href="/venues/">Todos los venues</a></li>')
 t('<a class="hero-back" href="/venues/">All venues</a>', '<a class="hero-back" href="/venues/">Todos los venues</a>')
-t('<MoreVenues current="aventura-turnberry-jewish-center" />', '<MoreVenues current="aventura-turnberry-jewish-center" lang="es" />')
+t('<MoreVenues current="aventura-turnberry-jewish-center" foot={false} />', '<MoreVenues current="aventura-turnberry-jewish-center" foot={false} lang="es" />')
 t("'More filters to the left', -1)", "'Más filtros a la izquierda', -1)")
 t("'More filters', 1)", "'Más filtros', 1)")
 t('<html lang="en">', '<html lang="es">')
@@ -236,7 +236,8 @@ t('<dt>Entertainment</dt>', '<dt>Entretenimiento</dt>')
 t('· Kosher catering by Premier Event Catering', '· Catering kosher de Premier Event Catering')
 t('Page by <a', 'Página de <a')
 t('Food &amp; venue photography: Premier Event Catering / Domino Arts', 'Fotos de comida y del salón: Premier Event Catering / Domino Arts')
-t('aria-label="Call Avinu Events">Call</a>', 'aria-label="Llamar a Avinu Events">Llamar</a>')
+t('aria-label="Call Avinu Events"><svg', 'aria-label="Llamar a Avinu Events"><svg')
+t('href="/venues/">View more venues</a>', 'href="/venues/">Ver más venues</a>')
 
 if missing:
     print('FALTAN traducciones (el texto en inglés cambió):'); [print('  -', m) for m in missing]; sys.exit(1)

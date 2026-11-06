@@ -4,11 +4,12 @@
 // Uso: <MoreVenues current="the-addison" />  (mismo orden que /venues/)
 import { getCollection } from 'astro:content';
 
-interface Props { current: string; lang?: 'en' | 'es' }
-const { current, lang = 'en' } = Astro.props;
+interface Props { current: string; lang?: 'en' | 'es'; foot?: boolean }
+// foot=false: la pagina ya tiene "View more venues" en su barra flotante (movil), no se repite aqui
+const { current, lang = 'en', foot = true } = Astro.props;
 const T = lang === 'es'
-  ? { kicker: 'Sigue explorando', h2: 'Más venues', em: 'en el sur de Florida', all: 'Ver todos los venues', prev: 'Venues anteriores', next: 'Más venues' }
-  : { kicker: 'Keep exploring', h2: 'More venues', em: 'in South Florida', all: 'View all venues', prev: 'Previous venues', next: 'Next venues' };
+  ? { kicker: 'Sigue explorando', h2: 'Más venues', em: 'en el sur de Florida', all: 'Ver más venues', prev: 'Venues anteriores', next: 'Más venues' }
+  : { kicker: 'Keep exploring', h2: 'More venues', em: 'in South Florida', all: 'View more venues', prev: 'Previous venues', next: 'Next venues' };
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
 const venues = (await getCollection('venues'))
@@ -47,9 +48,11 @@ const city = (addr?: string) => {
       </a>
     ))}
   </div>
+  {foot && (
   <div class="mv-wrap mv-foot">
     <a class="mv-all" href="/venues/">{T.all}</a>
   </div>
+  )}
 </section>
 
 <script is:inline>
