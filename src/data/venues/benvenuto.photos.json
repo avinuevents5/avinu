@@ -180,5 +180,12 @@
   "alt": "A filet with herb butter and roasted carrots",
   "cap": "Filet with roasted carrots",
   "cat": "cuisine"
+ },
+ "garden-room": {
+  "w": 720,
+  "h": 1280,
+  "alt": "The Garden Room set for a dinner, with sage linens, tall florals, candles and a sweetheart table by the windows",
+  "cap": "The Garden Room, set for dinner",
+  "cat": "celebrations"
  }
 }

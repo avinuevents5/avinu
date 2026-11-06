@@ -1,9 +1,12 @@
 {
   "slug": "benvenuto",
   "name": "Benvenuto",
-  "media_note": "Fotos de benvenutorestaurant.com (2026-11-06), PENDIENTE permiso. Datos verificados 2026-11-06: Google Maps 4.8 (1,042) 'Salón de bodas'; IG @benvenutoevents (4,003, 1730 N Federal Hwy); historia oficial (imagen 'Benvenuto-history-of-venue' de su web): diseñado en 1929 como sede de Rainbow Tropical Gardens de C.O. Miller, quien reunió palmeras para el Boca Raton Club, huracán de 1947, reconstruido y ampliado; capacidades por sala de las tablas oficiales de /facilities; tipos de evento del menú del sitio; cocina del texto de la portada. Reseñas: WeddingWire (informe ronda 2). Las salas sin foto real propia no tienen tarjeta con foto (solo nota). Fuentes: Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md.",
+  "media_note": "Fotos de benvenutorestaurant.com (2026-11-06), PENDIENTE permiso. Datos verificados 2026-11-06: Google Maps 4.8 (1,042) 'Salón de bodas'; IG @benvenutoevents (4,003, 1730 N Federal Hwy); historia oficial (imagen 'Benvenuto-history-of-venue' de su web): diseñado en 1929 como sede de Rainbow Tropical Gardens de C.O. Miller, quien reunió palmeras para el Boca Raton Club, huracán de 1947, reconstruido y ampliado; capacidades por sala de las tablas oficiales de /facilities; tipos de evento del menú del sitio; cocina del texto de la portada. Reseñas: WeddingWire (informe ronda 2). Las salas sin foto real propia no tienen tarjeta con foto (solo nota). Fuentes: Downloads/avinu-venues-investigacion-ronda2-2026-11-05.md. Videos: reels de @benvenutoevents bajados por el usuario (2026-11-06), sin audio, PENDIENTE permiso; el Garden Room y el Main Room están nombrados en los títulos de los reels del propio venue. Foto 'garden-room' = fotograma del reel del Garden Room.",
   "credit": "Benvenuto",
-  "brand": { "title": "Benvenuto", "sub": "Boynton Beach · Palm Beach County" },
+  "brand": {
+    "title": "Benvenuto",
+    "sub": "Boynton Beach · Palm Beach County"
+  },
   "seo": {
     "title": "Benvenuto · Weddings, Mitzvahs & Celebrations in Boynton Beach",
     "description": "Weddings, bar and bat mitzvahs and celebrations at Benvenuto in Boynton Beach: a 1929 Mizner-inspired building with gardens, a fountain courtyard and rooms for up to 350 guests. Music, lighting and production by Avinu Events."
@@ -13,11 +16,27 @@
     "photoMobile": "centerpiece-violet",
     "pos": "50% 50%",
     "kicker": "Boynton Beach, Florida · Built in 1929",
-    "h1": ["Benvenuto"],
+    "h1": [
+      "Benvenuto"
+    ],
     "h1em": "Boynton Beach",
     "lead": "A 1929 Mizner-inspired building surrounded by gardens, with a fountain courtyard for ceremonies, a bar and lounge for cocktail hour and rooms for up to 350 guests.",
     "secondary": "Explore the venue",
-    "facts": [["350", "Guests"], ["1929", "Mizner-inspired"], ["4.8", "Google · 1,042 reviews"]]
+    "facts": [
+      [
+        "350",
+        "Guests"
+      ],
+      [
+        "1929",
+        "Mizner-inspired"
+      ],
+      [
+        "4.8",
+        "Google · 1,042 reviews"
+      ]
+    ],
+    "mobileVideo": "mainroom"
   },
   "intro": {
     "kicker": "The Venue",
@@ -28,23 +47,72 @@
     ],
     "a": "postcard-front",
     "b": "tower-vintage",
-    "stats": [["11", "Named rooms & spaces"], ["40+", "Years of celebrations"], ["240", "Guests for courtyard ceremonies"]]
+    "stats": [
+      [
+        "11",
+        "Named rooms & spaces"
+      ],
+      [
+        "40+",
+        "Years of celebrations"
+      ],
+      [
+        "240",
+        "Guests for courtyard ceremonies"
+      ]
+    ]
   },
   "celebrations": {
     "h2": "Made for <em>milestones</em>",
     "items": [
-      { "id": "weddings", "label": "Weddings", "short": "Weddings", "photo": "fountain-ceremony", "title": "Weddings",
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "fountain-ceremony",
+        "title": "Weddings",
         "text": "Say “I do” before the fountain wall of the European courtyard, toast at the bar and lounge, then move inside for dinner and dancing.",
-        "points": ["Courtyard ceremonies for up to 240 guests", "Receptions for up to 350 guests", "Ceremony music, DJ and lighting by Avinu Events"],
-        "cta": "Plan a wedding at Benvenuto" },
-      { "id": "mitzvah", "label": "Bar & Bat Mitzvahs", "short": "Mitzvahs", "photo": "table-florals", "title": "Bar & Bat Mitzvahs",
+        "points": [
+          "Courtyard ceremonies for up to 240 guests",
+          "Receptions for up to 350 guests",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at Benvenuto",
+        "video": "ceremony",
+        "caption": "A night ceremony in the courtyard"
+      },
+      {
+        "id": "mitzvah",
+        "label": "Bar & Bat Mitzvahs",
+        "short": "Mitzvahs",
+        "photo": "table-florals",
+        "title": "Bar & Bat Mitzvahs",
         "text": "Bar and bat mitzvahs, sweet 16s and quinceañeras, with rooms that open into one another so the party can move from cocktails to the dance floor.",
-        "points": ["Rooms from 30 to 160 guests with dancing", "In-house cuisine and a full bar", "DJ, MC, dancers and lighting by Avinu Events"],
-        "cta": "Plan a mitzvah at Benvenuto" },
-      { "id": "social", "label": "Milestones & Corporate", "short": "Milestones", "photo": "table-gold", "title": "Milestones & corporate events",
+        "points": [
+          "Rooms from 30 to 160 guests with dancing",
+          "In-house cuisine and a full bar",
+          "DJ, MC, dancers and lighting by Avinu Events"
+        ],
+        "cta": "Plan a mitzvah at Benvenuto",
+        "video": "quince",
+        "caption": "A fairytale quinceañera"
+      },
+      {
+        "id": "social",
+        "label": "Milestones & Corporate",
+        "short": "Milestones",
+        "photo": "table-gold",
+        "title": "Milestones & corporate events",
         "text": "Engagements, rehearsal dinners, birthdays, holiday parties and corporate events, from the intimate Tower Room to the full building.",
-        "points": ["Little Room for 30, Tower Room for 18 seated", "Bar and lounge for cocktail hours", "Sound, microphones and staging by Avinu Events"],
-        "cta": "Plan an event at Benvenuto" }
+        "points": [
+          "Little Room for 30, Tower Room for 18 seated",
+          "Bar and lounge for cocktail hours",
+          "Sound, microphones and staging by Avinu Events"
+        ],
+        "cta": "Plan an event at Benvenuto",
+        "video": "gardenroom",
+        "caption": "A dinner in the Garden Room"
+      }
     ]
   },
   "film": {
@@ -52,9 +120,25 @@
     "h2": "From the gardens <em>to the last dance</em>",
     "text": "A walk through the gardens, a toast at the bar and a sparkler send-off at the end of the night. Choose a moment.",
     "moments": [
-      { "title": "Ceremony", "text": "In the gardens", "photo": "garden-walk", "wide": true },
-      { "title": "Cocktail hour", "text": "At the bar and lounge", "photo": "bar-toast", "wide": true },
-      { "title": "Send-off", "text": "Beneath the sparklers", "photo": "sparklers", "wide": true }
+      {
+        "title": "Ceremony",
+        "text": "In the gardens",
+        "photo": "garden-walk",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "In the main room",
+        "photo": "main-room",
+        "video": "reception",
+        "wide": true
+      },
+      {
+        "title": "Send-off",
+        "text": "Beneath the sparklers",
+        "photo": "sparklers",
+        "wide": true
+      }
     ]
   },
   "spaces": {
@@ -62,17 +146,74 @@
     "h2": "Rooms, courtyard <em>and gardens</em>",
     "text": "Eleven named rooms and spaces, from the fountain courtyard to the Tower Room, so a celebration can move through the building.",
     "items": [
-      { "name": "Outdoor European Courtyard", "photo": "fountain-ceremony", "capacity": "240 ceremony · 220 reception", "text": "A stone courtyard with a tiled fountain wall, made for ceremonies and cocktails." },
-      { "name": "Jasmine & Courtyard Rooms", "photo": "main-room", "capacity": "100 + 160 with dancing", "text": "The main room, which can be divided into the Jasmine Room and the Courtyard Room." },
-      { "name": "The Gardens", "photo": "bridal-party", "capacity": "Strolls & portraits", "text": "Hedges, palms and garden paths around the building, for portraits and quiet moments." },
-      { "name": "Bar & Lounge", "photo": "groomsmen-bar", "capacity": "Cocktail hour", "text": "A wood-paneled bar and lounge, a local favorite for a cocktail hour before dinner." }
+      {
+        "name": "Outdoor European Courtyard",
+        "photo": "fountain-ceremony",
+        "capacity": "240 ceremony · 220 reception",
+        "text": "A stone courtyard with a tiled fountain wall, made for ceremonies and cocktails."
+      },
+      {
+        "name": "Jasmine & Courtyard Rooms",
+        "photo": "main-room",
+        "capacity": "100 + 160 with dancing",
+        "text": "The main room, which can be divided into the Jasmine Room and the Courtyard Room."
+      },
+      {
+        "name": "Garden Room",
+        "photo": "garden-room",
+        "pos": "50% 30%",
+        "capacity": "70 with dancing",
+        "text": "A light-filled room with tall windows, for rehearsal dinners, engagements and smaller receptions."
+      },
+      {
+        "name": "The Gardens",
+        "photo": "bridal-party",
+        "capacity": "Strolls & portraits",
+        "text": "Hedges, palms and garden paths around the building, for portraits and quiet moments."
+      },
+      {
+        "name": "Bar & Lounge",
+        "photo": "groomsmen-bar",
+        "capacity": "Cocktail hour",
+        "text": "A wood-paneled bar and lounge, a local favorite for a cocktail hour before dinner."
+      }
     ],
-    "note": "Capacities from Benvenuto’s room charts (banquet with dancing unless noted). Also available: Garden Room 70, Fireplace Room 60, Coral Room 50, Little Room 30 and the Tower Room for 18 seated. Confirm layouts with the venue."
+    "note": "Capacities from Benvenuto’s room charts (banquet with dancing unless noted). Also available: Fireplace Room 60, Coral Room 50, Little Room 30 and the Tower Room for 18 seated. Confirm layouts with the venue."
   },
   "galleryTitle": "Inside <em>Benvenuto</em>",
   "gallery": {
-    "cats": [["all", "All"], ["weddings", "Weddings"], ["details", "Details"], ["history", "History"]],
-    "items": ["couple-palms", "centerpiece-violet", "postcard-flowers", "table-hydrangea", "bridal-party", "front-vintage", "table-number", "groomsmen-bar", "postcard-well", "table-gold", "sparklers", "fountain-ceremony"]
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "details",
+        "Details"
+      ],
+      [
+        "history",
+        "History"
+      ]
+    ],
+    "items": [
+      "couple-palms",
+      "centerpiece-violet",
+      "postcard-flowers",
+      "table-hydrangea",
+      "bridal-party",
+      "front-vintage",
+      "table-number",
+      "groomsmen-bar",
+      "postcard-well",
+      "table-gold",
+      "sparklers",
+      "fountain-ceremony"
+    ]
   },
   "cuisine": {
     "kicker": "Cuisine",
@@ -82,8 +223,34 @@
       "Seasonal dishes include duck, filet mignon, salmon filet and beef short rib, with specialty drinks from the bar."
     ],
     "listLabel": "Highlights of the kitchen",
-    "highlights": [["In-house", "Restaurant & event kitchen"], ["Seasonal", "Duck, filet mignon, salmon, short rib"], ["Bar", "Specialty drinks & lounge"], ["40+", "Years hosting events"]],
-    "items": ["dish-filet", "dish-ravioli", "dish-canapes", "dish-duck", "dish-cake", "dish-steak-plate", "dish-salad", "dish-tartare"]
+    "highlights": [
+      [
+        "In-house",
+        "Restaurant & event kitchen"
+      ],
+      [
+        "Seasonal",
+        "Duck, filet mignon, salmon, short rib"
+      ],
+      [
+        "Bar",
+        "Specialty drinks & lounge"
+      ],
+      [
+        "40+",
+        "Years hosting events"
+      ]
+    ],
+    "items": [
+      "dish-filet",
+      "dish-ravioli",
+      "dish-canapes",
+      "dish-duck",
+      "dish-cake",
+      "dish-steak-plate",
+      "dish-salad",
+      "dish-tartare"
+    ]
   },
   "reviews": {
     "kicker": "Couples and families who celebrated here",
@@ -91,9 +258,18 @@
     "count": "1,042 Google reviews",
     "src": "Reviews from WeddingWire · Rating from Google",
     "items": [
-      { "q": "We had the most beautiful and easy wedding we could’ve ever dreamed of!", "who": "Jessica · WeddingWire · December 2025" },
-      { "q": "As parents of the bride, we were able to visit and dance without worrying about one thing!", "who": "Bobbi · WeddingWire · October 2025" },
-      { "q": "Our guests had such an amazing time with the bar and the different rooms we were in.", "who": "Camila · WeddingWire · November 2026" }
+      {
+        "q": "We had the most beautiful and easy wedding we could’ve ever dreamed of!",
+        "who": "Jessica · WeddingWire · December 2025"
+      },
+      {
+        "q": "As parents of the bride, we were able to visit and dance without worrying about one thing!",
+        "who": "Bobbi · WeddingWire · October 2025"
+      },
+      {
+        "q": "Our guests had such an amazing time with the bar and the different rooms we were in.",
+        "who": "Camila · WeddingWire · November 2026"
+      }
     ]
   },
   "production": {
@@ -109,5 +285,32 @@
     "venuePhone": "+15613640600",
     "venuePhoneLabel": "561-364-0600"
   },
-  "footer": "Benvenuto · 1730 N Federal Hwy, Boynton Beach"
+  "footer": "Benvenuto · 1730 N Federal Hwy, Boynton Beach",
+  "videos": {
+    "mainroom": {
+      "mp4": "vid-mainroom.mp4",
+      "poster": "vid-mainroom-poster.jpg",
+      "label": "The Main Room in blue light, with chandeliers and floral centerpieces"
+    },
+    "ceremony": {
+      "mp4": "vid-ceremony.mp4",
+      "poster": "vid-ceremony-poster.jpg",
+      "label": "A night ceremony in the courtyard, beneath string lights"
+    },
+    "quince": {
+      "mp4": "vid-quince.mp4",
+      "poster": "vid-quince-poster.jpg",
+      "label": "A fairytale quinceañera in violet, with blossom trees and a storybook tower"
+    },
+    "gardenroom": {
+      "mp4": "vid-gardenroom.mp4",
+      "poster": "vid-gardenroom-poster.jpg",
+      "label": "The Garden Room set for a dinner, with candles and a sweetheart table"
+    },
+    "reception": {
+      "mp4": "vid-reception.mp4",
+      "poster": "vid-reception-poster.jpg",
+      "label": "A reception in the main room in pink and violet light"
+    }
+  }
 }
