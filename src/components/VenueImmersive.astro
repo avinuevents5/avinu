@@ -227,6 +227,20 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
   .gallery { padding: clamp(5rem, 12vh, 8rem) 0; }
   .sec-head.light h2 em { color: #8c6c24; }
   .chips { display: flex; gap: .4rem; flex-wrap: wrap; }
+  /* Filtros de galeria en movil: nunca un filtro cortado; si hay mas, flechita sobre fondo del color de la pagina */
+  .chips-wrap { position: relative; width: 100%; }
+  .chips-arrow { display: none; }
+  @media (max-width: 900px) {
+    .chips-arrow { display: flex; position: absolute; top: 0; bottom: 0; width: 48px; align-items: center; border: 0; padding: 0; cursor: pointer; color: var(--ink); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 2; }
+    .chips-arrow.show { opacity: 1; pointer-events: auto; }
+    .chips-arrow.r { right: 0; justify-content: flex-end; background: linear-gradient(to right, rgba(244,239,230,0), var(--paper) 42%); }
+    .chips-arrow.l { left: 0; justify-content: flex-start; background: linear-gradient(to left, rgba(244,239,230,0), var(--paper) 42%); }
+    .chips-arrow span { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); display: flex; align-items: center; justify-content: center; }
+    .chips-arrow svg { width: 15px; height: 15px; }
+    .chip { transition: opacity .2s; }
+    .chip.chip-oculto { opacity: 0; pointer-events: none; }
+  }
+
   .chip { background: none; border: 1px solid var(--line); padding: .6rem 1.05rem; border-radius: 999px; font-size: .74rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; color: var(--muted); transition: all .3s var(--ease); }
   .chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
   .grid { columns: 3; column-gap: 1rem; }
@@ -402,17 +416,9 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .grid { columns: 2; column-gap: .6rem; }
     .tile { margin-bottom: .6rem; }
     .tile .cap { display: none; }
-    /* Filtros de galería estilo Instagram: una fila que se desliza y llega hasta el borde de la pantalla
-       (no se corta en el margen del texto); difuminado a la derecha/izquierda solo mientras queda algo por ver */
-    .chips { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch;
-      width: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); gap: .4rem;
-      scroll-padding-inline: var(--gutter); --fl: 0px; --fr: 0px;
-      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%);
-              mask-image: linear-gradient(to right, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%); }
+    /* Filtros de galeria en movil: fila deslizable dentro del margen (sin asomar cortados); flechas en los bordes */
+    .chips { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; width: 100%; gap: .4rem; }
     .chips::-webkit-scrollbar { display: none; }
-    .chips::after { content: ''; flex: 0 0 1px; }   /* conserva el margen derecho al final del deslizamiento */
-    .chips.more-r { --fr: 44px; }
-    .chips.more-l { --fl: 28px; }
     .chip { flex: 0 0 auto; }
     .lb-fig { padding: 0; }
     .lb-prev, .lb-next { top: auto; bottom: -3.6rem; transform: none; }
@@ -905,13 +911,32 @@ D.gallery.cats.forEach(([id, label], i) => {
   });
   chips.append(b);
 });
-/* Difuminado de los filtros solo donde queda algo por deslizar (en escritorio no hay desborde y no aparece) */
-const chipFade = () => {
-  const max = chips.scrollWidth - chips.clientWidth;
-  chips.classList.toggle('more-r', max > 2 && chips.scrollLeft < max - 2);
-  chips.classList.toggle('more-l', max > 2 && chips.scrollLeft > 2);
-};
-chips.addEventListener('scroll', chipFade, { passive: true }); addEventListener('resize', chipFade); chipFade();
+/* Filtros de galeria en movil: flechas en los bordes (tapan el filtro que no cabe; nunca se ve cortado) */
+(() => {
+  const ch = document.getElementById('chips');
+  if (!ch) return;
+  const wrap = document.createElement('div'); wrap.className = 'chips-wrap';
+  ch.parentNode.insertBefore(wrap, ch); wrap.append(ch);
+  const mk = (cls, d, label, dir) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chips-arrow ' + cls; b.setAttribute('aria-label', label);
+    b.innerHTML = '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="' + d + '"/></svg></span>';
+    b.addEventListener('click', () => ch.scrollBy({ left: dir * ch.clientWidth * 0.6, behavior: 'smooth' }));
+    wrap.append(b); return b;
+  };
+  const l = mk('l', 'M15 6l-6 6 6 6', 'More filters to the left', -1), r = mk('r', 'M9 6l6 6-6 6', 'More filters', 1);
+  const sync = () => {
+    const max = ch.scrollWidth - ch.clientWidth;
+    const showL = max > 2 && ch.scrollLeft > 2, showR = max > 2 && ch.scrollLeft < max - 2;
+    l.classList.toggle('show', showL); r.classList.toggle('show', showR);
+    // un filtro que no cabe completo se oculta entero (nunca se ve una palabra cortada)
+    const box = ch.getBoundingClientRect(), limL = box.left + (showL ? 44 : 0), limR = box.right - (showR ? 44 : 0);
+    [...ch.children].forEach((c) => {
+      const b = c.getBoundingClientRect(), parcial = b.left < limL - 1 || b.right > limR + 1;
+      c.classList.toggle('chip-oculto', parcial);
+    });
+  };
+  ch.addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
+})();
 const lb = $('#lb'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbCount = $('#lb-count');
 let lbList = [], lbIdx = 0, lbOpener = null;
 function showLb(i, dir = 0) {

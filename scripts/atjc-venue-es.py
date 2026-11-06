@@ -34,6 +34,8 @@ s = re.sub(r'^---.*?---\n', "---\n// GENERADA por scripts/atjc-venue-es.py desde
 t('<li class="nav-out"><a href="/venues/">All venues</a></li>', '<li class="nav-out"><a href="/venues/">Todos los venues</a></li>')
 t('<a class="hero-back" href="/venues/">All venues</a>', '<a class="hero-back" href="/venues/">Todos los venues</a>')
 t('<MoreVenues current="aventura-turnberry-jewish-center" />', '<MoreVenues current="aventura-turnberry-jewish-center" lang="es" />')
+t("'More filters to the left', -1)", "'Más filtros a la izquierda', -1)")
+t("'More filters', 1)", "'Más filtros', 1)")
 t('<html lang="en">', '<html lang="es">')
 t('<title>Aventura Turnberry Jewish Center · Celebrations in Aventura</title>',
   '<title>Aventura Turnberry Jewish Center · Celebraciones en Aventura</title>')
