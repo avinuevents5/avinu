@@ -1,7 +1,7 @@
 {
   "slug": "the-club-at-weston-hills",
   "name": "The Club at Weston Hills",
-  "media_note": "Fotos de arcisgolf.com (galerías de bodas y eventos privados, 2026-11-06). PENDIENTE permiso del club. Foto 'draped-ballroom' (Ballroom pix.jpg) NO confirmada como Glades Ballroom: va como foto genérica. Datos y fuentes: Downloads/avinu-venues-investigacion-weston-lss-2026-11-06.md. Sin kosher: no afirmarlo.",
+  "media_note": "Fotos de arcisgolf.com (galerías de bodas y eventos privados, 2026-11-06). PENDIENTE permiso del club. Foto 'draped-ballroom' (Ballroom pix.jpg) NO confirmada como Glades Ballroom: va como foto genérica. Datos y fuentes: Downloads/avinu-venues-investigacion-weston-lss-2026-11-06.md. Sin kosher: no afirmarlo. Videos: reels de Instagram del club bajados por el usuario (2026-11-06), 540x960 sin audio, PENDIENTE permiso.",
   "credit": "The Club at Weston Hills",
   "brand": {
     "title": "Weston Hills",
@@ -35,7 +35,8 @@
         "2",
         "Championship courses"
       ]
-    ]
+    ],
+    "mobileVideo": "wedding"
   },
   "intro": {
     "kicker": "The Club",
@@ -76,7 +77,9 @@
           "Receptions for up to 320 guests",
           "Ceremony music, DJ and lighting by Avinu Events"
         ],
-        "cta": "Plan a wedding at Weston Hills"
+        "cta": "Plan a wedding at Weston Hills",
+        "video": "wedding",
+        "caption": "A wedding weekend at the club"
       },
       {
         "id": "mitzvah",
@@ -105,6 +108,22 @@
           "Choreography, lighting and effects by Avinu Events"
         ],
         "cta": "Plan a quince at Weston Hills"
+      },
+      {
+        "id": "milestones",
+        "label": "Showers & Milestones",
+        "short": "Milestones",
+        "photo": "lemon-table",
+        "video": "shower",
+        "caption": "A baby shower in yellow and gold",
+        "title": "Showers & milestones",
+        "text": "Baby showers, milestone birthdays, anniversaries, graduations and retirements, from intimate gatherings in the Lounge to larger parties in the ballrooms.",
+        "points": [
+          "Lounge for up to 60, ballrooms for larger parties",
+          "Chef-curated menus and complimentary cake cutting",
+          "Music, MC and lighting by Avinu Events"
+        ],
+        "cta": "Plan a celebration at Weston Hills"
       }
     ]
   },
@@ -233,5 +252,17 @@
     "venuePhone": "+19543844600",
     "venuePhoneLabel": "954-384-4600"
   },
-  "footer": "The Club at Weston Hills · 2600 Country Club Way, Weston"
+  "footer": "The Club at Weston Hills · 2600 Country Club Way, Weston",
+  "videos": {
+    "wedding": {
+      "mp4": "vid-wedding.mp4",
+      "poster": "vid-wedding-poster.jpg",
+      "label": "A wedding weekend at the club: the Royal Palm, the cake and a ceremony between the columns"
+    },
+    "shower": {
+      "mp4": "vid-shower.mp4",
+      "poster": "vid-shower-poster.jpg",
+      "label": "A baby shower with yellow florals and gold chargers"
+    }
+  }
 }

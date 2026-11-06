@@ -17,7 +17,10 @@ const links = [
   ['venue', v.intro.kicker], ['celebrations', 'Celebrations'], ['spaces', 'Spaces'], ['gallery', 'Gallery'],
   ...(v.cuisine ? [['cuisine', 'Cuisine']] : []), ['production', 'Production'], ['plan', 'Plan'],
 ];
-const data = { slug: v.slug, photos, celebrations: v.celebrations.items, moments: v.film.moments, gallery: v.gallery, cuisine: v.cuisine ? v.cuisine.items : [], reviews: v.reviews.items };
+// Videos opcionales (v.videos = { clave: { mp4, poster, label } }, rutas relativas a /venues/<slug>/media/):
+// celebrations.items[].video, film.moments[].video y hero.mobileVideo los usan; sin video se ve la foto.
+const data = { slug: v.slug, photos, celebrations: v.celebrations.items, moments: v.film.moments, gallery: v.gallery, cuisine: v.cuisine ? v.cuisine.items : [], reviews: v.reviews.items,
+  videos: v.videos || {}, heroMobileVideo: v.hero.mobileVideo || null };
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 ---
 <!doctype html>
@@ -686,6 +689,46 @@ function img(n, { sizes = '100vw', lazy = true, cls = '' } = {}) {
   if (lazy) el.loading = 'lazy'; if (cls) el.className = cls; return el;
 }
 
+/* Reproductor de video (igual que ATJC): solo reproduce si está visible, botón de pausa, sin audio */
+const VIDS = D.videos;
+const vsrc = (f) => `/venues/${D.slug}/media/${f}`;
+const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>';
+const autoplayOK = !reduced && !(navigator.connection && navigator.connection.saveData);
+const vpObs = new IntersectionObserver(es => es.forEach(e => { e.target._vp.visible = e.isIntersecting; e.target._vp.sync(); }), { threshold: .3 });
+function vplayer(key, { cls = '' } = {}) {
+  const v = VIDS[key];
+  const el = document.createElement('div'); el.className = 'vp ' + cls;
+  const video = document.createElement('video');
+  Object.assign(video, { muted: true, loop: true, playsInline: true, preload: 'none', poster: vsrc(v.poster) });
+  video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-label', v.label);
+  video.append(Object.assign(document.createElement('source'), { src: vsrc(v.mp4), type: 'video/mp4' }));
+  const ctrls = document.createElement('div'); ctrls.className = 'vp-ctrls';
+  const btn = document.createElement('button'); btn.className = 'vp-btn'; ctrls.append(btn);
+  el.append(video, ctrls);
+  const st = { visible: false, active: true, userPaused: !autoplayOK };
+  const paint = () => { const playing = !video.paused; btn.innerHTML = playing ? ICON_PAUSE : ICON_PLAY; btn.setAttribute('aria-label', (playing ? 'Pause' : 'Play') + ' video: ' + v.label); };
+  st.sync = () => { if (st.visible && st.active && !st.userPaused) video.play().catch(() => {}); else if (!video.paused) video.pause(); };
+  video.addEventListener('play', paint); video.addEventListener('pause', paint);
+  video.addEventListener('playing', () => el.classList.add('ready'), { once: true });
+  btn.addEventListener('click', () => { st.userPaused = !video.paused; if (!st.userPaused) video.play().catch(() => {}); else video.pause(); });
+  paint(); el._vp = st; vpObs.observe(el);
+  return { el, video, setActive(a) { st.active = a; st.sync(); }, pause() { st.userPaused = true; video.pause(); }, play() { st.userPaused = false; st.sync(); } };
+}
+
+/* HERO en móvil: el reel vertical llena la pantalla; en escritorio queda la foto */
+if (D.heroMobileVideo && VIDS[D.heroMobileVideo] && matchMedia('(max-width: 900px)').matches && autoplayOK) {
+  const hv = vplayer(D.heroMobileVideo, { cls: 'hero-vp' });
+  hv.video.preload = 'auto'; $('.hero-media').append(hv.el);
+  const hc = $('.hero-credit'); if (hc) hc.textContent = 'Video: ' + CREDIT;
+  const hb = document.createElement('button'); hb.className = 'icon-btn hero-pause'; hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video');
+  hb.addEventListener('click', () => {
+    if (hv.video.paused) { hv.play(); hb.innerHTML = ICON_PAUSE; hb.setAttribute('aria-label', 'Pause background video'); }
+    else { hv.pause(); hb.innerHTML = ICON_PLAY; hb.setAttribute('aria-label', 'Play background video'); }
+  });
+  $('.hero').append(hb);
+}
+
 /* NAV */
 const nav = $('#nav'), mobileCta = $('#mobile-cta');
 let pastHero = false, atPlan = false;
@@ -716,8 +759,9 @@ if (!reduced && 'IntersectionObserver' in window) {
 
 /* CELEBRATIONS: el recuadro toma la proporción real de la foto */
 const tabsEl = $('#tabs'), stageMedia = $('#stage-media'), stageCopy = $('#stage-copy'), stageCap = $('#stage-cap');
-const stagePanels = {};
+const stagePanels = {}, stagePlayers = {};
 const arOf = (n) => Math.max(.66, Math.min(1.5, PH[n].w / PH[n].h));
+const hasVid = (c) => c.video && VIDS[c.video];
 CELEBRATIONS.forEach((c, i) => {
   const b = document.createElement('button');
   Object.assign(b, { className: 'tab', id: 'tab-' + c.id }); b.setAttribute('role', 'tab');
@@ -725,9 +769,16 @@ CELEBRATIONS.forEach((c, i) => {
   b.innerHTML = `<span class="t-full">${c.label}</span><span class="t-short" aria-hidden="true">${c.short || c.label}</span>`;
   b.setAttribute('aria-controls', 'stage-panel'); b.setAttribute('aria-selected', i === 0); b.tabIndex = i === 0 ? 0 : -1;
   b.addEventListener('click', () => selectCelebration(i, true)); tabsEl.append(b);
-  const panel = document.createElement('div'); panel.className = 'comp comp-photo';
-  const im = img(c.photo, { sizes: '(max-width: 900px) 100vw, 56vw', lazy: i !== 0 }); if (c.pos) im.style.objectPosition = c.pos;
-  panel.append(im); stageMedia.append(panel); stagePanels[c.id] = panel;
+  const panel = document.createElement('div');
+  if (hasVid(c)) {
+    panel.className = 'comp comp-reel';
+    const pl = vplayer(c.video); pl.setActive(false); stagePlayers[c.id] = pl; panel.append(pl.el);
+  } else {
+    panel.className = 'comp comp-photo';
+    const im = img(c.photo, { sizes: '(max-width: 900px) 100vw, 56vw', lazy: i !== 0 }); if (c.pos) im.style.objectPosition = c.pos;
+    panel.append(im);
+  }
+  stageMedia.append(panel); stagePanels[c.id] = panel;
 });
 tabsEl.addEventListener('keydown', e => {
   const tabs = [...tabsEl.children], cur = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
@@ -741,8 +792,9 @@ function selectCelebration(i, animate) {
   [...tabsEl.children].forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
   $('#stage-panel').setAttribute('aria-labelledby', 'tab-' + c.id);
   Object.entries(stagePanels).forEach(([id, el]) => el.classList.toggle('on', id === c.id));
-  stageMedia.style.setProperty('--ar', arOf(c.photo));
-  const cap = `${c.caption || PH[c.photo].cap} · Photo: ${CREDIT}`;
+  Object.entries(stagePlayers).forEach(([id, pl]) => pl.setActive(id === c.id));
+  stageMedia.style.setProperty('--ar', hasVid(c) ? 9 / 16 : arOf(c.photo));
+  const cap = hasVid(c) ? `${c.caption || VIDS[c.video].label} · Video: ${CREDIT}` : `${c.caption || PH[c.photo].cap} · Photo: ${CREDIT}`;
   if (animate && !reduced) { stageCap.classList.add('out'); setTimeout(() => { stageCap.textContent = cap; stageCap.classList.remove('out'); }, 300); }
   else stageCap.textContent = cap;
   const render = () => {
@@ -755,7 +807,9 @@ selectCelebration(0, false);
 
 /* FILM: el mismo lugar, de la ceremonia a la noche */
 const filmFrame = $('#film-frame'), filmSteps = $('#film-steps');
-const filmImgs = MOMENTS.map(m => {
+const filmPlayers = [];
+const filmImgs = MOMENTS.map((m, i) => {
+  if (m.video && VIDS[m.video]) { const pl = vplayer(m.video); pl.setActive(false); filmPlayers[i] = pl; filmFrame.prepend(pl.el); return pl.el; }
   const im = img(m.photo, { sizes: '(max-width: 900px) 100vw, 80vw' }); filmFrame.prepend(im);
   if (m.wide) { im.classList.add('wide'); im.style.objectPosition = m.pos || '50% 50%'; }
   return im;
@@ -769,6 +823,7 @@ MOMENTS.forEach((m, i) => {
 });
 function setMoment(i) {
   filmImgs.forEach((im, j) => im.classList.toggle('on', j === i));
+  filmPlayers.forEach((pl, j) => pl && pl.setActive(j === i));
   [...filmSteps.children].forEach((b, j) => b.setAttribute('aria-pressed', j === i));
 }
 setMoment(0);
