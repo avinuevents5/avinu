@@ -1,0 +1,177 @@
+{
+ "clubhouse-dusk": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The white-columned clubhouse glowing at dusk beneath the palms",
+  "cap": "The clubhouse at dusk",
+  "cat": "club"
+ },
+ "royal-palm-couple": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A bride and groom dancing beside tall windows in the Royal Palm",
+  "cap": "A first dance in the Royal Palm",
+  "cat": "weddings"
+ },
+ "entry-drive": {
+  "w": 1600,
+  "h": 1198,
+  "alt": "The palm-lined entry drive of The Club at Weston Hills at sunset",
+  "cap": "The entry drive at sunset",
+  "cat": "club"
+ },
+ "aerial-pano": {
+  "w": 1600,
+  "h": 747,
+  "alt": "An aerial view of the clubhouse, clock tower and palms",
+  "cap": "The clubhouse from above",
+  "cat": "club"
+ },
+ "wedding-dance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride dancing with her guests on the dance floor",
+  "cap": "On the dance floor",
+  "cat": "weddings"
+ },
+ "hora": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guests lifting the couple in chairs during the hora",
+  "cap": "The hora",
+  "cat": "celebrations"
+ },
+ "quince-pink": {
+  "w": 1206,
+  "h": 2138,
+  "alt": "A quinceañera reception set in pink light",
+  "cap": "A quinceañera in pink",
+  "cat": "celebrations"
+ },
+ "ceremony-aerial": {
+  "w": 1600,
+  "h": 1200,
+  "alt": "An outdoor ceremony on the patio seen from above",
+  "cap": "A ceremony on the patio",
+  "cat": "weddings"
+ },
+ "royal-palm-evening": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Royal Palm set for a wedding with red florals and golf-course views",
+  "cap": "The Royal Palm, set for a wedding",
+  "cat": "weddings"
+ },
+ "dance-floor": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride dancing under violet light on a packed dance floor",
+  "cap": "Late on the dance floor",
+  "cat": "weddings"
+ },
+ "ballroom-day": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A ballroom with round tables, gold ceiling and floor-to-ceiling windows",
+  "cap": "The ballroom by day",
+  "cat": "club"
+ },
+ "draped-ballroom": {
+  "w": 1600,
+  "h": 1074,
+  "alt": "A ballroom dressed in ceiling draping and violet uplighting",
+  "cap": "A ballroom with draping and uplighting",
+  "cat": "celebrations"
+ },
+ "lawn-couple": {
+  "w": 1600,
+  "h": 1065,
+  "alt": "A couple embracing on the lawn in front of the clubhouse",
+  "cap": "On the lawn by the clubhouse",
+  "cat": "weddings"
+ },
+ "lounge": {
+  "w": 664,
+  "h": 438,
+  "alt": "The Lounge set with round tables for a small event",
+  "cap": "The Lounge",
+  "cat": "club"
+ },
+ "sparklers": {
+  "w": 1600,
+  "h": 1065,
+  "alt": "A couple kissing inside a ring of sparkler light trails at night",
+  "cap": "Sparklers after dark",
+  "cat": "weddings"
+ },
+ "oak-couple": {
+  "w": 1154,
+  "h": 865,
+  "alt": "A couple under a large oak beside the fairway",
+  "cap": "Under the oak by the fairway",
+  "cat": "weddings"
+ },
+ "bridal-portrait": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A bride and groom portrait inside the clubhouse",
+  "cap": "A portrait inside the clubhouse",
+  "cat": "weddings"
+ },
+ "clock-tower": {
+  "w": 1600,
+  "h": 1163,
+  "alt": "A wedding party with sunflowers in front of the clock tower",
+  "cap": "The wedding party at the clock tower",
+  "cat": "weddings"
+ },
+ "atrium": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A couple beneath the skylight dome of the atrium",
+  "cap": "Beneath the atrium dome",
+  "cat": "weddings"
+ },
+ "wedding-party": {
+  "w": 1106,
+  "h": 729,
+  "alt": "A wedding party jumping on the golf course",
+  "cap": "The wedding party on the course",
+  "cat": "weddings"
+ },
+ "quince-florals": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "A table with a tall pink floral centerpiece by the windows",
+  "cap": "Florals for a quinceañera",
+  "cat": "celebrations"
+ },
+ "bar-mitzvah": {
+  "w": 1080,
+  "h": 720,
+  "alt": "A bar mitzvah reception in blue with a personalized centerpiece",
+  "cap": "A bar mitzvah reception",
+  "cat": "celebrations"
+ },
+ "lemon-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long table with blue linens, blue-and-white vases and lemon trees",
+  "cap": "A tablescape in blue and lemon",
+  "cat": "celebrations"
+ },
+ "bar-89": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The club bar with pendant lights and leather stools",
+  "cap": "The bar",
+  "cat": "club"
+ },
+ "dining-room": {
+  "w": 789,
+  "h": 525,
+  "alt": "The club dining room with booths and green chairs",
+  "cap": "The dining room",
+  "cat": "club"
+ }
+}

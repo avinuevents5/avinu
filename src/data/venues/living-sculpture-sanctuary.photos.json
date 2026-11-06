@@ -1,0 +1,191 @@
+{
+ "night-reception": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Round tables beneath string lights and oaks at night beside a fire feature",
+  "cap": "A reception under the oaks at night",
+  "cat": "reception"
+ },
+ "wisteria-night": {
+  "w": 1600,
+  "h": 2400,
+  "alt": "A couple beneath hanging wisteria lit at night",
+  "cap": "Beneath the wisteria at night",
+  "cat": "portraits"
+ },
+ "center-lake": {
+  "w": 1600,
+  "h": 1199,
+  "alt": "The Sanctuary Center pavilion beside the lake",
+  "cap": "The Sanctuary Center on the lake",
+  "cat": "gardens"
+ },
+ "healing-falls": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple beside the waterfalls at sunset",
+  "cap": "At the Healing Falls",
+  "cat": "gardens"
+ },
+ "oak-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guests seated for a ceremony beneath century-old oaks",
+  "cap": "A ceremony beneath the oaks",
+  "cat": "ceremonies"
+ },
+ "orange-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long table with orange florals and lanterns in the Sanctuary Center",
+  "cap": "A celebration in the Sanctuary Center",
+  "cat": "reception"
+ },
+ "center-tables": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Wood tables set for dinner in the covered Sanctuary Center",
+  "cap": "Dinner in the Sanctuary Center",
+  "cat": "reception"
+ },
+ "aisle-oaks": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A ceremony aisle beneath arching oak branches",
+  "cap": "The aisle under the oaks",
+  "cat": "ceremonies"
+ },
+ "first-dance": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A first dance in the Sanctuary Center surrounded by guests",
+  "cap": "A first dance in the Sanctuary Center",
+  "cat": "reception"
+ },
+ "fire-boulder": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Tables set beside the fire feature under string lights at night",
+  "cap": "After dark by the fire",
+  "cat": "reception"
+ },
+ "falls-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A ceremony at the Healing Falls Esplanade under the oaks",
+  "cap": "A ceremony at the Healing Falls Esplanade",
+  "cat": "ceremonies"
+ },
+ "bonsai-wall": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple admiring the bonsai display wall",
+  "cap": "The bonsai wall",
+  "cat": "gardens"
+ },
+ "moon-gate-wisteria": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A groom lifting his bride beneath a wisteria-covered moon gate",
+  "cap": "Through the Zen Moon Gates",
+  "cat": "portraits"
+ },
+ "center-dinner": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Long wood tables set beneath the Sanctuary Center roof",
+  "cap": "The Sanctuary Center, set for dinner",
+  "cat": "reception"
+ },
+ "zen-lounge": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Zen Lounge with live-edge mirrors and lounge chairs",
+  "cap": "The Zen Lounge",
+  "cat": "gardens"
+ },
+ "stone-moon-gate": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple at the stone moon gate with the veil in the wind",
+  "cap": "The Medieval Moongate Wall",
+  "cat": "portraits"
+ },
+ "wisteria-couple": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple embracing beneath white wisteria and a moon gate",
+  "cap": "Beneath the wisteria",
+  "cat": "portraits"
+ },
+ "bridge-kiss": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple kissing on the wooden bridge under the oaks",
+  "cap": "On the bridge",
+  "cat": "portraits"
+ },
+ "arch-bridge": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "The arched bridge over the koi ponds",
+  "cap": "The arch bridge over the koi ponds",
+  "cat": "gardens"
+ },
+ "cocoon": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple in the woven Cocoon lounger beneath wisteria",
+  "cap": "The Cocoon",
+  "cat": "portraits"
+ },
+ "the-nest": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple and their dog on the floating Nest swing",
+  "cap": "The Nest",
+  "cat": "portraits"
+ },
+ "koi-falls": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A rock waterfall with orchids above the koi pond",
+  "cap": "The koi ponds",
+  "cat": "gardens"
+ },
+ "nest-night": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The Nest swing glowing at night under string lights",
+  "cap": "The Nest at night",
+  "cat": "reception"
+ },
+ "lit-stairs": {
+  "w": 1600,
+  "h": 1068,
+  "alt": "Wood stairs lit with candles leading through the trees at night",
+  "cap": "The stairs at night",
+  "cat": "reception"
+ },
+ "bonsai-couple": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple in traditional red attire before the bonsai collection",
+  "cap": "A portrait with the bonsai",
+  "cat": "portraits"
+ },
+ "lit-path": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A brick path lined with lit palms at night",
+  "cap": "The path at night",
+  "cat": "gardens"
+ },
+ "chandeliers": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Woven chandeliers hanging from the wooden roof",
+  "cap": "Organic chandeliers in the Sanctuary Center",
+  "cat": "reception"
+ }
+}

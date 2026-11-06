@@ -1,0 +1,237 @@
+{
+  "slug": "the-club-at-weston-hills",
+  "name": "The Club at Weston Hills",
+  "media_note": "Fotos de arcisgolf.com (galerías de bodas y eventos privados, 2026-11-06). PENDIENTE permiso del club. Foto 'draped-ballroom' (Ballroom pix.jpg) NO confirmada como Glades Ballroom: va como foto genérica. Datos y fuentes: Downloads/avinu-venues-investigacion-weston-lss-2026-11-06.md. Sin kosher: no afirmarlo.",
+  "credit": "The Club at Weston Hills",
+  "brand": {
+    "title": "Weston Hills",
+    "sub": "Weston, Florida · Country Club"
+  },
+  "seo": {
+    "title": "The Club at Weston Hills · Weddings, Mitzvahs & Celebrations",
+    "description": "Weddings, mitzvahs, quinceañeras and private events at The Club at Weston Hills: a newly renovated clubhouse on two Robert Trent Jones Jr. golf courses, for up to 320 guests. Music, lighting and production by Avinu Events."
+  },
+  "hero": {
+    "photo": "clubhouse-dusk",
+    "photoMobile": "royal-palm-couple",
+    "pos": "50% 55%",
+    "kicker": "Weston, Florida · Private country club",
+    "h1": [
+      "The Club"
+    ],
+    "h1em": "at Weston Hills",
+    "lead": "A newly renovated clubhouse above two championship golf courses: ceremonies on the patio, receptions in the Royal Palm and room for up to 320 guests.",
+    "secondary": "Explore the club",
+    "facts": [
+      [
+        "320",
+        "Guests seated"
+      ],
+      [
+        "50,000",
+        "Sq ft clubhouse"
+      ],
+      [
+        "2",
+        "Championship courses"
+      ]
+    ]
+  },
+  "intro": {
+    "kicker": "The Club",
+    "h2": "Championship golf, <em>made for celebrations</em>",
+    "paras": [
+      "The Club at Weston Hills sits on two courses designed by Robert Trent Jones Jr., the Tour Course and the Players Course, which have hosted the Honda Classic and the LPGA Chrysler Plymouth Tournament of Champions.",
+      "Its newly renovated 50,000-square-foot clubhouse, with white columns and a clock tower, opens onto fairways, fountains and tropical landscaping, with an events team and an in-house kitchen for every celebration."
+    ],
+    "a": "entry-drive",
+    "b": "clock-tower",
+    "stats": [
+      [
+        "4.9",
+        "WeddingWire · 47 reviews"
+      ],
+      [
+        "360",
+        "Guests for private events"
+      ],
+      [
+        "60",
+        "Guests in the Lounge"
+      ]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "wedding-dance",
+        "title": "Weddings",
+        "text": "Say “I do” on the patio overlooking the fairways and fountains, then move inside to the Royal Palm for dinner and dancing.",
+        "points": [
+          "Outdoor ceremonies on the patio",
+          "Receptions for up to 320 guests",
+          "Ceremony music, DJ and lighting by Avinu Events"
+        ],
+        "cta": "Plan a wedding at Weston Hills"
+      },
+      {
+        "id": "mitzvah",
+        "label": "Bar & Bat Mitzvahs",
+        "short": "Mitzvahs",
+        "photo": "hora",
+        "title": "Bar & Bat Mitzvahs",
+        "text": "A ballroom with a spacious dance floor and golf-course views, with room for every generation and a team that has hosted mitzvahs at the club.",
+        "points": [
+          "Spacious dance floor and cocktail-hour spaces",
+          "Chef-curated menus and in-house bar",
+          "DJ, MC, dancers and LED by Avinu Events"
+        ],
+        "cta": "Plan a mitzvah at Weston Hills"
+      },
+      {
+        "id": "quince",
+        "label": "Quinceañeras & Sweet 16",
+        "short": "Quinces",
+        "photo": "quince-pink",
+        "title": "Quinceañeras & Sweet 16",
+        "text": "From pink-lit quinceañeras to a Sweet 16 in gold and chandeliers, the club’s rooms transform with lighting, florals and a big entrance.",
+        "points": [
+          "Indoor banquet rooms with dramatic lighting",
+          "Lounge for up to 60 for smaller parties",
+          "Choreography, lighting and effects by Avinu Events"
+        ],
+        "cta": "Plan a quince at Weston Hills"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The club, transformed",
+    "h2": "From the patio <em>to the dance floor</em>",
+    "text": "A ceremony facing the fairways, dinner in the Royal Palm and a dance floor that lasts all night. Choose a moment.",
+    "moments": [
+      {
+        "title": "Ceremony",
+        "text": "On the patio",
+        "photo": "ceremony-aerial",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "Dinner in the Royal Palm",
+        "photo": "royal-palm-evening",
+        "wide": true
+      },
+      {
+        "title": "Late night",
+        "text": "On the dance floor",
+        "photo": "dance-floor",
+        "wide": true
+      }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Ballrooms, patio <em>and the fairways</em>",
+    "text": "Indoor banquet rooms, an outdoor patio and lawn, and a lounge for smaller gatherings, all inside the renovated clubhouse.",
+    "items": [
+      {
+        "name": "Royal Palm",
+        "photo": "ballroom-day",
+        "capacity": "Grand receptions",
+        "text": "An elegant indoor venue with floor-to-ceiling windows and views of the golf course and fountains."
+      },
+      {
+        "name": "Glades Ballroom",
+        "photo": "draped-ballroom",
+        "capacity": "Larger events",
+        "text": "A generous ballroom for larger receptions, galas and parties."
+      },
+      {
+        "name": "Patio & Lawn",
+        "photo": "lawn-couple",
+        "capacity": "Ceremonies & cocktails",
+        "text": "Outdoor ceremonies overlooking the fairways, water features and tropical landscaping."
+      },
+      {
+        "name": "The Lounge",
+        "photo": "lounge",
+        "capacity": "Up to 60 guests",
+        "text": "An intimate room for rehearsal dinners, showers and smaller celebrations."
+      }
+    ],
+    "note": "Capacities from the club: up to 320 for weddings and 360 for private events. Confirm room capacities and layouts with the club’s events team."
+  },
+  "galleryTitle": "Inside <em>Weston Hills</em>",
+  "gallery": {
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "celebrations",
+        "Celebrations"
+      ],
+      [
+        "club",
+        "The Club"
+      ]
+    ],
+    "items": [
+      "sparklers",
+      "royal-palm-couple",
+      "lemon-table",
+      "aerial-pano",
+      "bar-mitzvah",
+      "atrium",
+      "oak-couple",
+      "quince-florals",
+      "bar-89",
+      "bridal-portrait",
+      "wedding-party",
+      "dining-room"
+    ]
+  },
+  "reviews": {
+    "kicker": "Couples who celebrated here",
+    "rating": "4.9",
+    "count": "47 WeddingWire reviews",
+    "src": "Reviews from WeddingWire and the club · Rating from WeddingWire",
+    "items": [
+      {
+        "q": "I cannot recommend this venue enough.",
+        "who": "Juliana · WeddingWire · December 2022"
+      },
+      {
+        "q": "An excellent facility in Weston with awesome features and customer service.",
+        "who": "Venkat · WeddingWire · September 2025"
+      },
+      {
+        "q": "My husband and I had an unforgettable wedding at The Club at Weston Hills!",
+        "who": "Sophia · The Club at Weston Hills"
+      }
+    ]
+  },
+  "production": {
+    "text": "Avinu Events produces the entertainment for celebrations across South Florida, from Miami Beach to Boca Raton: the music for the ceremony, the energy of the dance floor and the light that shapes the room.",
+    "lighting": "Uplighting and pin-spotting for the Royal Palm’s tall windows and ceilings, dance-floor lighting, and sound designed for the patio ceremony."
+  },
+  "plan": {
+    "bg": "royal-palm-evening",
+    "at": "at Weston Hills",
+    "forThis": "The Club at Weston Hills",
+    "address": "2600 Country Club Way, Weston, FL 33332",
+    "venueLabel": "The Club at Weston Hills",
+    "venuePhone": "+19543844600",
+    "venuePhoneLabel": "954-384-4600"
+  },
+  "footer": "The Club at Weston Hills · 2600 Country Club Way, Weston"
+}
