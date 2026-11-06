@@ -377,7 +377,9 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 
     .hero { height: 92svh; min-height: 560px; }
     .hero-media img { object-position: 50% 40%; }
-    .hero::after { background: linear-gradient(0deg, rgba(10,9,8,.88) 0%, rgba(10,9,8,.35) 45%, rgba(10,9,8,0) 70%), linear-gradient(180deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 22%); }
+    /* Velo oscuro que sube hasta detras de todo el texto (antes se cortaba a media altura y el texto no se leia sobre fotos claras) */
+    .hero::after { background: linear-gradient(0deg, rgba(10,9,8,.92) 0%, rgba(10,9,8,.8) 38%, rgba(10,9,8,.55) 58%, rgba(10,9,8,.18) 78%, rgba(10,9,8,0) 90%), linear-gradient(180deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 22%); }
+    .hero-copy .kicker, .hero-back, .hero-copy h1, .hero-copy p { text-shadow: 0 1px 14px rgba(10,9,8,.55); }
     .hero-copy { left: var(--gutter); right: var(--gutter); bottom: 2.2rem; max-width: none; }
     .hero h1 span { display: inline; }
     .hero h1 { font-size: clamp(2.6rem, 12vw, 3.6rem); }
