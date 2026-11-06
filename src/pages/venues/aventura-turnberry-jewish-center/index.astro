@@ -250,7 +250,7 @@ import MoreVenues from '../../../components/MoreVenues.astro';
   .courses-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
   .courses-bar .kicker { color: var(--gold-2); }
   .courses-ctrl { display: flex; gap: .5rem; }
-  .courses { --edge: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--edge) 1rem; scroll-padding-inline: var(--edge); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .courses { --edge: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); display: flex; gap: 1.2rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; padding: 0 var(--edge) 1rem; scroll-padding-inline: var(--edge); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .courses::-webkit-scrollbar { display: none; }
   .course { flex: 0 0 clamp(260px, 30vw, 440px); scroll-snap-align: start; margin: 0; }
   .course .ph-wrap { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 2px; background: #000; }
@@ -371,7 +371,7 @@ import MoreVenues from '../../../components/MoreVenues.astro';
     .grid { columns: 2; column-gap: .6rem; }
     .tile { margin-bottom: .6rem; }
     .tile .cap { display: none; }
-    .chips { overflow-x: auto; flex-wrap: nowrap; width: 100%; scrollbar-width: none; }
+    .chips { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; width: 100%; scrollbar-width: none; }
     .chip { flex: 0 0 auto; }
     .lb-fig { padding: 0; }
     .lb-prev, .lb-next { top: auto; bottom: -3.6rem; transform: none; }

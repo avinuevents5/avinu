@@ -268,7 +268,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
   .courses-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
   .courses-bar .kicker { color: var(--gold-2); }
   .courses-ctrl { display: flex; gap: .5rem; }
-  .courses { --edge: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--edge) 1rem; scroll-padding-inline: var(--edge); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .courses { --edge: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); display: flex; gap: 1.2rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; padding: 0 var(--edge) 1rem; scroll-padding-inline: var(--edge); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .courses::-webkit-scrollbar { display: none; }
   .course { flex: 0 0 clamp(260px, 30vw, 440px); scroll-snap-align: start; margin: 0; }
   .course .ph-wrap { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 2px; background: #000; }
@@ -404,7 +404,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .tile .cap { display: none; }
     /* Filtros de galería estilo Instagram: una fila que se desliza y llega hasta el borde de la pantalla
        (no se corta en el margen del texto); difuminado a la derecha/izquierda solo mientras queda algo por ver */
-    .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    .chips { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch;
       width: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); gap: .4rem;
       scroll-padding-inline: var(--gutter); --fl: 0px; --fr: 0px;
       -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%);
@@ -473,7 +473,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
   .rating small { font-family: var(--sans); font-size: .8rem; color: var(--muted); letter-spacing: .02em; }
   .voices blockquote { margin-top: 1.2rem; }
   @media (max-width: 900px) {
-    .space-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 100%; column-gap: var(--gutter); overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 1rem; scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+    .space-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 100%; column-gap: var(--gutter); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 1rem; scroll-padding-inline: var(--gutter); scrollbar-width: none; }
     .space-grid::-webkit-scrollbar { display: none; }
     .space { scroll-snap-align: start; }
     .lineage { grid-template-columns: 1fr; }
