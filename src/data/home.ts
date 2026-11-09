@@ -31,10 +31,10 @@ export const musicians = [
 ];
 
 export const services = [
-  { name: 'LED Walls', img: `${U}/2025/05/photography-with-natural.jpg`, href: '/led-pannels/', desc: 'Cinematic LED backdrops & screens that transform any room.' },
-  { name: 'Lighting', img: `${U}/2025/05/tyle-is-candid-image.jpg`, href: '/wedding-lighting-in-south-florida/', desc: 'Uplighting, intelligent fixtures & full design for the perfect mood.' },
-  { name: 'Sound Rental', img: `${U}/2025/05/sound-rental.jpg`, href: '/services/', desc: 'Concert-grade audio, scaled to your venue.' },
-  { name: 'Photo & Video', img: `${U}/2025/05/videogr.jpg`, href: '/photography-and-videography/', desc: 'An in-house team with a decade of weddings & events.' },
+  { name: 'LED Walls', img: '/images/services/led-walls.jpg', href: '/led-pannels/', desc: 'Cinematic LED backdrops & screens that transform any room.' },
+  { name: 'Lighting', img: '/images/services/lighting.jpg', href: '/wedding-lighting-in-south-florida/', desc: 'Uplighting, intelligent fixtures & full design for the perfect mood.' },
+  { name: 'Sound Rental', img: '/images/services/sound-rental.jpg', href: '/services/', desc: 'Concert-grade audio, scaled to your venue.' },
+  { name: 'Photo & Video', img: '/images/services/photo-video.jpg', href: '/photography-and-videography/', desc: 'An in-house team with a decade of weddings & events.' },
 ];
 
 export const specializing = [
