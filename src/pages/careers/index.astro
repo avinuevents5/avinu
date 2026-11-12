@@ -263,7 +263,10 @@ const highlights = [
       outline: none; border-color: rgba(201,162,75,0.5);
     }
     select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a24b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
-    select option { background: #1a1a1a; }
+    /* Lista de opciones legible: fondo claro y texto oscuro (antes fondo negro con texto oscuro). */
+    select { color-scheme: light; }
+    select option { background: #ffffff; color: #1a1a1a; }
+    select option:disabled { color: #8d8574; }
     textarea { resize: vertical; min-height: 120px; }
 
     /* CHIP GROUPS (radio / checkbox pills) */
