@@ -232,6 +232,8 @@ const highlights = [
 
     /* FORM FIELDS */
     .talent-form { display: grid; gap: 1.4rem; }
+    /* hidden siempre gana: sin esto el display:grid dejaba el formulario visible tras enviar. */
+    .talent-form[hidden], .form-success[hidden], .form-error[hidden] { display: none !important; }
     .form-row { display: contents; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
     .field { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -299,7 +301,8 @@ const highlights = [
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     .submit-btn.loading .btn-label { opacity: 0; }
-    .submit-btn.loading .btn-spinner { display: inline-block; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+    /* Centrado con márgenes (no con transform): la animación spin usa transform y lo pisaba, el círculo se corría. */
+    .submit-btn.loading .btn-spinner { display: inline-block; position: absolute; left: 50%; top: 50%; margin: -8px 0 0 -8px; }
 
     .form-note { color: var(--muted-text); font-size: 0.8rem; margin-top: 0.8rem; text-align: center; }
     .form-error { color: #e07070; font-size: 0.9rem; margin-top: 1rem; text-align: center; }
@@ -366,21 +369,29 @@ const highlights = [
         errorEl.hidden = false;
       };
 
+      // Nunca girar para siempre: a los 20 s se corta y se muestra el error.
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 20000);
       try {
         const res = await fetch(SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
+          signal: ctrl.signal,
         });
         if (!res.ok) {
           const j = await res.json().catch(() => null);
           fail(j?.error);
           return;
         }
+        btn?.classList.remove('loading');
         form.hidden = true;
         successEl.hidden = false;
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch {
-        fail();
+        fail(ctrl.signal.aborted ? 'This is taking too long. Please try again.' : undefined);
+      } finally {
+        clearTimeout(timer);
       }
     });
   </script>
