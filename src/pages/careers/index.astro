@@ -4,10 +4,9 @@ import { phone } from '../../data/home';
 
 const tel = phone.replace(/[^+\d]/g, '');
 
-// ─── PASTE your deployed Google Apps Script Web App URL here ───────────────
-// See: /src/pages/careers/README-setup.md for full setup instructions
-const SCRIPT_URL = '';
-// ───────────────────────────────────────────────────────────────────────────
+// El envío lo recibe el CRM (manda el aviso a plan@). En local: PUBLIC_CRM_ORIGIN=http://localhost:3140
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
+const SCRIPT_URL = `${CRM_ORIGIN}/api/careers-apply`;
 
 const categories = [
   'Singer / Vocalist',
@@ -176,8 +175,8 @@ const highlights = [
 
         <!-- Error state -->
         <p class="form-error" id="form-error" hidden>
-          Something went wrong. Please email us directly at
-          <a href="mailto:info@avinuevents.com">info@avinuevents.com</a>.
+          <span id="form-error-msg">Something went wrong.</span> You can also email us directly at
+          <a href="mailto:plan@avinuevents.com">plan@avinuevents.com</a>.
         </p>
       </div>
 
@@ -355,26 +354,30 @@ const highlights = [
         if (Array.isArray(payload[k])) payload[k] = payload[k].join(', ');
       }
 
-      if (!SCRIPT_URL) {
-        // Dev fallback — just show success
-        form.hidden = true;
-        successEl.hidden = false;
-        return;
-      }
+      payload.pageUrl = location.href;
+      const errMsg = document.getElementById('form-error-msg');
+      const fail = (msg) => {
+        btn?.classList.remove('loading');
+        btn.disabled = false;
+        if (errMsg) errMsg.textContent = msg || 'Something went wrong.';
+        errorEl.hidden = false;
+      };
 
       try {
-        await fetch(SCRIPT_URL, {
+        const res = await fetch(SCRIPT_URL, {
           method: 'POST',
-          mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
+        if (!res.ok) {
+          const j = await res.json().catch(() => null);
+          fail(j?.error);
+          return;
+        }
         form.hidden = true;
         successEl.hidden = false;
       } catch {
-        btn?.classList.remove('loading');
-        btn.disabled = false;
-        errorEl.hidden = false;
+        fail();
       }
     });
   </script>
