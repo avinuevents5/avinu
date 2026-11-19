@@ -31,7 +31,7 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
   <style>
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    .consult { padding: 12px 16px 32px; }
+    .consult { padding: 16px 16px 20px; } /* móvil: 20 abajo = mismo margen que arriba del logo */
 
     /* Tarjeta: póster + Calendly, igual que en /get-a-quote */
     .cal-card {
@@ -45,7 +45,7 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
        menos de 600 px de alto por dentro Calendly saca una barra). Tarjeta ≈ 360 + 437 = 797 × 640,
        centrada junto con el logo (body.is-bare en Noir). */
     @media (min-width: 900px) {
-      .consult { padding: 44px 16px 24px; } /* aire entre el logo y la tarjeta */
+      .consult { padding: 44px 16px 32px; } /* 44 = aire entre el logo y la tarjeta; 32 abajo = mismo margen que arriba del logo */
       .cal-card { --cal-s: 1.0667; --cal-h: calc(600px * var(--cal-s)); width: fit-content; height: var(--cal-h);
         grid-template-columns: auto calc(410px * var(--cal-s)); grid-template-rows: var(--cal-h); }
       .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 941 / 1672; }

@@ -519,9 +519,13 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
       .foot-legal { padding-top: 8px; }
       .foot-meta a:hover { color: var(--accent); }
       /* Página de un solo paso: logo pequeño centrado arriba (enlaza al inicio), nada más. */
-      /* Logo + contenido juntos y centrados en la pantalla (el logo cerca de la tarjeta, no pegado arriba). */
+      /* Página de un solo paso: logo + contenido juntos y centrados en la pantalla, con el mismo margen arriba
+         (sobre el logo) que abajo (bajo el contenido: .consult usa el mismo padding-bottom). min-height en el body
+         para que el fondo llegue al final de la ventana (sin eso la sombra de la tarjeta se cortaba en una franja). */
       body.is-bare { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
-      .bare-header { display: flex; justify-content: center; padding: 20px 16px 0; }
+      body.is-bare main { min-height: 0; }
+      .bare-header { display: flex; justify-content: center; padding: 32px 16px 0; }
+      @media (max-width: 899px) { .bare-header { padding-top: 20px; } }
       .bare-header .logo-img { width: 135px; } /* mismo tamaño que en el menú de la web */
       @media (max-width: 899px) { .bare-header .logo-img { width: 118px; } }
     </style>
