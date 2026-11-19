@@ -44,7 +44,9 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
         var h = parseInt(e.data.payload && e.data.payload.height, 10);
         if (!mobile.matches || !(h > 200)) return; // ~26 y 2 px mientras carga: se ignoran
         frame.style.height = h + 'px';
-        crop.style.height = (h - 72) + 'px';
+        // Solo la vista del mes (602 = mínimo de Calendly) trae el blanco final; en horarios y en el formulario
+        // (Enter Details) el final es contenido real: el botón Schedule Event. Ahí no se recorta nada.
+        crop.style.height = (h <= 602 ? h - 72 : h) + 'px';
       });
     })();
   </script>
