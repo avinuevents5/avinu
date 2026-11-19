@@ -141,7 +141,7 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
 
     <slot name="head" />
   </head>
-  <body>
+  <body class={bare ? 'is-bare' : undefined}>
     <!-- FILM-GRAIN OVERLAY -->
     <div class="grain" aria-hidden="true"></div>
 
@@ -519,7 +519,9 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
       .foot-legal { padding-top: 8px; }
       .foot-meta a:hover { color: var(--accent); }
       /* Página de un solo paso: logo pequeño centrado arriba (enlaza al inicio), nada más. */
-      .bare-header { display: flex; justify-content: center; padding: 18px 16px 6px; }
+      /* Logo + contenido juntos y centrados en la pantalla (el logo cerca de la tarjeta, no pegado arriba). */
+      body.is-bare { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+      .bare-header { display: flex; justify-content: center; padding: 20px 16px 0; }
       .bare-header .logo-img { width: 135px; } /* mismo tamaño que en el menú de la web */
       @media (max-width: 899px) { .bare-header .logo-img { width: 118px; } }
     </style>
