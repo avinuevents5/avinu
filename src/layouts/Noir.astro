@@ -520,7 +520,8 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
       .foot-meta a:hover { color: var(--accent); }
       /* Página de un solo paso: logo pequeño centrado arriba (enlaza al inicio), nada más. */
       .bare-header { display: flex; justify-content: center; padding: 18px 16px 6px; }
-      .bare-header .logo-img { width: 92px; }
+      .bare-header .logo-img { width: 135px; } /* mismo tamaño que en el menú de la web */
+      @media (max-width: 899px) { .bare-header .logo-img { width: 118px; } }
     </style>
 
     <!-- Chatbot de Avinu (CRM): burbuja + panel. data-origin = dónde vive el CRM. -->
