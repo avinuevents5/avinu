@@ -54,11 +54,11 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
 
     /* Móvil: póster como franja arriba y el calendario debajo. La franja empieza bajo el logo del póster
        (el logo ya está arriba de la página) para que el calendario aparezca antes. Alto fijo del calendario:
-       cubre el mes y la zona horaria; al elegir día, la lista de horarios se desplaza dentro de Calendly. */
+       cubre el mes, la zona horaria y unos 4 horarios; con más, la lista se desplaza dentro de Calendly. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
       .cal-poster { width: 100%; height: auto; aspect-ratio: 941 / 500; object-position: 50% 20%; }
-      .cal-frame { width: 100%; height: 600px; }
+      .cal-frame { width: 100%; height: 530px; } /* el mes y la zona horaria terminan ~490 px; Calendly dice 602/767 (mínimos con blanco), no se usa */
     }
   </style>
 </Noir>
