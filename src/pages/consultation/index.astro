@@ -24,9 +24,30 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
         height="1672"
         alt="Mark Levine — Let’s talk about your event! 15-minute call; web conferencing details provided upon confirmation. Tell us a little about your celebration, explore entertainment and production options, and get personalized guidance for your event. DJ & MC, live music, production & lighting, LED displays."
       />
-      <iframe id="consult-cal" class="cal-frame" src={calendly} title="Schedule a call with Avinu" loading="eager"></iframe>
+      <div class="cal-crop" id="consult-crop">
+        <iframe id="consult-cal" class="cal-frame" src={calendly} title="Schedule a call with Avinu" loading="eager"></iframe>
+      </div>
     </div>
   </section>
+
+  <!-- Móvil: el iframe toma siempre la altura que pide Calendly (calendly.page_height), así nunca hay barra de
+       desplazamiento dentro. Calendly deja ~72 px en blanco al final (su mínimo es 602 aunque el mes termina ~490),
+       y ese blanco se recorta por fuera con .cal-crop. -->
+  <script is:inline>
+    (function () {
+      var frame = document.getElementById('consult-cal');
+      var crop = document.getElementById('consult-crop');
+      if (!frame || !crop || !window.matchMedia) return;
+      var mobile = window.matchMedia('(max-width: 899px)');
+      window.addEventListener('message', function (e) {
+        if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.page_height') return;
+        var h = parseInt(e.data.payload && e.data.payload.height, 10);
+        if (!mobile.matches || !(h > 200)) return; // ~26 y 2 px mientras carga: se ignoran
+        frame.style.height = h + 'px';
+        crop.style.height = (h - 72) + 'px';
+      });
+    })();
+  </script>
 
   <style>
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -50,15 +71,17 @@ const calendly = 'https://calendly.com/avinuevents/event-consultation'
         grid-template-columns: auto calc(410px * var(--cal-s)); grid-template-rows: var(--cal-h); }
       .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 941 / 1672; }
       .cal-frame { width: 410px; height: 600px; transform: scale(var(--cal-s)); transform-origin: 0 0; }
+      .cal-crop { height: var(--cal-h); overflow: hidden; }
     }
 
     /* Móvil: póster como franja arriba y el calendario debajo. La franja empieza bajo el logo del póster
        (el logo ya está arriba de la página) para que el calendario aparezca antes. Alto fijo del calendario:
-       cubre el mes, la zona horaria y unos 4 horarios; con más, la lista se desplaza dentro de Calendly. */
+       el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
       .cal-poster { width: 100%; height: auto; aspect-ratio: 941 / 500; object-position: 50% 20%; }
-      .cal-frame { width: 100%; height: 530px; } /* el mes y la zona horaria terminan ~490 px; Calendly dice 602/767 (mínimos con blanco), no se usa */
+      .cal-crop { overflow: hidden; height: 530px; }
+      .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
     }
   </style>
 </Noir>
