@@ -10,6 +10,8 @@ export interface Props {
   canonical?: string;
   robots?: string;
   image?: string;
+  /** true = página de un solo paso (p. ej. /consultation): solo el logo arriba, sin menú, pie ni chat. */
+  bare?: boolean;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   canonical = Astro.url.href,
   robots = 'index, follow',
   image = '/wp-content/uploads/2025/05/tyle-is-candid-image.jpg',
+  bare = false,
 } = Astro.props;
 const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 
@@ -142,6 +145,13 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
     <!-- FILM-GRAIN OVERLAY -->
     <div class="grain" aria-hidden="true"></div>
 
+    {bare ? (
+    <header class="bare-header">
+      <a href="/" class="brand" aria-label="Avinu Events — Home">
+        <img class="logo-img" src={LOGO} alt="Avinu Events" width="661" height="295" />
+      </a>
+    </header>
+    ) : (
     <header class="site-header">
       <a href="/" class="brand" aria-label="Avinu Events — Home">
         <img class="logo-img" src={LOGO} alt="Avinu Events" width="661" height="295" />
@@ -172,9 +182,11 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
       </nav>
       <label for="nav-toggle" class="nav-scrim" aria-hidden="true"></label>
     </header>
+    )}
 
     <main><slot /></main>
 
+    {!bare && (
     <footer class="site-footer">
       <!-- PLACEHOLDER skyline — swap for client's real Miami skyline photo -->
       <div class="foot-skyline" aria-hidden="true">
@@ -236,6 +248,7 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
         </p>
       </div>
     </footer>
+    )}
 
     <script is:inline>
       // Failsafe: ensure every scroll-reveal element becomes visible even if the
@@ -505,9 +518,12 @@ const crmOrigin = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verce
       .foot-meta a { color: rgba(255,255,255,0.38); transition: color 0.2s; }
       .foot-legal { padding-top: 8px; }
       .foot-meta a:hover { color: var(--accent); }
+      /* Página de un solo paso: logo pequeño centrado arriba (enlaza al inicio), nada más. */
+      .bare-header { display: flex; justify-content: center; padding: 18px 16px 6px; }
+      .bare-header .logo-img { width: 92px; }
     </style>
 
     <!-- Chatbot de Avinu (CRM): burbuja + panel. data-origin = dónde vive el CRM. -->
-    <script is:inline src={`${crmOrigin}/chat-widget.js`} data-origin={crmOrigin} defer></script>
+    {!bare && <script is:inline src={`${crmOrigin}/chat-widget.js`} data-origin={crmOrigin} defer></script>}
   </body>
 </html>
