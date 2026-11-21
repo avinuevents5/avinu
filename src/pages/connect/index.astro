@@ -21,9 +21,9 @@ const calendly = 'https://calendly.com/avinuevents/marklevine'
       <img
         class="cal-poster"
         src="/connect/mark-levine-poster.jpg"
-        width="1122"
-        height="1402"
-        alt="Mark Levine — Singer, DJ, Event Host. Let’s Connect / Levine. 30 min; web conferencing details provided upon confirmation. A dedicated time to discuss business opportunities, collaborations, creative projects, or other professional matters. Please share a brief overview of what you’d like to discuss when booking. Looking forward to connecting!"
+        width="1086"
+        height="1448"
+        alt="Mark Levine — Singer, DJ, Event Host. Let’s Connect, Levine. 30 min; web conferencing details provided upon confirmation. A dedicated time to discuss business opportunities, collaborations, creative projects, or other professional matters. Please share a brief overview of what you’d like to discuss when booking. Looking forward to connecting!"
       />
       <div class="cal-crop" id="connect-crop">
         <iframe id="connect-cal" class="cal-frame" src={calendly} title="Schedule a call with Mark Levine" loading="eager"></iframe>
@@ -72,7 +72,7 @@ const calendly = 'https://calendly.com/avinuevents/marklevine'
       .consult { padding: 44px 16px 32px; } /* 44 = aire entre el logo y la tarjeta; 32 abajo = mismo margen que arriba del logo */
       .cal-card { --cal-s: 1.0667; --cal-h: calc(600px * var(--cal-s)); width: fit-content; height: var(--cal-h);
         grid-template-columns: auto calc(410px * var(--cal-s)); grid-template-rows: var(--cal-h); }
-      .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 1122 / 1402; }
+      .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 1086 / 1448; }
       .cal-frame { width: 410px; height: 600px; transform: scale(var(--cal-s)); transform-origin: 0 0; }
       .cal-crop { height: var(--cal-h); overflow: hidden; }
     }
@@ -82,7 +82,7 @@ const calendly = 'https://calendly.com/avinuevents/marklevine'
        el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
-      .cal-poster { width: 100%; height: auto; aspect-ratio: 1122 / 500; object-position: 50% 0%; }
+      .cal-poster { width: 100%; height: auto; aspect-ratio: 1086 / 510; object-position: 50% 0%; }
       .cal-crop { overflow: hidden; height: 530px; }
       .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
     }
