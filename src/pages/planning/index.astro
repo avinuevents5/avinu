@@ -1,0 +1,89 @@
+---
+import Noir from '../../layouts/Noir.astro';
+
+// Página de un solo paso para agendar: solo el logo (enlaza al inicio) y la tarjeta, sin menú, pie ni chat.
+// Mismo diseño que /consultation, con el Calendly "planning" (30 min) y su propio póster:
+// póster a la izquierda, Calendly sin su panel de detalles y con los colores de la marca.
+const calendly = 'https://calendly.com/avinuevents/planning'
+  + '?embed_type=Inline&embed_domain=www.avinuevents.com&hide_gdpr_banner=1'
+  + '&hide_event_type_details=1&background_color=fffdfa&text_color=17140f&primary_color=8a6a2e';
+---
+
+<Noir
+  bare
+  title="Plan your event"
+  description="Schedule a 30-minute planning call with Mark Levine of Avinu Music & Productions: DJ & MC, live music, production & lighting, LED displays."
+>
+  <section class="consult">
+    <h1 class="sr-only">Schedule a 30-minute planning call with Avinu Events</h1>
+    <div class="cal-card">
+      <img
+        class="cal-poster"
+        src="/planning/lets-plan-poster.jpg"
+        width="941"
+        height="1672"
+        alt="Mark Levine — Let’s plan your event! 30-minute call; web conferencing details provided upon confirmation. Tell us a little about your celebration, explore entertainment and production options, and get personalized guidance for your event. DJ & MC, live music, production & lighting, LED displays."
+      />
+      <div class="cal-crop" id="plan-crop">
+        <iframe id="plan-cal" class="cal-frame" src={calendly} title="Schedule a planning call with Avinu" loading="eager"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Móvil: el iframe toma siempre la altura que pide Calendly (calendly.page_height), así nunca hay barra de
+       desplazamiento dentro. Calendly deja ~72 px en blanco al final (su mínimo es 602 aunque el mes termina ~490),
+       y ese blanco se recorta por fuera con .cal-crop. -->
+  <script is:inline>
+    (function () {
+      var frame = document.getElementById('plan-cal');
+      var crop = document.getElementById('plan-crop');
+      if (!frame || !crop || !window.matchMedia) return;
+      var mobile = window.matchMedia('(max-width: 899px)');
+      window.addEventListener('message', function (e) {
+        if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.page_height') return;
+        var h = parseInt(e.data.payload && e.data.payload.height, 10);
+        if (!mobile.matches || !(h > 200)) return; // ~26 y 2 px mientras carga: se ignoran
+        frame.style.height = h + 'px';
+        // Solo la vista del mes (602 = mínimo de Calendly) trae el blanco final; en horarios y en el formulario
+        // (Enter Details) el final es contenido real: el botón Schedule Event. Ahí no se recorta nada.
+        crop.style.height = (h <= 602 ? h - 72 : h) + 'px';
+      });
+    })();
+  </script>
+
+  <style>
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .consult { padding: 16px 16px 20px; } /* móvil: 20 abajo = mismo margen que arriba del logo */
+
+    /* Tarjeta: póster + Calendly, igual que en /get-a-quote */
+    .cal-card {
+      margin: 0 auto; display: grid; overflow: hidden; border-radius: 18px;
+      background: #fffdfa; box-shadow: 0 0 0 1px rgba(23,20,15,.1), 0 1px 2px rgba(23,20,15,.06), 0 18px 48px rgba(23,20,15,.12);
+    }
+    .cal-poster { display: block; max-width: none; object-fit: cover; background: #0b0d1a; }
+    .cal-frame { display: block; border: 0; background: #fffdfa; }
+
+    /* Escritorio: Calendly se dibuja a 410 × 600 y se amplía ×1.0667 (el calendario llena su columna; con
+       menos de 600 px de alto por dentro Calendly saca una barra). Tarjeta ≈ 360 + 437 = 797 × 640,
+       centrada junto con el logo (body.is-bare en Noir). */
+    @media (min-width: 900px) {
+      .consult { padding: 44px 16px 32px; } /* 44 = aire entre el logo y la tarjeta; 32 abajo = mismo margen que arriba del logo */
+      .cal-card { --cal-s: 1.0667; --cal-h: calc(600px * var(--cal-s)); width: fit-content; height: var(--cal-h);
+        grid-template-columns: auto calc(410px * var(--cal-s)); grid-template-rows: var(--cal-h); }
+      .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 941 / 1672; }
+      .cal-frame { width: 410px; height: 600px; transform: scale(var(--cal-s)); transform-origin: 0 0; }
+      .cal-crop { height: var(--cal-h); overflow: hidden; }
+    }
+
+    /* Móvil: póster como franja arriba y el calendario debajo. La franja empieza bajo el logo del póster
+       (el logo ya está arriba de la página) para que el calendario aparezca antes. Alto fijo del calendario:
+       el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
+    @media (max-width: 899px) {
+      .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
+      .cal-poster { width: 100%; height: auto; aspect-ratio: 941 / 500; object-position: 50% 20%; }
+      .cal-crop { overflow: hidden; height: 530px; }
+      .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
+    }
+  </style>
+</Noir>
