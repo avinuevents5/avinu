@@ -11,6 +11,8 @@ heroImage: "/venues/club-vault-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/club-vault/"
 order: 6
+venueType: "unique"
+area: "Broward"
 ---
 
 Fully built and equipped nightclub with 2 rooms, 2 bars, and 2 DJ booths. Martin Audio London sound system, top-of-the-line lighting system with HD projection and lasers. Room to install a kitchen. Parking up to 200 cars. No residential area nearby. Very visible location.

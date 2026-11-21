@@ -12,6 +12,12 @@ heroImage: "/venues/ritz-carlton-miami-beach-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/ritz-carlton-miami-beach/"
 order: 9
+venueType: "hotel"
+maxGuests: 500
+area: "Miami-Dade"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering welcome"
+features: ["waterfront", "historic"]
 ---
 
 A cocktail reception on an ocean veranda. An elegant plated dinner in an exquisite ballroom. When it comes to planning weddings in Miami, The Ritz-Carlton, South Beach sets a new standard in sophisticated and romantic elegance that blends beautifully with the energetic pulse of South Beach. With impeccable planning services and breathtaking indoor and outdoor Miami wedding venues, this timeless Art Deco hotel provides the perfect "something old, something new" to make your wedding experience perfect in every way.

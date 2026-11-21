@@ -11,6 +11,12 @@ image: "/venues/thalatta-estate.jpg"
 heroImage: "/venues/thalatta-estate-hero.jpg"
 imageSource: "venue website (thalattaestate.com) — photo: La Vie Studios"
 order: 23
+venueType: "garden"
+maxGuests: 200
+area: "Miami-Dade"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering welcome"
+features: ["waterfront"]
 ---
 
 Thalatta Estate is a 1925 Mediterranean Revival residence on Biscayne Bay along Old Cutler Road, stewarded by the Village of Palmetto Bay. Its lawns, gardens and towering banyan tree open onto views of the bay and Key Biscayne, while the historic house adds original tile floors, wood ceilings and a grand staircase.

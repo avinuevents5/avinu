@@ -10,6 +10,9 @@ image: "/venues/the-club-at-weston-hills.jpg"
 heroImage: "/venues/the-club-at-weston-hills-hero.jpg"
 imageSource: "venue website (arcisgolf.com)"
 order: 26
+venueType: "club"
+maxGuests: 320
+area: "Broward"
 ---
 
 The Club at Weston Hills is a private country club in Weston, Florida, set on two championship courses by Robert Trent Jones Jr. that have hosted the Honda Classic.

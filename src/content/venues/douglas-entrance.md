@@ -11,6 +11,10 @@ heroImage: "/venues/douglas-entrance-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/douglas-entrance/"
 order: 18
+venueType: "garden"
+maxGuests: 200
+area: "Miami-Dade"
+features: ["historic"]
 ---
 
 For brides looking for a historic and elegant venue, The Douglas Entrance is the perfect place to go. Old-world charm and vintage romance will radiate from your ceremony held in one of the granite stone-walled rooms, with a chandelier throwing warm, dim light over you and your guests. The location of this venue also attracts many guests to feel as if they were at a historic-style wedding.

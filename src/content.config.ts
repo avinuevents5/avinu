@@ -25,6 +25,15 @@ const venues = defineCollection({
     gallery: z.array(z.string()).optional(),
     originalUrl: z.string().optional(),
     order: z.number().optional(),
+    // false = fuera del listado /venues/ y de "More venues" (la página sigue existiendo).
+    listed: z.boolean().optional(),
+    // Filtros de /venues/ (fila de categorías + ventana "Filters").
+    venueType: z.enum(['hotel', 'ballroom', 'synagogue', 'garden', 'unique', 'club']).optional(),
+    maxGuests: z.number().optional(),
+    area: z.enum(['Miami-Dade', 'Broward', 'Palm Beach']).optional(),
+    kosherLevel: z.enum(['kitchen', 'catering']).optional(),
+    kosherLabel: z.string().optional(),
+    features: z.array(z.enum(['waterfront', 'historic'])).optional(),
   }),
 });
 

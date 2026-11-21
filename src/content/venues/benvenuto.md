@@ -11,6 +11,10 @@ heroImage: "/venues/benvenuto-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/benvenuto/"
 order: 21
+venueType: "ballroom"
+maxGuests: 250
+area: "Palm Beach"
+features: ["historic"]
 ---
 
 Benvenuto Restaurant's historic 1929 Mizner-inspired building. Breathtaking Tuscan-influenced architecture sets the scene for your happily ever after, while meticulously maintained gardens bursting with vibrant blooms create a fairytale-like atmosphere.

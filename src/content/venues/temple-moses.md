@@ -12,6 +12,11 @@ heroImage: "/venues/temple-moses-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/temple-moses/"
 order: 7
+venueType: "synagogue"
+maxGuests: 800
+area: "Miami-Dade"
+kosherLevel: "kitchen"
+kosherLabel: "Kosher kitchen on site"
 ---
 
 Temple Moses offers several spaces that will accommodate smaller intimate events of as little as 15 guests to upwards of 300 guests for larger receptions or ceremonies. With a professional kitchen, even the most specific culinary needs can be handled. The on-site, qualified event specialists can guide you through the entire event planning process and ensure that every detail is taken care of.

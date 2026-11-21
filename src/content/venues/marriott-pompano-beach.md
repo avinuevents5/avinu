@@ -11,6 +11,10 @@ heroImage: "/venues/marriott-pompano-beach-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/marriott-pompano-beach/"
 order: 12
+venueType: "hotel"
+maxGuests: 250
+area: "Broward"
+features: ["waterfront"]
 ---
 
 The ballrooms and event spaces featured overlook beautiful oceanfront views. The outdoor terrace sets a beautiful scene for romance, enveloping your event with dreamy sunset lighting. Whether you prefer to host your event indoors or outdoors, the various venues offered are sure to create a memorable experience for your attendees.

@@ -10,6 +10,8 @@ heroImage: "/venues/gallery-of-amazing-things-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/gallery-of-amazing-things/"
 order: 14
+venueType: "unique"
+area: "Broward"
 ---
 
 MAD Arts is an immersive art museum and event space in Dania Beach, created by MAD Studios in the building that was once home to the Gallery of Amazing Things. Its 20,000 square feet of flexible space are filled with large-scale installations that blend art, light and technology.

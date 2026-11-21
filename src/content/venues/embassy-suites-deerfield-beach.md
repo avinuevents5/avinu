@@ -11,6 +11,10 @@ heroImage: "/venues/embassy-suites-deerfield-beach-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/embassy-suites-deerfield-beach/"
 order: 15
+venueType: "hotel"
+maxGuests: 400
+area: "Broward"
+features: ["waterfront"]
 ---
 
 At Embassy Suites, your guests will have plenty of room to relax, mingle and enjoy a drink at the complimentary evening reception, and in the morning, their free cooked-to-order breakfast is a great way to spend more quality time with loved ones as the festivities wind down. Their full-service venues provide a fresh setting for any gathering.

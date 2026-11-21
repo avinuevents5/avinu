@@ -17,6 +17,11 @@ gallery:
   - "/wp-content/uploads/2024/05/Stranahan-Ballroom-Banquet-Event-Night.jpg"
 originalUrl: "https://avinuevents.com/hyatt-centric-las-olas/"
 order: 3
+venueType: "hotel"
+maxGuests: 270
+area: "Broward"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering approved"
 ---
 
 Hyatt Centric Las Olas is a wedding venue located in Fort Lauderdale, Florida. Just a few blocks from the city's yacht-lined riverfront, this hotel is situated in the heart of the downtown area. When celebrating here, couples and their loved ones will have access to the city's vibrant entertainment district and local art.

@@ -4,7 +4,7 @@ import ConnectCTA from '../../components/ConnectCTA.astro';
 import { getCollection } from 'astro:content';
 
 // All venues, ordered by the editorial `order` field (falling back to title).
-const venues = (await getCollection('venues')).sort((a, b) => {
+const venues = (await getCollection('venues')).filter((v) => v.data.listed !== false).sort((a, b) => {
   const ao = a.data.order ?? 999;
   const bo = b.data.order ?? 999;
   if (ao !== bo) return ao - bo;
@@ -12,6 +12,43 @@ const venues = (await getCollection('venues')).sort((a, b) => {
 });
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+
+// ── Filtros (fila de categorías tipo Airbnb + ventana "Filters"). Los datos salen del frontmatter
+// de cada venue: venueType, maxGuests, area, kosherLevel/kosherLabel, features.
+const TYPES = {
+  hotel: { label: 'Hotels & resorts', short: 'Hotel' },
+  ballroom: { label: 'Ballrooms', short: 'Ballroom' },
+  synagogue: { label: 'Synagogues', short: 'Synagogue & Jewish center' },
+  garden: { label: 'Gardens & estates', short: 'Garden & estate' },
+  unique: { label: 'Unique spaces', short: 'Unique space' },
+  club: { label: 'Country clubs', short: 'Country club' },
+} as const;
+const FEATS = { waterfront: 'Waterfront', historic: 'Historic building', rooms: 'Guest rooms on site' } as const;
+const CATS: [string, string][] = [
+  ['all', 'All venues'], ['kosher', 'Kosher'],
+  ...Object.entries(TYPES).map(([k, t]) => [k, t.label] as [string, string]),
+  ['waterfront', 'Waterfront'], ['historic', 'Historic'],
+];
+const KOSHER_OPTS: [string, string][] = [['any', 'Any'], ['any-kosher', 'Any kosher option'], ['kitchen', 'Kosher kitchen on site'], ['catering', 'Kosher catering welcome']];
+const AREA_OPTS: [string, string][] = [['any', 'All South Florida'], ['Miami-Dade', 'Miami-Dade'], ['Broward', 'Broward'], ['Palm Beach', 'Palm Beach']];
+const ICONS: Record<string, string> = {
+  all: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
+  hotel: '<path d="M4 21V5l8-2v18M12 21V8l8 2v11M3 21h18M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2"/>',
+  ballroom: '<path d="M12 2v4M5 9c0 2 3 3 7 3s7-1 7-3M5 9l2 5M19 9l-2 5M12 12v3M7 14c0 1.5 2.2 2.5 5 2.5s5-1 5-2.5M9 19l1-2.5M15 19l-1-2.5M12 16.5V20"/>',
+  synagogue: '<path d="M12 3l3.2 5.5H21l-3 5 3 5h-5.8L12 21l-3.2-2.5H3l3-5-3-5h5.8z"/>',
+  garden: '<path d="M12 21v-8M12 13c-4 0-6-3-6-7 4 0 6 3 6 7zM12 11c0-4 2-7 6-7 0 4-2 7-6 7zM5 21h14"/>',
+  unique: '<path d="M3 21V10l6-4v4l6-4v4l6-4v15zM7 15h2M12 15h2M17 15h1"/>',
+  club: '<path d="M7 21V3l10 4-10 4M4 21h16M14 18a2 2 0 104 0"/>',
+  kosher: '<path d="M12 2.5l2.8 4.9h5.6l-2.8 4.6 2.8 4.6h-5.6L12 21.5l-2.8-4.9H3.6l2.8-4.6-2.8-4.6h5.6z"/>',
+  waterfront: '<path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M12 3v7M8 7l4-4 4 4"/>',
+  historic: '<path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18M4 18h16"/>',
+  rooms: '<path d="M3 18v-7a2 2 0 012-2h14a2 2 0 012 2v7M3 14h18M3 18v2M21 18v2M7 9V6h10v3"/>',
+};
+const svg = (k: string, w = 1.5) =>
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]}</svg>`;
+// "rooms" (guest rooms on site) = hotels
+const feats = (v: (typeof venues)[number]) =>
+  [...(v.data.features ?? []), ...(v.data.venueType === 'hotel' ? ['rooms'] : [])].join(' ');
 
 // Full-bleed photo behind the page header (a real venue, darkened so the title stays readable).
 const HEAD_IMG = '/venues/eden-roc-hero.jpg';
@@ -39,21 +76,94 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
     </div>
   </section>
 
+  <!-- ░░ CATEGORY ROW ░░ -->
+  <div class="cats-band">
+    <div class="cats-wrap">
+      <div class="cats-scroll">
+        <button class="cat-arrow l" type="button" aria-label="Previous categories" hidden>‹</button>
+        <div class="cats" role="toolbar" aria-label="Venue categories">
+          {CATS.map(([id, label]) => (
+            <button class="cat" type="button" data-cat={id} aria-pressed={id === 'all' ? 'true' : 'false'}>
+              <Fragment set:html={svg(id)} />{label}
+            </button>
+          ))}
+        </div>
+        <button class="cat-arrow r" type="button" aria-label="More categories" hidden>›</button>
+      </div>
+      <button class="filters-btn" type="button" data-open-filters aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        <span class="t">Filters</span><span class="badge" hidden></span>
+      </button>
+    </div>
+  </div>
+
   <!-- ░░ VENUE GRID ░░ -->
-  <section class="band midnight">
+  <section class="band midnight" id="venue-list">
+    <div class="res-line">
+      <h2 class="res-title" aria-live="polite">{venues.length} venues in South Florida</h2>
+      <button class="fclear" type="button" data-clear hidden>Clear all</button>
+    </div>
     <div class="venue-grid" data-reveal-group>
       {venues.map((v) => (
-        <a class="venue-card" href={`/venues/${v.id}/`}>
+        <a class="venue-card" href={`/venues/${v.id}/`}
+          data-type={v.data.venueType ?? ''} data-cap={v.data.maxGuests ?? ''} data-area={v.data.area ?? ''}
+          data-kosher={v.data.kosherLevel ?? ''} data-feats={feats(v)}>
           <div class="vc-img" style={`background-image:url('${v.data.image ?? FALLBACK}')`}></div>
           <div class="vc-body">
             <h2 class="vc-name">{v.data.title}</h2>
+            {v.data.kosherLevel && (
+              <p class={`vc-kosher${v.data.kosherLevel === 'catering' ? ' soft' : ''}`}><Fragment set:html={svg('kosher', 1.6)} />{v.data.kosherLabel}</p>
+            )}
             {v.data.address && <p class="vc-addr">{v.data.address}</p>}
+            {v.data.venueType && (
+              <p class="vc-meta">{TYPES[v.data.venueType].short}{v.data.maxGuests && <span class="vc-cap" hidden> · Up to {v.data.maxGuests} guests</span>}</p>
+            )}
             <span class="link-arrow vc-link">View venue</span>
           </div>
         </a>
       ))}
     </div>
+    <div class="empty" hidden>
+      No venues match these filters.<br />
+      <button class="btn-primary" type="button" data-clear>Clear filters</button>
+    </div>
   </section>
+
+  <!-- ░░ FILTERS DIALOG ░░ -->
+  <div class="modal-bg" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="filters-title">
+      <div class="modal-head"><button class="m-close" type="button" aria-label="Close">✕</button><span id="filters-title">Filters</span></div>
+      <div class="modal-body">
+        <div class="msec"><h3>Venue type</h3><p class="hint">Pick one, or leave it open.</p>
+          <div class="tiles">
+            {Object.entries(TYPES).map(([k, t]) => (
+              <button class="tile" type="button" data-type={k} aria-pressed="false"><Fragment set:html={svg(k)} />{t.label}</button>
+            ))}
+          </div>
+        </div>
+        <div class="msec">
+          <div class="stepper">
+            <div><h3>Guests</h3><p class="hint" style="margin:0">Venues that hold at least this many.</p></div>
+            <div class="ctl"><button type="button" data-step="-50" aria-label="Fewer guests">−</button><span class="val">Any</span><button type="button" data-step="50" aria-label="More guests">+</button></div>
+          </div>
+        </div>
+        <div class="msec"><h3>Kosher</h3>
+          <div class="chips">{KOSHER_OPTS.map(([v, l]) => <button class="chip" type="button" data-kosher={v} aria-pressed={v === 'any' ? 'true' : 'false'}>{l}</button>)}</div>
+        </div>
+        <div class="msec"><h3>Area</h3>
+          <div class="chips">{AREA_OPTS.map(([v, l]) => <button class="chip" type="button" data-area={v} aria-pressed={v === 'any' ? 'true' : 'false'}>{l}</button>)}</div>
+        </div>
+        <div class="msec"><h3>Features</h3>
+          <div class="tiles">
+            {Object.entries(FEATS).map(([k, l]) => (
+              <button class="tile" type="button" data-feat={k} aria-pressed="false"><Fragment set:html={svg(k)} />{l}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot"><button class="fclear" type="button" data-clear>Clear all</button><button class="apply" type="button"></button></div>
+    </div>
+  </div>
 
   <!-- ░░ VENUE PARTNER CTA — deliberately quiet so the page still reads as "for couples" ░░ -->
   <section class="band partner-band">
@@ -143,6 +253,90 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       .venue-grid { grid-template-columns: 1fr; }
     }
 
+    /* CATEGORY ROW (Airbnb-like). No es sticky: la cabecera del sitio tampoco lo es (body overflow-x) */
+    .cats-band { position: relative; z-index: 2; background: var(--ivory); border-bottom: 1px solid var(--line); padding: 0.9rem var(--gutter) 0.2rem; }
+    .cats-wrap { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; gap: 1.2rem; }
+    .cats-scroll { position: relative; flex: 1; min-width: 0; }
+    .cats { display: flex; gap: 2.2rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-behavior: smooth; }
+    .cats::-webkit-scrollbar { display: none; }
+    .cat { flex: none; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0.3rem 0 0.75rem; background: none; border: 0; border-bottom: 2px solid transparent;
+      cursor: pointer; color: var(--muted-text); font: inherit; font-size: 0.78rem; font-weight: 500; white-space: nowrap; opacity: 0.75; transition: opacity 0.2s, border-color 0.2s; }
+    .cat :global(svg) { width: 26px; height: 26px; }
+    .cat:hover { opacity: 1; border-bottom-color: var(--line); }
+    .cat[aria-pressed="true"] { opacity: 1; color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+    .cat.cut { visibility: hidden; }
+    .cat-arrow { position: absolute; top: 50%; transform: translateY(-60%); width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink);
+      cursor: pointer; display: grid; place-items: center; font-size: 0.9rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 2; }
+    .cat-arrow.l { left: 0; } .cat-arrow.r { right: 0; }
+    .cat-arrow[hidden] { display: none; }
+    .filters-btn { flex: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1rem; margin-bottom: 0.55rem; border-radius: 12px; border: 1px solid var(--line);
+      background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-size: 0.86rem; font-weight: 600; }
+    .filters-btn:hover { border-color: var(--ink); }
+    .filters-btn svg { width: 16px; height: 16px; }
+    .filters-btn .badge { background: var(--ink); color: var(--ivory); border-radius: 999px; font-size: 0.7rem; min-width: 20px; height: 20px; display: inline-grid; place-items: center; padding: 0 0.35rem; }
+    .filters-btn .badge[hidden] { display: none; }
+
+    .res-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.6rem; }
+    .res-title { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .fclear { background: none; border: 0; cursor: pointer; font: inherit; font-size: 0.86rem; color: var(--muted-text); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    .fclear[hidden] { display: none; }
+    .venue-card[hidden], .empty[hidden] { display: none; }
+    .empty { text-align: center; padding: 3rem 1rem; color: var(--muted-text); }
+    .empty .btn-primary { margin-top: 1rem; border: 0; cursor: pointer; }
+
+    .vc-kosher { display: flex; align-items: center; gap: 0.45rem; margin: -0.1rem 0 0.55rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
+    .vc-kosher :global(svg) { width: 15px; height: 15px; flex: none; }
+    .vc-kosher.soft { color: var(--muted-text); font-weight: 500; }
+    .vc-meta { color: var(--muted-text); font-size: 0.84rem; margin: -0.5rem 0 0.9rem; }
+
+    /* FILTERS DIALOG */
+    .modal-bg { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .modal-bg[hidden] { display: none; }
+    .modal { background: #fff; color: var(--ink); border-radius: 18px; width: min(620px, 100%); max-height: 88vh; display: flex; flex-direction: column; overflow: hidden; }
+    .modal-head { position: relative; display: flex; align-items: center; justify-content: center; padding: 1rem; border-bottom: 1px solid var(--line); font-weight: 600; }
+    .m-close { position: absolute; left: 1rem; width: 32px; height: 32px; border-radius: 50%; border: 0; background: none; cursor: pointer; font-size: 1.1rem; color: inherit; }
+    .m-close:hover { background: var(--ivory); }
+    .modal-body { overflow: auto; padding: 0.4rem 1.5rem; scrollbar-width: thin; scrollbar-color: rgba(17,17,17,0.22) transparent; }
+    .modal-body::-webkit-scrollbar { width: 6px; }
+    .modal-body::-webkit-scrollbar-track { background: transparent; margin: 8px 0; }
+    .modal-body::-webkit-scrollbar-thumb { background: rgba(17,17,17,0.2); border-radius: 999px; }
+    .modal-body::-webkit-scrollbar-thumb:hover { background: rgba(17,17,17,0.35); }
+    .modal-body::-webkit-scrollbar-button { display: none; height: 0; }
+    .msec { padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
+    .msec:last-child { border-bottom: 0; }
+    .msec h3 { font-size: 1.35rem; margin: 0 0 0.25rem; }
+    .hint { margin: 0 0 0.9rem; color: var(--muted-text); font-size: 0.88rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .chip { padding: 0.62rem 1.1rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; }
+    .chip:hover { border-color: var(--accent); }
+    .chip[aria-pressed="true"] { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+    .tile { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink);
+      cursor: pointer; text-align: left; font: inherit; font-size: 0.86rem; font-weight: 500; }
+    .tile :global(svg) { width: 24px; height: 24px; }
+    .tile:hover { border-color: var(--ink); }
+    .tile[aria-pressed="true"] { border: 2px solid var(--ink); background: var(--ivory); padding: calc(0.9rem - 1px); }
+    .stepper { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .ctl { display: flex; align-items: center; gap: 1rem; }
+    .ctl button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(17,17,17,0.3); background: #fff; color: var(--ink); cursor: pointer; font-size: 1.1rem; }
+    .ctl button:disabled { opacity: 0.3; cursor: default; }
+    .val { min-width: 4.5rem; text-align: center; font-weight: 600; }
+    .modal-foot { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-top: 1px solid var(--line); }
+    .apply { display: inline-flex; align-items: center; gap: 0.55rem; background: var(--ink); color: #fff; border: 0; border-radius: 10px; padding: 0.85rem 1.4rem; font: inherit; font-weight: 600; cursor: pointer; }
+    .apply :global(.arr) { transition: transform 0.3s ease; }
+    .apply:hover :global(.arr) { transform: translateX(4px); }
+
+    /* La burbuja del chat (avc-btn, del CRM) tapa "Show venues" en móvil: se oculta con la ventana abierta */
+    :global(body.filters-open .avc-btn) { display: none; }
+    @media (max-width: 760px) {
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+      .modal-bg { padding: 0; align-items: flex-end; }
+      .modal { border-radius: 18px 18px 0 0; max-height: 92vh; }
+      .cats-band { padding: 0.7rem 16px 0.1rem; }
+      .cats { gap: 1.6rem; }
+      .filters-btn .t { display: none; }
+    }
+
     /* Scroll-reveal initial state — guarded by reduced-motion; failsafe in layout. */
     @media (prefers-reduced-motion: no-preference) {
       :global(html.js) [data-reveal],
@@ -152,6 +346,114 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
   <script>
     import { animate, inView, stagger } from 'motion';
+
+    // ── Filtros de venues ──
+    type St = { cat: string; type: string; guests: number; kosher: string; area: string; feats: Set<string> };
+    const st: St = { cat: 'all', type: 'any', guests: 0, kosher: 'any', area: 'any', feats: new Set() };
+    const TYPE_LABEL: Record<string, string> = { hotel: 'hotels & resorts', ballroom: 'ballrooms', synagogue: 'synagogues', garden: 'gardens & estates', unique: 'unique spaces', club: 'country clubs' };
+    const CAT_LABEL: Record<string, string> = { ...TYPE_LABEL, kosher: 'kosher venues', waterfront: 'waterfront venues', historic: 'historic venues' };
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.venue-card'));
+    const $ = (sel: string) => document.querySelector(sel) as HTMLElement;
+    const $$ = (sel: string) => Array.from(document.querySelectorAll<HTMLElement>(sel));
+
+    function match(c: HTMLElement, s: St) {
+      const d = c.dataset;
+      const feats = (d.feats || '').split(' ').filter(Boolean);
+      const cap = d.cap ? +d.cap : 0;
+      if (s.cat === 'kosher') { if (!d.kosher) return false; }
+      else if (s.cat === 'waterfront' || s.cat === 'historic') { if (!feats.includes(s.cat)) return false; }
+      else if (s.cat !== 'all' && d.type !== s.cat) return false;
+      if (s.type !== 'any' && d.type !== s.type) return false;
+      if (s.guests && !(cap >= s.guests)) return false;
+      if (s.kosher === 'any-kosher' && !d.kosher) return false;
+      if ((s.kosher === 'kitchen' || s.kosher === 'catering') && d.kosher !== s.kosher) return false;
+      if (s.area !== 'any' && d.area !== s.area) return false;
+      for (const f of s.feats) if (!feats.includes(f)) return false;
+      return true;
+    }
+    const activeCount = () =>
+      (st.type !== 'any' ? 1 : 0) + (st.guests ? 1 : 0) + (st.kosher !== 'any' ? 1 : 0) + (st.area !== 'any' ? 1 : 0) + st.feats.size;
+
+    function render() {
+      let n = 0;
+      cards.forEach((c) => {
+        const ok = match(c, st);
+        c.hidden = !ok;
+        if (ok) n++;
+        c.querySelectorAll<HTMLElement>('.vc-cap').forEach((x) => (x.hidden = !st.guests));
+      });
+      const what = st.cat !== 'all' ? CAT_LABEL[st.cat] : st.type !== 'any' ? TYPE_LABEL[st.type] : n === 1 ? 'venue' : 'venues';
+      $('.res-title').textContent = `${n} ${what} in ${st.area !== 'any' ? st.area : 'South Florida'}${st.guests ? ` for ${st.guests}+ guests` : ''}`;
+      $('.empty').hidden = n > 0;
+      const a = activeCount();
+      const badge = $('.filters-btn .badge');
+      badge.hidden = !a;
+      badge.textContent = String(a);
+      $$('.res-line [data-clear]').forEach((b) => (b.hidden = !(a || st.cat !== 'all')));
+      $$('.cat').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === st.cat)));
+      $$('.tile[data-type]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.type === st.type)));
+      $$('.tile[data-feat]').forEach((b) => b.setAttribute('aria-pressed', String(st.feats.has(b.dataset.feat || ''))));
+      $$('.chip[data-kosher]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.kosher === st.kosher)));
+      $$('.chip[data-area]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.area === st.area)));
+      $('.val').textContent = st.guests ? `${st.guests}+` : 'Any';
+      ($('[data-step="-50"]') as HTMLButtonElement).disabled = !st.guests;
+      ($('[data-step="50"]') as HTMLButtonElement).disabled = st.guests >= 800;
+      $('.apply').innerHTML = n ? `Show ${n} venue${n === 1 ? '' : 's'}<span class="arr" aria-hidden="true">→</span>` : 'No venues match';
+    }
+    // Si el usuario ya bajó más allá de la fila de categorías, lo sube a ella (ve filtros + resultados)
+    function toList() {
+      const top = $('.cats-band').getBoundingClientRect().top + scrollY;
+      if (scrollY > top) scrollTo({ top, behavior: 'smooth' });
+    }
+
+    $$('.cat').forEach((b) => b.addEventListener('click', () => { st.cat = b.dataset.cat || 'all'; render(); toList(); }));
+    $$('.tile[data-type]').forEach((b) => b.addEventListener('click', () => { st.type = st.type === b.dataset.type ? 'any' : b.dataset.type || 'any'; render(); }));
+    $$('.tile[data-feat]').forEach((b) => b.addEventListener('click', () => {
+      const f = b.dataset.feat || '';
+      if (st.feats.has(f)) st.feats.delete(f); else st.feats.add(f);
+      render();
+    }));
+    $$('.chip[data-kosher]').forEach((b) => b.addEventListener('click', () => { st.kosher = b.dataset.kosher || 'any'; render(); }));
+    $$('.chip[data-area]').forEach((b) => b.addEventListener('click', () => { st.area = b.dataset.area || 'any'; render(); }));
+    $$('[data-step]').forEach((b) => b.addEventListener('click', () => { st.guests = Math.max(0, Math.min(800, st.guests + Number(b.dataset.step))); render(); }));
+    $$('[data-clear]').forEach((b) => b.addEventListener('click', () => {
+      Object.assign(st, { cat: 'all', type: 'any', guests: 0, kosher: 'any', area: 'any' });
+      st.feats.clear();
+      render();
+    }));
+
+    // Ventana "Filters"
+    const bg = $('.modal-bg');
+    const openFilters = (o: boolean) => {
+      bg.hidden = !o;
+      document.body.style.overflow = o ? 'hidden' : '';
+      document.body.classList.toggle('filters-open', o);
+      if (o) $('.m-close').focus();
+    };
+    $('[data-open-filters]').addEventListener('click', () => openFilters(true));
+    $('.m-close').addEventListener('click', () => openFilters(false));
+    $('.apply').addEventListener('click', () => { openFilters(false); toList(); });
+    bg.addEventListener('click', (e) => { if (e.target === bg) openFilters(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !bg.hidden) openFilters(false); });
+
+    // Fila de categorías: en móvil nunca una categoría cortada; flechas discretas en los bordes
+    const row = $('.cats');
+    function fitRow() {
+      const r = row.getBoundingClientRect();
+      $$('.cat').forEach((c) => {
+        const cr = c.getBoundingClientRect();
+        c.classList.toggle('cut', cr.left < r.left - 1 || cr.right > r.right + 1);
+      });
+      $('.cat-arrow.l').hidden = row.scrollLeft <= 2;
+      $('.cat-arrow.r').hidden = row.scrollLeft + row.clientWidth >= row.scrollWidth - 2;
+    }
+    row.addEventListener('scroll', () => requestAnimationFrame(fitRow));
+    addEventListener('resize', fitRow);
+    $('.cat-arrow.l').addEventListener('click', () => row.scrollBy({ left: -row.clientWidth * 0.8 }));
+    $('.cat-arrow.r').addEventListener('click', () => row.scrollBy({ left: row.clientWidth * 0.8 }));
+
+    render();
+    fitRow();
 
     inView('[data-reveal]', (el) => {
       animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });

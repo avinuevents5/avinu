@@ -11,6 +11,8 @@ heroImage: "/venues/ninja-lounge-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/ninja-lounge/"
 order: 11
+venueType: "unique"
+area: "Miami-Dade"
 ---
 
 The Ninja Lounge obstacle and trampoline zone now lives inside Dezerland Action Park Miami, a 250,000-square-foot indoor entertainment complex in North Miami with attractions for every age.

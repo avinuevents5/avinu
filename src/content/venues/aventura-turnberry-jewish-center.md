@@ -13,6 +13,11 @@ order: 2
 gallery:
   - "https://eatwithpremier.com/wp-content/uploads/2022/02/3d25e66d-87dd-4d76-b37c-c3d0233ce4e0.jpg"
   - "https://eatwithpremier.com/wp-content/uploads/2022/02/b2865c06-ca66-4a58-b827-1df68d743435.jpg"
+venueType: "synagogue"
+maxGuests: 650
+area: "Miami-Dade"
+kosherLevel: "kitchen"
+kosherLabel: "Kosher kitchen on site"
 ---
 
 Since 1990, the Aventura Turnberry Jewish Center has played host to thousands of milestone events for South Florida's Jewish community and beyond. Whether it's a wedding, bar or bat mitzvah, or a corporate gala, ATJC offers everything you need under one roof — in-house kosher catering by Premier Event Catering, professional décor, venue lighting, and a dedicated event planning team.

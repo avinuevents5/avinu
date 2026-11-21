@@ -10,6 +10,9 @@ image: "/venues/galuppis.jpg"
 heroImage: "/venues/galuppis-hero.jpg"
 imageSource: "venue website (galuppis.com)"
 order: 25
+venueType: "club"
+maxGuests: 300
+area: "Broward"
 ---
 
 Galuppi's is a Pompano Beach restaurant and event venue overlooking the greens and lakes of the golf course, with a remodeled banquet room, a terrace and gardens with fountains and bridges. Ceremonies take place beneath a handcrafted wooden arch on the private terrace or at the lakefront gazebo.

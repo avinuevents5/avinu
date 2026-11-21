@@ -11,6 +11,9 @@ heroImage: "/venues/sheraton-suites-plantation-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/sheraton-suites-plantation/"
 order: 8
+venueType: "hotel"
+maxGuests: 300
+area: "Broward"
 ---
 
 When looking for wedding venues in Fort Lauderdale, Sheraton Suites Fort Lauderdale West (formerly Sheraton Suites Plantation) is the perfect setting for a wedding or reception. Enjoy the majestic outdoor veranda, where a lit fountain and beautiful natural greenery will create a beautiful backdrop and enhance your special day.

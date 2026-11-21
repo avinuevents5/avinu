@@ -12,6 +12,12 @@ heroImage: "/venues/eden-roc-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/eden-roc/"
 order: 16
+venueType: "hotel"
+maxGuests: 800
+area: "Miami-Dade"
+kosherLevel: "catering"
+kosherLabel: "Glatt Kosher catering welcome"
+features: ["waterfront", "historic"]
 ---
 
 Eden Roc offers versatile event spaces, ones that might find you gathering indoors or in the open air; by day or by moonlight; on a rooftop terrace, a starlit garden or an iconic ballroom. Spread through over 25,000 square feet, Eden Roc offers beautiful outdoor spaces with ocean and bay views, and a myriad of ballrooms that are customizable to your preferences and needs.

@@ -11,6 +11,9 @@ heroImage: "/venues/viceroy-miami-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/viceroy-miami/"
 order: 5
+venueType: "hotel"
+maxGuests: 250
+area: "Miami-Dade"
 ---
 
 Formerly known as the Viceroy Miami, the W Miami sits in the Icon Brickell complex, right where the Miami River meets Biscayne Bay, in the heart of the city’s financial district.

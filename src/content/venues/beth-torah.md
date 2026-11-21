@@ -12,6 +12,11 @@ heroImage: "/venues/beth-torah-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/benvenuto-2/"
 order: 22
+venueType: "synagogue"
+maxGuests: 500
+area: "Miami-Dade"
+kosherLevel: "kitchen"
+kosherLabel: "Kosher kitchen on site"
 ---
 
 Craving a vibrant Jewish community where your family can flourish? Beth Torah Benny Rok Campus in North Miami Beach welcomes you with open arms. Build lifelong friendships with like-minded families, while engaging programs nurture your children and ignite your own Jewish journey. From lively social events to meaningful holiday celebrations, Beth Torah fosters a warm, supportive environment where you can connect with your heritage and celebrate your faith. Discover the Beth Torah difference and experience the joy of a true Jewish home away from home.

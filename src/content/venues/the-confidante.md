@@ -11,6 +11,10 @@ heroImage: "/venues/the-confidante-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/the-confidante/"
 order: 19
+venueType: "hotel"
+maxGuests: 260
+area: "Miami-Dade"
+features: ["waterfront"]
 ---
 
 Formerly known as The Confidante, the hotel reopened in 2025 as Andaz Miami Beach — Hyatt’s first Andaz in Florida — after a top-to-bottom renovation. It sits directly on the sand in Mid-Beach, with 287 rooms and restaurants by José Andrés Group.

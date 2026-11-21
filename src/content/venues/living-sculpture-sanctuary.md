@@ -11,6 +11,11 @@ image: "/venues/living-sculpture-sanctuary.jpg"
 heroImage: "/venues/living-sculpture-sanctuary-hero.jpg"
 imageSource: "venue website (livingsculpturesanctuary.com)"
 order: 24
+venueType: "garden"
+maxGuests: 170
+area: "Broward"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering welcome"
 ---
 
 Living Sculpture Sanctuary is a family-owned botanical sanctuary in Davie, set among century-old oak trees, cascading waterfalls, koi ponds, a bonsai wall and a Zen rock garden.

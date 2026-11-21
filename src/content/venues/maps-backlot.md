@@ -11,6 +11,9 @@ heroImage: "/venues/maps-backlot-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/maps-backlot/"
 order: 13
+venueType: "unique"
+maxGuests: 600
+area: "Miami-Dade"
 ---
 
 Maps Backlot is a 10,500-square-foot studio and event space located in the Wynwood Arts District, fitting just perfectly for this all-around artsy neighborhood. At a recent wedding, we brought a sky full of stars in bistro lighting — the perfect vintage venue for something like this. These stunning and diverse photo studios double as unique event spaces that are unparalleled in the industry.

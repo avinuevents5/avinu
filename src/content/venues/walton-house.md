@@ -12,6 +12,12 @@ heroImage: "/venues/walton-house-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/walton-house/"
 order: 4
+venueType: "garden"
+maxGuests: 200
+area: "Miami-Dade"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering on request"
+features: ["historic"]
 ---
 
 Our clients love to think out-of-the-box. We get your commitment to having a wedding or bar mitzvah that is not ordinary. If this is you — then it's time to explore having your event at Walton House.

@@ -11,6 +11,8 @@ heroImage: "/venues/bonaventure-resort-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/bonaventure-resort/"
 order: 20
+# Demolido: fuera del listado y de "More venues" (la página sigue existiendo)
+listed: false
 ---
 
 With three stunning ballrooms and a variety of smaller, more intimate spaces, event parties are assured an exquisite setting for their ceremony and accompanying festivities. Best of all, you can host every aspect of your event in a different setting. The resort's 60,000 square feet of flexible ballroom and event space includes three ballrooms and 21 smaller rooms that range in size from 375 square feet to 1,728 square feet. Several outdoor options are also available.

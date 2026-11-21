@@ -12,6 +12,12 @@ heroImage: "/venues/old-school-square-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/old-school-square/"
 order: 10
+venueType: "unique"
+maxGuests: 300
+area: "Palm Beach"
+kosherLevel: "catering"
+kosherLabel: "Kosher catering welcome"
+features: ["historic"]
 ---
 
 Old School Square offers a one-of-a-kind setting filled with history. Beautifully restored spaces include The Fieldhouse, the Ocean Breeze Room and the intimate Crest Theatre. While the Fieldhouse is no longer used for sporting events, the original backboards remain in place. The loft, which held bleacher seating for the "away" teams, now provides space for seating or displays. The facility includes an adjacent food preparation and load-in area, and the former locker rooms were converted to appointed restrooms.

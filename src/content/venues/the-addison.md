@@ -12,6 +12,12 @@ heroImage: "/venues/the-addison-hero.jpg"
 imageSource: "client-supplied"
 originalUrl: "https://avinuevents.com/the-addison/"
 order: 1
+venueType: "ballroom"
+maxGuests: 250
+area: "Palm Beach"
+kosherLevel: "kitchen"
+kosherLabel: "Glatt Kosher kitchen · ORB"
+features: ["historic"]
 ---
 
 Nestled in the heart of Boca Raton, Florida, The Addison is more than just a venue; it's a cherished piece of local history and a beacon of timeless elegance. Built in 1925 by renowned architect Addison Mizner, The Addison carries a rich history and charm that echoes back to the elegance of the 1920s.
