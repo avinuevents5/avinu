@@ -18,14 +18,6 @@ const calendly = 'https://calendly.com/avinuevents/planning'
   <section class="consult">
     <h1 class="sr-only">Schedule a 30-minute planning call with Avinu Events</h1>
     <div class="cal-card">
-      <div class="cal-head" aria-hidden="true">
-        <img class="cal-face" src="/planning/mark-face.jpg" width="240" height="240" alt="" />
-        <div>
-          <p class="cal-eyebrow">Mark Levine</p>
-          <p class="cal-title">Let’s Plan Your Event!</p>
-          <p class="cal-meta"><b>30 min</b> · Video call</p>
-        </div>
-      </div>
       <img
         class="cal-poster"
         src="/planning/lets-plan-poster-v2.jpg"
@@ -72,7 +64,6 @@ const calendly = 'https://calendly.com/avinuevents/planning'
     }
     .cal-poster { display: block; max-width: none; object-fit: cover; background: #0b0d1a; }
     .cal-frame { display: block; border: 0; background: #fffdfa; }
-    .cal-head { display: none; } /* solo en móvil */
 
     /* Escritorio: Calendly se dibuja a 410 × 600 y se amplía ×1.0667 (el calendario llena su columna; con
        menos de 600 px de alto por dentro Calendly saca una barra). Tarjeta ≈ 360 + 437 = 797 × 640,
@@ -91,16 +82,7 @@ const calendly = 'https://calendly.com/avinuevents/planning'
        el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
-      /* Móvil: en vez del póster (letras muy chicas en una franja), cabecera oscura con la cara de Mark
-         en un círculo y el título en texto real; el calendario aparece enseguida. */
-      .cal-poster { display: none; }
-      .cal-head { display: flex; gap: 14px; align-items: center; padding: 16px; background: #0b0a09; color: #fff; }
-      .cal-face { width: 92px; height: 92px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #c9a25a; }
-      .cal-head p { margin: 0; }
-      .cal-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: #d9c79f; }
-      .cal-title { font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 28px; line-height: 1.05; margin: 4px 0 6px !important; }
-      .cal-meta { font-family: var(--font-body); font-size: 13px; color: #e6e0d6; }
-      .cal-meta b { color: #e2b866; font-weight: 600; }
+      .cal-poster { width: 100%; height: auto; aspect-ratio: 941 / 470; object-position: 50% 17%; } /* franja del DJ, termina antes de MARK LEVINE */
       .cal-crop { overflow: hidden; height: 530px; }
       .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
     }
