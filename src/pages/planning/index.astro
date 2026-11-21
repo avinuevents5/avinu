@@ -20,9 +20,9 @@ const calendly = 'https://calendly.com/avinuevents/planning'
     <div class="cal-card">
       <img
         class="cal-poster"
-        src="/planning/lets-plan-poster-v2.jpg"
-        width="941"
-        height="1671"
+        src="/planning/lets-plan-poster-v3.jpg"
+        width="942"
+        height="1670"
         alt="Mark Levine — Let’s plan your event! 30 min; web conferencing details provided upon confirmation. Let’s make sure everything is perfect! This meeting is exclusively for clients who have already booked with AVINU Events. We’ll review your event details, discuss music, entertainment, production, and logistics, and address any questions or updates to ensure everything comes together seamlessly. We look forward to bringing your vision to life! DJ & MC, live music, production & lighting, LED displays."
       />
       <div class="cal-crop" id="plan-crop">
@@ -72,7 +72,7 @@ const calendly = 'https://calendly.com/avinuevents/planning'
       .consult { padding: 44px 16px 32px; } /* 44 = aire entre el logo y la tarjeta; 32 abajo = mismo margen que arriba del logo */
       .cal-card { --cal-s: 1.0667; --cal-h: calc(600px * var(--cal-s)); width: fit-content; height: var(--cal-h);
         grid-template-columns: auto calc(410px * var(--cal-s)); grid-template-rows: var(--cal-h); }
-      .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 941 / 1671; }
+      .cal-poster { height: var(--cal-h); width: auto; aspect-ratio: 942 / 1670; }
       .cal-frame { width: 410px; height: 600px; transform: scale(var(--cal-s)); transform-origin: 0 0; }
       .cal-crop { height: var(--cal-h); overflow: hidden; }
     }
@@ -82,7 +82,7 @@ const calendly = 'https://calendly.com/avinuevents/planning'
        el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
-      .cal-poster { width: 100%; height: auto; aspect-ratio: 941 / 470; object-position: 50% 17%; } /* franja del DJ, termina antes de MARK LEVINE */
+      .cal-poster { width: 100%; height: auto; aspect-ratio: 942 / 470; object-position: 50% 17%; } /* franja del DJ, termina antes de MARK LEVINE */
       .cal-crop { overflow: hidden; height: 530px; }
       .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
     }
