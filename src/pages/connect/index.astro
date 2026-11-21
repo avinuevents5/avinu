@@ -23,7 +23,7 @@ const calendly = 'https://calendly.com/avinuevents/marklevine'
         src="/connect/mark-levine-poster.jpg"
         width="1122"
         height="1402"
-        alt="Mark Levine — Singer, DJ, Event Host. Book your event consultation! 30 min; web conferencing details provided upon confirmation. A dedicated time to discuss business opportunities, collaborations, creative projects, or other professional matters. Please share a brief overview of what you’d like to discuss when booking. Looking forward to connecting!"
+        alt="Mark Levine — Singer, DJ, Event Host. Let’s Connect / Levine. 30 min; web conferencing details provided upon confirmation. A dedicated time to discuss business opportunities, collaborations, creative projects, or other professional matters. Please share a brief overview of what you’d like to discuss when booking. Looking forward to connecting!"
       />
       <div class="cal-crop" id="connect-crop">
         <iframe id="connect-cal" class="cal-frame" src={calendly} title="Schedule a call with Mark Levine" loading="eager"></iframe>
@@ -82,7 +82,7 @@ const calendly = 'https://calendly.com/avinuevents/marklevine'
        el iframe mide lo que pide Calendly (sin barra) y se recorta el blanco del final. */
     @media (max-width: 899px) {
       .cal-card { grid-template-columns: 1fr; border-radius: 14px; max-width: 560px; }
-      .cal-poster { width: 100%; height: auto; aspect-ratio: 1122 / 572; object-position: 50% 0%; }
+      .cal-poster { width: 100%; height: auto; aspect-ratio: 1122 / 500; object-position: 50% 0%; }
       .cal-crop { overflow: hidden; height: 530px; }
       .cal-frame { width: 100%; height: 602px; } /* 602 = mínimo de Calendly: sin barra; el crop esconde el blanco final */
     }
