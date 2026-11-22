@@ -1,0 +1,177 @@
+{
+ "hero-night": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The glass building lit from within at night, with palms and a reflecting pond in front",
+  "cap": "The glass building at night",
+  "cat": "venue"
+ },
+ "ceremony-vows": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple exchanging vows under a white floral arch with a dark water wall and greenery behind",
+  "cap": "A ceremony beside the water wall",
+  "cat": "weddings"
+ },
+ "reception-guests": {
+  "w": 1600,
+  "h": 900,
+  "alt": "Guests seated at reception tables with white florals inside the glass-walled hall",
+  "cap": "A reception inside the glass hall",
+  "cat": "weddings"
+ },
+ "waterfall-day": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A tiled water wall with two palm trees above a paved courtyard in daylight",
+  "cap": "The waterfall wall by day",
+  "cat": "venue"
+ },
+ "waterfall-corner": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Water streaming down a long dark tiled wall beside a palm tree and a narrow channel",
+  "cap": "The waterfall wall and channel",
+  "cat": "venue"
+ },
+ "waterfall-dusk": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The waterfall wall and two palms against a purple dusk sky",
+  "cap": "The courtyard at dusk",
+  "cat": "venue"
+ },
+ "reception-night": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A white building with tall glass walls lit from within at night, a palm tree in front",
+  "cap": "The glass building after dark",
+  "cat": "venue"
+ },
+ "hall-wide": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The empty glass-walled hall with white floors and a high ceiling",
+  "cap": "Inside the glass hall",
+  "cat": "venue"
+ },
+ "hall-long": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long, light-filled hall with white floors and glass walls on both sides",
+  "cap": "The hall, looking down its length",
+  "cat": "venue"
+ },
+ "hall-reflections": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A wide empty hall with glass walls and a glossy white floor reflecting the windows",
+  "cap": "Glass walls and a polished floor",
+  "cat": "venue"
+ },
+ "hall-light": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Daylight falling across the white floor of the glass hall",
+  "cap": "Daylight in the hall",
+  "cat": "venue"
+ },
+ "cocktail-pond": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A glass-walled building beside a pond with water lilies and a covered entrance",
+  "cap": "Glass building beside the pond",
+  "cat": "venue"
+ },
+ "pond-lilies": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A pond with water lilies running along the glass wall of a white building",
+  "cap": "Water beside the glass wall",
+  "cat": "venue"
+ },
+ "pond-sky": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A narrow pond with water lilies beside a glass building under a blue sky",
+  "cap": "Pond and glass wall",
+  "cat": "venue"
+ },
+ "walkway": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A covered walkway beside glass-walled buildings and a pond",
+  "cap": "A covered walkway",
+  "cat": "venue"
+ },
+ "bridal-suite": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bright white suite with vanity stations, salon chairs and a white sofa",
+  "cap": "The Bridal Suite",
+  "cat": "bridal"
+ },
+ "vanities": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Three lit makeup mirrors with stools at a long white vanity",
+  "cap": "Vanity stations",
+  "cat": "bridal"
+ },
+ "aerial-day": {
+  "w": 1600,
+  "h": 1199,
+  "alt": "Aerial view of the glass buildings, pond and stone courtyard surrounded by greenery",
+  "cap": "The grounds from above",
+  "cat": "venue"
+ },
+ "aerial-night": {
+  "w": 1600,
+  "h": 1198,
+  "alt": "Aerial view at night of the glass buildings and an event in the courtyard",
+  "cap": "The grounds at night",
+  "cat": "venue"
+ },
+ "aerial-garden": {
+  "w": 1600,
+  "h": 1199,
+  "alt": "Aerial view of glass buildings, a pond with water lilies and surrounding greenery",
+  "cap": "Buildings and pond from above",
+  "cat": "venue"
+ },
+ "entry-dusk": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A stone courtyard at dusk with palm trees and a glass building behind",
+  "cap": "The courtyard at dusk",
+  "cat": "venue"
+ },
+ "entry-palms": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A stone courtyard at dusk beside a covered entrance with warm lights",
+  "cap": "The entrance at dusk",
+  "cat": "venue"
+ },
+ "dj-console": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A DJ controller, mixer and monitors at a control desk inside the hall",
+  "cap": "The DJ and sound desk",
+  "cat": "production"
+ },
+ "plaza-day": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A paved plaza with palm trees and ponds under a bright sky",
+  "cap": "The plaza by day",
+  "cat": "venue"
+ },
+ "water-channel": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A pond with water lilies along the glass walls of a white building",
+  "cap": "Water and glass",
+  "cat": "venue"
+ }
+}

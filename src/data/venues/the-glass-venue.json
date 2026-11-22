@@ -1,0 +1,216 @@
+{
+  "slug": "the-glass-venue",
+  "name": "The Glass Venue",
+  "media_note": "Fotos de theglassvenue.com (bucket publico tgv-webdata, rutas listadas en su app.js, 2026-11-21). PENDIENTE permiso del venue. Datos: web oficial (/venue, portada, /bar, /catering, Pricing Guide), Google Maps (4.6, 77 reviews) y resenas de Google literales (Maiden 1, 2026-11-21); ver the-glass-venue/FUENTES.md. Fotos confirmadas por la web: ceremonia = untitled-11-2 (entry-dusk), cocktail = untitled-6 (cocktail-pond), reception = untitled-24-2 (reception-night), bridal suite = untitled-27 (bridal-suite). Las fotos de interiores amplios (hall-*) y las del muro de agua NO estan etiquetadas por el venue: se usan como fotos generales, sin asignarlas a un salon concreto. Sin precios ni videos. Avinu NO esta en la lista de vendors preferidos del venue; el DJ elegido toca con el equipo del venue (Pricing Guide). Plantilla: los pilares 'Production' (texto fijo: sonido, LED, proyeccion) no se adaptan al sistema integrado del venue.",
+  "credit": "The Glass Venue",
+  "brand": {
+    "title": "The Glass Venue",
+    "sub": "Miami, Florida"
+  },
+  "seo": {
+    "title": "The Glass Venue · Weddings, Quinceañeras & Celebrations in Miami",
+    "description": "Weddings, quinceañeras, Sweet 16s, mitzvahs and corporate events at The Glass Venue in Miami: glass architecture, a 100 ft waterfall and ceremonies for up to 400 guests. Music direction, MC and entertainment by Avinu Events."
+  },
+  "hero": {
+    "photo": "hero-night",
+    "pos": "50% 60%",
+    "kicker": "Miami, Florida · Glass architecture on five acres",
+    "h1": [
+      "The Glass"
+    ],
+    "h1em": "Venue",
+    "lead": "A private sanctuary of modern glass architecture and water: a ceremony beside a 100 ft waterfall, cocktails by the koi ponds and a reception hall with floor-to-ceiling glass walls.",
+    "secondary": "Explore the venue",
+    "facts": [
+      ["400", "Ceremony guests"],
+      ["100 ft", "Waterfall"],
+      ["5", "Acres of grounds"]
+    ]
+  },
+  "intro": {
+    "kicker": "The Venue",
+    "h2": "Glass, water <em>and open sky</em>",
+    "paras": [
+      "The Glass Venue describes itself as a luxurious fusion of modern architecture and sophisticated design: a unique, private sanctuary for life’s most memorable occasions, set on five acres of grounds.",
+      "Each moment has its own space, from the outdoor ceremony area and the climate-controlled Cocktail Building to the Reception Hall, where 17-foot ceilings and glass walls open onto the water. Kosher events are welcome, with preferred kosher caterers on the venue’s list."
+    ],
+    "a": "aerial-day",
+    "b": "pond-lilies",
+    "stats": [
+      ["4.6", "Google · 77 reviews"],
+      ["17 ft", "Reception Hall ceilings"],
+      ["Valet", "Parking included"]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "ceremony-vows",
+        "title": "Weddings",
+        "text": "Say “I do” in an outdoor ceremony area with a 100 ft waterfall, then move through the Cocktail Building to the glass-walled Reception Hall.",
+        "points": [
+          "Ceremonies for up to 400 guests",
+          "Luxury, kosher and traditional Indian weddings",
+          "Music direction, MC and ceremony music by Avinu Events"
+        ],
+        "cta": "Plan a wedding at The Glass Venue",
+        "caption": "A ceremony beside the water wall"
+      },
+      {
+        "id": "quince",
+        "label": "Quinceañeras & Sweet 16s",
+        "short": "Quinces",
+        "photo": "hall-reflections",
+        "title": "Quinceañeras & Sweet 16s",
+        "text": "The venue hosts quinceañeras, Sweet 16s and Bar & Bat Mitzvahs, in a reception hall with glass walls, a built-in lighting and sound system and room for a big entrance.",
+        "points": [
+          "Quinceañeras, Sweet 16s and Bar & Bat Mitzvahs",
+          "Reception Hall with floor-to-ceiling glass walls",
+          "Entrances, MC and live performers by Avinu Events"
+        ],
+        "cta": "Plan a quince at The Glass Venue"
+      },
+      {
+        "id": "corporate",
+        "label": "Corporate & Special Events",
+        "short": "Corporate",
+        "photo": "aerial-night",
+        "title": "Corporate & special events",
+        "text": "Corporate events, special events and arts and fashion shows, in a modern venue with indoor and outdoor spaces and two HD projectors in the reception hall.",
+        "points": [
+          "Corporate events, special events, arts and fashion shows",
+          "Indoor and outdoor spaces",
+          "Hosting, music and program flow by Avinu Events"
+        ],
+        "cta": "Plan an event at The Glass Venue",
+        "caption": "The grounds at night"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The venue, transformed",
+    "h2": "From the waterfall <em>to the dance floor</em>",
+    "text": "A ceremony by the water, cocktails among the ponds and a reception that glows after dark. Choose a moment.",
+    "moments": [
+      { "title": "Ceremony", "text": "By the waterfall", "photo": "waterfall-dusk", "wide": true },
+      { "title": "Cocktails", "text": "Among the ponds", "photo": "cocktail-pond", "wide": true },
+      { "title": "Reception", "text": "In the glass hall", "photo": "reception-night", "wide": true },
+      { "title": "After dark", "text": "The grounds lit up", "photo": "hero-night", "wide": true }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "Four spaces, <em>one private sanctuary</em>",
+    "text": "A bridal suite, a ceremony area, a cocktail building and a reception hall, linked by a bridge and surrounded by water.",
+    "items": [
+      {
+        "name": "The Bridal Suite",
+        "photo": "bridal-suite",
+        "capacity": "Private sanctuary",
+        "text": "A private, luxurious sanctuary for the bride and her party, with a bedroom, bathroom and open common area with dedicated vanities and amenities."
+      },
+      {
+        "name": "The Ceremony Area",
+        "photo": "entry-dusk",
+        "capacity": "Up to 400 guests",
+        "text": "An expansive outdoor ceremony area with a 100 ft waterfall."
+      },
+      {
+        "name": "The Cocktail Building",
+        "photo": "cocktail-pond",
+        "capacity": "Climate-controlled",
+        "text": "An inviting indoor space for guests to mingle, surrounded by serene koi ponds."
+      },
+      {
+        "name": "The Reception Hall",
+        "photo": "reception-night",
+        "capacity": "17 ft ceilings",
+        "text": "A grand hall with 17-foot ceilings and floor-to-ceiling glass walls, offering panoramic views and connecting to the cocktail building via a picturesque bridge."
+      }
+    ],
+    "note": "Ceremony capacity from the venue: up to 400 guests. Confirm reception capacity and layouts with the venue’s team."
+  },
+  "galleryTitle": "Inside <em>The Glass Venue</em>",
+  "gallery": {
+    "cats": [
+      ["all", "All"],
+      ["weddings", "Weddings"],
+      ["venue", "The Venue"],
+      ["bridal", "Bridal Suite"],
+      ["production", "Sound & light"]
+    ],
+    "items": [
+      "ceremony-vows",
+      "hero-night",
+      "reception-guests",
+      "waterfall-day",
+      "hall-long",
+      "bridal-suite",
+      "aerial-night",
+      "pond-lilies",
+      "dj-console",
+      "waterfall-corner",
+      "hall-light",
+      "vanities",
+      "aerial-day",
+      "water-channel",
+      "walkway",
+      "plaza-day",
+      "waterfall-dusk",
+      "pond-sky",
+      "aerial-garden",
+      "entry-palms",
+      "hall-wide",
+      "hall-reflections",
+      "reception-night",
+      "cocktail-pond",
+      "entry-dusk"
+    ]
+  },
+  "reviews": {
+    "kicker": "Guests who celebrated here",
+    "rating": "4.6",
+    "count": "77 Google reviews",
+    "src": "Reviews from Google · Rating from Google Maps",
+    "items": [
+      {
+        "q": "The venue itself is in a great area and we love how it offers three distinct spaces for the ceremony, cocktail hour, and reception. … The fog effects, lighting, and sound system are top tier and really elevated the entire experience.",
+        "who": "Jennifer Soler · Google review, 2026"
+      },
+      {
+        "q": "The space itself is breathtaking—elegant, modern, and perfectly designed for the ceremony, cocktail hour, and reception. The natural light through the glass walls created the most magical atmosphere for photos…",
+        "who": "Terrence Burdge · Google review, 2025"
+      },
+      {
+        "q": "the space is gallery worthy. As art aficionados we could not have found a more perfectly kept grounds. The bridal suite is spacious, the venue is absolutely stunning…",
+        "who": "Jenny R · Google review, 2025"
+      },
+      {
+        "q": "As a wedding planner, the venue manager can make or break my day, and Luisa at The Glass Venue made everything easier.",
+        "who": "Bre Manigat, wedding planner · Google review, 2026"
+      },
+      {
+        "q": "The Glass Venue is absolutely beautiful! Such an elegant setting with a wonderful atmosphere for celebrating a special occasion.",
+        "who": "Suri Sanchez · Google review, 2026"
+      }
+    ]
+  },
+  "production": {
+    "text": "The Glass Venue has its own integrated sound, lighting and projection, and the DJ you choose performs on the venue’s equipment. Avinu Events works with that system: music direction, MC, live performers and a timeline that keeps ceremony, cocktails and reception moving together.",
+    "lighting": "The reception hall already has moving lights, haze and a low-fog dry-ice effect for “Dance in the Clouds”. We design the moments that use them: entrances, the first dance and the energy of the night."
+  },
+  "plan": {
+    "bg": "reception-night",
+    "at": "at The Glass Venue",
+    "forThis": "The Glass Venue",
+    "address": "12300 SW 47th Street, Miami, FL 33175",
+    "venueLabel": "The Glass Venue",
+    "venuePhone": "+13059827503",
+    "venuePhoneLabel": "305-982-7503"
+  },
+  "footer": "The Glass Venue · 12300 SW 47th Street, Miami"
+}
