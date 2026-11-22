@@ -1,7 +1,7 @@
 {
   "slug": "the-glass-venue",
   "name": "The Glass Venue",
-  "media_note": "Fotos de theglassvenue.com (bucket publico tgv-webdata, rutas listadas en su app.js, 2026-11-21). PENDIENTE permiso del venue. Datos: web oficial (/venue, portada, /bar, /catering, Pricing Guide), Google Maps (4.6, 77 reviews) y resenas de Google literales (Maiden 1, 2026-11-21); ver the-glass-venue/FUENTES.md. Fotos confirmadas por la web: ceremonia = untitled-11-2 (entry-dusk), cocktail = untitled-6 (cocktail-pond), reception = untitled-24-2 (reception-night), bridal suite = untitled-27 (bridal-suite). Las fotos de interiores amplios (hall-*) y las del muro de agua NO estan etiquetadas por el venue: se usan como fotos generales, sin asignarlas a un salon concreto. Sin precios ni videos. Avinu NO esta en la lista de vendors preferidos del venue; el DJ elegido toca con el equipo del venue (Pricing Guide). Plantilla: los pilares 'Production' (texto fijo: sonido, LED, proyeccion) no se adaptan al sistema integrado del venue.",
+  "media_note": "Fotos de theglassvenue.com (bucket publico tgv-webdata, rutas listadas en su app.js, 2026-11-21). PENDIENTE permiso del venue. Datos: web oficial (/venue, portada, /bar, /catering, Pricing Guide), Google Maps (4.6, 77 reviews) y resenas de Google literales (Maiden 1, 2026-11-21); ver the-glass-venue/FUENTES.md. Fotos confirmadas por la web: ceremonia = untitled-11-2 (entry-dusk), cocktail = untitled-6 (cocktail-pond), reception = untitled-24-2 (reception-night), bridal suite = untitled-27 (bridal-suite). Las fotos de interiores amplios (hall-*) y las del muro de agua NO estan etiquetadas por el venue: se usan como fotos generales, sin asignarlas a un salon concreto. Sin precios ni videos. Avinu NO esta en la lista de vendors preferidos del venue; el DJ elegido toca con el equipo del venue (Pricing Guide). Plantilla: los pilares 'Production' (texto fijo: sonido, LED, proyeccion) no se adaptan al sistema integrado del venue. Videos: reels del Instagram @theglassvenue bajados por el usuario (2026-11-21), recortados sin sonido: aerial (g13 47.5-55 s), wedding (g7 completo), celebration (g10 0-12 s, antes del texto \"50th Birthday\"), firstdance (g1 completo), arrival (g13 14.5-20.5 s, incluye el letrero del venue). Descartados: g2 (primeros planos de invitados), g3-g5 (duplicados, solo mesas), g6 (nombres de la pareja en el cartel), g8 (cuadrado y nombres al final), g9 (cartel con nombres y primeros planos), g11 (camarógrafos en cuadro), g12 (horizontal; parte de la ceremonia no se reconoce como este venue).",
   "credit": "The Glass Venue",
   "brand": {
     "title": "The Glass Venue",
@@ -22,10 +22,20 @@
     "lead": "A private sanctuary of modern glass architecture and water: a ceremony beside a 100 ft waterfall, cocktails by the koi ponds and a reception hall with floor-to-ceiling glass walls.",
     "secondary": "Explore the venue",
     "facts": [
-      ["400", "Ceremony guests"],
-      ["100 ft", "Waterfall"],
-      ["5", "Acres of grounds"]
-    ]
+      [
+        "400",
+        "Ceremony guests"
+      ],
+      [
+        "100 ft",
+        "Waterfall"
+      ],
+      [
+        "5",
+        "Acres of grounds"
+      ]
+    ],
+    "mobileVideo": "aerial"
   },
   "intro": {
     "kicker": "The Venue",
@@ -37,9 +47,18 @@
     "a": "aerial-day",
     "b": "pond-lilies",
     "stats": [
-      ["4.6", "Google · 77 reviews"],
-      ["17 ft", "Reception Hall ceilings"],
-      ["Valet", "Parking included"]
+      [
+        "4.6",
+        "Google · 77 reviews"
+      ],
+      [
+        "17 ft",
+        "Reception Hall ceilings"
+      ],
+      [
+        "Valet",
+        "Parking included"
+      ]
     ]
   },
   "celebrations": {
@@ -58,7 +77,8 @@
           "Music direction, MC and ceremony music by Avinu Events"
         ],
         "cta": "Plan a wedding at The Glass Venue",
-        "caption": "A ceremony beside the water wall"
+        "caption": "An evening ceremony by the water",
+        "video": "wedding"
       },
       {
         "id": "quince",
@@ -87,7 +107,8 @@
           "Hosting, music and program flow by Avinu Events"
         ],
         "cta": "Plan an event at The Glass Venue",
-        "caption": "The grounds at night"
+        "caption": "A celebration in red and gold",
+        "video": "celebration"
       }
     ]
   },
@@ -96,10 +117,32 @@
     "h2": "From the waterfall <em>to the dance floor</em>",
     "text": "A ceremony by the water, cocktails among the ponds and a reception that glows after dark. Choose a moment.",
     "moments": [
-      { "title": "Ceremony", "text": "By the waterfall", "photo": "waterfall-dusk", "wide": true },
-      { "title": "Cocktails", "text": "Among the ponds", "photo": "cocktail-pond", "wide": true },
-      { "title": "Reception", "text": "In the glass hall", "photo": "reception-night", "wide": true },
-      { "title": "After dark", "text": "The grounds lit up", "photo": "hero-night", "wide": true }
+      {
+        "title": "Ceremony",
+        "text": "By the waterfall",
+        "photo": "waterfall-dusk",
+        "wide": true
+      },
+      {
+        "title": "Cocktails",
+        "text": "Among the ponds",
+        "photo": "cocktail-pond",
+        "wide": true
+      },
+      {
+        "title": "Reception",
+        "text": "In the glass hall",
+        "photo": "reception-night",
+        "wide": true,
+        "video": "firstdance"
+      },
+      {
+        "title": "After dark",
+        "text": "The grounds lit up",
+        "photo": "hero-night",
+        "wide": true,
+        "video": "arrival"
+      }
     ]
   },
   "spaces": {
@@ -137,11 +180,26 @@
   "galleryTitle": "Inside <em>The Glass Venue</em>",
   "gallery": {
     "cats": [
-      ["all", "All"],
-      ["weddings", "Weddings"],
-      ["venue", "The Venue"],
-      ["bridal", "Bridal Suite"],
-      ["production", "Sound & light"]
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "venue",
+        "The Venue"
+      ],
+      [
+        "bridal",
+        "Bridal Suite"
+      ],
+      [
+        "production",
+        "Sound & light"
+      ]
     ],
     "items": [
       "ceremony-vows",
@@ -212,5 +270,32 @@
     "venuePhone": "+13059827503",
     "venuePhoneLabel": "305-982-7503"
   },
-  "footer": "The Glass Venue · 12300 SW 47th Street, Miami"
+  "footer": "The Glass Venue · 12300 SW 47th Street, Miami",
+  "videos": {
+    "aerial": {
+      "mp4": "vid-aerial.mp4",
+      "poster": "vid-aerial-poster.jpg",
+      "label": "The grounds from above at dusk, with guests on the courtyard"
+    },
+    "wedding": {
+      "mp4": "vid-wedding.mp4",
+      "poster": "vid-wedding-poster.jpg",
+      "label": "An evening ceremony with an aisle of red roses and candles"
+    },
+    "celebration": {
+      "mp4": "vid-celebration.mp4",
+      "poster": "vid-celebration-poster.jpg",
+      "label": "A celebration in red and gold, with crystal chandeliers and gold place settings"
+    },
+    "firstdance": {
+      "mp4": "vid-firstdance.mp4",
+      "poster": "vid-firstdance-poster.jpg",
+      "label": "A first dance on a cloud of low fog in the Reception Hall"
+    },
+    "arrival": {
+      "mp4": "vid-arrival.mp4",
+      "poster": "vid-arrival-poster.jpg",
+      "label": "Guests arriving at the lit glass building at night"
+    }
+  }
 }
