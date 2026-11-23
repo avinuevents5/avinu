@@ -31,8 +31,8 @@ const CATS: [string, string][] = [
   ...Object.entries(TYPES).map(([k, t]) => [k, t.label] as [string, string]),
   ['waterfront', 'Waterfront'], ['historic', 'Historic'],
 ];
-// Kosher: Yes / No (Hub → Venues → Kosher). Sin dato = no sale en el filtro.
-const KOSHER_OPTS: [string, string][] = [['any', 'Any'], ['yes', 'Kosher']];
+// Kosher: Yes / No (Hub → Venues → Kosher). Sin dato cuenta como No en el filtro.
+const KOSHER_OPTS: [string, string][] = [['any', 'Any'], ['yes', 'Yes'], ['no', 'No']];
 const AREA_OPTS: [string, string][] = [['any', 'All South Florida'], ['Miami-Dade', 'Miami-Dade'], ['Broward', 'Broward'], ['Palm Beach', 'Palm Beach']];
 const ICONS: Record<string, string> = {
   all: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
@@ -368,6 +368,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       if (s.type !== 'any' && d.type !== s.type) return false;
       if (s.guests && !(cap >= s.guests)) return false;
       if (s.kosher === 'yes' && !d.kosher) return false;
+      if (s.kosher === 'no' && d.kosher) return false;
       if (s.area !== 'any' && d.area !== s.area) return false;
       for (const f of s.feats) if (!feats.includes(f)) return false;
       return true;
