@@ -31,7 +31,8 @@ const CATS: [string, string][] = [
   ...Object.entries(TYPES).map(([k, t]) => [k, t.label] as [string, string]),
   ['waterfront', 'Waterfront'], ['historic', 'Historic'],
 ];
-const KOSHER_OPTS: [string, string][] = [['any', 'Any'], ['any-kosher', 'Any kosher option'], ['kitchen', 'Kosher kitchen on site'], ['catering', 'Kosher catering welcome']];
+// Kosher: Yes / No (Hub → Venues → Kosher). Sin dato = no sale en el filtro.
+const KOSHER_OPTS: [string, string][] = [['any', 'Any'], ['yes', 'Kosher']];
 const AREA_OPTS: [string, string][] = [['any', 'All South Florida'], ['Miami-Dade', 'Miami-Dade'], ['Broward', 'Broward'], ['Palm Beach', 'Palm Beach']];
 const ICONS: Record<string, string> = {
   all: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
@@ -109,11 +110,11 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       {venues.map((v) => (
         <a class="venue-card" href={`/venues/${v.id}/`}
           data-type={v.data.venueType ?? ''} data-cap={v.data.maxGuests ?? ''} data-area={v.data.area ?? ''}
-          data-kosher={v.data.kosherLevel ?? ''} data-feats={feats(v)} data-slug={v.id} data-kosher-static={v.data.kosherLevel ?? ''}>
+          data-kosher={v.data.kosherLevel ? 'yes' : ''} data-feats={feats(v)} data-slug={v.id}>
           <div class="vc-img" style={`background-image:url('${v.data.image ?? FALLBACK}')`}></div>
           <div class="vc-body">
             <h2 class="vc-name">{v.data.title}</h2>
-            <p class={`vc-kosher${v.data.kosherLevel === 'catering' ? ' soft' : ''}`} hidden={!v.data.kosherLevel} data-label-static={v.data.kosherLabel ?? ''}><Fragment set:html={svg('kosher', 1.6)} /><span class="kl">{v.data.kosherLabel}</span></p>
+            <p class="vc-kosher" hidden={!v.data.kosherLevel}><Fragment set:html={svg('kosher', 1.6)} /><span class="kl">Kosher</span></p>
             {v.data.address && <p class="vc-addr">{v.data.address}</p>}
             {v.data.venueType && (
               <p class="vc-meta">{TYPES[v.data.venueType].short}{v.data.maxGuests && <span class="vc-cap" hidden> · Up to {v.data.maxGuests} guests</span>}</p>
@@ -286,7 +287,6 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
     .vc-kosher { display: flex; align-items: center; gap: 0.45rem; margin: -0.1rem 0 0.55rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
     .vc-kosher :global(svg) { width: 15px; height: 15px; flex: none; }
-    .vc-kosher.soft { color: var(--muted-text); font-weight: 500; }
     .vc-kosher[hidden] { display: none; }
     .vc-meta { color: var(--muted-text); font-size: 0.84rem; margin: -0.5rem 0 0.9rem; }
 
@@ -347,7 +347,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
   <script>
     import { animate, inView, stagger } from 'motion';
-    import { fetchHubKosher, KOSHER_LABEL } from '../../lib/venue-kosher-live';
+    import { fetchHubKosher } from '../../lib/venue-kosher-live';
 
     // ── Filtros de venues ──
     type St = { cat: string; type: string; guests: number; kosher: string; area: string; feats: Set<string> };
@@ -367,8 +367,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       else if (s.cat !== 'all' && d.type !== s.cat) return false;
       if (s.type !== 'any' && d.type !== s.type) return false;
       if (s.guests && !(cap >= s.guests)) return false;
-      if (s.kosher === 'any-kosher' && !d.kosher) return false;
-      if ((s.kosher === 'kitchen' || s.kosher === 'catering') && d.kosher !== s.kosher) return false;
+      if (s.kosher === 'yes' && !d.kosher) return false;
       if (s.area !== 'any' && d.area !== s.area) return false;
       for (const f of s.feats) if (!feats.includes(f)) return false;
       return true;
@@ -464,15 +463,8 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
         const k = hub.get(c.dataset.slug || '');
         if (!k) return;
         const label = c.querySelector<HTMLElement>('.vc-kosher');
-        c.dataset.kosher = k === 'no' ? '' : k;
-        if (!label) return;
-        if (k === 'no') { label.hidden = true; return; }
-        // Mismo nivel que lo publicado: queda su texto (p. ej. "Glatt Kosher kitchen · ORB").
-        const text = k === c.dataset.kosherStatic && label.dataset.labelStatic ? label.dataset.labelStatic : KOSHER_LABEL[k];
-        const span = label.querySelector('.kl');
-        if (span) span.textContent = text;
-        label.classList.toggle('soft', k === 'catering');
-        label.hidden = false;
+        c.dataset.kosher = k === 'yes' ? 'yes' : '';
+        if (label) label.hidden = k !== 'yes';
       });
       render();
     });

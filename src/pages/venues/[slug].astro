@@ -81,7 +81,7 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
         <h2 class="vp-title">Venue Details</h2>
         <dl class="vp-list">
           {details.map((d) => (
-            <div class="vp-row" hidden={!d.value} {...(d.kosher ? { 'data-kosher-row': venue.id, 'data-hub': CRM_ORIGIN, 'data-level': data.kosherLevel ?? '' } : {})}>
+            <div class="vp-row" hidden={!d.value} {...(d.kosher ? { 'data-kosher-row': venue.id, 'data-hub': CRM_ORIGIN } : {})}>
               <dt>{d.label}</dt>
               <dd data-kosher-text={d.kosher ? '' : undefined}>
                 {d.href ? (
@@ -193,9 +193,9 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
 
   <script>
     import { animate, inView, stagger } from 'motion';
-    import { fetchHubKosher, KOSHER_LABEL } from '../../lib/venue-kosher-live';
+    import { fetchHubKosher } from '../../lib/venue-kosher-live';
 
-    // Kosher en vivo desde el Hub (mismo nivel que lo publicado = queda su texto).
+    // Kosher en vivo desde el Hub (Yes / No).
     const kRow = document.querySelector<HTMLElement>('[data-kosher-row]');
     if (kRow) {
       fetchHubKosher(kRow.dataset.hub).then((hub) => {
@@ -203,7 +203,8 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
         if (!k) return;
         if (k === 'no') { kRow.hidden = true; return; }
         const dd = kRow.querySelector<HTMLElement>('[data-kosher-text]');
-        if (dd && (k !== kRow.dataset.level || !dd.textContent?.trim())) dd.textContent = KOSHER_LABEL[k];
+        // Yes: queda el texto publicado (p. ej. "Yes — in-house kosher catering"); si no había, "Yes".
+        if (dd && !dd.textContent?.trim()) dd.textContent = 'Yes';
         kRow.hidden = false;
       });
     }

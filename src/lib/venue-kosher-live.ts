@@ -1,14 +1,9 @@
-// Ajuste Kosher de cada venue EN VIVO desde el Hub (Hub → Venues → ficha → Kosher / Website page).
-// GET <CRM>/api/public/venues → { venues: [{ slug, kosher: 'kitchen' | 'catering' | 'no' | null }] }.
-// null (sin confirmar) o un venue que el Hub no tiene = se queda lo publicado en la web.
+// Ajuste Kosher de cada venue EN VIVO desde el Hub (Hub → Venues → ficha → Kosher Yes / No y Website page).
+// GET <CRM>/api/public/venues → { venues: [{ slug, kosher: 'yes' | 'no' | null }] }.
+// null (sin marcar) o un venue que el Hub no tiene = se queda lo publicado en la web.
 // Si el Hub no responde (o tarda), la página sigue igual: nunca rompe nada.
 
-export type HubKosher = 'kitchen' | 'catering' | 'no';
-
-export const KOSHER_LABEL: Record<'kitchen' | 'catering', string> = {
-  kitchen: 'Kosher kitchen on site',
-  catering: 'Kosher catering welcome',
-};
+export type HubKosher = 'yes' | 'no';
 
 export async function fetchHubKosher(origin: string | undefined): Promise<Map<string, HubKosher>> {
   const out = new Map<string, HubKosher>();
@@ -21,7 +16,10 @@ export async function fetchHubKosher(origin: string | undefined): Promise<Map<st
     if (!res.ok) return out;
     const body = (await res.json()) as { venues?: { slug?: unknown; kosher?: unknown }[] };
     for (const v of body.venues ?? []) {
-      if (typeof v.slug === 'string' && (v.kosher === 'kitchen' || v.kosher === 'catering' || v.kosher === 'no')) out.set(v.slug, v.kosher);
+      if (typeof v.slug !== 'string') continue;
+      // Valores de antes (kitchen / catering) cuentan como Yes.
+      if (v.kosher === 'yes' || v.kosher === 'kitchen' || v.kosher === 'catering') out.set(v.slug, 'yes');
+      else if (v.kosher === 'no') out.set(v.slug, 'no');
     }
   } catch {
     // sin conexión con el Hub: queda lo publicado
