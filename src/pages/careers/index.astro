@@ -20,11 +20,10 @@ const categories = [
 
 const languages = ['English', 'Hebrew', 'Spanish', 'French', 'Russian', 'Portuguese', 'Other'];
 
-const highlights = [
-  'We work weddings, bar & bat mitzvahs, corporate galas, and private events',
-  'Performances across South Florida and destination events',
-  'Partnership with a full production team — lighting, sound, LED walls',
-  'Clients who value quality and are willing to invest in it',
+const tags = [
+  { icon: 'glass', text: 'Weddings, mitzvahs & galas' },
+  { icon: 'pin', text: 'South Florida & destination' },
+  { icon: 'mic', text: 'Full production team' },
 ];
 ---
 
@@ -32,76 +31,73 @@ const highlights = [
   title="Talent Application — Careers at Avinu Events"
   description="Are you a performer, DJ, singer, or musician in South Florida? Apply to join the Avinu Events roster and perform at the region's most celebrated events."
 >
-  <!-- ░░ PAGE HEADER ░░ -->
-  <section class="page-head">
-    <p class="eyebrow head-kicker">Join our roster</p>
-    <h1 class="head-h1">Perform with <span class="ital">Avinu</span></h1>
-    <p class="head-sub">
-      We partner with South Florida's finest artists. If you bring exceptional talent and
-      professionalism to the stage, we'd love to hear from you.
-    </p>
-  </section>
+  <section class="careers">
+    <div class="careers-photo">
+      <img
+        src="/img/careers/saxophone.webp"
+        srcset="/img/careers/saxophone-800.webp 800w, /img/careers/saxophone.webp 1254w"
+        sizes="(max-width: 900px) 100vw, 46vw"
+        alt="Avinu saxophonist performing at an evening cocktail hour"
+        width="1254" height="1254"
+      />
+    </div>
 
-  <section class="apply">
-    <div class="apply-grid">
+    <div class="careers-side">
+      <p class="eyebrow">Careers</p>
+      <h1 class="careers-h1">Perform with Avinu</h1>
+      <p class="careers-lead">
+        We partner with South Florida's finest artists. If you bring exceptional talent and
+        professionalism to the stage, we'd love to hear from you.
+      </p>
+      <ul class="careers-tags">
+        {tags.map((t) => (
+          <li>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              {t.icon === 'glass' && <><path d="M8 2h8l-1 7a3 3 0 0 1-6 0z" /><path d="M12 12v8" /><path d="M8.5 21h7" /></>}
+              {t.icon === 'pin' && <><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></>}
+              {t.icon === 'mic' && <><rect x="9" y="2.5" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0" /><path d="M12 17.5V21" /><path d="M9 21h6" /></>}
+            </svg>
+            {t.text}
+          </li>
+        ))}
+      </ul>
 
-      <!-- LEFT: what we look for -->
-      <aside class="apply-aside" data-reveal>
-        <p class="eyebrow">What to expect</p>
-        <ul class="aside-list">
-          {highlights.map((h) => <li>{h}</li>)}
-        </ul>
-        <div class="aside-divider"></div>
-        <p class="aside-note">
-          Every application is reviewed personally. We reach out to artists whose style and
-          experience align with what our clients are looking for.
-        </p>
-        <a class="link-arrow" href="/">Back to home</a>
-      </aside>
-
-      <!-- RIGHT: form -->
-      <div class="form-wrap" data-reveal>
+      <div class="form-wrap">
         <form class="talent-form" id="talent-form" novalidate>
-
-          <div class="form-row two-col">
+          <div class="two-col">
             <div class="field">
-              <label for="name">Full Name <span class="req">*</span></label>
+              <label for="name">Full name</label>
               <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your full name" />
             </div>
             <div class="field">
-              <label for="email">Email <span class="req">*</span></label>
+              <label for="email">Email</label>
               <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" />
             </div>
           </div>
 
-          <div class="form-row two-col">
+          <div class="two-col">
             <div class="field">
-              <label for="phone">Phone <span class="req">*</span></label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+1 (555) 000-0000" />
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(555) 000-0000" />
             </div>
             <div class="field">
-              <label for="city">City / Location <span class="req">*</span></label>
+              <label for="city">City</label>
               <input type="text" id="city" name="city" required placeholder="Miami, Fort Lauderdale…" />
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label>Category <span class="req">*</span></label>
-              <div class="chip-group" role="group" aria-label="Performance category">
-                {categories.map((c) => (
-                  <label class="chip">
-                    <input type="radio" name="category" value={c} required />
-                    <span>{c}</span>
-                  </label>
-                ))}
-              </div>
+          <fieldset class="field">
+            <legend>What do you do?</legend>
+            <div class="choices">
+              {categories.map((c) => (
+                <label><input type="radio" name="category" value={c} required /> {c}</label>
+              ))}
             </div>
-          </div>
+          </fieldset>
 
-          <div class="form-row two-col">
+          <div class="two-col">
             <div class="field">
-              <label for="experience">Years of Experience <span class="req">*</span></label>
+              <label for="experience">Years of experience</label>
               <select id="experience" name="experience" required>
                 <option value="" disabled selected>Select…</option>
                 <option>Less than 1 year</option>
@@ -112,59 +108,49 @@ const highlights = [
               </select>
             </div>
             <div class="field">
-              <label>Performance Languages</label>
-              <div class="chip-group chip-check" role="group" aria-label="Performance languages">
-                {languages.map((l) => (
-                  <label class="chip">
-                    <input type="checkbox" name="languages" value={l} />
-                    <span>{l}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row two-col">
-            <div class="field">
-              <label for="website">Website or Instagram</label>
-              <input type="url" id="website" name="website" placeholder="https://" />
-            </div>
-            <div class="field">
-              <label for="video">Video / Demo Link <span class="req">*</span></label>
+              <label for="video">Video or demo link</label>
               <input type="url" id="video" name="video" required placeholder="YouTube, Instagram reel…" />
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="bio">Tell us about yourself <span class="req">*</span></label>
-              <textarea id="bio" name="bio" rows="5" required placeholder="Your background, performance style, notable events, and what sets you apart…"></textarea>
+          <fieldset class="field">
+            <legend>Languages you perform in <span class="opt">(optional)</span></legend>
+            <div class="choices">
+              {languages.map((l) => (
+                <label><input type="checkbox" name="languages" value={l} /> {l}</label>
+              ))}
             </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="website">Website or Instagram <span class="opt">(optional)</span></label>
+            <input type="url" id="website" name="website" placeholder="https://" />
           </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="referral">How did you hear about Avinu?</label>
-              <input type="text" id="referral" name="referral" placeholder="Google, Instagram, a friend…" />
-            </div>
+          <div class="field">
+            <label for="bio">Tell us about yourself</label>
+            <textarea id="bio" name="bio" rows="3" required placeholder="Your background, performance style, notable events, and what sets you apart…"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="referral">How did you hear about Avinu? <span class="opt">(optional)</span></label>
+            <input type="text" id="referral" name="referral" placeholder="Google, Instagram, a friend…" />
           </div>
 
           <!-- Honeypot -->
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div class="form-actions">
-            <button type="submit" class="btn-primary submit-btn">
-              <span class="btn-label">Submit Application</span>
+            <button type="submit" class="submit-btn">
+              <span class="btn-label">Submit application</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
+            <p class="form-note">We follow up within 5–7 business days.</p>
           </div>
-
-          <p class="form-note">We review every application and follow up within 5–7 business days.</p>
         </form>
 
         <!-- Success state -->
         <div class="form-success" id="form-success" hidden>
-          <div class="success-icon">✦</div>
           <h2 class="success-h2">Application received</h2>
           <p class="success-sub">
             Thank you for your interest in joining the Avinu roster. Our team will review your
@@ -179,151 +165,104 @@ const highlights = [
           <a href="mailto:plan@avinuevents.com">plan@avinuevents.com</a>.
         </p>
       </div>
-
     </div>
   </section>
 
   <style>
-    .ital { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+    /* Foto a la izquierda que llena todo el alto de la sección + texto y formulario a la derecha.
+       (position: sticky no funciona en este sitio: body tiene overflow-x: hidden.) */
+    .careers { display: grid; grid-template-columns: 46vw minmax(0, 1fr); }
+    .careers-photo { position: relative; min-height: calc(100vh - 92px); }
+    .careers-photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 40% center; }
+    .careers-side { padding: 0.9rem clamp(1.2rem, 4vw, 4rem) clamp(3rem, 8vh, 5rem); max-width: 760px; }
+    .careers-side .eyebrow { display: block; margin-bottom: 0.7rem; }
+    .careers-h1 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); white-space: nowrap; }
+    .careers-lead { font-size: 1.02rem; margin: 0.8rem 0 0.9rem; color: var(--muted-text); }
+    .careers-tags {
+      list-style: none; margin: 0 0 1.6rem; padding: 0 0 1.3rem; border-bottom: 1px solid var(--line);
+      display: flex; flex-wrap: nowrap; gap: 0.6rem 1.3rem; font-size: 0.88rem; color: var(--muted-text);
+    }
+    .careers-tags li { display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap; }
+    .careers-tags svg { color: var(--accent-ink); flex: none; }
 
-    /* PAGE HEADER */
-    .page-head {
-      max-width: 60rem; margin: 0 auto;
-      padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem) clamp(2rem, 4vh, 3rem);
-      text-align: center;
-    }
-    .head-kicker { display: block; margin-bottom: 1.3rem; }
-    .head-h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -0.03em; }
-    .head-sub { color: var(--muted-text); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 42rem; margin: 1.6rem auto 0; }
-
-    /* SECTION */
-    .apply { padding: clamp(1rem, 3vh, 2rem) clamp(1.5rem, 5vw, 5rem) clamp(4rem, 8vh, 6rem); }
-    .apply-grid {
-      max-width: var(--maxw); margin: 0 auto;
-      display: grid; grid-template-columns: 0.75fr 1.25fr;
-      gap: clamp(1.5rem, 4vw, 3rem); align-items: start;
-    }
-
-    /* ASIDE */
-    .apply-aside {
-      border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45);
-      border-radius: 8px; background: var(--card); padding: 2rem;
-      display: flex; flex-direction: column; position: sticky; top: 6.5rem;
-    }
-    .apply-aside .eyebrow { display: block; margin-bottom: 1.2rem; }
-    .aside-list { list-style: none; margin: 0 0 1.6rem; padding: 0; display: grid; gap: 0.85rem; }
-    .aside-list li {
-      position: relative; padding-left: 1.5rem;
-      color: var(--muted-text); font-size: 0.95rem; line-height: 1.5;
-    }
-    .aside-list li::before {
-      content: ''; position: absolute; left: 0; top: 0.55em;
-      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-    }
-    .aside-divider { height: 1px; background: var(--line); margin: 1.4rem 0; }
-    .aside-note { color: var(--muted-text); font-size: 0.88rem; line-height: 1.6; margin: 0 0 1.8rem; }
-    .apply-aside .link-arrow { margin-top: auto; }
-
-    /* FORM WRAP */
-    .form-wrap {
-      border: 1px solid var(--line); border-top: 2px solid rgba(201,162,75,0.45);
-      border-radius: 8px; background: var(--card); padding: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    /* FORM FIELDS */
-    .talent-form { display: grid; gap: 1.4rem; }
+    /* FORM */
+    .talent-form { display: grid; gap: 1rem; }
     /* hidden siempre gana: sin esto el display:grid dejaba el formulario visible tras enviar. */
     .talent-form[hidden], .form-success[hidden], .form-error[hidden] { display: none !important; }
-    .form-row { display: contents; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+    .field > label, .field > legend { font-size: 0.84rem; font-weight: 600; color: var(--fg); padding: 0; }
+    .field > legend { margin-bottom: 0.3rem; }
+    .opt { color: var(--muted-text); font-weight: 400; font-size: 0.8rem; }
 
-    label {
-      font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase;
-      color: var(--accent); font-weight: 600;
+    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], select, textarea {
+      width: 100%; background: #fff; border: 1px solid rgba(17, 17, 17, 0.18); border-radius: 6px;
+      color: var(--fg); font-family: var(--font-body); font-size: 0.95rem; padding: 0.55rem 0.8rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .req { color: rgba(201,162,75,0.6); }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="url"],
-    select,
-    textarea {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      color: var(--fg);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      padding: 0.75rem 1rem;
-      transition: border-color 0.2s;
-      width: 100%;
+    input::placeholder, textarea::placeholder { color: #9a9387; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--fg); box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08); }
+    select {
+      appearance: none; color-scheme: light; padding-right: 2.5rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23111' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center;
     }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
-    input:focus, select:focus, textarea:focus {
-      outline: none; border-color: rgba(201,162,75,0.5);
-    }
-    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a24b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
-    /* Lista de opciones legible: fondo claro y texto oscuro (antes fondo negro con texto oscuro). */
-    select { color-scheme: light; }
-    select option { background: #ffffff; color: #1a1a1a; }
+    select option { background: #fff; color: #1a1a1a; }
     select option:disabled { color: #8d8574; }
-    textarea { resize: vertical; min-height: 120px; }
+    textarea { min-height: 88px; resize: vertical; }
 
-    /* CHIP GROUPS (radio / checkbox pills) */
-    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.2rem; }
-    .chip { cursor: pointer; }
-    .chip input { position: absolute; opacity: 0; width: 0; height: 0; }
-    .chip span {
-      display: inline-block;
-      padding: 0.38rem 0.9rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.78rem; letter-spacing: 0.06em;
-      color: var(--muted-text);
-      transition: all 0.18s;
-      cursor: pointer;
+    /* Opciones: cuadrícula de casillas (no pastillas) */
+    .choices {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      border: 1px solid rgba(17, 17, 17, 0.18); border-radius: 6px; background: #fff; overflow: hidden;
     }
-    .chip input:checked + span {
-      background: var(--accent); border-color: var(--accent);
-      color: #0b1018; font-weight: 600;
+    .choices label {
+      display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.7rem; font-size: 0.88rem; white-space: nowrap;
+      cursor: pointer; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); margin: 0 -1px -1px 0;
     }
-    .chip:hover span { border-color: var(--accent); color: var(--accent); }
+    .choices label:hover { background: #faf8f3; }
+    .choices input { accent-color: #111; width: 15px; height: 15px; margin: 0; flex: none; }
+    .choices label:has(input:checked) { background: #f3eee3; font-weight: 600; }
 
-    /* SUBMIT */
-    .form-actions { margin-top: 0.6rem; }
-    .submit-btn { position: relative; min-width: 200px; }
+    /* SUBMIT: negro sólido */
+    .form-actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.3rem; }
+    .submit-btn {
+      position: relative; min-width: 190px; display: inline-flex; align-items: center; justify-content: center;
+      background: #1a1a1a; color: #fff; border: 1px solid #1a1a1a; border-radius: 6px;
+      padding: 0.75rem 1.8rem; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover { background: #000; }
+    .submit-btn:disabled { cursor: default; }
     .btn-spinner {
       display: none; width: 16px; height: 16px;
-      border: 2px solid rgba(0,0,0,0.3); border-top-color: #0b1018;
+      border: 2px solid rgba(255, 255, 255, 0.3); border-top-color: #fff;
       border-radius: 50%; animation: spin 0.7s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     .submit-btn.loading .btn-label { opacity: 0; }
-    /* Centrado con márgenes (no con transform): la animación spin usa transform y lo pisaba, el círculo se corría. */
+    /* Centrado con márgenes (no con transform): la animación spin usa transform y lo pisaba. */
     .submit-btn.loading .btn-spinner { display: inline-block; position: absolute; left: 50%; top: 50%; margin: -8px 0 0 -8px; }
-
-    .form-note { color: var(--muted-text); font-size: 0.8rem; margin-top: 0.8rem; text-align: center; }
-    .form-error { color: #e07070; font-size: 0.9rem; margin-top: 1rem; text-align: center; }
-    .form-error a { color: var(--accent); }
+    .form-note { margin: 0; color: var(--muted-text); font-size: 0.85rem; }
+    .form-error { color: #b03a3a; font-size: 0.9rem; margin-top: 1rem; }
+    .form-error a { color: var(--accent-ink); }
 
     /* SUCCESS */
-    .form-success { text-align: center; padding: 3rem 1.5rem; }
-    .success-icon { font-size: 2rem; color: var(--accent); margin-bottom: 1.2rem; }
+    .form-success { padding: 2rem 0; }
     .success-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
-    .success-sub { color: var(--muted-text); max-width: 34rem; margin: 0 auto 2rem; font-size: 1.02rem; line-height: 1.7; }
+    .success-sub { color: var(--muted-text); max-width: 34rem; margin: 0 0 2rem; font-size: 1.02rem; line-height: 1.7; }
 
-    @media (max-width: 860px) {
-      .apply-grid { grid-template-columns: 1fr; }
-      .apply-aside { position: static; }
+    @media (max-width: 1180px) { .careers-tags { flex-wrap: wrap; } }
+    @media (max-width: 900px) {
+      .careers { grid-template-columns: 1fr; }
+      .careers-photo { min-height: 0; aspect-ratio: 1 / 1; }
+      .careers-side { padding-top: 1.6rem; }
+      .careers-h1 { white-space: normal; }
+      .careers-tags { flex-direction: column; gap: 0.55rem; }
     }
-    @media (max-width: 560px) {
+    @media (max-width: 600px) {
       .two-col { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      :global(html.js) [data-reveal] { opacity: 0; }
+      .submit-btn { width: 100%; }
     }
   </style>
 
@@ -396,10 +335,4 @@ const highlights = [
     });
   </script>
 
-  <script>
-    import { animate, inView } from 'motion';
-    inView('[data-reveal]', (el) => {
-      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
-    }, { margin: '0px 0px -10% 0px' });
-  </script>
 </Noir>
