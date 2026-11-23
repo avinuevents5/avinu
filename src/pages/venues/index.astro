@@ -12,6 +12,8 @@ const venues = (await getCollection('venues')).filter((v) => v.data.listed !== f
 });
 
 const FALLBACK = '/wp-content/uploads/2023/08/dj1.jpg';
+// Hub (CRM): el ajuste Kosher de cada venue se lee en vivo de ahí (ver lib/venue-kosher-live.ts).
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
 
 // ── Filtros (fila de categorías tipo Airbnb + ventana "Filters"). Los datos salen del frontmatter
 // de cada venue: venueType, maxGuests, area, kosherLevel/kosherLabel, features.
@@ -98,7 +100,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
   </div>
 
   <!-- ░░ VENUE GRID ░░ -->
-  <section class="band midnight" id="venue-list">
+  <section class="band midnight" id="venue-list" data-hub={CRM_ORIGIN}>
     <div class="res-line">
       <h2 class="res-title" aria-live="polite">{venues.length} venues in South Florida</h2>
       <button class="fclear" type="button" data-clear hidden>Clear all</button>
@@ -107,13 +109,11 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       {venues.map((v) => (
         <a class="venue-card" href={`/venues/${v.id}/`}
           data-type={v.data.venueType ?? ''} data-cap={v.data.maxGuests ?? ''} data-area={v.data.area ?? ''}
-          data-kosher={v.data.kosherLevel ?? ''} data-feats={feats(v)}>
+          data-kosher={v.data.kosherLevel ?? ''} data-feats={feats(v)} data-slug={v.id} data-kosher-static={v.data.kosherLevel ?? ''}>
           <div class="vc-img" style={`background-image:url('${v.data.image ?? FALLBACK}')`}></div>
           <div class="vc-body">
             <h2 class="vc-name">{v.data.title}</h2>
-            {v.data.kosherLevel && (
-              <p class={`vc-kosher${v.data.kosherLevel === 'catering' ? ' soft' : ''}`}><Fragment set:html={svg('kosher', 1.6)} />{v.data.kosherLabel}</p>
-            )}
+            <p class={`vc-kosher${v.data.kosherLevel === 'catering' ? ' soft' : ''}`} hidden={!v.data.kosherLevel} data-label-static={v.data.kosherLabel ?? ''}><Fragment set:html={svg('kosher', 1.6)} /><span class="kl">{v.data.kosherLabel}</span></p>
             {v.data.address && <p class="vc-addr">{v.data.address}</p>}
             {v.data.venueType && (
               <p class="vc-meta">{TYPES[v.data.venueType].short}{v.data.maxGuests && <span class="vc-cap" hidden> · Up to {v.data.maxGuests} guests</span>}</p>
@@ -287,6 +287,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
     .vc-kosher { display: flex; align-items: center; gap: 0.45rem; margin: -0.1rem 0 0.55rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
     .vc-kosher :global(svg) { width: 15px; height: 15px; flex: none; }
     .vc-kosher.soft { color: var(--muted-text); font-weight: 500; }
+    .vc-kosher[hidden] { display: none; }
     .vc-meta { color: var(--muted-text); font-size: 0.84rem; margin: -0.5rem 0 0.9rem; }
 
     /* FILTERS DIALOG */
@@ -346,6 +347,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
   <script>
     import { animate, inView, stagger } from 'motion';
+    import { fetchHubKosher, KOSHER_LABEL } from '../../lib/venue-kosher-live';
 
     // ── Filtros de venues ──
     type St = { cat: string; type: string; guests: number; kosher: string; area: string; feats: Set<string> };
@@ -454,6 +456,26 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
     render();
     fitRow();
+
+    // Kosher en vivo desde el Hub: ajusta la etiqueta de cada tarjeta y lo que reconocen los filtros.
+    fetchHubKosher(document.getElementById('venue-list')?.dataset.hub).then((hub) => {
+      if (!hub.size) return;
+      cards.forEach((c) => {
+        const k = hub.get(c.dataset.slug || '');
+        if (!k) return;
+        const label = c.querySelector<HTMLElement>('.vc-kosher');
+        c.dataset.kosher = k === 'no' ? '' : k;
+        if (!label) return;
+        if (k === 'no') { label.hidden = true; return; }
+        // Mismo nivel que lo publicado: queda su texto (p. ej. "Glatt Kosher kitchen · ORB").
+        const text = k === c.dataset.kosherStatic && label.dataset.labelStatic ? label.dataset.labelStatic : KOSHER_LABEL[k];
+        const span = label.querySelector('.kl');
+        if (span) span.textContent = text;
+        label.classList.toggle('soft', k === 'catering');
+        label.hidden = false;
+      });
+      render();
+    });
 
     inView('[data-reveal]', (el) => {
       animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });

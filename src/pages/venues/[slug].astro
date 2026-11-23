@@ -36,8 +36,11 @@ const details = [
   { label: 'Website', value: data.website, href: websiteHref, external: true },
   { label: 'Capacity', value: data.capacity },
   { label: 'Price', value: data.price },
-  { label: 'Kosher', value: data.kosher },
-].filter((d) => d.value);
+  // Kosher siempre lleva su fila (oculta si no hay dato): el Hub puede confirmarlo en vivo.
+  { label: 'Kosher', value: data.kosher, kosher: true },
+].filter((d) => d.value || d.kosher);
+// Hub (CRM): el ajuste Kosher se lee en vivo de ahí (ver lib/venue-kosher-live.ts).
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
 
 const gallery = (data.gallery ?? []).filter((g) => g !== hero);
 ---
@@ -78,9 +81,9 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
         <h2 class="vp-title">Venue Details</h2>
         <dl class="vp-list">
           {details.map((d) => (
-            <div class="vp-row">
+            <div class="vp-row" hidden={!d.value} {...(d.kosher ? { 'data-kosher-row': venue.id, 'data-hub': CRM_ORIGIN, 'data-level': data.kosherLevel ?? '' } : {})}>
               <dt>{d.label}</dt>
-              <dd>
+              <dd data-kosher-text={d.kosher ? '' : undefined}>
                 {d.href ? (
                   <a href={d.href} {...(d.external ? { target: '_blank', rel: 'noopener' } : {})}>{d.value}</a>
                 ) : d.value}
@@ -190,6 +193,20 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
 
   <script>
     import { animate, inView, stagger } from 'motion';
+    import { fetchHubKosher, KOSHER_LABEL } from '../../lib/venue-kosher-live';
+
+    // Kosher en vivo desde el Hub (mismo nivel que lo publicado = queda su texto).
+    const kRow = document.querySelector<HTMLElement>('[data-kosher-row]');
+    if (kRow) {
+      fetchHubKosher(kRow.dataset.hub).then((hub) => {
+        const k = hub.get(kRow.dataset.kosherRow || '');
+        if (!k) return;
+        if (k === 'no') { kRow.hidden = true; return; }
+        const dd = kRow.querySelector<HTMLElement>('[data-kosher-text]');
+        if (dd && (k !== kRow.dataset.level || !dd.textContent?.trim())) dd.textContent = KOSHER_LABEL[k];
+        kRow.hidden = false;
+      });
+    }
 
     inView('[data-reveal]', (el) => {
       animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] });
