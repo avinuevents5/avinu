@@ -1,7 +1,7 @@
 // AVINU Approved en la web (lo marca Mark en el Hub; llega en vivo con fetchHubVenues).
 //  - Tarjetas de /venues: distintivo F4.2 (una línea, carbón con borde dorado mate, arriba a la derecha de la foto).
 //  - Portada de cada venue: sello redondo H2 arriba a la derecha + una línea que explica que es una evaluación
-//    editorial de Avinu (no un promedio de reseñas).
+//    editorial de Avinu (no un promedio de reseñas). En celular el sello va dentro del texto de la portada y sin la línea.
 // Sin aprobar no se muestra nada; sin nota (null) no se muestran estrellas. Nunca "Not rated" en público.
 import { fetchHubVenues } from './venue-kosher-live';
 
@@ -22,7 +22,8 @@ const CSS = `
 .avx{display:flex;align-items:center;gap:12px;max-width:1180px;margin:0 auto;padding:14px var(--gutter,2rem);font-family:var(--font-body,'Hanken Grotesk',system-ui,sans-serif);font-size:.8rem;line-height:1.5;color:#4a453d;background:#f3eee5;border-bottom:1px solid rgba(23,20,15,.1)}
 .avx-wrap{background:#f3eee5}
 .avx img{height:16px;width:auto;filter:brightness(0);flex:none}
-@media (max-width:900px){.avs{width:104px;height:104px;gap:4px;top:calc(var(--nav-h,64px) + 4.6rem);right:1rem}.avs img{height:17px}.avs .avs-ap{font-size:.52rem}.avs .avs-st{font-size:10px}.avs .avs-n{font-size:.62rem}.avx{font-size:.76rem;align-items:flex-start}}
+.avs.avs-in{display:none}
+@media (max-width:900px){.avs.avs-float,.avx-wrap{display:none}.avs.avs-in{display:flex;position:relative;top:auto;right:auto;width:92px;height:92px;gap:3px;margin:0 0 1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.25)}.avs.avs-in img{height:15px}.avs.avs-in .avs-ap{font-size:.5rem;letter-spacing:.12em}.avs.avs-in .avs-ap svg{width:11px;height:11px}.avs.avs-in .avs-st{font-size:9px}.avs.avs-in .avs-n{font-size:.58rem;margin-top:-2px}}
 `;
 
 const ck = (color: string) =>
@@ -57,14 +58,22 @@ export function mountHeroStamp(hero: HTMLElement | null, slug: string | undefine
     if (!v || !v.approved) return;
     styles();
     if (getComputedStyle(hero).position === 'static') hero.style.position = 'relative';
-    const stamp = document.createElement('div');
-    stamp.className = 'avs';
-    stamp.title = NOTE;
-    stamp.setAttribute('role', 'img');
-    stamp.setAttribute('aria-label', v.rating ? `AVINU Approved, rated ${fmt(v.rating)} out of 5. ${NOTE}` : `AVINU Approved. ${NOTE}`);
-    stamp.innerHTML = `<img src="/img/avinu-white.png" alt="" width="84" height="38"><span class="avs-ap">${ck('#b39554')}Approved</span>` +
-      (v.rating ? `<span class="avs-st">★★★★★<i style="width:${(v.rating / 5) * 100}%">★★★★★</i></span><span class="avs-n">${fmt(v.rating)}</span>` : '');
-    hero.appendChild(stamp);
+    const make = (cls: string) => {
+      const el = document.createElement('div');
+      el.className = `avs ${cls}`;
+      el.title = NOTE;
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', v.rating ? `AVINU Approved, rated ${fmt(v.rating)} out of 5. ${NOTE}` : `AVINU Approved. ${NOTE}`);
+      el.innerHTML = `<img src="/img/avinu-white.png" alt="" width="84" height="38"><span class="avs-ap">${ck('#b39554')}Approved</span>` +
+        (v.rating ? `<span class="avs-st">★★★★★<i style="width:${(v.rating / 5) * 100}%">★★★★★</i></span><span class="avs-n">${fmt(v.rating)}</span>` : '');
+      return el;
+    };
+    // Escritorio: flotando arriba a la derecha de la portada.
+    hero.appendChild(make('avs-float'));
+    // Celular: dentro del texto de la portada, más chico, justo antes de la ciudad (no tapa el menú ni el texto).
+    const copy = hero.querySelector<HTMLElement>('.hero-copy, .vh-content');
+    const before = copy?.querySelector<HTMLElement>('.kicker, .eyebrow, h1');
+    if (copy && before) before.insertAdjacentElement('beforebegin', make('avs-in'));
     const wrap = document.createElement('div');
     wrap.className = 'avx-wrap';
     wrap.innerHTML = `<p class="avx"><img src="/img/avinu-white.png" alt="" width="84" height="38"><span><b>AVINU Approved</b> ${NOTE.replace(/^AVINU Approved /, '')}</span></p>`;
