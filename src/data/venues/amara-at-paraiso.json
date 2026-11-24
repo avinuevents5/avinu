@@ -1,7 +1,7 @@
 {
   "slug": "amara-at-paraiso",
   "name": "Amara at Paraiso",
-  "media_note": "Fotos de amaraatparaiso.com (paginas /miami-private-dining-event-venue-spaces/, /about/, /waterfront-dining/, /miami-wedding-venue/, 2026-11-24); PENDIENTE permiso del venue. Datos: web oficial (/, /about/, /menus/, /miami-private-dining-event-venue-spaces/, /miami-wedding-venue/, /corporate-events/), Event Introduction Deck 2026 (PDF oficial, https://amaraatparaiso.com/wp-content/uploads/2026/08/Amara-Introduction-Deck-2026.pdf; capacidades, FAQ, reglas de entretenimiento, cita de Michael Schwartz), menu de cena PDF oficial (platos), Google (datos dados por el usuario). Capacidades: se usan las del Deck 2026 y la pagina de eventos (Full venue 750 reception / 390 seated; Main Floor 450/240; Rooftop 300/150; South Terrace 125/90; Indoor Lounge + East Terrace 75/45; North Terrace 50/40; Main Floor Patio 40/40; Main Floor Beach 50/40). La web tiene cifras que se contradicen entre si (la pagina de bodas dice buyout 800/300 y rooftop terrace 200/100; el texto de varios espacios dice 40/45/60/30 donde la tabla dice otra cosa; miamiandbeaches.com dice 10,000 sq ft y el Deck 4,500 sq ft), por eso no se usan metros cuadrados y la nota pide confirmar. Fotos de espacios: Main Floor Beach y Main Floor Patio confirmadas por el nombre de archivo (downstairs_beach_*, downstairs_patio_*); South Terrace = foto del grupo South Terrace de la web (techo retractil); Main Floor, Rooftop e Indoor Lounge asignadas por coincidencia con la descripcion y el orden de la web, SIN etiqueta explicita (confirmar). North Terrace no tiene foto confirmada (la tarjeta se omite; 50/40 figura en la nota). Resenas: 4 resenas literales de Google (panel de resenas, busqueda 'event', leidas en Chrome 2026-11-24; anos aproximados por 'hace X meses'); rating Google 4.3 con 4,156 resenas (2026-11-24). Telefono del plan = linea de eventos 786-708-6408 (web y Deck). Sin precios, sin kosher (la web no lo menciona), sin videos. Avinu no figura como vendor del venue; el Deck permite DJs, bandas y musicos solo en eventos totalmente privados (Full Rooftop, Main Floor, Total Venue) con posibles requisitos adicionales. Instagram del venue: @amaraatparaiso (y @eventsatamara para eventos, segun el Deck). Eventos: events@amaraatparaiso.com / 786-708-6408 (web y Deck); telefono del restaurante (Google): 305-702-5528.",
+  "media_note": "Fotos de amaraatparaiso.com (paginas /miami-private-dining-event-venue-spaces/, /about/, /waterfront-dining/, /miami-wedding-venue/, 2026-11-24); PENDIENTE permiso del venue. Datos: web oficial (/, /about/, /menus/, /miami-private-dining-event-venue-spaces/, /miami-wedding-venue/, /corporate-events/), Event Introduction Deck 2026 (PDF oficial, https://amaraatparaiso.com/wp-content/uploads/2026/08/Amara-Introduction-Deck-2026.pdf; capacidades, FAQ, reglas de entretenimiento, cita de Michael Schwartz), menu de cena PDF oficial (platos), Google (datos dados por el usuario). Capacidades: se usan las del Deck 2026 y la pagina de eventos (Full venue 750 reception / 390 seated; Main Floor 450/240; Rooftop 300/150; South Terrace 125/90; Indoor Lounge + East Terrace 75/45; North Terrace 50/40; Main Floor Patio 40/40; Main Floor Beach 50/40). La web tiene cifras que se contradicen entre si (la pagina de bodas dice buyout 800/300 y rooftop terrace 200/100; el texto de varios espacios dice 40/45/60/30 donde la tabla dice otra cosa; miamiandbeaches.com dice 10,000 sq ft y el Deck 4,500 sq ft), por eso no se usan metros cuadrados y la nota pide confirmar. Fotos de espacios: Main Floor Beach y Main Floor Patio confirmadas por el nombre de archivo (downstairs_beach_*, downstairs_patio_*); South Terrace = foto del grupo South Terrace de la web (techo retractil); Main Floor, Rooftop e Indoor Lounge asignadas por coincidencia con la descripcion y el orden de la web, SIN etiqueta explicita (confirmar). North Terrace no tiene foto confirmada (la tarjeta se omite; 50/40 figura en la nota). Resenas: 4 resenas literales de Google (panel de resenas, busqueda 'event', leidas en Chrome 2026-11-24; anos aproximados por 'hace X meses'); rating Google 4.3 con 4,156 resenas (2026-11-24). Telefono del plan = linea de eventos 786-708-6408 (web y Deck). Sin precios, sin kosher (la web no lo menciona), sin videos. Avinu no figura como vendor del venue; el Deck permite DJs, bandas y musicos solo en eventos totalmente privados (Full Rooftop, Main Floor, Total Venue) con posibles requisitos adicionales. Instagram del venue: @amaraatparaiso (y @eventsatamara para eventos, segun el Deck). Eventos: events@amaraatparaiso.com / 786-708-6408 (web y Deck); telefono del restaurante (Google): 305-702-5528. Videos: reels de @eventsatamara / @amaraatparaiso bajados por el usuario (2026-11-24), sin sonido, 540x960: terrace (a2 completo; portada movil + pestana Private dinners), corporate (a4 0-15 s; pestana Corporate), florals (a6 0-14 s; momento Dinner), brunch (a1) y seafood (a3) en el carrusel de cocina. Descartados: a7 (subtitulos, nombres sobreimpresos y marca de terceros), a5/hfeder (duplicado de a4).",
   "credit": "Amara at Paraiso",
   "brand": {
     "title": "Amara at Paraiso",
@@ -34,7 +34,8 @@
         "2",
         "Full bars"
       ]
-    ]
+    ],
+    "mobileVideo": "terrace"
   },
   "intro": {
     "kicker": "The Venue",
@@ -91,7 +92,8 @@
           "Hosting, music and program flow by Avinu Events"
         ],
         "cta": "Plan a celebration at Amara",
-        "caption": "A long table at dusk"
+        "caption": "A long table at dusk",
+        "video": "terrace"
       },
       {
         "id": "corporate",
@@ -106,7 +108,8 @@
           "Hosting, music and program flow by Avinu Events"
         ],
         "cta": "Plan an event at Amara",
-        "caption": "The rooftop terrace"
+        "caption": "The rooftop terrace",
+        "video": "corporate"
       }
     ]
   },
@@ -129,9 +132,10 @@
       },
       {
         "title": "Dinner",
-        "text": "At a long table on the sand",
+        "text": "Tables set on the terrace",
         "photo": "dusk-table",
-        "wide": true
+        "wide": true,
+        "video": "florals"
       },
       {
         "title": "After dark",
@@ -271,7 +275,15 @@
     ],
     "items": [
       "seafood",
+      {
+        "video": "seafood",
+        "cap": "Seafood for the table"
+      },
       "shared-table",
+      {
+        "video": "brunch",
+        "cap": "Brunch by the bay"
+      },
       "buffet",
       "bar-shelves",
       "dinner-night",
@@ -315,5 +327,32 @@
     "venuePhone": "+17867086408",
     "venuePhoneLabel": "786-708-6408"
   },
-  "footer": "Amara at Paraiso · 3101 NE 7th Ave, Miami"
+  "footer": "Amara at Paraiso · 3101 NE 7th Ave, Miami",
+  "videos": {
+    "terrace": {
+      "mp4": "vid-terrace.mp4",
+      "poster": "vid-terrace-poster.jpg",
+      "label": "Long tables set on the terrace at sunset, over Biscayne Bay"
+    },
+    "corporate": {
+      "mp4": "vid-corporate.mp4",
+      "poster": "vid-corporate-poster.jpg",
+      "label": "A corporate gathering at Amara, from the arrival to the program"
+    },
+    "florals": {
+      "mp4": "vid-florals.mp4",
+      "poster": "vid-florals-poster.jpg",
+      "label": "Tropical centerpieces being arranged on the terrace"
+    },
+    "brunch": {
+      "mp4": "vid-brunch.mp4",
+      "poster": "vid-brunch-poster.jpg",
+      "label": "Pancakes with berries at brunch"
+    },
+    "seafood": {
+      "mp4": "vid-seafood.mp4",
+      "poster": "vid-seafood-poster.jpg",
+      "label": "A pot of seafood served for the table"
+    }
+  }
 }
