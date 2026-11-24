@@ -112,6 +112,7 @@ const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verc
   .hero-copy { position: absolute; z-index: 2; left: var(--gutter); bottom: clamp(3rem, 9vh, 6.5rem); max-width: min(560px, 38vw); }
   .hero-copy .kicker { color: var(--gold-2); display: block; margin-bottom: 1.2rem; }
   .hero-back { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.4rem; color: rgba(255,255,255,.72); font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: color .25s; }
+  .hero-back-m { display: none; }
   .hero-back::before { content: '←'; font-size: .9rem; letter-spacing: 0; }
   .hero-back:hover { color: #fff; }
   .nav-out a { opacity: .75; }
@@ -391,6 +392,9 @@ const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verc
     .hero::after { background: linear-gradient(0deg, rgba(10,9,8,.92) 0%, rgba(10,9,8,.8) 38%, rgba(10,9,8,.55) 58%, rgba(10,9,8,.18) 78%, rgba(10,9,8,0) 90%), linear-gradient(180deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 22%); }
     .hero-copy .kicker, .hero-back, .hero-copy h1, .hero-copy p { text-shadow: 0 1px 14px rgba(10,9,8,.55); }
     .hero-copy { position: relative; left: auto; right: auto; bottom: auto; margin: calc(var(--nav-h) + 4.75rem) var(--gutter) 2.2rem; max-width: none; }
+    /* "All venues" va debajo del menú, fuera del bloque de texto (a la altura del crédito y la pausa). */
+    .hero-copy .hero-back { display: none; }
+    .hero-back-m { display: inline-flex; position: absolute; z-index: 3; top: calc(var(--nav-h) + 1.9rem); left: var(--gutter); margin: 0; text-shadow: 0 1px 14px rgba(10,9,8,.55); }
     .hero h1 span { display: inline; }
     .hero h1 { font-size: clamp(2.6rem, 12vw, 3.6rem); }
     .hero-lead { font-size: .98rem; margin: 1rem 0 1.5rem; }
@@ -535,6 +539,7 @@ const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verc
       <img src={src(v.hero.photo)} srcset={srcset(v.hero.photo)} sizes="100vw" width={w16(v.hero.photo)} height={hgt(v.hero.photo, w16(v.hero.photo))} alt={p(v.hero.photo).alt} fetchpriority="high" decoding="async" style={v.hero.pos ? `object-position:${v.hero.pos}` : undefined} />
     </picture>
   </div>
+  <a class="hero-back hero-back-m" href="/venues/">All venues</a>
   <div class="hero-copy">
     <a class="hero-back" href="/venues/">All venues</a>
     <span class="kicker">{v.hero.kicker}</span>

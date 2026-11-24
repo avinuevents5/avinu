@@ -25,14 +25,17 @@ const CSS = `
 .avh{display:none}
 @media (max-width:900px){
 .avs.avs-float,.avx-wrap{display:none}
-.avh{display:inline-flex;align-items:center;gap:9px;max-width:100%;height:28px;margin:0 0 1rem;padding:0 12px 0 10px;border-radius:2px;background:#1b1813;border:1px solid #a88b4c;color:#c9ad6e;font-family:var(--font-body,'Hanken Grotesk',system-ui,sans-serif);font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;line-height:1;text-shadow:none}
-.avh svg{width:13px;height:13px;flex:none;display:block}
-.avh .avh-sep{width:1px;height:11px;background:rgba(168,139,76,.45);flex:none}
-.avh .avh-st{position:relative;display:inline-block;font-size:10px;letter-spacing:1px;color:rgba(243,238,229,.22)}
+.avh{display:inline-flex;align-items:center;gap:10px;max-width:100%;height:32px;margin:0 0 1rem;padding:0 12px;border-radius:2px;background:rgba(27,24,19,.72);border:1px solid rgba(168,139,76,.55);color:#c9ad6e;font-family:var(--font-body,'Hanken Grotesk',system-ui,sans-serif);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;line-height:1;text-shadow:none}
+.avh .avh-logo{height:17px;width:auto;display:block;flex:none}
+.avh .avh-ap{display:inline-flex;align-items:center;gap:6px}
+.avh svg{width:12px;height:12px;flex:none;display:block}
+.avh .avh-sep{width:1px;height:14px;background:rgba(168,139,76,.45);flex:none}
+.avh .avh-sc{display:inline-flex;align-items:center;gap:5px}
+.avh .avh-st{position:relative;display:inline-block;font-size:9px;letter-spacing:1px;color:rgba(243,238,229,.22)}
 .avh .avh-st i{position:absolute;left:0;top:0;overflow:hidden;color:#a88b4c;font-style:normal}
-.avh .avh-n{font-size:.64rem;font-weight:500;letter-spacing:.02em;color:rgba(243,238,229,.62)}
+.avh .avh-n{font-size:.62rem;font-weight:500;letter-spacing:.02em;color:rgba(243,238,229,.68)}
 }
-@media (max-width:359px){.avh{gap:7px;padding:0 9px 0 8px;letter-spacing:.12em;font-size:.6rem}.avh .avh-st{font-size:9px;letter-spacing:.5px}}
+@media (max-width:359px){.avh{gap:7px;padding:0 9px;letter-spacing:.12em}.avh .avh-logo{height:15px}.avh .avh-st{font-size:8px;letter-spacing:.5px}}
 `;
 
 const ck = (color: string) =>
@@ -82,13 +85,13 @@ export function mountHeroStamp(hero: HTMLElement | null, slug: string | undefine
     // Celular: distintivo horizontal dentro del texto de la portada, justo encima del título (en el flujo, sin
     // posición absoluta: no puede tapar el menú ni el texto en ningún ancho).
     const copy = hero.querySelector<HTMLElement>('.hero-copy, .vh-content');
-    const title = copy?.querySelector<HTMLElement>('h1');
+    const title = copy?.querySelector<HTMLElement>('.kicker, .eyebrow') ?? copy?.querySelector<HTMLElement>('h1');
     if (title) {
       const b = document.createElement('div');
       b.className = 'avh';
       b.setAttribute('aria-label', v.rating ? `AVINU Approved, rated ${fmt(v.rating)} out of 5` : 'AVINU Approved');
-      b.innerHTML = `${ck('#b39554')}<span>AVINU Approved</span>` + (v.rating
-        ? `<span class="avh-sep"></span><span class="avh-st">★★★★★<i style="width:${(v.rating / 5) * 100}%">★★★★★</i></span><span class="avh-n">${fmt(v.rating)}</span>`
+      b.innerHTML = `<img class="avh-logo" src="/img/avinu-white.png" alt="AVINU Events" width="84" height="38"><span class="avh-sep"></span><span class="avh-ap">${ck('#b39554')}Approved</span>` + (v.rating
+        ? `<span class="avh-sep"></span><span class="avh-sc"><span class="avh-st">★★★★★<i style="width:${(v.rating / 5) * 100}%">★★★★★</i></span><span class="avh-n">${fmt(v.rating)}</span></span>`
         : '');
       title.insertAdjacentElement('beforebegin', b);
     }
