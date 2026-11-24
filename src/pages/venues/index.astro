@@ -228,7 +228,7 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
       gap: 1.5rem;
     }
     .venue-card {
-      display: flex; flex-direction: column;
+      position: relative; display: flex; flex-direction: column;
       border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
       background: var(--card);
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -347,7 +347,8 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
 
   <script>
     import { animate, inView, stagger } from 'motion';
-    import { fetchHubKosher } from '../../lib/venue-kosher-live';
+    import { fetchHubKosher, fetchHubVenues } from '../../lib/venue-kosher-live';
+    import { cardBadge } from '../../lib/avinu-approved-ui';
 
     // ── Filtros de venues ──
     type St = { cat: string; type: string; guests: number; kosher: string; area: string; feats: Set<string> };
@@ -468,6 +469,14 @@ const HEAD_IMG = '/venues/eden-roc-hero.jpg';
         if (label) label.hidden = k !== 'yes';
       });
       render();
+    });
+
+    // AVINU Approved en vivo desde el Hub: distintivo sobre la foto (sin aprobar, la tarjeta queda igual).
+    fetchHubVenues(document.getElementById('venue-list')?.dataset.hub).then((hub) => {
+      cards.forEach((c) => {
+        const v = hub.get(c.dataset.slug || '');
+        if (v?.approved && !c.querySelector('.avb')) c.appendChild(cardBadge(v.rating));
+      });
     });
 
     inView('[data-reveal]', (el) => {

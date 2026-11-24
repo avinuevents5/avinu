@@ -51,7 +51,7 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
   image={hero}
 >
   <!-- ░░ HERO IMAGE WITH NAME OVERLAY ░░ -->
-  <section class="venue-hero">
+  <section class="venue-hero" id="venue-hero" data-avinu-slug={venue.id} data-hub={CRM_ORIGIN}>
     <div class="vh-img" style={`background-image:url('${hero}')`}></div>
     <div class="vh-scrim"></div>
     <div class="vh-content">
@@ -194,6 +194,8 @@ const gallery = (data.gallery ?? []).filter((g) => g !== hero);
   <script>
     import { animate, inView, stagger } from 'motion';
     import { fetchHubKosher } from '../../lib/venue-kosher-live';
+    import { mountHeroStamp } from '../../lib/avinu-approved-ui';
+    { const h = document.getElementById('venue-hero'); mountHeroStamp(h, h?.dataset.avinuSlug, h?.dataset.hub); }
 
     // Kosher en vivo desde el Hub (Yes / No).
     const kRow = document.querySelector<HTMLElement>('[data-kosher-row]');

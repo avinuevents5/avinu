@@ -24,6 +24,7 @@ const links = [
 const data = { slug: v.slug, photos, celebrations: v.celebrations.items, moments: v.film.moments, gallery: v.gallery, cuisine: v.cuisine ? v.cuisine.items : [], reviews: v.reviews.items,
   videos: v.videos || {}, heroMobileVideo: v.hero.mobileVideo || null, heroVideo: v.hero.video || null };
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
 ---
 <!doctype html>
 <html lang="en">
@@ -518,7 +519,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 </header>
 
 <main id="main">
-<section class="hero" id="top" aria-label={v.name}>
+<section class="hero" id="top" aria-label={v.name} data-avinu-slug={v.slug} data-hub={CRM_ORIGIN}>
   <div class="hero-media">
     <picture>
       {v.hero.photoMobile && <source media="(max-width: 900px)" srcset={srcset(v.hero.photoMobile)} sizes="100vw" />}
@@ -729,6 +730,12 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
   </div>
 </dialog>
 
+<script>
+  // AVINU Approved: sello redondo en la portada si el Hub lo marca (en vivo).
+  import { mountHeroStamp } from '../lib/avinu-approved-ui';
+  const h = document.getElementById('top');
+  mountHeroStamp(h, h?.dataset.avinuSlug, h?.dataset.hub);
+</script>
 <script is:inline define:vars={{ D: data, CREDIT: v.credit }}>
 const PH = D.photos, CELEBRATIONS = D.celebrations, MOMENTS = D.moments, COURSES = D.cuisine, REVIEWS = D.reviews;
 const $ = (s, el = document) => el.querySelector(s);

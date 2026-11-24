@@ -4,6 +4,7 @@
 // Contenido y medios: bloque MEDIA al inicio del script. Fotos/videos de Premier
 // Event Catering (@eatwithpremier) — PENDIENTE permiso formal de Premier.
 import MoreVenues from '../../../components/MoreVenues.astro';
+const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.vercel.app').replace(/\/+$/, '');
 ---
 <!doctype html>
 <html lang="en">
@@ -461,7 +462,7 @@ import MoreVenues from '../../../components/MoreVenues.astro';
 
 <main id="main">
 <!-- ═════ HERO ═════ -->
-<section class="hero" id="top" aria-label="Aventura Turnberry Jewish Center">
+<section class="hero" id="top" aria-label="Aventura Turnberry Jewish Center" data-avinu-slug="aventura-turnberry-jewish-center" data-hub={CRM_ORIGIN}>
   <div class="hero-media" id="hero-media">
     <img id="hero-poster" src="/venues/atjc/media/wedding-chuppah-1600.webp" srcset="/venues/atjc/media/wedding-chuppah-800.webp 800w, /venues/atjc/media/wedding-chuppah-1600.webp 1600w" sizes="100vw" width="1600" height="1066" alt="A couple beneath a floral chuppah in the ATJC ballroom" fetchpriority="high" decoding="async" />
   </div>
@@ -669,6 +670,11 @@ import MoreVenues from '../../../components/MoreVenues.astro';
   </div>
 </dialog>
 
+<script>
+  import { mountHeroStamp } from '../../../lib/avinu-approved-ui';
+  const h = document.getElementById('top');
+  mountHeroStamp(h, h?.dataset.avinuSlug, h?.dataset.hub);
+</script>
 <script is:inline>
 /* ════════════════════════════════════════════════════════════════
    CONTENIDO Y MEDIOS: todo se cambia aquí.
