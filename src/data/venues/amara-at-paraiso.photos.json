@@ -1,0 +1,191 @@
+{
+ "hero-terrace": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A terrace with a wooden railing, tables and palms above the blue water of Biscayne Bay",
+  "cap": "The rooftop terrace over the bay",
+  "cat": "terrace"
+ },
+ "dusk-table": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A long table set with white linen and greenery on the sand beside the bay at dusk, with string lights and palms",
+  "cap": "A long table on the waterfront at dusk",
+  "cat": "waterfront"
+ },
+ "terrace-roof": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A rooftop terrace under a retractable white roof, with tables set along glass doors and a view of the bay",
+  "cap": "The South Terrace under its retractable roof",
+  "cat": "terrace"
+ },
+ "terrace-roof-2": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A terrace under a retractable white roof, with glass doors, tables and palms and the bay in the distance",
+  "cap": "The terrace under its retractable roof",
+  "cat": "terrace"
+ },
+ "terrace-aerial": {
+  "w": 1600,
+  "h": 900,
+  "alt": "The rooftop terrace seen from above, with a white retractable roof and guests at long tables",
+  "cap": "The rooftop from above",
+  "cat": "terrace"
+ },
+ "terrace-night": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Guests at long tables on a lit rooftop terrace at night, with hanging plants overhead",
+  "cap": "A dinner on the rooftop at night",
+  "cat": "terrace"
+ },
+ "terrace-white": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A rooftop terrace with a white pergola roof, glass doors and tables set for a meal",
+  "cap": "The terrace under its white roof",
+  "cat": "terrace"
+ },
+ "terrace-walk": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A decked terrace with a blue awning, potted palms and tables beside a railing above the bay",
+  "cap": "The terrace with its blue awning",
+  "cat": "terrace"
+ },
+ "terrace-dinner": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Guests seated along a long table on a terrace at night, with dishes on the table and a railing behind",
+  "cap": "A seated dinner on the terrace",
+  "cat": "terrace"
+ },
+ "terrace-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A wedding ceremony on the terrace, with guests in white chairs facing a floral arch",
+  "cap": "A ceremony on the terrace",
+  "cat": "weddings"
+ },
+ "terrace-set": {
+  "w": 1600,
+  "h": 1062,
+  "alt": "Tables set with linen and florals on a covered terrace overlooking the bay",
+  "cap": "Tables set on the terrace",
+  "cat": "terrace"
+ },
+ "beach-ceremony": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A couple under a white floral arch on a paved waterfront area, with guests seated facing the bay",
+  "cap": "A ceremony by the water",
+  "cat": "weddings"
+ },
+ "beach-tables": {
+  "w": 1200,
+  "h": 1200,
+  "alt": "Tables and chairs on a sandy shell-covered area under trees beside the bay",
+  "cap": "The Main Floor Beach",
+  "cat": "waterfront"
+ },
+ "beach-sand": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Tables with white umbrellas on the sand beside the water, with palms",
+  "cap": "Tables by the water under umbrellas",
+  "cat": "waterfront"
+ },
+ "patio": {
+  "w": 1200,
+  "h": 1200,
+  "alt": "A long table and white chairs on a covered patio with hanging plants and glass doors",
+  "cap": "The Main Floor Patio",
+  "cat": "waterfront"
+ },
+ "main-floor": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "The main floor: an open hall with a chandelier, exposed beams, large potted palms and lounge seating",
+  "cap": "The main floor",
+  "cat": "inside"
+ },
+ "main-hall": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "The dining room with a chandelier, wooden beams, tall plants and tables set for service",
+  "cap": "The dining room",
+  "cat": "inside"
+ },
+ "bar-tile": {
+  "w": 1600,
+  "h": 900,
+  "alt": "A bar with a black-and-white graphic tile front, hanging plants and a wall of bottles",
+  "cap": "The bar",
+  "cat": "inside"
+ },
+ "bar-shelves": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Wooden shelving lined with bottles behind a bar, with pendant lamps",
+  "cap": "The back bar",
+  "cat": "dining"
+ },
+ "lounge": {
+  "w": 1600,
+  "h": 900,
+  "alt": "An indoor lounge with a long bar with graphic tile and tall windows",
+  "cap": "The indoor rooftop lounge",
+  "cat": "inside"
+ },
+ "dinner-night": {
+  "w": 1600,
+  "h": 1066,
+  "alt": "Guests seated at long candlelit tables in the dining room, with greenery on the tables",
+  "cap": "A candlelit dinner",
+  "cat": "dining"
+ },
+ "guests-bar": {
+  "w": 1600,
+  "h": 1065,
+  "alt": "Guests mingling at a reception in front of the bar, with shelves of bottles and windows behind",
+  "cap": "A reception at the bar",
+  "cat": "inside"
+ },
+ "seafood": {
+  "w": 1160,
+  "h": 900,
+  "alt": "A tiered seafood platter with stone crab claws, shrimp, oysters and ceviche in bowls",
+  "cap": "A seafood platter",
+  "cat": "dining"
+ },
+ "shared-table": {
+  "w": 1160,
+  "h": 900,
+  "alt": "Friends laughing at a table with sharing plates and glasses of sparkling wine",
+  "cap": "Sharing plates at the table",
+  "cat": "dining"
+ },
+ "wedding-arch": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "A bride and groom walking past guests under a floral arch on the terrace",
+  "cap": "A wedding on the terrace",
+  "cat": "weddings"
+ },
+ "candlelit": {
+  "w": 1200,
+  "h": 1600,
+  "alt": "A dining room lit by candles at night, with wooden beams and plants",
+  "cap": "The dining room by candlelight",
+  "cat": "dining"
+ },
+ "buffet": {
+  "w": 1600,
+  "h": 1067,
+  "alt": "Chefs at a food station in a dimly lit room with a long skirted table",
+  "cap": "A chef station at an event",
+  "cat": "dining"
+ }
+}

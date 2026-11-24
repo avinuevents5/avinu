@@ -1,0 +1,319 @@
+{
+  "slug": "amara-at-paraiso",
+  "name": "Amara at Paraiso",
+  "media_note": "Fotos de amaraatparaiso.com (paginas /miami-private-dining-event-venue-spaces/, /about/, /waterfront-dining/, /miami-wedding-venue/, 2026-11-24); PENDIENTE permiso del venue. Datos: web oficial (/, /about/, /menus/, /miami-private-dining-event-venue-spaces/, /miami-wedding-venue/, /corporate-events/), Event Introduction Deck 2026 (PDF oficial, https://amaraatparaiso.com/wp-content/uploads/2026/08/Amara-Introduction-Deck-2026.pdf; capacidades, FAQ, reglas de entretenimiento, cita de Michael Schwartz), menu de cena PDF oficial (platos), Google (datos dados por el usuario). Capacidades: se usan las del Deck 2026 y la pagina de eventos (Full venue 750 reception / 390 seated; Main Floor 450/240; Rooftop 300/150; South Terrace 125/90; Indoor Lounge + East Terrace 75/45; North Terrace 50/40; Main Floor Patio 40/40; Main Floor Beach 50/40). La web tiene cifras que se contradicen entre si (la pagina de bodas dice buyout 800/300 y rooftop terrace 200/100; el texto de varios espacios dice 40/45/60/30 donde la tabla dice otra cosa; miamiandbeaches.com dice 10,000 sq ft y el Deck 4,500 sq ft), por eso no se usan metros cuadrados y la nota pide confirmar. Fotos de espacios: Main Floor Beach y Main Floor Patio confirmadas por el nombre de archivo (downstairs_beach_*, downstairs_patio_*); South Terrace = foto del grupo South Terrace de la web (techo retractil); Main Floor, Rooftop e Indoor Lounge asignadas por coincidencia con la descripcion y el orden de la web, SIN etiqueta explicita (confirmar). North Terrace no tiene foto confirmada (la tarjeta se omite; 50/40 figura en la nota). Resenas: 4 resenas literales de Google (panel de resenas, busqueda 'event', leidas en Chrome 2026-11-24; anos aproximados por 'hace X meses'); rating Google 4.3 con 4,156 resenas (2026-11-24). Telefono del plan = linea de eventos 786-708-6408 (web y Deck). Sin precios, sin kosher (la web no lo menciona), sin videos. Avinu no figura como vendor del venue; el Deck permite DJs, bandas y musicos solo en eventos totalmente privados (Full Rooftop, Main Floor, Total Venue) con posibles requisitos adicionales. Instagram del venue: @amaraatparaiso (y @eventsatamara para eventos, segun el Deck). Eventos: events@amaraatparaiso.com / 786-708-6408 (web y Deck); telefono del restaurante (Google): 305-702-5528.",
+  "credit": "Amara at Paraiso",
+  "brand": {
+    "title": "Amara at Paraiso",
+    "sub": "Miami, Florida"
+  },
+  "seo": {
+    "title": "Amara at Paraiso · Waterfront Weddings & Private Events in Miami",
+    "description": "Weddings, private dinners and corporate events at Amara at Paraiso, Michael Schwartz’s waterfront restaurant on Biscayne Bay in Miami: a rooftop terrace, a private main floor and spaces for 40 to 750 guests. Music direction, MC and entertainment by Avinu Events."
+  },
+  "hero": {
+    "photo": "hero-terrace",
+    "pos": "50% 55%",
+    "kicker": "Miami, Florida · On Biscayne Bay",
+    "h1": [
+      "Amara at"
+    ],
+    "h1em": "Paraiso",
+    "lead": "Michael Schwartz’s waterfront restaurant on Biscayne Bay: a rooftop terrace, a private main floor with its own beach and patio, and Latin American flavors served family-style.",
+    "secondary": "Explore the venue",
+    "facts": [
+      [
+        "750",
+        "Reception, full venue"
+      ],
+      [
+        "390",
+        "Seated, full venue"
+      ],
+      [
+        "2",
+        "Full bars"
+      ]
+    ]
+  },
+  "intro": {
+    "kicker": "The Venue",
+    "h2": "A restaurant <em>on the bay</em>",
+    "paras": [
+      "Amara at Paraiso describes itself as the quintessential Miami waterfront restaurant: floor-to-ceiling windows with views of Biscayne Bay, an outdoor waterfront deck, two full bars and a rooftop lounge with a wrap-around terrace.",
+      "Events can be semi-private or fully private, from a patio dinner for 40 to the whole restaurant, with menus built around bold Latin American flavors and coastal ingredients. Parking is limited on the street, with valet on site."
+    ],
+    "a": "terrace-walk",
+    "b": "beach-tables",
+    "stats": [
+      [
+        "Rooftop",
+        "Wrap-around terrace"
+      ],
+      [
+        "Valet",
+        "On-site service"
+      ],
+      [
+        "Bay",
+        "Floor-to-ceiling views"
+      ]
+    ]
+  },
+  "celebrations": {
+    "h2": "Made for <em>milestones</em>",
+    "items": [
+      {
+        "id": "weddings",
+        "label": "Weddings",
+        "short": "Weddings",
+        "photo": "beach-ceremony",
+        "title": "Weddings",
+        "text": "The venue hosts weddings from intimate ceremonies to full celebrations, on the waterfront beach and boardwalk, the rooftop terrace or the main floor.",
+        "points": [
+          "Fully private Main Floor, Rooftop or full-venue buyout",
+          "Waterfront ceremony and reception spaces",
+          "Music direction, MC and ceremony music by Avinu Events"
+        ],
+        "cta": "Plan a wedding at Amara",
+        "caption": "A ceremony by the water"
+      },
+      {
+        "id": "private",
+        "label": "Private Dinners & Milestones",
+        "short": "Milestones",
+        "photo": "dusk-table",
+        "title": "Private dinners & milestones",
+        "text": "Intimate dinners, birthdays, baby showers and engagement celebrations, in semi-private spaces for 30 to 125 guests or on the waterfront.",
+        "points": [
+          "Semi-private terraces, a lounge, a patio and a beach",
+          "Family-style menus with Latin American flavors",
+          "Hosting, music and program flow by Avinu Events"
+        ],
+        "cta": "Plan a celebration at Amara",
+        "caption": "A long table at dusk"
+      },
+      {
+        "id": "corporate",
+        "label": "Corporate",
+        "short": "Corporate",
+        "photo": "terrace-aerial",
+        "title": "Corporate events",
+        "text": "Corporate celebrations and meetings, from a rooftop dinner to a full restaurant buyout with bayside views.",
+        "points": [
+          "Rooftop terrace for up to 300 guests at a reception",
+          "Indoor lounge and terraces for smaller groups",
+          "Hosting, music and program flow by Avinu Events"
+        ],
+        "cta": "Plan an event at Amara",
+        "caption": "The rooftop terrace"
+      }
+    ]
+  },
+  "film": {
+    "kicker": "The venue, transformed",
+    "h2": "From the beach <em>to the rooftop</em>",
+    "text": "A ceremony by the water, cocktails on the terrace and a long table that glows after dark. Choose a moment.",
+    "moments": [
+      {
+        "title": "Ceremony",
+        "text": "By the water",
+        "photo": "beach-ceremony",
+        "wide": true
+      },
+      {
+        "title": "Cocktails",
+        "text": "On the rooftop terrace",
+        "photo": "hero-terrace",
+        "wide": true
+      },
+      {
+        "title": "Dinner",
+        "text": "At a long table on the sand",
+        "photo": "dusk-table",
+        "wide": true
+      },
+      {
+        "title": "After dark",
+        "text": "The terrace lit up",
+        "photo": "terrace-night",
+        "wide": true
+      }
+    ]
+  },
+  "spaces": {
+    "kicker": "Spaces",
+    "h2": "From a private patio to <em>the whole restaurant</em>",
+    "text": "Semi-private and fully private spaces across the main floor and the rooftop, all with bayside views.",
+    "items": [
+      {
+        "name": "The Main Floor",
+        "photo": "main-floor",
+        "capacity": "450 reception · 240 seated",
+        "text": "A fully private indoor space for receptions or dance floors, opening to a covered patio and a waterfront beach and boardwalk area."
+      },
+      {
+        "name": "The Rooftop",
+        "photo": "terrace-aerial",
+        "capacity": "300 reception · 150 seated",
+        "text": "An indoor lounge and an expansive terrace with waterfront views, for anything from an intimate wedding to a corporate event."
+      },
+      {
+        "name": "South Terrace",
+        "photo": "terrace-roof",
+        "capacity": "125 reception · 90 seated",
+        "text": "A terrace under a fully retractable roof with greenery, covered and open to the bay."
+      },
+      {
+        "name": "Indoor Lounge & East Terrace",
+        "photo": "lounge",
+        "capacity": "75 reception · 45 seated",
+        "text": "An indoor rooftop lounge with a bar and a view of the water, opening to the East Terrace."
+      },
+      {
+        "name": "Main Floor Patio",
+        "photo": "patio",
+        "capacity": "40 reception · 40 seated",
+        "text": "A patio with a canopy and a view of the water, comfortable whatever the weather."
+      },
+      {
+        "name": "Main Floor Beach",
+        "photo": "beach-tables",
+        "capacity": "50 reception · 40 seated",
+        "text": "A downstairs beach with shells underfoot, for a coastal setting by the bay."
+      }
+    ],
+    "note": "Capacities from the venue’s 2026 event deck: full venue 750 reception / 390 seated; North Terrace 50 / 40. The venue lists some figures differently across pages, so confirm capacities and layouts with its events team."
+  },
+  "galleryTitle": "Inside <em>Amara at Paraiso</em>",
+  "gallery": {
+    "cats": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "weddings",
+        "Weddings"
+      ],
+      [
+        "terrace",
+        "Rooftop & Terraces"
+      ],
+      [
+        "waterfront",
+        "Waterfront"
+      ],
+      [
+        "inside",
+        "Inside"
+      ],
+      [
+        "dining",
+        "Food & Drink"
+      ]
+    ],
+    "items": [
+      "hero-terrace",
+      "beach-ceremony",
+      "dusk-table",
+      "terrace-roof",
+      "wedding-arch",
+      "terrace-aerial",
+      "main-floor",
+      "seafood",
+      "terrace-night",
+      "beach-tables",
+      "bar-tile",
+      "terrace-ceremony",
+      "terrace-walk",
+      "patio",
+      "dinner-night",
+      "terrace-roof-2",
+      "lounge",
+      "shared-table",
+      "terrace-white",
+      "beach-sand",
+      "main-hall",
+      "terrace-dinner",
+      "guests-bar",
+      "bar-shelves",
+      "terrace-set",
+      "candlelit",
+      "buffet"
+    ]
+  },
+  "cuisine": {
+    "kicker": "The kitchen",
+    "h2": "Latin American flavors, <em>coastal ingredients</em>",
+    "paras": [
+      "The kitchen is led by James Beard Award-winning Chef Michael Schwartz with Executive Sous Chef Maite Zarrabeitia, combining South and Central American influences with local, sustainable ingredients. Its wood-fired oven turns out seafood and meat parrilladas, and the raw bar features stone crabs.",
+      "On the dinner menu: Yuca Cheese Puffs, Hamachi Tiradito, Spicy Grilled Giant Prawns, Charcoal Grilled Octopus and a Seafood Parillada. Private events are served family-style."
+    ],
+    "listLabel": "Highlights of the kitchen",
+    "highlights": [
+      [
+        "Schwartz",
+        "James Beard Award-winning chef"
+      ],
+      [
+        "Wood-fired",
+        "Seafood and meat parrilladas"
+      ],
+      [
+        "Family-style",
+        "Menus for private events"
+      ],
+      [
+        "Wine list",
+        "Wine Spectator Best of Award of Excellence"
+      ]
+    ],
+    "items": [
+      "seafood",
+      "shared-table",
+      "buffet",
+      "bar-shelves",
+      "dinner-night",
+      "candlelit"
+    ]
+  },
+  "reviews": {
+    "kicker": "Guests who celebrated here",
+    "rating": "4.3",
+    "count": "4,156 Google reviews",
+    "src": "Reviews from Google · Rating from Google",
+    "items": [
+      {
+        "q": "We had our wedding on the Amara rooftop terrace in April and it was the best venue ever! The food was delicious, vibes superb, and the planning was so seamless.",
+        "who": "Juliana Echternach · Google review, 2026"
+      },
+      {
+        "q": "Amara at Paraiso hosted our team event on the rooftop. We had about 225 people in our party. We were accommodated so well! … The ambience and environment was gorgeous.",
+        "who": "Dawn Conzelman · Google review, 2025"
+      },
+      {
+        "q": "I selected Amara for a milestone birthday dinner. Everyone at Amara was a joy to work with. … I highly recommend them for any celebratory occasion!",
+        "who": "K. Dixon · Google review, 2026"
+      },
+      {
+        "q": "I had the most incredible experience having my wedding rehearsal dinner here. … Of course the best part was the beautiful view we had all night. Highly recommend for dinner or for having a private event!",
+        "who": "Eugenia Paz · Google review, 2025"
+      }
+    ]
+  },
+  "production": {
+    "text": "Amara allows DJs, live bands and musicians at fully private events (a Rooftop, Main Floor or full-venue buyout), with additional requirements or approvals depending on the entertainment. Avinu Events works within those rules: music direction, MC, live performers and a timeline that keeps ceremony, cocktails and dinner moving together.",
+    "lighting": "Décor is not included with an event, and you are welcome to bring your own décor company if the venue’s Event Coordinator is informed. We design the moments that carry the room: entrances, the first dance and the energy of the night."
+  },
+  "plan": {
+    "bg": "dusk-table",
+    "at": "at Amara at Paraiso",
+    "forThis": "Amara at Paraiso",
+    "address": "3101 NE 7th Ave, Miami, FL 33137",
+    "venueLabel": "Amara events",
+    "venuePhone": "+17867086408",
+    "venuePhoneLabel": "786-708-6408"
+  },
+  "footer": "Amara at Paraiso · 3101 NE 7th Ave, Miami"
+}
