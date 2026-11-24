@@ -367,6 +367,13 @@ const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verc
   /* ═════════ MÓVIL (diseño propio, no solo encogido) ═════════ */
   @media (max-width: 900px) {
     :root { --nav-h: 64px; }
+    /* El nombre del venue en el menú nunca se sale de la barra: una línea por renglón, tamaño según el ancho. */
+    .brand { min-width: 0; flex: 1 1 auto; margin-right: .75rem; }
+    .brand b, .brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand b { font-size: clamp(.95rem, 4.8vw, 1.45rem); }
+    .brand span { font-size: clamp(.5rem, 2.4vw, .6rem); letter-spacing: .3em; }
+    @media (max-width: 520px) { .brand span { letter-spacing: .14em; } }
+    @media (max-width: 359px) { .brand b { font-size: .86rem; } .brand span { letter-spacing: .06em; } }
     .nav-links, .nav .wrap > .btn { display: none; }
     .menu-btn { display: block; }
     .nav .wrap { gap: .6rem; }
@@ -376,12 +383,14 @@ const CRM_ORIGIN = (import.meta.env.PUBLIC_CRM_ORIGIN || 'https://avinu-crm.verc
     .nav.open .nav-links a { display: block; font-family: var(--serif); font-size: 2.1rem; letter-spacing: 0; text-transform: none; padding: .9rem 0; border-bottom: 1px solid var(--line-d); opacity: 1; }
     .nav.open .nav-links a::after { display: none; }
 
-    .hero { height: 92svh; min-height: 560px; }
+    /* Celular: la portada crece con su contenido (mínimo 92svh) y el texto reserva el alto del menú fijo,
+       el crédito y el botón de pausa; así "All venues" nunca queda debajo del menú, en ningún ancho. */
+    .hero { height: auto; min-height: max(560px, 92svh); display: flex; flex-direction: column; justify-content: flex-end; }
     .hero-media img { object-position: 50% 40%; }
     /* Velo oscuro que sube hasta detras de todo el texto (antes se cortaba a media altura y el texto no se leia sobre fotos claras) */
     .hero::after { background: linear-gradient(0deg, rgba(10,9,8,.92) 0%, rgba(10,9,8,.8) 38%, rgba(10,9,8,.55) 58%, rgba(10,9,8,.18) 78%, rgba(10,9,8,0) 90%), linear-gradient(180deg, rgba(10,9,8,.5) 0%, rgba(10,9,8,0) 22%); }
     .hero-copy .kicker, .hero-back, .hero-copy h1, .hero-copy p { text-shadow: 0 1px 14px rgba(10,9,8,.55); }
-    .hero-copy { left: var(--gutter); right: var(--gutter); bottom: 2.2rem; max-width: none; }
+    .hero-copy { position: relative; left: auto; right: auto; bottom: auto; margin: calc(var(--nav-h) + 4.75rem) var(--gutter) 2.2rem; max-width: none; }
     .hero h1 span { display: inline; }
     .hero h1 { font-size: clamp(2.6rem, 12vw, 3.6rem); }
     .hero-lead { font-size: .98rem; margin: 1rem 0 1.5rem; }
