@@ -197,7 +197,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     filter: blur(34px) brightness(.58); transform: scale(1.25); opacity: 0; transition: opacity .9s var(--ease); }
   .film-frame .fill.on { opacity: 1; }
   .film-status { position: absolute; top: 1rem; left: 1rem; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.7); background: rgba(0,0,0,.5); padding: .4rem .7rem; border-radius: 3px; }
-  .film-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 1.4rem; border-top: 1px solid var(--line-d); }
+  .film-steps { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); margin-top: 1.4rem; border-top: 1px solid var(--line-d); }
   .film-step { text-align: left; background: none; border: 0; border-top: 2px solid transparent; margin-top: -1px; padding: 1.2rem 1rem 0 0; cursor: pointer; color: rgba(255,255,255,.5); transition: color .3s, border-color .3s; }
   .film-step b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: inherit; }
   .film-step span { font-size: .85rem; }
@@ -411,7 +411,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     .stage-cap { text-align: center; }
 
     .film-frame { aspect-ratio: 4 / 5; margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
-    .film-steps { grid-template-columns: repeat(3, 1fr); }
+    .film-steps { grid-template-columns: repeat(var(--nm, 3), 1fr); }
     .film-step b { font-size: 1.2rem; }
     .film-step span { display: none; }
     .film-frame img.wide { object-fit: contain; }
@@ -588,7 +588,7 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
       <p class="reveal d2" style="max-width:42ch;color:rgba(255,255,255,.65);margin:0">{v.film.text}</p>
     </div>
     <div class="film-frame reveal" id="film-frame"></div>
-    <div class="film-steps" id="film-steps" role="group" aria-label="Moments of the evening"></div>
+    <div class="film-steps" id="film-steps" style={`--n:${v.film.moments.length};--nm:${v.film.moments.length > 3 ? 2 : v.film.moments.length}`} role="group" aria-label="Moments of the evening"></div>
   </div>
 </section>
 
